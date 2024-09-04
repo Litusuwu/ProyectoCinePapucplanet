@@ -2,7 +2,31 @@
 class Alimento extends Consumible {
     private double pesoPromedio;
     private TipoAlimento tipoAlimento;
-    private TipoRecipiente tipoRecipiente;
 
-	//:v
+    // Constructor con parámetros para Alimento y Consumible
+    public Alimento(String codigo, String nombre, double precio, double pesoPromedio, TipoAlimento tipoAlimento) {
+        super(codigo, nombre, precio); // Llama al constructor de Consumible
+        this.pesoPromedio = pesoPromedio;
+        this.tipoAlimento = tipoAlimento;
+    }
+
+    // Getter para pesoPromedio
+    public double getPesoPromedio() {
+        return pesoPromedio;
+    }
+
+    // Setter para pesoPromedio
+    public void setPesoPromedio(double pesoPromedio) {
+        this.pesoPromedio = pesoPromedio;
+    }
+
+    // Getter para tipoAlimento
+    public TipoAlimento getTipoAlimento() {
+        return tipoAlimento;
+    }
+
+    // Setter para tipoAlimento
+    public void setTipoAlimento(TipoAlimento tipoAlimento) {
+        this.tipoAlimento = tipoAlimento;
+    }
 }
