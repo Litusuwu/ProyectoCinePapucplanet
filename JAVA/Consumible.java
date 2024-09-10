@@ -1,5 +1,5 @@
 
-class Consumible {
+abstract class Consumible {
     private String codigo;
     private String nombre;
     private double precio;
