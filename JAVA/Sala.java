@@ -1,25 +1,23 @@
 import java.util.ArrayList;
 
 class Sala {
-    private int numero;
+    private int idSala;
     private int capacidad;
-    //posee un arrayList de funciones
-    private ArrayList<Funcion> funciones;
-    private ArrayList<Butaca> butacas;
+	private Sede sede;
 
-    // Constructor con parámetros
-    public Sala(int numero, int capacidad) {
-        this.numero = numero;
+    public Sala(int numero, int capacidad,Sede sede) {
+        this.idSala = idSala;
         this.capacidad = capacidad;
+		this.sede=sede;
     }
 
     // Getter y Setter para numero
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setIdSala(int idSala) {
+        this.idSala = idSala;
     }
 
-    public int getNumero() {
-        return numero;
+    public int getIdSala() {
+        return idSala;
     }
 
     // Getter y Setter para capacidad
@@ -30,42 +28,28 @@ class Sala {
     public int getCapacidad() {
         return capacidad;
     }
-
-    public ArrayList<Funcion> getFunciones(){
-        return new ArrayList<>(funciones);
-    }
-
-    public void setFunciones(ArrayList<Funcion> funciones){
-        this.funciones = funciones;
-    }
-
+	public void setSede(Sede sede){
+		this.sede=sede;
+	}
+	
+    public Sede getSede() {
+        return sede;
+    }	
+	/*
     public ArrayList<Butaca> getButacas(){
         return new ArrayList<>(butacas);
     }
 
     public void setButacas(ArrayList<Butaca> butacas){
-        this.butacas = butacas;
+        this.butacas = butacas; RECUERDA BORRAR
     }
-
+	*/
+	
     //////////////////////////////////////////////////////////////////METODOS///////////////////////////////////////////////////////////////////////////
 
-    // Método para agregar una nueva función
-    public void agregarFuncion(Funcion funcion) {
-        this.funciones.add(funcion);
-        System.out.println("Función agregada en la sala " + numero + ": " + funcion.getDia() + " a las " + funcion.getHorarioInicio());
-    }
-
-    // Método para eliminar una función por índice
-    public void eliminarFuncion(int indice) {
-        if (indice >= 0 && indice < funciones.size()) {
-            this.funciones.remove(indice);
-            System.out.println("Función eliminada de la sala " + numero);
-        } else {
-            System.out.println("Índice fuera de rango");
-        }
-    }
 
     // Método para mostrar todas las funciones en la sala 
+	/*
     public void imprimirSalas() {
         if (funciones.isEmpty()) {
             System.out.println("No hay funciones programadas para la sala " + numero);
@@ -76,9 +60,10 @@ class Sala {
             }
         }
     }
-
+	*/
     // Método para actualizar la cantidad de asientos disponibles
-    public int actualizarAsientosDisponibles() {
+    /*
+	public int actualizarAsientosDisponibles() {
         int asientosDisponibles = 0;
         for (Butaca butaca : butacas) {
             if (butaca.getEstado() == EstadoButaca.DISPONIBLE) {
@@ -87,5 +72,5 @@ class Sala {
         }
         return asientosDisponibles;
     }
-
+	*/
 }

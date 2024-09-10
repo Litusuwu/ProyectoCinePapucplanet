@@ -1,12 +1,12 @@
 import java.util.Date;
 import java.util.ArrayList;
-class Boleta implements IConsultable{
+class Boleta{
 	private Date fechaCompra;
 	private MetodoPago metodoPago;
 	private double total;
     //posee array de consumible y entradas
     private ArrayList<Consumible> consumibles;
-    private ArrayList<Entrada> entradas;
+    private ArrayList<ButacaFuncion> butacasFunciones;
 	
 	// Constructor con parámetros
     public Boleta(Date fechaCompra, MetodoPago metodoPago, double total) {
@@ -53,12 +53,12 @@ class Boleta implements IConsultable{
         this.consumibles = consumibles;
     }
 
-    public ArrayList<Entrada> getEntradas(){
-        return new ArrayList<>(entradas);
+    public ArrayList<ButacaFuncion> getButacasFunciones(){
+        return new ArrayList<>(butacasFunciones);
     }
 
-    public void setEntradas(ArrayList<Entrada> entradas){
-        this.entradas = entradas;
+    public void setEntradas(ArrayList<ButacaFuncion> butacasFunciones){
+        this.butacasFunciones = butacasFunciones;
     }
 
     //////////////////////////////////////////////////////////////////METODOS///////////////////////////////////////////////////////////////////////////
@@ -70,16 +70,16 @@ class Boleta implements IConsultable{
     }
 
     // Método para agregar una entrada
-    public void agregarEntrada(Entrada entrada) {
-        this.entradas.add(entrada);
-        System.out.println("Entrada agregada: " + entrada.getNumero());
+    public void agregarButaca(ButacaFuncion butaca) {
+        this.butacasFunciones.add(butaca);
+        //System.out.println("Entrada agregada: " + butacasFunciones.getNumero());
     }
 
     // Método para eliminar una entrada por índice
-    public void eliminarEntrada(int indice) {
-        if (indice >= 0 && indice < entradas.size()) {
-            Entrada entradaEliminada = entradas.remove(indice);
-            System.out.println("Entrada eliminada: " + entradaEliminada.getNumero());
+    public void eliminarButaca(int indice) {
+        if (indice >= 0 && indice < butacasFunciones.size()) {
+            ButacaFuncion butElim = butacasFunciones.remove(indice);
+            //System.out.println("Entrada eliminada: " + butElim.getNumero());
         } else {
             System.out.println("Índice fuera de rango");
         }
@@ -88,7 +88,7 @@ class Boleta implements IConsultable{
     //////////////////////////////////////////////////////////////METODO INTERFACE///////////////////////////////////////////////////////////////////////////
 
     // Método para generar un reporte detallado
-    public String emitirReporte() {
+    public String emitirBoleta() {
         String reporte = "";
         reporte = "Fecha de compra: "+ fechaCompra + "\n";
         reporte = "Método de pago: "+ metodoPago + "\n";
@@ -99,10 +99,15 @@ class Boleta implements IConsultable{
             reporte = " - " + consumible.getNombre() + " - Precio: " + consumible.getPrecio() + "\n";
         }
 
-        //reporte = "\nEntradas:\n";
-        //for (Entrada entrada : entradas) {
-            //reporte = " - Película: " + entrada.getPelicula() + " - Asiento: " + entrada.getAsiento() + "\n";
-        //}
+        reporte = "\nEntradas:\n";
+		
+        for (ButacaFuncion butaca : butacasFunciones) {
+			Sala sala;
+			sala=butaca.getSala();
+			Funcion funcion=butaca.getFuncion();
+            reporte = " - Película: " + funcion.getPelicula() + " - Sala: " + 
+			sala.getIdSala() + " - Butaca: " + butaca.getFila() + butaca.getColumna()+"\n";
+        }
 
         return reporte;
     }

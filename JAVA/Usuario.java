@@ -1,14 +1,12 @@
 
 abstract class Usuario{
-	private static int correlativo = 1;
 	private int id;
 	private String dni;
     private String nombre;
     private String correo;
-	
+
 	// Constructor que asigna automáticamente el ID usando el correlativo
     public Usuario(String dni, String nombre, String correo) {
-        this.id = correlativo++; // Asigna el ID y luego incrementa el correlativo
         this.dni = dni;
         this.nombre = nombre;
         this.correo = correo;

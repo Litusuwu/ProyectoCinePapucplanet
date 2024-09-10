@@ -1,20 +1,20 @@
 
 import java.time.LocalTime;
 import java.util.Date;
-
+import java.util.ArrayList;
 class Funcion {
     private LocalTime horarioInicio;
     private LocalTime horarioFin;
     private Date dia;
     private Pelicula pelicula;
     private Sala sala;
-
+	private ArrayList<ButacaFuncion> butacasFuncion;
     public Funcion(LocalTime horarioInicio, LocalTime horarioFin, Date dia, Pelicula pelicula, Sala sala) {
         this.horarioInicio = horarioInicio;
         this.horarioFin = horarioFin;
         this.dia = dia;
         this.pelicula = pelicula;
-        this.sala = sala;
+		this.sala=sala;
     }
 
     // Getter y Setter para horarioInicio
@@ -61,4 +61,14 @@ class Funcion {
     public Sala getSala() {
         return sala;
     }
+	
+
+    public ArrayList<ButacaFuncion> getButacasFuncion(){
+        return new ArrayList<>(butacasFuncion);
+    }
+
+    public void setButacasFuncion(ArrayList<ButacaFuncion> butacasFuncion){
+        this.butacasFuncion = butacasFuncion;
+    }
+
 }

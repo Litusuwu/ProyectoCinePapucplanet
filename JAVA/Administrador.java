@@ -1,4 +1,4 @@
-abstract class  Administrador extends Usuario{
+class  Administrador extends Usuario{
 	
 	private String codigo;
 
@@ -17,6 +17,10 @@ abstract class  Administrador extends Usuario{
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-
-    public abstract String emitirReporte();
+	
+	@Override
+    public String emitirReporte(){
+		String rep="";
+		return rep;
+	}
 }

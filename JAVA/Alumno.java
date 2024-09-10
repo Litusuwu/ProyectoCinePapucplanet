@@ -1,25 +1,25 @@
 import java.util.ArrayList;
 
-class Cliente extends Usuario implements IConsultable{
+class Alumno extends Usuario{
 	
-	private String universidad;
+	private Sede sede;
     //posee un arrayList de boletas
     private ArrayList<Boleta> boletas;
 
 	// Constructor con parámetros para Cliente y Usuario
-    public Cliente(String dni, String nombre, String correo, String universidad) {
+    public Alumno(String dni, String nombre, String correo,Sede sede) {
         super(dni, nombre, correo); // Llama al constructor de Usuario
-        this.universidad = universidad;
+		this.sede=sede;
     }
 
     // Getter para universidad
-    public String getUniversidad() {
-        return universidad;
+    public Sede getSede() {
+        return sede;
     }
 
     // Setter para universidad
-    public void setUniversidad(String universidad) {
-        this.universidad = universidad;
+    public void setSede(Sede sede) {
+        this.sede = sede;
     }
 
     public ArrayList<Boleta> getBoletas(){
@@ -35,7 +35,7 @@ class Cliente extends Usuario implements IConsultable{
     public String emitirReporte() {
         String reporte = "";
         reporte = "Reporte de boletas para el cliente: " + getNombre() + "\n";
-        reporte = "Universidad: " + universidad + "\n";
+        reporte = "Universidad: " + sede.getUniversidad() + "\n";
         reporte = "Boletas: \n";
 
         for (Boleta boleta : boletas) {
@@ -44,5 +44,8 @@ class Cliente extends Usuario implements IConsultable{
 
         return reporte;
     }
+	public void realizarPago(){
+		
+	}
 
 }
