@@ -1,9 +1,12 @@
+import java.util.ArrayList;
 
 class Pelicula {
     private String titulo;
     private double duracion;
     private String genero;
     private String sinopsis;
+    //posee un arraylist de funciones
+    private ArrayList<Funcion> funciones;
 
     // Constructor con parámetros
     public Pelicula(String titulo, double duracion, String genero, String sinopsis) {
@@ -48,6 +51,51 @@ class Pelicula {
     public String getSinopsis() {
         return sinopsis;
     }
+
+    public ArrayList<Funcion> getFunciones(){
+        return new ArrayList<>(funciones);
+    }
+
+    public void setFunciones(ArrayList<Funcion> funciones){
+        this.funciones = funciones;
+    }
+    
+    //////////////////////////////////////////////////////////////////METODOS///////////////////////////////////////////////////////////////////////////
 	
+    // Método para agregar una nueva función
+    public void agregarFuncion(Funcion funcion) {
+        this.funciones.add(funcion);
+    }
+
+    // Método para eliminar una función por índice
+    public void eliminarFuncion(int indice) {
+        if (indice >= 0 && indice < funciones.size()) {
+            this.funciones.remove(indice);
+        } else {
+            System.out.println("Índice fuera de rango");
+        }
+    }
+
+    // Método para buscar una función por fecha
+    public Funcion buscarFuncionPorFecha(String fecha) {
+        for (Funcion funcion : funciones) {
+            if (funcion.getDia().equals(fecha)) {
+                return funcion;
+            }
+        }
+        return null; // Si no se encuentra, retorna null
+    }
+
+    // Método para mostrar la información completa de la película
+    public void imprimirPeliculas() {
+        System.out.println("Título: " + titulo);
+        System.out.println("Duración: " + duracion + " horas");
+        System.out.println("Género: " + genero);
+        System.out.println("Sinopsis: " + sinopsis);
+        System.out.println("Funciones:");
+        for (Funcion funcion : funciones) {
+            System.out.println(" - " + funcion.getDia() + " a las " + funcion.getHorarioInicio());
+        }
+    }
 	
 }

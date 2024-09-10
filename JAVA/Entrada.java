@@ -1,12 +1,12 @@
 
-class Ticket {
+class Entrada {
     private int numero;
     private Funcion funcion;
     private double precio;
     private Butaca butaca;
 
     // Constructor con parámetros
-    public Ticket(int numero, Funcion funcion, double precio, Butaca butaca) {
+    public Entrada(int numero, Funcion funcion, double precio, Butaca butaca) {
         this.numero = numero;
         this.funcion = funcion;
         this.precio = precio;

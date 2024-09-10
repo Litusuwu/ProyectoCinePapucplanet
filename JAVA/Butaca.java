@@ -60,4 +60,28 @@ class Butaca {
         return sala;
     }
 
+    //////////////////////////////////////////////////////////////////METODOS///////////////////////////////////////////////////////////////////////////
+
+    // Método para reservar la butaca
+    public void reservarButaca() {
+        if (this.estado == EstadoButaca.DISPONIBLE) {
+            this.estado = EstadoButaca.RESERVADA;
+            System.out.println("Butaca " + fila + columna + " reservada.");
+        } else {
+            System.out.println("La butaca no está disponible para reservar.");
+        }
+    }
+
+    // Método para verificar si la butaca está disponible
+    public boolean estaDisponible() {
+        return this.estado == EstadoButaca.DISPONIBLE;
+    }
+
+    // Método para mostrar información de la butaca
+    public void mostrarInformacionButaca() {
+        System.out.println("Butaca en sala " + sala.getNumero() + ": Fila " + fila + ", Columna " + columna);
+        System.out.println("Estado: " + estado);
+        System.out.println("Apta para discapacitados: " + (discapacitado ? "Sí" : "No"));
+    }
+
 }

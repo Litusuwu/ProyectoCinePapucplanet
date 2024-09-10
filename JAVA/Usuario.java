@@ -1,5 +1,5 @@
 
-class Usuario{
+abstract class Usuario{
 	private static int correlativo = 1;
 	private int id;
 	private String dni;
@@ -46,5 +46,6 @@ class Usuario{
         this.correo = correo;
     }
 
+    public abstract String emitirReporte();
 	
 }

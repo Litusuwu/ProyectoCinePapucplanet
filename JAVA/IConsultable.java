@@ -1,3 +1,3 @@
-class IConsultable {
+interface IConsultable {
     public String emitirReporte();
 }
