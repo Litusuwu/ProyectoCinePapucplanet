@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.time.LocalTime;
 class Pelicula {
     private String titulo;
     private double duracion;
@@ -102,6 +101,6 @@ class Pelicula {
         }*/
     }
     public void consultarDatos(){
-        
+
     }
 }

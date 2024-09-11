@@ -5,7 +5,7 @@ class Sala {
     private int capacidad;
 	private Sede sede;
 
-    public Sala(int numero, int capacidad,Sede sede) {
+    public Sala(int idSala, int capacidad,Sede sede) {
         this.idSala = idSala;
         this.capacidad = capacidad;
 		this.sede=sede;
