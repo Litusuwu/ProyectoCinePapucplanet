@@ -112,4 +112,7 @@ class Boleta{
         return reporte;
     }
 
+    public void ConsultarDatos(){
+        
+    }
 }

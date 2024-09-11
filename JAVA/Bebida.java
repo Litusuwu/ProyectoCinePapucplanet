@@ -28,4 +28,8 @@ class Bebida extends Consumible {
     public void setTieneHielo(boolean tieneHielo) {
         this.tieneHielo = tieneHielo;
     }
+
+    public void ConsultarDatos(){
+        
+    }
 }

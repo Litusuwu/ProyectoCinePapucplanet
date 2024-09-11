@@ -70,5 +70,8 @@ class Funcion {
     public void setButacasFuncion(ArrayList<ButacaFuncion> butacasFuncion){
         this.butacasFuncion = butacasFuncion;
     }
-
+    
+    public void consultarDatos(){
+        
+    }
 }

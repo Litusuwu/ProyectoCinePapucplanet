@@ -59,4 +59,7 @@ class ButacaFuncion extends Butaca{
         System.out.println("Apta para discapacitados: " + (isDiscapacitado() ? "Sí" : "No"));
     }
 
+    public void ConsultarDatos(){
+        
+    }
 }

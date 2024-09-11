@@ -29,4 +29,8 @@ class Alimento extends Consumible {
     public void setTipoAlimento(TipoAlimento tipoAlimento) {
         this.tipoAlimento = tipoAlimento;
     }
+
+    public void ConsultarDatos(){
+        
+    }
 }

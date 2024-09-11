@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
-class Alumno extends Usuario{
+class Cliente extends Usuario{
 	
 	private Sede sede;
     //posee un arrayList de boletas
     private ArrayList<Boleta> boletas;
 
 	// Constructor con parámetros para Cliente y Usuario
-    public Alumno(String dni, String nombre, String correo,Sede sede) {
+    public Cliente(String dni, String nombre, String correo,Sede sede) {
         super(dni, nombre, correo); // Llama al constructor de Usuario
 		this.sede=sede;
     }
@@ -29,7 +29,6 @@ class Alumno extends Usuario{
     public void setBoletas(ArrayList<Boleta> boletas){
         this.boletas = boletas;
     }
-
     // Método para generar un reporte de todas las boletas del cliente
     @Override
     public String emitirReporte() {
@@ -47,5 +46,8 @@ class Alumno extends Usuario{
 	public void realizarPago(){
 		
 	}
+    public void consultarDatos(){
+
+    }
 
 }

@@ -1,11 +1,10 @@
 import java.util.ArrayList;
-
+import java.time.LocalTime;
 class Pelicula {
     private String titulo;
     private double duracion;
     private String genero;
     private String sinopsis;
-
     //posee un arraylist de funciones
     //private ArrayList<Funcion> funciones;
 
@@ -102,5 +101,7 @@ class Pelicula {
             System.out.println(" - " + funcion.getDia() + " a las " + funcion.getHorarioInicio());
         }*/
     }
-	
+    public void consultarDatos(){
+        
+    }
 }
