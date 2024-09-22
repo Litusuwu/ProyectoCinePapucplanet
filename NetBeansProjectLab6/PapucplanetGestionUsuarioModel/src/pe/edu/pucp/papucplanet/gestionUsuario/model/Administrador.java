@@ -1,5 +1,4 @@
 package pe.edu.pucp.papucplanet.gestionUsuario.model;
-import pe.edu.pucp.papucplanet.gestionUsuario.model.Usuario;
 
 public class  Administrador extends Usuario{
 	
