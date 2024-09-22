@@ -60,7 +60,34 @@ public class AdministradorMySQL implements AdministradorDAO, GestionUsuarioDAO<A
 
     @Override
     public int actualizar(Administrador administrador) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            
+            String sql = "UPDATE Usuario SET dni=?, nombre=?, primerApellido=?, segundoApellido=? WHERE id_usuario=?";
+            pst = con.prepareStatement(sql);
+            pst.setString(1, administrador.getDni());
+            pst.setString(2, administrador.getNombre());
+            pst.setString(3, administrador.getPrimerApellido());
+            pst.setString(4, administrador.getSegundoApellido());
+            pst.setInt(6, administrador.getId());
+            resultado = pst.executeUpdate();
+            
+            sql = "UPDATE Administrador SET codigo= ? WHERE id_administrador = ?";
+            pst = con.prepareStatement(sql);
+            pst.setString(1, administrador.getCodigo());
+            pst.setInt(2, administrador.getId());
+            resultado = pst.executeUpdate();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{
+                con.close();
+            }catch(Exception ex){
+                System.out.println(ex.getMessage());
+            }
+        }
+        return resultado;
     }
 
     @Override
