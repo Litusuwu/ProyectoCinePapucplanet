@@ -6,19 +6,31 @@ abstract public class Usuario implements IUsuario{
     private String dni;
     private String nombre;
     private String correo;
-
+    private String primerApellido;
+    private String segundoApellido;
     // Constructor que asigna automáticamente el ID usando el correlativo
-    public Usuario(String dni, String nombre, String correo) {
+    public Usuario(){
+        
+    }
+    public Usuario(String dni, String nombre, String correo,
+                    String primerApellido, String segundoApellido) {
         this.dni = dni;
         this.nombre = nombre;
         this.correo = correo;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
     }
 
-    // Getter para id (no hay setter porque el ID es automático)
+    // Getter para id
     public int getId() {
         return id;
     }
-
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
     // Getter y Setter para dni
     public String getDni() {
         return dni;
@@ -45,7 +57,34 @@ abstract public class Usuario implements IUsuario{
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+    /**
+     * @return the primerApellido
+     */
+    public String getPrimerApellido() {
+        return primerApellido;
+    }
 
+    /**
+     * @param primerApellido the primerApellido to set
+     */
+    public void setPrimerApellido(String primerApellido) {
+        this.primerApellido = primerApellido;
+    }
+
+    /**
+     * @return the segundoApellido
+     */
+    public String getSegundoApellido() {
+        return segundoApellido;
+    }
+
+    /**
+     * @param segundoApellido the segundoApellido to set
+     */
+    public void setSegundoApellido(String segundoApellido) {
+        this.segundoApellido = segundoApellido;
+    }
+    
     public abstract String emitirReporte();
     @Override
     public boolean iniciarSesion(String correo, String dni){

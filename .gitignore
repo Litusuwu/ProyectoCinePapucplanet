@@ -52,3 +52,5 @@ nbdist/
 *.tar.gz
 *.tar.bz2
 *.7z
+/NetBeansProjectLab6/PapucplanetGestionUsuarioDA/nbproject/private/
+/NetBeansProjectLab6/Papucplanet/nbproject/private/

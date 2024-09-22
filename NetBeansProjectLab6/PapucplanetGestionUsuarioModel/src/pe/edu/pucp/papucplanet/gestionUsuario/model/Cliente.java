@@ -8,9 +8,10 @@ public class Cliente extends Usuario{
     private ArrayList<Boleta> boletas;
 
     // Constructor con parámetros para Cliente y Usuario
-    public Cliente(String dni, String nombre, String correo,Sede sede) {
-        super(dni, nombre, correo); // Llama al constructor de Usuario
-		this.sede=sede;
+    public Cliente(String dni, String nombre, String correo,Sede sede,
+                    String primerApellido, String segundoApellido) {
+        super(dni, nombre, correo, primerApellido, segundoApellido);
+        this.sede=sede;
     }
 
     // Getter para universidad
