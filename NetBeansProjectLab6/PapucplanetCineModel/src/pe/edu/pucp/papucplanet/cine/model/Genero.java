@@ -1,0 +1,5 @@
+package pe.edu.pucp.papucplanet.cine.model;
+
+enum Genero {
+    ACCION,COMEDIA,DRAMA,HORROR,ROMANTICA,CIENCIA_FICCION,DOCUMENTAL,ANIMACION,AVENTURA;
+}
