@@ -6,7 +6,7 @@
 package pe.edu.pucp.papucplanet.gestionUsuario.mysql;
 
 
-import com.papucplanet.dbmanager.model.DBManager;
+import pe.edu.pucp.papucplanet.dbmanager.model.DBManager;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;

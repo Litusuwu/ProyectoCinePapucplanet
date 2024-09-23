@@ -1,43 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-package pe.edu.pucp.papucplanet.gestionUsuario.mysql;
-
-import pe.edu.pucp.papucplanet.dbmanager.model.DBManager;
-import java.sql.Connection;
-import java.sql.Statement;
+package pe.edu.pucp.papucplanet.cine.mysql;
 import java.util.ArrayList;
-import pe.edu.pucp.papucplanet.gestionUsuario.dao.GestionUsuarioDAO;
-import pe.edu.pucp.papucplanet.gestionUsuario.dao.UsuarioDAO;
-import pe.edu.pucp.papucplanet.gestionUsuario.model.Usuario;
-
-
-public class UsuarioMySQL implements UsuarioDAO, GestionUsuarioDAO<Usuario> {
+import pe.edu.pucp.papucplanet.cine.model.Butaca;
+import pe.edu.pucp.papucplanet.cine.dao.ButacaDAO;
+public class ButacaMySQL implements ButacaDAO{
 
     @Override
-    public int insertar(Usuario usuario) {
+    public int insertar(Butaca butaca) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public int actualizar(Usuario usuario) {
+    public int modificar(Butaca butaca) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public int eliminar(int codigo) {
+    public int eliminar(int idButaca) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Usuario obtenerPorCodigo(int codigo) {
+    public ArrayList<Butaca> listarTodos() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public ArrayList<Usuario> listar() {
+    public Butaca obtenerPorId(int idButaca) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

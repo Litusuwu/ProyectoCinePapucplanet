@@ -7,6 +7,7 @@ public class Sede {
     private String ubicacion;
     //posee un arrayList de salas
     private ArrayList<Sala> salas;
+    private boolean activo;
     
     public Sede(){
         
@@ -16,6 +17,7 @@ public class Sede {
 		this.id=id;
         this.universidad = universidad;
         this.ubicacion = ubicacion;
+        this.activo = true;
     }
 	
     // Getter y Setter para universidad
@@ -47,19 +49,32 @@ public class Sede {
     //////////////////////////////////////////////////////////////////METODOS///////////////////////////////////////////////////////////////////////////
 
     // Método para agregar una nueva sala
+    /*
     public void agregarSala(Sala sala) {
         this.salas.add(sala);
         System.out.println("Sala agregada en la sede: " + sala.getIdSala());
     }
+    */
+    public void setId(int id){
+	this.id=id;
+    }
 	
-	public void setId(int id){
-		this.id=id;
-	}
-	
-	public int getId(){
-		return id;
-	}
+    public int getId(){
+    	return id;
+    }
+    //Setter y Getter para activo
+    
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+    
+    
     // Método para eliminar una sala por índice
+    /*
     public void eliminarSala(int indice) {
         if (indice >= 0 && indice < salas.size()) {
             Sala salaEliminada = salas.remove(indice);
@@ -68,8 +83,9 @@ public class Sede {
             System.out.println("Índice fuera de rango");
         }
     }
-
+    */
     // Método para mostrar todas las salas de la sede -> DE LA INTERFAZ
+    /*
     public void imprimirSedes() {
         if (salas.isEmpty()) {
             System.out.println("No hay salas en la sede.");
@@ -80,5 +96,5 @@ public class Sede {
             }
         }
     }
-    
+    */
 }

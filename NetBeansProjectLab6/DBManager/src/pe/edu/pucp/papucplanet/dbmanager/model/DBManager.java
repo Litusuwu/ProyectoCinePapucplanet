@@ -1,4 +1,4 @@
-package com.papucplanet.dbmanager.model;
+package pe.edu.pucp.papucplanet.dbmanager.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 public class DBManager {

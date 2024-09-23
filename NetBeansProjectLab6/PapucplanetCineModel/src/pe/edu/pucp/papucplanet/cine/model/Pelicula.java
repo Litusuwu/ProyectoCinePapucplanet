@@ -4,6 +4,7 @@ public class Pelicula {
     private double duracion;
     private String genero;
     private String sinopsis;
+    private boolean activo;
     //posee un arraylist de funciones
     //private ArrayList<Funcion> funciones;
 
@@ -13,6 +14,7 @@ public class Pelicula {
         this.duracion = duracion;
         this.genero = genero;
         this.sinopsis = sinopsis;
+        this.activo = true;
     }
 
     // Getter y Setter para titulo
@@ -50,6 +52,18 @@ public class Pelicula {
     public String getSinopsis() {
         return sinopsis;
     }
+    
+    //Setter y Getter para activo
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+    
+    
 	/*
     public ArrayList<Funcion> getFunciones(){
         return new ArrayList<>(funciones);

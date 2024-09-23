@@ -3,12 +3,17 @@ public class ButacaFuncion extends Butaca{
     private Funcion funcion;
     private double precio;
     private EstadoButaca estado;
+    private boolean activo;
+    
+    
+    
     // Constructor con parámetros
     public ButacaFuncion(char fila, int columna, boolean discapacitado, Sala sala,Funcion funcion, double precio, EstadoButaca estado) {
 	super( fila,  columna,  discapacitado, sala);
         this.funcion = funcion;
         this.precio = precio;
         this.estado = estado;
+        this.activo = true;
     }
 
     // Getter y Setter para funcion
@@ -35,6 +40,15 @@ public class ButacaFuncion extends Butaca{
 
     public EstadoButaca getEstado() {
         return estado;
+    }
+    //Setter y Getter para activo
+    @Override
+    public boolean isActivo() {
+        return activo;
+    }
+    @Override
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
     // Método para reservar la butaca
     /*

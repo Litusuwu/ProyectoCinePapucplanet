@@ -4,11 +4,13 @@ public class Sala {
     private int idSala;
     private int capacidad;
     private Sede sede;
-
+    private boolean activo;
+    
     public Sala(int idSala, int capacidad,Sede sede) {
         this.idSala = idSala;
         this.capacidad = capacidad;
-		this.sede=sede;
+	this.sede=sede;
+        this.activo = true;
     }
 
     // Getter y Setter para numero
@@ -36,6 +38,15 @@ public class Sala {
     public Sede getSede() {
         return sede;
     }	
+    //Setter y Getter para activo
+    
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
 	/*
     public ArrayList<Butaca> getButacas(){
         return new ArrayList<>(butacas);
@@ -74,4 +85,6 @@ public class Sala {
         return asientosDisponibles;
     }
 	*/
+
+    
 }
