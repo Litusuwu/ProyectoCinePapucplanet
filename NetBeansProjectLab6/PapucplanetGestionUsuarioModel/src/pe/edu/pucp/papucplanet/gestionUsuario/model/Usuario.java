@@ -1,22 +1,24 @@
 package pe.edu.pucp.papucplanet.gestionUsuario.model;
 
+import java.util.Date;
+
 abstract public class Usuario implements IUsuario{
 
     private int id;
     private String dni;
     private String nombre;
-    private String correo;
     private String primerApellido;
     private String segundoApellido;
+    private char genero;
+    private Date fechaNacimiento;
     // Constructor que asigna automáticamente el ID usando el correlativo
     public Usuario(){
         
     }
-    public Usuario(String dni, String nombre, String correo,
+    public Usuario(String dni, String nombre,
                     String primerApellido, String segundoApellido) {
         this.dni = dni;
         this.nombre = nombre;
-        this.correo = correo;
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
     }
@@ -48,15 +50,6 @@ abstract public class Usuario implements IUsuario{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    // Getter y Setter para correo
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
     /**
      * @return the primerApellido
      */
@@ -84,14 +77,42 @@ abstract public class Usuario implements IUsuario{
     public void setSegundoApellido(String segundoApellido) {
         this.segundoApellido = segundoApellido;
     }
-    
+     public char getGenero() {
+        return genero;
+    }
+
+    /**
+     * @param genero the genero to set
+     */
+    public void setGenero(char genero) {
+        this.genero = genero;
+    }
+
+    /**
+     * @return the fechaNacimiento
+     */
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    /**
+     * @param fechaNacimiento the fechaNacimiento to set
+     */
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
     public abstract String emitirReporte();
     @Override
     public boolean iniciarSesion(String correo, String dni){
-        return this.correo.equals(correo);
+        return this.primerApellido.equals(primerApellido);
     }
     @Override
     public void cerrarSesion(){
         
     }
+
+    /**
+     * @return the genero
+     */
+   
 }
