@@ -3,7 +3,7 @@ package pe.edu.pucp.papucplanet.cine.model;
 public class Sala {
     private int idSala;
     private int capacidad;
-private Sede sede;
+    private Sede sede;
 
     public Sala(int idSala, int capacidad,Sede sede) {
         this.idSala = idSala;
@@ -28,9 +28,10 @@ private Sede sede;
     public int getCapacidad() {
         return capacidad;
     }
-	public void setSede(Sede sede){
-		this.sede=sede;
-	}
+    
+    public void setSede(Sede sede){
+    	this.sede=sede;
+    }
 	
     public Sede getSede() {
         return sede;

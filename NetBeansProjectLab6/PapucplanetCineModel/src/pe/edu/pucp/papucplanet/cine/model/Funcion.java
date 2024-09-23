@@ -8,7 +8,7 @@ public class Funcion {
     private Date dia;
     private Pelicula pelicula;
     private Sala sala;
-	private ArrayList<ButacaFuncion> butacasFuncion;
+    private ArrayList<ButacaFuncion> butacasFuncion;
     public Funcion(LocalTime horarioInicio, LocalTime horarioFin, Date dia, Pelicula pelicula, Sala sala) {
         this.horarioInicio = horarioInicio;
         this.horarioFin = horarioFin;
