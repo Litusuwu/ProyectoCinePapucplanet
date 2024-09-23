@@ -17,7 +17,7 @@ public class DBManager {
         return dbManager;
     }
     private static void createInstance(){
-        dbManager = new DBManager();locura
+        dbManager = new DBManager();
     }
     public Connection getConnection(){
         try{
