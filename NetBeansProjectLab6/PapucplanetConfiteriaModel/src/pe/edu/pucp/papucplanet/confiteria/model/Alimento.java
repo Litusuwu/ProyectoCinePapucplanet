@@ -5,7 +5,7 @@ public class Alimento extends Consumible {
     private TipoAlimento tipoAlimento;
 
     // Constructor con parámetros para Alimento y Consumible
-    public Alimento(String codigo, String nombre, double precio, double pesoPromedio, TipoAlimento tipoAlimento) {
+    public Alimento(int codigo, String nombre, double precio, double pesoPromedio, TipoAlimento tipoAlimento) {
         super(codigo, nombre, precio); // Llama al constructor de Consumible
         this.pesoPromedio = pesoPromedio;
         this.tipoAlimento = tipoAlimento;
