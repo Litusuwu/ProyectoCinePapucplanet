@@ -44,11 +44,7 @@ public class AdministradorMySQL implements AdministradorDAO, GestionUsuarioDAO<A
 
             // Ejecutar el procedimiento
             cs.executeUpdate();
-
-            // Obtener el ID del administrador generado (parámetro OUT)
-            int idAdministrador = cs.getInt(1);
-            administrador.setId(idAdministrador); // Establecer el ID en el objeto Administrador
-            resultado = 1;
+            resultado = cs.getInt(1);
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }finally{

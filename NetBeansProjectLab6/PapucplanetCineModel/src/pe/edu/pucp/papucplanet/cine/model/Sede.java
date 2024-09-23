@@ -7,7 +7,10 @@ public class Sede {
     private String ubicacion;
     //posee un arrayList de salas
     private ArrayList<Sala> salas;
-
+    
+    public Sede(){
+        
+    }
     // Constructor con parámetros
     public Sede(int id, String universidad, String ubicacion) {
 		this.id=id;

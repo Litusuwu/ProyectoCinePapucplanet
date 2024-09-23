@@ -8,6 +8,9 @@ public class Cliente extends Usuario{
     //posee un arrayList de boletas
     private ArrayList<Boleta> boletas;
     // Constructor con parámetros para Cliente y Usuario
+    public Cliente(){
+        
+    }
     public Cliente(String dni, String nombre,Sede sede,
                     String primerApellido, String segundoApellido) {
         super(dni, nombre, primerApellido, segundoApellido);
