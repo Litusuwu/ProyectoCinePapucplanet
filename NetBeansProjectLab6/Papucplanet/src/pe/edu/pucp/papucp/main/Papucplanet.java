@@ -5,7 +5,6 @@
 package pe.edu.pucp.papucp.main;
 
 import pe.edu.pucp.papucplanet.gestionUsuario.dao.AdministradorDAO;
-import pe.edu.pucp.papucplanet.gestionUsuario.dao.GestionUsuarioDAO;
 import pe.edu.pucp.papucplanet.gestionUsuario.model.Administrador;
 import pe.edu.pucp.papucplanet.gestionUsuario.mysql.AdministradorMySQL;
 
