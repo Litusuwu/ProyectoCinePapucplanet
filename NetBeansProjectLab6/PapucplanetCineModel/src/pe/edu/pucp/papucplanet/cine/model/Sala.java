@@ -3,17 +3,26 @@ package pe.edu.pucp.papucplanet.cine.model;
 public class Sala {
     private int idSala;
     private int capacidad;
+    private int numeroSala;
     private Sede sede;
     private boolean activo;
     
-    public Sala( int capacidad,Sede sede) {
+    public Sala( int capacidad,int numeroSala,Sede sede) {
         //this.idSala = idSala;
+        this.numeroSala = numeroSala;
         this.capacidad = capacidad;
 	this.sede=sede;
         this.activo = true;
     }
+    // Getter y Setter para numero_sala
+    public void setNumeroSala(int numeroSala) {
+        this.numeroSala = numeroSala;
+    }
 
-    // Getter y Setter para numero
+    public int getNumeroSala() {
+        return numeroSala;
+    }
+    // Getter y Setter para id
     public void setIdSala(int idSala) {
         this.idSala = idSala;
     }
