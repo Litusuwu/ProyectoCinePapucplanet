@@ -1,16 +1,19 @@
 package pe.edu.pucp.papucplanet.cine.model;
+//import pe.edu.pucp.papucplanet.cine.model.Genero;
+
 public class Pelicula {
     private int idPelicula;
     private String titulo;
     private double duracion;
-    private String genero;
+    private Genero genero;
     private String sinopsis;
     private boolean activo;
     //posee un arraylist de funciones
     //private ArrayList<Funcion> funciones;
-
+    public Pelicula(){
+    }
     // Constructor con parámetros
-    public Pelicula(String titulo, double duracion, String genero, String sinopsis) {
+    public Pelicula(String titulo, double duracion, Genero genero, String sinopsis) {
         this.titulo = titulo;
         this.duracion = duracion;
         this.genero = genero;
@@ -48,11 +51,11 @@ public class Pelicula {
     }
 
     // Getter y Setter para genero
-    public void setGenero(String genero) {
+    public void setGenero(Genero genero) {
         this.genero = genero;
     }
 
-    public String getGenero() {
+    public Genero getGenero() {
         return genero;
     }
 

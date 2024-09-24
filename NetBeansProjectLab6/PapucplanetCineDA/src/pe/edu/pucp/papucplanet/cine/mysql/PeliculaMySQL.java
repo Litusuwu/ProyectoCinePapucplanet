@@ -1,39 +1,36 @@
 
 package pe.edu.pucp.papucplanet.cine.mysql;
-
-import java.util.ArrayList;
-import pe.edu.pucp.papucplanet.cine.dao.SalaDAO;
-import pe.edu.pucp.papucplanet.cine.model.Sala;
 import pe.edu.pucp.papucplanet.dbmanager.model.DBManager;
-import pe.edu.pucp.papucplanet.cine.dao.SedeDAO;
-import pe.edu.pucp.papucplanet.cine.mysql.SedeMySQL;
+import java.util.ArrayList;
+import pe.edu.pucp.papucplanet.cine.dao.PeliculaDAO;
+import pe.edu.pucp.papucplanet.cine.model.Pelicula;
+import pe.edu.pucp.papucplanet.cine.model.Genero;
 
-//import pe.edu.pucp.papucplanet.cine.model.Butaca;
-//import pe.edu.pucp.papucplanet.cine.model.Funcion;
 import java.sql.Connection;
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 
 
-public class SalaMySQL implements SalaDAO{
+public class PeliculaMySQL implements PeliculaDAO{
     private Connection con;
     private CallableStatement cs;
     private ResultSet rs;
     @Override
-    public int insertar(Sala sala) {
+    public int insertar(Pelicula pelicula) {
         int result = 0;
         try{
             con = DBManager.getInstance().getConnection();
             con.setAutoCommit(false);
-            cs = con.prepareCall("{call INSERTAR_SALA(?,?,?,?)}");
-            cs.registerOutParameter("_id_sala", java.sql.Types.INTEGER);
-            cs.setInt("_numero_sala",sala.getNumeroSala());
-            cs.setInt("_fid_sede",sala.getSede().getIdSede());
-            cs.setInt("_capacidad",sala.getCapacidad());
+            cs = con.prepareCall("{call INSERTAR_PELICULA(?,?,?,?,?)}");
+            cs.registerOutParameter("_id_pelicula", java.sql.Types.INTEGER);
+            cs.setString("_titulo",pelicula.getTitulo());
+            cs.setDouble("_duracion",pelicula.getDuracion());
+            cs.setString("_genero",String.valueOf(pelicula.getGenero()));
+            cs.setString("_sinopsis",pelicula.getSinopsis());
             cs.executeUpdate();
-            sala.setIdSala(cs.getInt("_id_sala"));
-            result = sala.getIdSala();
+            pelicula.setIdPelicula(cs.getInt("_id_pelicula"));
+            result = pelicula.getIdPelicula();
             con.commit();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -45,36 +42,17 @@ public class SalaMySQL implements SalaDAO{
     }
 
     @Override
-    public int modificar(Sala sala) {
+    public int modificar(Pelicula pelicula) {
         int result = 0;
         try{
             con = DBManager.getInstance().getConnection();
             con.setAutoCommit(false);
-            cs = con.prepareCall("{call MODIFICAR_SALA(?,?,?,?)}");
-            cs.setInt("_id_sala", sala.getIdSala());
-            cs.setInt("_numero_sala",sala.getNumeroSala());
-            cs.setInt("_fid_sede",sala.getSede().getIdSede());
-            cs.setInt("_capacidad",sala.getCapacidad());
-            result = cs.executeUpdate();
-            
-            con.commit();
-        }catch(SQLException ex){
-            System.out.println(ex.getMessage());
-            try{con.rollback();}catch(SQLException ex1){ex1.getMessage(); }
-        }finally{
-            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
-        }
-        return result;
-    }
-
-    @Override
-    public int eliminar(int idSala) {
-        int result = 0;
-        try{
-            con = DBManager.getInstance().getConnection();
-            con.setAutoCommit(false);
-            cs = con.prepareCall("{call ELIMINAR_SALA_X_ID(?)}");
-            cs.setInt("_id_sala",idSala);
+            cs = con.prepareCall("{call MODIFICAR_PELICULA(?,?,?,?,?)}");
+            cs.setInt("_id_pelicula", pelicula.getIdPelicula());
+            cs.setString("_titulo",pelicula.getTitulo());
+            cs.setDouble("_duracion",pelicula.getDuracion());
+            cs.setString("_genero",String.valueOf(pelicula.getGenero()));
+            cs.setString("_sinopsis",pelicula.getSinopsis());
             result = cs.executeUpdate();
             con.commit();
         }catch(SQLException ex){
@@ -87,24 +65,42 @@ public class SalaMySQL implements SalaDAO{
     }
 
     @Override
-    public ArrayList<Sala> listarTodos() {
-        ArrayList<Sala> salas = new ArrayList<>();
+    public int eliminar(int idPelicula) {
+        int result = 0;
         try{
             con = DBManager.getInstance().getConnection();
             con.setAutoCommit(false);
-            cs = con.prepareCall("{call LISTAR_SALAS_TODAS()}");
+            cs = con.prepareCall("{call ELIMINAR_PELICULA_X_ID(?)}");
+            cs.setInt("_id_pelicula",idPelicula);
+            result = cs.executeUpdate();
+            con.commit();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+            try{con.rollback();}catch(SQLException ex1){ex1.getMessage(); }
+        }finally{
+            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
+        }
+        return result;
+    }
+
+    @Override
+    public ArrayList<Pelicula> listarTodos() {
+        ArrayList<Pelicula> peliculas = new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            con.setAutoCommit(false);
+            cs = con.prepareCall("{call LISTAR_PELICULAS_TODAS()}");
             rs = cs.executeQuery();
-            Sala sala;
-            int idSede;
-            SedeDAO sedeDao = new SedeMySQL();
+            Pelicula pelicula;
+            
             while(rs.next()){
-                sala = new Sala();
-                sala.setIdSala(rs.getInt("id_sala"));
-                sala.setNumeroSala(rs.getInt("numero_sala"));
-                idSede = rs.getInt("fid_sede");
-                sala.setSede(sedeDao.obtenerPorId(idSede));
-                sala.setCapacidad(rs.getInt("capacidad"));
-                salas.add(sala);
+                pelicula = new Pelicula();
+                pelicula.setIdPelicula(rs.getInt("id_pelicula"));
+                pelicula.setTitulo(rs.getString("titulo"));
+                pelicula.setGenero(Genero.valueOf(rs.getString("genero")));
+                pelicula.setDuracion(rs.getDouble("duracion"));
+                pelicula.setSinopsis(rs.getString("sinopsis"));
+                peliculas.add(pelicula);
             }
             con.commit();
         }catch(SQLException ex){
@@ -113,26 +109,25 @@ public class SalaMySQL implements SalaDAO{
         }finally{
             try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
         }
-        return salas;
+        return peliculas;
     }
 
     @Override
-    public Sala obtenerPorId(int idSala) {
-        Sala sala = new Sala();
+    public Pelicula obtenerPorId(int idPelicula) {
+        Pelicula pelicula = new Pelicula();
         try{
             con = DBManager.getInstance().getConnection();
             con.setAutoCommit(false);
-            cs = con.prepareCall("{call LISTAR_SALA_X_ID(?)}");
-            cs.setInt("_id_sala",idSala);
+            cs = con.prepareCall("{call LISTAR_PELICULA_X_ID(?)}");
+            cs.setInt("_id_pelicula",idPelicula);
             rs = cs.executeQuery();
-            int idSede = 0;
-            SedeDAO sedeDao = new SedeMySQL();
+            
             if(rs.next()){
-                sala.setIdSala(rs.getInt("id_sala"));
-                sala.setNumeroSala(rs.getInt("numero_sala"));
-                idSede = rs.getInt("fid_sede");
-                sala.setSede(sedeDao.obtenerPorId(idSede));
-                sala.setCapacidad(rs.getInt("capacidad"));
+                pelicula.setIdPelicula(rs.getInt("id_pelicula"));
+                pelicula.setTitulo(rs.getString("titulo"));
+                pelicula.setGenero(Genero.valueOf(rs.getString("genero")));
+                pelicula.setDuracion(rs.getDouble("duracion"));
+                pelicula.setSinopsis(rs.getString("sinopsis"));
             }
             con.commit();
         }catch(SQLException ex){
@@ -141,7 +136,7 @@ public class SalaMySQL implements SalaDAO{
         }finally{
             try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());};
         }
-        return sala;
+        return pelicula;
     }
     
 }
