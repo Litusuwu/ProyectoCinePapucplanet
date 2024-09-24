@@ -6,7 +6,7 @@ public class Sede {
     private String universidad;
     private String ubicacion;
     //posee un arrayList de salas
-    private ArrayList<Sala> salas;
+    //private ArrayList<Sala> salas;
     private boolean activo;
     
     public Sede(){
@@ -38,14 +38,14 @@ public class Sede {
         return ubicacion;
     }
 
-    public ArrayList<Sala> getSalas(){
-        return salas;
-//        return new ArrayList<>(salas);
-    }
-
-    public void setSalas(ArrayList<Sala> salas){
-        this.salas = salas;
-    }
+//    public ArrayList<Sala> getSalas(){
+//        return salas;
+////        return new ArrayList<>(salas);
+//    }
+//
+//    public void setSalas(ArrayList<Sala> salas){
+//        this.salas = salas;
+//    }
     
     
 

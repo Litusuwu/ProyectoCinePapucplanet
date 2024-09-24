@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import pe.edu.pucp.papucplanet.cine.dao.SalaDAO;
 
 public class ButacaMySQL implements ButacaDAO{
     private Connection con;
@@ -30,8 +31,9 @@ public class ButacaMySQL implements ButacaDAO{
             con.commit();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
+            try{con.rollback();}catch(SQLException ex1){ex1.getMessage(); }
         }finally{
-            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());};
+            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
         }
         return result;
     }
@@ -42,28 +44,40 @@ public class ButacaMySQL implements ButacaDAO{
         try{
             con = DBManager.getInstance().getConnection();
             con.setAutoCommit(false);
-            cs = con.prepareCall("{call MODIFICAR_BUTACA(?,?,?,?,?,?)}");
-            cs.registerOutParameter("_id_butaca", java.sql.Types.INTEGER);
+            cs = con.prepareCall("{call MODIFICAR_BUTACA(?,?,?,?,?)}");
+            cs.setInt("_id_butaca", butaca.getIdButaca());
             cs.setString("_fila",String.valueOf(butaca.getFila()));
             cs.setInt("_columna",butaca.getColumna());
             cs.setBoolean("_discapacitado",butaca.isDiscapacitado());
             cs.setInt("_fid_sala",butaca.getSala().getIdSala());
-            cs.setBoolean("_activo",butaca.isActivo());
-            cs.executeUpdate();
-            butaca.setIdButaca(cs.getInt("_id_butaca"));
-            result = butaca.getIdButaca();
+            result = cs.executeUpdate();
             con.commit();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
+            try{con.rollback();}catch(SQLException ex1){ex1.getMessage(); }
         }finally{
-            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());};
+            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
         }
         return result;
     }
 
     @Override
     public int eliminar(int idButaca) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int result = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            con.setAutoCommit(false);
+            cs = con.prepareCall("{call ELIMINAR_BUTACA_X_ID(?)}");
+            cs.setInt("_id_butaca",idButaca);
+            result = cs.executeUpdate();
+            con.commit();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+            try{con.rollback();}catch(SQLException ex1){ex1.getMessage(); }
+        }finally{
+            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
+        }
+        return result;
     }
 
     @Override
@@ -76,23 +90,23 @@ public class ButacaMySQL implements ButacaDAO{
             rs = cs.executeQuery();
             Butaca butaca;
             int idSala;
-            //SalaDAO salaDao;
+            SalaDAO salaDao = new SalaMySQL();
             while(rs.next()){
                 butaca = new Butaca();
-                butaca.setIdButaca(rs.getInt("_id_butaca"));
-                butaca.setFila(rs.getString("_fila").charAt(0));
-                butaca.setColumna(rs.getInt("_columna"));
-                butaca.setDiscapacitado(rs.getBoolean("_discapacitado"));
-                idSala = rs.getInt("_fid_sala");
-                //salaDao = new Sala();
-                //butaca.setSala(salaDao.obtenerPorId(idSala));
+                butaca.setIdButaca(rs.getInt("id_butaca"));
+                butaca.setFila(rs.getString("fila").charAt(0));
+                butaca.setColumna(rs.getInt("columna"));
+                butaca.setDiscapacitado(rs.getBoolean("discapacitado"));
+                idSala = rs.getInt("fid_sala");
+                butaca.setSala(salaDao.obtenerPorId(idSala));
                 butacas.add(butaca);
             }
             con.commit();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
+            try{con.rollback();}catch(SQLException ex1){ex1.getMessage(); }
         }finally{
-            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());};
+            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
         }
         return butacas;
     }
@@ -103,23 +117,24 @@ public class ButacaMySQL implements ButacaDAO{
         try{
             con = DBManager.getInstance().getConnection();
             con.setAutoCommit(false);
-            cs = con.prepareCall("{call LISTAR_BUTACAS_TODAS()}");
+            cs = con.prepareCall("{call LISTAR_BUTACA_X_ID(?)}");
             cs.setInt("_id_butaca",idButaca);
             rs = cs.executeQuery();
             int idSala = 0;
             //SalaDAO salaDao;
             if(rs.next()){
-                butaca.setIdButaca(rs.getInt("_id_butaca"));
-                butaca.setFila(rs.getString("_fila").charAt(0));
-                butaca.setColumna(rs.getInt("_columna"));
-                butaca.setDiscapacitado(rs.getBoolean("_discapacitado"));
-                idSala = rs.getInt("_fid_sala");
-                //salaDao = new Sala();
+                butaca.setIdButaca(rs.getInt("id_butaca"));
+                butaca.setFila(rs.getString("fila").charAt(0));
+                butaca.setColumna(rs.getInt("columna"));
+                butaca.setDiscapacitado(rs.getBoolean("discapacitado"));
+                idSala = rs.getInt("fid_sala");
+                //salaDao = new SalaMySQL();
                 //butaca.setSala(salaDao.obtenerPorId(idSala));
             }
             con.commit();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
+            try{con.rollback();}catch(SQLException ex1){ex1.getMessage(); }
         }finally{
             try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());};
         }
