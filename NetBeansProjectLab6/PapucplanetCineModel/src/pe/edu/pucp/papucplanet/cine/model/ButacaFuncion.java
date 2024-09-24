@@ -1,11 +1,13 @@
 package pe.edu.pucp.papucplanet.cine.model;
 public class ButacaFuncion extends Butaca{
+    private int idButacaFuncion;
     private Funcion funcion;
     private double precio;
     private EstadoButaca estado;
     private boolean activo;
     
-    
+    public ButacaFuncion(){
+    }
     
     // Constructor con parámetros
     public ButacaFuncion(char fila, int columna, boolean discapacitado, Sala sala,Funcion funcion, double precio, EstadoButaca estado) {
@@ -15,13 +17,21 @@ public class ButacaFuncion extends Butaca{
         this.estado = estado;
         this.activo = true;
     }
+    //Setter y Getter para id
 
+    public int getIdButacaFuncion() {
+        return idButacaFuncion;
+    }
+
+    public void setIdButacaFuncion(int idButacaFuncion) {
+        this.idButacaFuncion = idButacaFuncion;
+    }
     // Getter y Setter para funcion
     public void setFuncion(Funcion funcion) {
         this.funcion = funcion;
     }
 
-    public Funcion getFuncion() {
+    public Funcion getFuncion(){
         return funcion;
     }
 
@@ -43,8 +53,8 @@ public class ButacaFuncion extends Butaca{
     }
     //Setter y Getter para activo
     @Override
-    public boolean isActivo() {
-        return activo;
+    public boolean isActivo() {//Si la butaca no existe, no puede existir la rela.
+        return activo && super.isActivo();
     }
     @Override
     public void setActivo(boolean activo) {
