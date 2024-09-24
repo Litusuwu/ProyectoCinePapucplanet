@@ -3,20 +3,34 @@ import java.time.LocalTime;
 import java.util.Date;
 import java.util.ArrayList;
 public class Funcion {
+    private int idFuncion;
     private LocalTime horarioInicio;
     private LocalTime horarioFin;
     private Date dia;
     private Pelicula pelicula;
     private Sala sala;
-	private ArrayList<ButacaFuncion> butacasFuncion;
+    private ArrayList<ButacaFuncion> butacasFuncion;
+    private boolean activo;
     public Funcion(LocalTime horarioInicio, LocalTime horarioFin, Date dia, Pelicula pelicula, Sala sala) {
         this.horarioInicio = horarioInicio;
         this.horarioFin = horarioFin;
         this.dia = dia;
         this.pelicula = pelicula;
-		this.sala=sala;
+	this.sala=sala;
+        this.activo = true;
+    }
+    //Setter y Getter para id
+
+    public int getIdFuncion() {
+        return idFuncion;
     }
 
+    public void setIdFuncion(int idFuncion) {
+        this.idFuncion = idFuncion;
+    }
+    
+    
+    
     // Getter y Setter para horarioInicio
     public void setHorarioInicio(LocalTime horarioInicio) {
         this.horarioInicio = horarioInicio;
@@ -71,7 +85,17 @@ public class Funcion {
         this.butacasFuncion = butacasFuncion;
     }
     
-    public void consultarDatos(){
+    
+
+    //Setter y Getter para activo
+    public boolean isActivo(){
+        return activo;
         
+    }
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    public void consultarDatos() {
     }
 }

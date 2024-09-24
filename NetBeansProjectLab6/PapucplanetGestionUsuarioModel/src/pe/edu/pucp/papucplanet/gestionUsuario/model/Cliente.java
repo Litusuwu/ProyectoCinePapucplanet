@@ -4,13 +4,16 @@ import pe.edu.pucp.papucplanet.cine.model.Sede;
 import pe.edu.pucp.papucplanet.compras.model.Boleta;
 public class Cliente extends Usuario{	
     private Sede sede;
+    private int activo;
     //posee un arrayList de boletas
     private ArrayList<Boleta> boletas;
-
     // Constructor con parámetros para Cliente y Usuario
-    public Cliente(String dni, String nombre, String correo,Sede sede,
+    public Cliente(){
+        
+    }
+    public Cliente(String dni, String nombre,Sede sede,
                     String primerApellido, String segundoApellido) {
-        super(dni, nombre, correo, primerApellido, segundoApellido);
+        super(dni, nombre, primerApellido, segundoApellido);
         this.sede=sede;
     }
 
@@ -31,6 +34,19 @@ public class Cliente extends Usuario{
     public void setBoletas(ArrayList<Boleta> boletas){
         this.boletas = boletas;
     }
+    /**
+     * @return the activo
+     */
+    public int getActivo() {
+        return activo;
+    }
+
+    /**
+     * @param activo the activo to set
+     */
+    public void setActivo(int activo) {
+        this.activo = activo;
+    }
     // Método para generar un reporte de todas las boletas del cliente
     @Override
     public String emitirReporte() {
@@ -45,11 +61,14 @@ public class Cliente extends Usuario{
 
         return reporte;
     }
+    
     public void realizarPago(){
 
     }
     public void consultarDatos(){
 
     }
+
+    
 
 }

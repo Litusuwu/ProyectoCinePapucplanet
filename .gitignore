@@ -53,4 +53,9 @@ nbdist/
 *.tar.bz2
 *.7z
 /NetBeansProjectLab6/PapucplanetGestionUsuarioDA/nbproject/private/
+/NetBeansProjectLab6/PapucplanetComprasModel/nbproject/private/
+/NetBeansProjectLab6/PapucplanetConfiteriaModel/nbproject/private/
+/NetBeansProjectLab6/PapucplanetGestionUsuarioModel/nbproject/private/
 /NetBeansProjectLab6/Papucplanet/nbproject/private/
+*/nbproject/private/
+/NetBeansProjectLab6/PapucplanetCineDA/nbproject/private/

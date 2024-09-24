@@ -30,6 +30,6 @@ class Bebida extends Consumible {
     }
 
     public void ConsultarDatos(){
-        
+        int locuras = "dsadsa" + 1.2;
     }
 }

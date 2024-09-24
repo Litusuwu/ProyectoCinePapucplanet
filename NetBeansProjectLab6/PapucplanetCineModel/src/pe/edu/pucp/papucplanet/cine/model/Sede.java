@@ -2,17 +2,22 @@ package pe.edu.pucp.papucplanet.cine.model;
 import java.util.ArrayList;
 
 public class Sede {
-	private int id;
+    private int idSede;
     private String universidad;
     private String ubicacion;
     //posee un arrayList de salas
     private ArrayList<Sala> salas;
-
+    private boolean activo;
+    
+    public Sede(){
+        
+    }
     // Constructor con parámetros
-    public Sede(int id, String universidad, String ubicacion) {
-		this.id=id;
+    public Sede( String universidad, String ubicacion) {
+	//	this.id=id;
         this.universidad = universidad;
         this.ubicacion = ubicacion;
+        this.activo = true;
     }
 	
     // Getter y Setter para universidad
@@ -40,23 +45,36 @@ public class Sede {
     public void setSalas(ArrayList<Sala> salas){
         this.salas = salas;
     }
+    
+    
 
     //////////////////////////////////////////////////////////////////METODOS///////////////////////////////////////////////////////////////////////////
-
     // Método para agregar una nueva sala
+    /*
     public void agregarSala(Sala sala) {
-        this.salas.add(sala);
-        System.out.println("Sala agregada en la sede: " + sala.getIdSala());
+    this.salas.add(sala);
+    System.out.println("Sala agregada en la sede: " + sala.getIdSala());
     }
-	
-	public void setId(int id){
-		this.id=id;
-	}
-	
-	public int getId(){
-		return id;
-	}
+     */
+    public int getIdSede() {
+        return idSede;
+    }
+    public void setIdSede(int idSede) {
+        this.idSede = idSede;
+    }
+
+    //Setter y Getter para activo
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+    
+    
     // Método para eliminar una sala por índice
+    /*
     public void eliminarSala(int indice) {
         if (indice >= 0 && indice < salas.size()) {
             Sala salaEliminada = salas.remove(indice);
@@ -65,8 +83,9 @@ public class Sede {
             System.out.println("Índice fuera de rango");
         }
     }
-
+    */
     // Método para mostrar todas las salas de la sede -> DE LA INTERFAZ
+    /*
     public void imprimirSedes() {
         if (salas.isEmpty()) {
             System.out.println("No hay salas en la sede.");
@@ -77,5 +96,5 @@ public class Sede {
             }
         }
     }
-    
+    */
 }

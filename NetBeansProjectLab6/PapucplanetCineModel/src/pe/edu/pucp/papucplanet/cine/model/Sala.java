@@ -3,12 +3,14 @@ package pe.edu.pucp.papucplanet.cine.model;
 public class Sala {
     private int idSala;
     private int capacidad;
-private Sede sede;
-
-    public Sala(int idSala, int capacidad,Sede sede) {
-        this.idSala = idSala;
+    private Sede sede;
+    private boolean activo;
+    
+    public Sala( int capacidad,Sede sede) {
+        //this.idSala = idSala;
         this.capacidad = capacidad;
-		this.sede=sede;
+	this.sede=sede;
+        this.activo = true;
     }
 
     // Getter y Setter para numero
@@ -28,13 +30,23 @@ private Sede sede;
     public int getCapacidad() {
         return capacidad;
     }
-	public void setSede(Sede sede){
-		this.sede=sede;
-	}
+    
+    public void setSede(Sede sede){
+    	this.sede=sede;
+    }
 	
     public Sede getSede() {
         return sede;
     }	
+    //Setter y Getter para activo
+    
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
 	/*
     public ArrayList<Butaca> getButacas(){
         return new ArrayList<>(butacas);
@@ -73,4 +85,6 @@ private Sede sede;
         return asientosDisponibles;
     }
 	*/
+
+    
 }
