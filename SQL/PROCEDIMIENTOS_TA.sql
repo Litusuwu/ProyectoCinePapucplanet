@@ -360,7 +360,7 @@ CREATE PROCEDURE INSERTAR_BEBIDA(
     IN _tieneHielo BOOLEAN
 )
 BEGIN
-    INSERT INTO Consumible(nombre, precio, activo) 
+    INSERT INTO Consumible(nombre, precio) 
     VALUES(_nombre, _precio);
     SET _id_bebida = @@last_insert_id;
     INSERT INTO Bebida(id_bebida, onzas, tieneHielo) 
