@@ -3,6 +3,7 @@ import java.time.LocalTime;
 import java.util.Date;
 import java.util.ArrayList;
 public class Funcion {
+    private int idFuncion;
     private LocalTime horarioInicio;
     private LocalTime horarioFin;
     private Date dia;
@@ -18,7 +19,18 @@ public class Funcion {
 	this.sala=sala;
         this.activo = true;
     }
+    //Setter y Getter para id
 
+    public int getIdFuncion() {
+        return idFuncion;
+    }
+
+    public void setIdFuncion(int idFuncion) {
+        this.idFuncion = idFuncion;
+    }
+    
+    
+    
     // Getter y Setter para horarioInicio
     public void setHorarioInicio(LocalTime horarioInicio) {
         this.horarioInicio = horarioInicio;

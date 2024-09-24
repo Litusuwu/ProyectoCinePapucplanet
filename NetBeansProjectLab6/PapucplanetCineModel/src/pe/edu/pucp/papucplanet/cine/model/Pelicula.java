@@ -1,5 +1,6 @@
 package pe.edu.pucp.papucplanet.cine.model;
 public class Pelicula {
+    private int idPelicula;
     private String titulo;
     private double duracion;
     private String genero;
@@ -16,7 +17,18 @@ public class Pelicula {
         this.sinopsis = sinopsis;
         this.activo = true;
     }
+    // Getter y Setter para titulo
 
+    public int getIdPelicula() {
+        return idPelicula;
+    }
+
+    public void setIdPelicula(int idPelicula) {
+        this.idPelicula = idPelicula;
+    }
+    
+    
+    
     // Getter y Setter para titulo
     public void setTitulo(String titulo) {
         this.titulo = titulo;

@@ -6,8 +6,8 @@ public class Sala {
     private Sede sede;
     private boolean activo;
     
-    public Sala(int idSala, int capacidad,Sede sede) {
-        this.idSala = idSala;
+    public Sala( int capacidad,Sede sede) {
+        //this.idSala = idSala;
         this.capacidad = capacidad;
 	this.sede=sede;
         this.activo = true;

@@ -2,7 +2,7 @@ package pe.edu.pucp.papucplanet.cine.model;
 import java.util.ArrayList;
 
 public class Sede {
-	private int id;
+    private int idSede;
     private String universidad;
     private String ubicacion;
     //posee un arrayList de salas
@@ -13,8 +13,8 @@ public class Sede {
         
     }
     // Constructor con parámetros
-    public Sede(int id, String universidad, String ubicacion) {
-		this.id=id;
+    public Sede( String universidad, String ubicacion) {
+	//	this.id=id;
         this.universidad = universidad;
         this.ubicacion = ubicacion;
         this.activo = true;
@@ -45,25 +45,25 @@ public class Sede {
     public void setSalas(ArrayList<Sala> salas){
         this.salas = salas;
     }
+    
+    
 
     //////////////////////////////////////////////////////////////////METODOS///////////////////////////////////////////////////////////////////////////
-
     // Método para agregar una nueva sala
     /*
     public void agregarSala(Sala sala) {
-        this.salas.add(sala);
-        System.out.println("Sala agregada en la sede: " + sala.getIdSala());
+    this.salas.add(sala);
+    System.out.println("Sala agregada en la sede: " + sala.getIdSala());
     }
-    */
-    public void setId(int id){
-	this.id=id;
+     */
+    public int getIdSede() {
+        return idSede;
     }
-	
-    public int getId(){
-    	return id;
+    public void setIdSede(int idSede) {
+        this.idSede = idSede;
     }
+
     //Setter y Getter para activo
-    
     public boolean isActivo() {
         return activo;
     }
