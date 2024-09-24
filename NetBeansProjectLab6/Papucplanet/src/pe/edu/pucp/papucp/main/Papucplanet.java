@@ -5,9 +5,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import pe.edu.pucp.papucplanet.confiteria.dao.AlimentoDAO;
+import pe.edu.pucp.papucplanet.confiteria.dao.BebidaDAO;
 import pe.edu.pucp.papucplanet.confiteria.model.Alimento;
+import pe.edu.pucp.papucplanet.confiteria.model.Bebida;
 import pe.edu.pucp.papucplanet.confiteria.model.TipoAlimento;
 import pe.edu.pucp.papucplanet.confiteria.mysql.AlimentoMySQL;
+import pe.edu.pucp.papucplanet.confiteria.mysql.BebidaMySQL;
 import pe.edu.pucp.papucplanet.gestionUsuario.dao.AdministradorDAO;
 import pe.edu.pucp.papucplanet.gestionUsuario.dao.GestionUsuarioDAO;
 import pe.edu.pucp.papucplanet.gestionUsuario.model.Administrador;
@@ -69,11 +72,11 @@ public class Papucplanet {
 //            System.out.println("Activo: " + ad.getActivo());
 //        }
 //        System.out.println("hola!");
-          Alimento alimento;
-          AlimentoDAO olam=new AlimentoMySQL();
-          //obtener por codigo
-          alimento=olam.obtenerPorId(2);
-          System.out.println(alimento.getNombre());
+//          Alimento alimento;
+//          AlimentoDAO olam=new AlimentoMySQL();
+//          //obtener por codigo
+//          alimento=olam.obtenerPorId(2);
+//          System.out.println(alimento.getNombre());
           //insertar
 //          alimento.setNombre("Chocolate");
 //          alimento.setPesoPromedio(5);
@@ -84,13 +87,36 @@ public class Papucplanet {
 //          alimento.setPrecio(10);
 //          olam.actualizar(alimento);
 //          //eliminar
-          olam.eliminar(3);
-          //listar
-         ArrayList<Alimento> prueba;
-         prueba=olam.listar();
-         for(Alimento a:prueba){
-             System.out.println(a.getNombre())  ;
-         }
+//          olam.eliminar(3);
+//          //listar
+//         ArrayList<Alimento> prueba;
+//         prueba=olam.listar();
+//         for(Alimento a:prueba){
+//             System.out.println(a.getNombre())  ;
+//         }
+//        //BEBIDA
+//        Bebida b=new Bebida();
+//        b.setNombre("Inka");
+//        b.setOnzas(5);
+//        b.setPrecio(3);
+//        b.setTieneHielo(true);
+        BebidaDAO papu= new BebidaMySQL();
+        //insertar
+//        papu.insertar(b);
+        //seleccionar
+//        Bebida b;
+//        b=papu.obtenerPorId(6);
+//        System.out.println(b.getNombre());
+//        //actualizar
+//        b.setPrecio(7);
+//        papu.actualizar(b);
+//        //eliminar
+//        papu.eliminar(6);
+//        //lista
+        ArrayList <Bebida> arr;
+        arr=papu.listar();
+        for(Bebida b:arr)
+            System.out.println(b.getNombre());
     }
     
 }

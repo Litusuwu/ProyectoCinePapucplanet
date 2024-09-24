@@ -21,7 +21,7 @@ public class BebidaMySQL implements BebidaDAO{
              con = DBManager.getInstance().getConnection();
 
             // Preparamos la llamada al procedimiento
-            String sql = "{CALL INSERTAR_BEBIDA(?, ?, ?, ?, ?)}";
+            String sql = "{CALL INSERTAR_BEBIDA(?,?, ?, ?, ?)}";
             cs = con.prepareCall(sql);
 
             // Establecer los parámetros de entrada
@@ -127,11 +127,11 @@ public class BebidaMySQL implements BebidaDAO{
         ArrayList<Bebida> bebidas = new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_ALIMENTOS_TODOS()}");
+            cs = con.prepareCall("{call LISTAR_BEBIDAS_TODAS()}");
             rs = cs.executeQuery();
             while(rs.next()){
                 Bebida bebida = new Bebida();
-                bebida.setId(rs.getInt("id_alimento"));
+                bebida.setId(rs.getInt("id_bebida"));
                 bebida.setNombre(rs.getString("nombre"));
                 bebida.setPrecio(rs.getDouble("precio"));
                 bebida.setOnzas(rs.getInt("onzas"));
