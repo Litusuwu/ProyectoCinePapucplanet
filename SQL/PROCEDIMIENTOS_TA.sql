@@ -165,16 +165,16 @@ END$
 #Procedimientos de Administradores
 CREATE PROCEDURE INSERTAR_ADMINISTRADOR(
 	OUT _id_administrador INT,
-    IN _codigo VARCHAR(50),
     IN _dni VARCHAR(20),
     IN _nombres VARCHAR(100),
     IN _primer_apellido VARCHAR(60),
     IN _segundo_apellido VARCHAR(60),
     IN _genero CHAR,
-    IN _fecha_nacimiento DATE
+    IN _fecha_nacimiento DATE,
+    IN _codigo VARCHAR(50)
 )
 BEGIN
-	INSERT INTO Usuario(DNI, nombres, primer_apellido, segundo_apellido, genero, fecha_nacimiento) 
+	INSERT INTO Usuario(dni, nombres, primer_apellido, segundo_apellido, genero, fecha_nacimiento) 
     VALUES(_dni, _nombres, _primer_apellido, _segundo_apellido, _genero, _fecha_nacimiento);
     
     SET _id_administrador = @@last_insert_id;
@@ -187,7 +187,7 @@ CREATE PROCEDURE LISTAR_ADMINISTRADORES_TODOS()
 BEGIN
 	SELECT a.id_administrador, u.dni, u.nombres, u.primer_apellido, u.segundo_apellido, u.genero, u.fecha_nacimiento, a.codigo, u.activo 
     FROM Usuario u 
-    INNER JOIN Administrador a ON u.id_persona = a.id_administrador;
+    INNER JOIN Administrador a ON u.id_usuario = a.id_administrador;
 END$
 
 CREATE PROCEDURE MODIFICAR_ADMINISTRADOR(
