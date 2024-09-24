@@ -11,10 +11,10 @@ public interface BebidaDAO {
     int actualizar(Bebida bebida);
     
     // Método para eliminar una bebida por su código
-    int eliminar(int codigo);
+    int eliminar(int id);
     
     // Método para obtener una bebida por su código
-    Bebida obtenerPorCodigo(int codigo);
+    Bebida obtenerPorId(int id);
     
     // Método para listar todos las bebidas
     ArrayList<Bebida> listar();      

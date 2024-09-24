@@ -11,10 +11,10 @@ public interface AlimentoDAO {
     int actualizar(Alimento alimento);
     
     // Método para eliminar un alimento por su código
-    int eliminar(int codigo);
+    int eliminar(int id);
     
     // Método para obtener un alimento por su código
-    Alimento obtenerPorCodigo(int codigo);
+    Alimento obtenerPorId(int id);
     
     // Método para listar todos los alimentos
     ArrayList<Alimento> listar();        
