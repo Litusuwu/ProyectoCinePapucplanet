@@ -39,7 +39,8 @@ public class Sede {
     }
 
     public ArrayList<Sala> getSalas(){
-        return new ArrayList<>(salas);
+        return salas;
+//        return new ArrayList<>(salas);
     }
 
     public void setSalas(ArrayList<Sala> salas){

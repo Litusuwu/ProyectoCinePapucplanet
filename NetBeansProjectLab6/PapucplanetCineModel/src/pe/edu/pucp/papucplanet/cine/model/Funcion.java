@@ -78,7 +78,8 @@ public class Funcion {
 	
 
     public ArrayList<ButacaFuncion> getButacasFuncion(){
-        return new ArrayList<>(butacasFuncion);
+        return butacasFuncion;
+//        return new ArrayList<>(butacasFuncion);
     }
 
     public void setButacasFuncion(ArrayList<ButacaFuncion> butacasFuncion){

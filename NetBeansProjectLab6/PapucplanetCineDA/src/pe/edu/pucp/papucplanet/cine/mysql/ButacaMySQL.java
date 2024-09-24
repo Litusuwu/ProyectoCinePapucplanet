@@ -17,6 +17,7 @@ public class ButacaMySQL implements ButacaDAO{
         int result = 0;
         try{
             con = DBManager.getInstance().getConnection();
+            con.setAutoCommit(false);
             cs = con.prepareCall("{call INSERTAR_BUTACA(?,?,?,?,?)}");
             cs.registerOutParameter("_id_butaca", java.sql.Types.INTEGER);
             cs.setString("_fila",String.valueOf(butaca.getFila()));
@@ -26,6 +27,7 @@ public class ButacaMySQL implements ButacaDAO{
             cs.executeUpdate();
             butaca.setIdButaca(cs.getInt("_id_butaca"));
             result = butaca.getIdButaca();
+            con.commit();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }finally{
@@ -39,6 +41,7 @@ public class ButacaMySQL implements ButacaDAO{
         int result = 0;
         try{
             con = DBManager.getInstance().getConnection();
+            con.setAutoCommit(false);
             cs = con.prepareCall("{call MODIFICAR_BUTACA(?,?,?,?,?,?)}");
             cs.registerOutParameter("_id_butaca", java.sql.Types.INTEGER);
             cs.setString("_fila",String.valueOf(butaca.getFila()));
@@ -49,6 +52,7 @@ public class ButacaMySQL implements ButacaDAO{
             cs.executeUpdate();
             butaca.setIdButaca(cs.getInt("_id_butaca"));
             result = butaca.getIdButaca();
+            con.commit();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }finally{
@@ -67,6 +71,7 @@ public class ButacaMySQL implements ButacaDAO{
         ArrayList<Butaca> butacas = new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
+            con.setAutoCommit(false);
             cs = con.prepareCall("{call LISTAR_BUTACAS_TODAS()}");
             rs = cs.executeQuery();
             Butaca butaca;
@@ -83,6 +88,7 @@ public class ButacaMySQL implements ButacaDAO{
                 //butaca.setSala(salaDao.obtenerPorId(idSala));
                 butacas.add(butaca);
             }
+            con.commit();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }finally{
@@ -96,6 +102,7 @@ public class ButacaMySQL implements ButacaDAO{
         Butaca butaca = new Butaca();
         try{
             con = DBManager.getInstance().getConnection();
+            con.setAutoCommit(false);
             cs = con.prepareCall("{call LISTAR_BUTACAS_TODAS()}");
             cs.setInt("_id_butaca",idButaca);
             rs = cs.executeQuery();
@@ -110,6 +117,7 @@ public class ButacaMySQL implements ButacaDAO{
                 //salaDao = new Sala();
                 //butaca.setSala(salaDao.obtenerPorId(idSala));
             }
+            con.commit();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }finally{
