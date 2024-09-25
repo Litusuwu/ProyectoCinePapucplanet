@@ -78,7 +78,7 @@ public class BoletaMySQL implements BoletaDAO{
             for(LineaBoleta lb : boleta.getLineasBoleta()){
                 cs = con.prepareCall("{call INSERTAR_LINEA_BOLETA(?,?,?,?,?)}");
                 cs.registerOutParameter(1, java.sql.Types.INTEGER); // El parámetro de salida _id_lineaBoleta
-                cs.setInt(2, lb.getBoleta().getIdBoleta());
+                cs.setInt(2, boleta.getIdBoleta());
                 if(lb.getConsumible() == null){
                     cs.setInt(3,0);
                 }else{

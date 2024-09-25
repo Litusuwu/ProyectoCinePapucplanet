@@ -29,6 +29,22 @@
                 <id>jar</id>
             </reference>
             <reference>
+                <foreign-project>PapucplanetComprasDA</foreign-project>
+                <artifact-type>jar</artifact-type>
+                <script>build.xml</script>
+                <target>jar</target>
+                <clean-target>clean</clean-target>
+                <id>jar</id>
+            </reference>
+            <reference>
+                <foreign-project>PapucplanetComprasModel</foreign-project>
+                <artifact-type>jar</artifact-type>
+                <script>build.xml</script>
+                <target>jar</target>
+                <clean-target>clean</clean-target>
+                <id>jar</id>
+            </reference>
+            <reference>
                 <foreign-project>PapucplanetConfiteriaDA</foreign-project>
                 <artifact-type>jar</artifact-type>
                 <script>build.xml</script>

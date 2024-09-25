@@ -10,7 +10,6 @@ public class LineaBoleta {
     private int cantidad;
     private boolean activo;
     private ButacaFuncion butacaFuncion;
-    private Boleta boleta;
     private Consumible consumible;
     
     public LineaBoleta(){
@@ -35,14 +34,6 @@ public class LineaBoleta {
 
     public void setButacaFuncion(ButacaFuncion butacaFuncion) {
         this.butacaFuncion = butacaFuncion;
-    }
-
-    public Boleta getBoleta() {
-        return boleta;
-    }
-
-    public void setBoleta(Boleta boleta) {
-        this.boleta = boleta;
     }
 
     public Consumible getConsumible() {

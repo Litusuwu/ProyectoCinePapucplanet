@@ -23,14 +23,22 @@ import pe.edu.pucp.papucplanet.cine.dao.PeliculaDAO;
 import pe.edu.pucp.papucplanet.cine.dao.SalaDAO;
 import pe.edu.pucp.papucplanet.cine.dao.SedeDAO;
 import pe.edu.pucp.papucplanet.cine.model.Sala;
+import pe.edu.pucp.papucplanet.cine.mysql.ButacaFuncionMySQL;
+import pe.edu.pucp.papucplanet.cine.mysql.ButacaMySQL;
 import pe.edu.pucp.papucplanet.cine.mysql.FuncionMySQL;
 import pe.edu.pucp.papucplanet.cine.mysql.PeliculaMySQL;
 import pe.edu.pucp.papucplanet.cine.mysql.SalaMySQL;
 import pe.edu.pucp.papucplanet.cine.mysql.SedeMySQL;
+import pe.edu.pucp.papucplanet.compras.dao.BoletaDAO;
+import pe.edu.pucp.papucplanet.compras.model.Boleta;
+import pe.edu.pucp.papucplanet.compras.model.LineaBoleta;
+import pe.edu.pucp.papucplanet.compras.model.MetodoPago;
+import pe.edu.pucp.papucplanet.compras.mysql.BoletaMySQL;
 import pe.edu.pucp.papucplanet.confiteria.dao.AlimentoDAO;
 import pe.edu.pucp.papucplanet.confiteria.dao.BebidaDAO;
 import pe.edu.pucp.papucplanet.confiteria.model.Alimento;
 import pe.edu.pucp.papucplanet.confiteria.model.Bebida;
+import pe.edu.pucp.papucplanet.confiteria.model.Consumible;
 import pe.edu.pucp.papucplanet.confiteria.model.TipoAlimento;
 import pe.edu.pucp.papucplanet.confiteria.mysql.AlimentoMySQL;
 import pe.edu.pucp.papucplanet.confiteria.mysql.BebidaMySQL;
@@ -425,7 +433,85 @@ public class Papucplanet {
         }
     }
 
+    public static void testBoleta_Alimento() throws Exception {
+        
+        PeliculaDAO peliculaSQL = new PeliculaMySQL();
+        LineaBoleta linea = new LineaBoleta();
+        Boleta boleta = new Boleta();
+        Funcion funcion = new Funcion();
+        ButacaFuncion butacaFuncion = new ButacaFuncion();
+        Consumible consumible = new Alimento(); // Inicialización válida
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        Date fecha = formato.parse("1990-01-01");
 
+
+        Alimento alimento = (Alimento) consumible; // Downcasting explícito a Alimento
+        alimento.setPesoPromedio(3.2); // Ahora puedes acceder al método específico
+        alimento.setNombre("Papas");
+        alimento.setPrecio(3.50);
+        alimento.setTipoAlimento(TipoAlimento.POSTRE);
+
+        AlimentoDAO alimentoSQL = new AlimentoMySQL();
+        alimentoSQL.insertar(alimento);
+
+        funcion.setDia(fecha);
+        funcion.setHorarioFin(LocalTime.NOON);
+        funcion.setHorarioInicio(LocalTime.NOON);
+        funcion.setPelicula(peliculaSQL.obtenerPorId(1));
+
+        SalaDAO salaSQL = new SalaMySQL();
+        funcion.setSala(salaSQL.obtenerPorId(1));
+
+        FuncionDAO funcionSQL = new FuncionMySQL();
+        funcionSQL.insertar(funcion);
+
+        Butaca butaca = new Butaca();
+        butaca.setColumna(5);
+        butaca.setDiscapacitado(true);
+        butaca.setFila('B');
+        butaca.setSala(salaSQL.obtenerPorId(1));
+
+        ButacaDAO butacaSQL = new ButacaMySQL();
+        butacaSQL.insertar(butaca);
+        butacaSQL.insertar(butaca);
+
+        butacaFuncion.setColumna(5);
+        butacaFuncion.setDiscapacitado(true);
+        butacaFuncion.setFila('B');
+        butacaFuncion.setFuncion(funcionSQL.obtenerPorId(1));
+        butacaFuncion.setPrecio(10);
+        butacaFuncion.setEstado(EstadoButaca.OCUPADA);
+        butacaFuncion.setIdButaca(2);
+
+        ButacaFuncionDAO butacaFuncionSQL = new ButacaFuncionMySQL();
+        butacaFuncionSQL.insertar(butacaFuncion);
+
+        alimento = alimentoSQL.obtenerPorId(1);
+        System.out.println("Empezamos con las líneas de boleta");
+        ArrayList<LineaBoleta> lineas = new ArrayList<>();
+
+        linea.setActivo(true);
+        linea.setIdLineaBoleta(1);
+        linea.setButacaFuncion(butacaFuncionSQL.obtenerPorId(1));
+        linea.setPrecio(10);
+
+        lineas.add(linea);
+        linea.setPrecio(3);
+        linea.setConsumible(alimento);
+        linea.setPrecio(12);
+        linea.setButacaFuncion(null);
+        lineas.add(linea);
+
+        ClienteDAO clienteSQL = new ClienteMySQL();
+
+        boleta.setLineasBoleta(lineas);
+        boleta.setFechaCompra(fecha);
+        boleta.setMetodoPago(MetodoPago.TARJETA_DEBITO);
+        boleta.setTotal(100);
+        boleta.setCliente(clienteSQL.obtenerPorCodigo(2));
+        BoletaDAO boletaSQL = new BoletaMySQL();
+        boletaSQL.insertar(boleta);
+    }
     
     public static void main(String[] args) throws ParseException {
         // Test ADMIN
@@ -441,6 +527,8 @@ public class Papucplanet {
             
             testPelicula();
             testSala();
+            //testBoleta_Alimento();
+            
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }

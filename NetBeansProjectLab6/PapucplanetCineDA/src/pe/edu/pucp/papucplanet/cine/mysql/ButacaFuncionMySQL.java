@@ -148,14 +148,14 @@ public class ButacaFuncionMySQL implements ButacaFuncionDAO{
             con = DBManager.getInstance().getConnection();
             con.setAutoCommit(false);
             cs = con.prepareCall("{call LISTAR_BUTACA_FUNCION_X_ID(?)}");
-            cs.setInt("id_butaca_funcion",idButacaFuncion);
+            cs.setInt("_id_butaca_funcion",idButacaFuncion);
             rs = cs.executeQuery();
             int id;
             if(rs.next()){
                 butacaFuncion.setIdButacaFuncion(rs.getInt("id_butaca_funcion"));
                 butacaFuncion.setPrecio(rs.getDouble("precio"));
                 butacaFuncion.setActivo(rs.getBoolean("activo"));
-                EstadoButaca est=EstadoButaca.valueOf(rs.getString("estado"));
+                EstadoButaca est=EstadoButaca.valueOf(rs.getString("estado_butaca"));
                 butacaFuncion.setEstado(est);
                 id = rs.getInt("fid_funcion");          
                 FuncionDAO funcionDAO = new FuncionMySQL();
