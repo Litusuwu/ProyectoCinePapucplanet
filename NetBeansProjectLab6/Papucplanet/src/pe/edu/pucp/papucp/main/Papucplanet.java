@@ -37,8 +37,169 @@ public class Papucplanet {
     /**
      * @param args the command line arguments
      */
+    public static void testAdministrador() throws Exception {
+        AdministradorDAO locura = new AdministradorMySQL();
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        Date fechaNacimiento = formato.parse("1990-01-01");
+
+        // Crear Administrador
+        Administrador administrador = new Administrador();
+        administrador.setCodigo("A123");
+        administrador.setDni("12345678");
+        administrador.setNombre("Lucas");
+        administrador.setPrimerApellido("Chad");
+        administrador.setSegundoApellido("Sigma");
+        administrador.setGenero('M');
+        administrador.setFechaNacimiento(fechaNacimiento);
+
+        int resultado = locura.insertar(administrador);
+        if (resultado > 0) {
+            System.out.println("Administrador insertado correctamente con ID: " + administrador.getId());
+        } else {
+            System.out.println("Error al insertar administrador.");
+        }
+
+        // Obtener Administrador por ID
+        int idAdministrador = 24;
+        Administrador administrador1 = locura.obtenerPorCodigo(idAdministrador);
+        if (administrador1 != null) {
+            System.out.println(administrador1.imprimirDatos());
+        } else {
+            System.out.println("No se encontró un administrador con el ID: " + idAdministrador);
+        }
+
+        // Listar Administradores
+        ArrayList<Administrador> administradores = locura.listar();
+        for (Administrador ad : administradores) {
+            System.out.println(ad.imprimirDatos());
+        }
+
+        // Eliminar Administrador
+        resultado = locura.eliminar(5);
+        if (resultado > 0) {
+            System.out.println("Administrador eliminado correctamente con ID: 5");
+        } else {
+            System.out.println("Error al eliminar administrador.");
+        }
+    }
+    public static void testCliente() throws Exception {
+        ClienteDAO clienteDAO = new ClienteMySQL();
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        Date fechaNacimiento = formato.parse("1990-01-01");
+
+        // Crear Cliente
+        Sede sede = new Sede();
+        sede.setIdSede(1);
+        sede.setUniversidad("Sede PUCP");
+        sede.setUbicacion("Av. Universitaria");
+
+        Cliente cliente = new Cliente();
+        cliente.setDni("76211902");
+        cliente.setNombre("Guanira");
+        cliente.setPrimerApellido("Erasmo");
+        cliente.setSegundoApellido("Allasi");
+        cliente.setGenero('F');
+        cliente.setFechaNacimiento(fechaNacimiento);
+        cliente.setSede(sede);
+
+        int resultado = clienteDAO.insertar(cliente);
+        if (resultado > 0) {
+            System.out.println("Cliente insertado con el ID: " + cliente.getId());
+        } else {
+            System.out.println("No se pudo insertar al cliente.");
+        }
+
+        // Obtener Cliente por ID
+        int idCliente = 57;
+        cliente = clienteDAO.obtenerPorCodigo(idCliente);
+        if (cliente != null) {
+            System.out.println(cliente.imprimirDatos());
+        } else {
+            System.out.println("No se encontró un cliente con el ID: " + idCliente);
+        }
+
+        // Actualizar Cliente
+        cliente.setNombre("Guanira PRO");
+        resultado = clienteDAO.actualizar(cliente);
+        if (resultado > 0) {
+            System.out.println(clienteDAO.obtenerPorCodigo(idCliente).imprimirDatos());
+        } else {
+            System.out.println("No se pudo actualizar el cliente.");
+        }
+
+        // Listar Clientes
+        ArrayList<Cliente> clientes = clienteDAO.listar();
+        for (Cliente cli : clientes) {
+            System.out.println(cli.imprimirDatos());
+        }
+
+        // Eliminar Cliente
+        resultado = clienteDAO.eliminar(idCliente);
+        if (resultado > 0) {
+            System.out.println("Cliente eliminado con éxito.");
+        } else {
+            System.out.println("No se pudo eliminar el cliente.");
+        }
+    }
+    public static void testCuenta(Administrador administrador) throws Exception {
+        CuentaDAO cuentaDAO = new CuentaMySQL();
+
+        // Crear Cuenta
+        Cuenta cuenta = new Cuenta();
+        cuenta.setCorreo("vegetta777OMGRexXx@pucp.edu.pe");
+        cuenta.setPassword("GuaniraXErasmo");
+        cuenta.setUsuario(administrador);
+
+        int resultado = cuentaDAO.insertar(cuenta);
+        if (resultado > 0) {
+            System.out.println("Cuenta insertada con el ID: " + cuenta.getUsuario().getId());
+        } else {
+            System.out.println("No se pudo insertar la cuenta.");
+        }
+
+        // Obtener Cuenta por ID
+        cuenta = cuentaDAO.obtenerPorCodigo(administrador.getId());
+        if (cuenta != null) {
+            System.out.println(cuenta.imprimirDatos());
+        } else {
+            System.out.println("No se encontró una cuenta con el ID: " + administrador.getId());
+        }
+
+        // Actualizar Cuenta
+        cuenta.setCorreo("guaniraPROgamer");
+        resultado = cuentaDAO.actualizar(cuenta);
+        if (resultado > 0) {
+            System.out.println(cuentaDAO.obtenerPorCodigo(administrador.getId()).imprimirDatos());
+        } else {
+            System.out.println("No se pudo actualizar la cuenta.");
+        }
+
+        // Listar Cuentas
+        ArrayList<Cuenta> cuentas = cuentaDAO.listar();
+        for (Cuenta cu : cuentas) {
+            System.out.println(cu.imprimirDatos());
+        }
+
+        // Eliminar Cuenta
+        resultado = cuentaDAO.eliminar(administrador.getId());
+        if (resultado > 0) {
+            System.out.println("Cuenta eliminada con éxito.");
+        } else {
+            System.out.println("No se pudo eliminar la cuenta.");
+        }
+    }
+
     public static void main(String[] args) throws ParseException {
-          // Test ADMIN
-        
+        // Test ADMIN
+        try{
+            testAdministrador();
+            testCliente();
+            Administrador administrador = new Administrador();
+            administrador.setId(24);
+            testCuenta(administrador);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
     }
 }
