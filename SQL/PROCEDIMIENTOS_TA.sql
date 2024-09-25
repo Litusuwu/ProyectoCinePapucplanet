@@ -157,9 +157,15 @@ END$
 
 CREATE PROCEDURE LISTAR_CUENTAS_TODAS()
 BEGIN
-    SELECT c.id_usuario, c.contrasena, c.correo, c.activo 
-    FROM Usuario c;
+SELECT u.id_usuario, u.contrasena, u.correo, u.activo,
+           a.id_administrador, a.codigo,  
+           c.id_cliente                   
+    FROM Usuario u
+    LEFT JOIN Administrador a ON u.id_usuario = a.id_administrador
+    LEFT JOIN Cliente c ON u.id_usuario = c.id_cliente
+    WHERE u.id_usuario = id_usuario AND u.correo IS NOT NULL;
 END$
+
 
 CREATE PROCEDURE MODIFICAR_CUENTA(
     IN _id_cuenta INT,
@@ -172,13 +178,15 @@ BEGIN
     WHERE id_cuenta = _id_cuenta;
 END$
 
-CREATE PROCEDURE LISTAR_CUENTA_X_ID(
-    IN _id_cuenta INT
-)
+CREATE PROCEDURE LISTAR_CUENTA_X_ID(IN _id_cuenta INT)
 BEGIN
-    SELECT c.id_usuario, c.contrasena, c.correo, c.activo 
-    FROM Usuario c 
-    WHERE c.id_cuenta = _id_cuenta;
+    SELECT u.id_usuario, u.nombres, u.contrasena, u.correo, u.activo,
+           a.id_administrador, a.codigo,  
+           c.id_cliente 
+    FROM Usuario u
+    LEFT JOIN Administrador a ON u.id_usuario = a.id_administrador
+    LEFT JOIN Cliente c ON u.id_usuario = c.id_cliente
+    WHERE u.id_usuario = _id_cuenta AND u.correo IS NOT NULL;
 END$
 
 -- AGREGADO
