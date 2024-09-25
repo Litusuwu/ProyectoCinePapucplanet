@@ -95,7 +95,7 @@ public class Papucplanet {
         // Eliminar Administrador
         resultado = locura.eliminar(1);
         if (resultado > 0) {
-            System.out.println("Administrador eliminado correctamente con ID: 5");
+            System.out.println("Administrador eliminado correctamente con ID: 1");
         } else {
             System.out.println("Error al eliminar administrador.");
         }
@@ -108,8 +108,8 @@ public class Papucplanet {
         // Crear Cliente
         Sede sede = new Sede();
         sede.setIdSede(1);
-        sede.setUniversidad("Sede PUCP");
-        sede.setUbicacion("Av. Universitaria");
+        sede.setUniversidad("PUCP");
+        sede.setUbicacion("SAN MIGUEL");
 
         Cliente cliente = new Cliente();
         cliente.setDni("76211902");
@@ -128,7 +128,7 @@ public class Papucplanet {
         }
 
         // Obtener Cliente por ID
-        int idCliente = 1;
+        int idCliente = 2;
         cliente = clienteDAO.obtenerPorCodigo(idCliente);
         if (cliente != null) {
             System.out.println(cliente.imprimirDatos());
@@ -215,7 +215,7 @@ public class Papucplanet {
         sede.setActivo(true);
         
         Pelicula pelicula = new Pelicula();
-        pelicula.setIdPelicula(3333);
+        pelicula.setIdPelicula(1);
         pelicula.setTitulo("Intesamente 2");
         pelicula.setGenero(Genero.COMEDIA);
         pelicula.setDuracion(12.00);
@@ -263,15 +263,16 @@ public class Papucplanet {
         System.out.println("INSERT");
         peliDao.insertar(pelicula);
         pelicula.setTitulo(pelicula.getTitulo()+"+");
-        System.out.println("MODI");
+        System.out.println("MODIFICAR");
         peliDao.modificar(pelicula);
-        Pelicula peli2 = peliDao.obtenerPorId(3);
+        
+        Pelicula peli2 = peliDao.obtenerPorId(1);
         pelicula.setTitulo(pelicula.getTitulo()+"+");
-        peli2.setIdPelicula(4);
+        peli2.setIdPelicula(1);
         System.out.println("INSERT");
         peliDao.insertar(peli2);
-        System.out.println("ELIMI");
-        peliDao.eliminar(4444);
+        System.out.println("ELIMINAR");
+        peliDao.eliminar(1);
         
     }
     // Funciones CRUD para Sede
@@ -295,7 +296,7 @@ public class Papucplanet {
         if (sede1 != null) {
             System.out.println(sede1.imprimirDatos());
         } else {
-            System.out.println("No se encontró una sede con el ID: 1234");
+            System.out.println("No se encontró una sede con el ID:"+ resultado);
         }
 
         // Actualizar Sede
@@ -430,12 +431,14 @@ public class Papucplanet {
         // Test ADMIN
         try{
             testAdministrador();
+            testSede();
+            
             testCliente();
             Administrador administrador = new Administrador();
             administrador.setId(1);
             testCuenta(administrador);
             testCine();
-            testSede();
+            
             testPelicula();
             testSala();
         }catch(Exception ex){

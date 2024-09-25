@@ -137,7 +137,7 @@ public class LineaBoletaMySQL implements LineaBoletaDAO{
             if(rs.next()){
                lineaBoleta.setIdLineaBoleta(rs.getInt("id_linea_boleta"));
                idBoleta = rs.getInt("fid_boleta");
-               lineaBoleta.setBoleta(boleta.obtenerPorId(idBoleta));//falta implementar
+               lineaBoleta.setBoleta(boleta.obtenerPorId(idBoleta));
                
                if (rs.next()) {
                    Consumible consumible;
@@ -149,16 +149,15 @@ public class LineaBoletaMySQL implements LineaBoletaDAO{
                         consumible = new Alimento();
                     }
                     else{
-                        throw new IllegalArgumentException("No existe ese usuario.");
+                        throw new IllegalArgumentException("No existe ese consumible.");
                     }
 
                     consumible.setId(rs.getInt("id_consumible"));
                     lineaBoleta.setConsumible(consumible);
                 }
                
-               
                idButacaFuncion = rs.getInt("fid_butaca_funcion");
-               lineaBoleta.setButacaFuncion(butacaFuncion.obtenerPorId(idButacaFuncion));//falta implementar
+               lineaBoleta.setButacaFuncion(butacaFuncion.obtenerPorId(idButacaFuncion));
                lineaBoleta.setCantidad(rs.getInt("cantidad"));
             }
         }catch(SQLException ex){
