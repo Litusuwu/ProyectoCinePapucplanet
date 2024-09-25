@@ -122,7 +122,7 @@ public class CuentaMySQL implements CuentaDAO,  GestionUsuarioDAO<Cuenta>{
 
         try {
             con = DBManager.getInstance().getConnection();
-            String sql = "{CALL TESTCLARA(?)}";
+            String sql = "{CALL LISTAR_CUENTA_X_ID(?)}";
             cs = con.prepareCall(sql);
             cs.setInt(1, codigo);
             rs = cs.executeQuery();
@@ -168,7 +168,7 @@ public class CuentaMySQL implements CuentaDAO,  GestionUsuarioDAO<Cuenta>{
             con = DBManager.getInstance().getConnection();
 
             // Preparar la llamada al procedimiento
-            String sql = "{CALL TESTCLARA2()}";
+            String sql = "{CALL LISTAR_CUENTAS_TODAS()}";
             cs = con.prepareCall(sql);
 
             // Ejecutar el procedimiento y obtener los resultados
