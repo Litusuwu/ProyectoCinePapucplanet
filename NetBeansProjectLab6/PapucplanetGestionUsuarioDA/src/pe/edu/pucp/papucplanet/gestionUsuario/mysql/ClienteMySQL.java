@@ -41,7 +41,7 @@ public class ClienteMySQL implements ClienteDAO, GestionUsuarioDAO<Cliente>{
             cs.setString(5, cliente.getSegundoApellido());
             cs.setString(6, String.valueOf(cliente.getGenero())); // Convertir char a String
             cs.setDate(7, new Date(cliente.getFechaNacimiento().getTime())); // Para usar java.sql.Date
-            cs.setInt(8, cliente.getSede().getId());
+            cs.setInt(8, cliente.getSede().getIdSede());
             // Ejecutar el procedimiento
             cs.executeUpdate();
 
@@ -83,7 +83,7 @@ public class ClienteMySQL implements ClienteDAO, GestionUsuarioDAO<Cliente>{
             cs.setString(5, cliente.getSegundoApellido());
             cs.setString(6, String.valueOf(cliente.getGenero())); // Convertir char a String
             cs.setDate(7, new Date(cliente.getFechaNacimiento().getTime())); // Para usar java.sql.Date
-            cs.setInt(8, cliente.getSede().getId());
+            cs.setInt(8, cliente.getSede().getIdSede());
             // Ejecutar el procedimiento
             
 
@@ -168,7 +168,7 @@ public class ClienteMySQL implements ClienteDAO, GestionUsuarioDAO<Cliente>{
                 rs2 = cs.executeQuery();
                 if(rs2.next()){
                     sede = new Sede();
-                    sede.setId(rs2.getInt("id_sede"));
+                    sede.setIdSede(rs2.getInt("id_sede"));
                     sede.setUbicacion(rs2.getString("ubicacion"));
                     sede.setUniversidad(rs2.getString("nombre"));
                     
@@ -238,7 +238,7 @@ public class ClienteMySQL implements ClienteDAO, GestionUsuarioDAO<Cliente>{
                 rs2 = cs.executeQuery();
                 if(rs2.next()){
                     sede = new Sede();
-                    sede.setId(idSede);
+                    sede.setIdSede(idSede);
                     sede.setUbicacion(rs2.getString("ubicacion"));
                     sede.setUniversidad(rs2.getString("nombre"));
                     
