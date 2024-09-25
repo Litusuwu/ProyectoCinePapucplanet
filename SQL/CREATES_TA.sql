@@ -37,7 +37,7 @@ CREATE TABLE Usuario (
 CREATE TABLE Administrador (
     
     id_administrador INT,
-    codigo VARCHAR(50) NOT NULL,
+    codigo VARCHAR(50) NOT NULL UNIQUE,
     PRIMARY KEY(id_administrador),
     FOREIGN KEY (id_administrador) REFERENCES Usuario(id_usuario)
 );
