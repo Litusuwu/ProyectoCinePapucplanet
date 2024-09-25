@@ -1,10 +1,8 @@
 package pe.edu.pucp.papucplanet.confiteria.mysql;
 
-<<<<<<< HEAD
 
-=======
+
 import pe.edu.pucp.papucplanet.dbmanager.model.DBManager;
->>>>>>> papuYo
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
