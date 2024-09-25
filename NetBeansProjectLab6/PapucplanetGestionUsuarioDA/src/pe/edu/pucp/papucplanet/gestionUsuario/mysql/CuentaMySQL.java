@@ -32,19 +32,13 @@ public class CuentaMySQL implements CuentaDAO,  GestionUsuarioDAO<Cuenta>{
             // Preparamos la llamada al procedimiento
             String sql = "{CALL INSERTAR_CUENTA(?, ?, ?, ?)}";
             cs = con.prepareCall(sql);
-
-            // Establecer los parámetros de entrada
-            cs.registerOutParameter(1, java.sql.Types.INTEGER); // El parámetro de salida _id_administrador
+            cs.registerOutParameter(1, java.sql.Types.INTEGER);
             cs.setString(2, cuenta.getPassword());
             cs.setString(3, cuenta.getCorreo());
             cs.setInt(4, cuenta.getUsuario().getId());
-            // Ejecutar el procedimiento
             cs.executeUpdate();
-
             resultado = cs.getInt(1);
             cuenta.getUsuario().setId(cs.getInt(1));
-//            if(resultado > 0)cliente.setId(resultado); // Establecer el ID en el objeto Administrador
-//            resultado = 1;
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }finally{
@@ -69,8 +63,6 @@ public class CuentaMySQL implements CuentaDAO,  GestionUsuarioDAO<Cuenta>{
             cs.setInt(1, cuenta.getUsuario().getId());
             cs.setString(2, cuenta.getPassword());
             cs.setString(3, cuenta.getCorreo());
-            // Obtener el ID del administrador generado (parámetro OUT)
-            // cliente.setId(idCliente); // Establecer el ID en el objeto Administrador
             resultado = cs.executeUpdate();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -91,15 +83,9 @@ public class CuentaMySQL implements CuentaDAO,  GestionUsuarioDAO<Cuenta>{
         try {
             // Obtener la conexión
             con = DBManager.getInstance().getConnection();
-
-            // Preparar la llamada al procedimiento
             String sql = "{CALL ELIMINAR_CUENTA_X_ID(?)}";
             cs = con.prepareCall(sql);
-
-            // Establecer el parámetro de entrada
             cs.setInt(1, codigo);
-
-            // Ejecutar el procedimiento y obtener los resultados
             resultado = cs.executeUpdate();
 
         } catch (SQLException e) {
