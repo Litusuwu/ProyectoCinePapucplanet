@@ -1,21 +1,37 @@
 package pe.edu.pucp.papucplanet.compras.model;
-import pe.edu.pucp.papucplanet.cine.model.ButacaFuncion;
-import pe.edu.pucp.papucplanet.cine.model.Funcion;
-import pe.edu.pucp.papucplanet.cine.model.Sala;
-import pe.edu.pucp.papucplanet.confiteria.model.Consumible;
 import java.util.Date;
 import java.util.ArrayList;
+import pe.edu.pucp.papucplanet.gestionUsuario.model.Cliente;
 
 public class Boleta{
     private int idBoleta;
+    private Cliente cliente;
     private Date fechaCompra;
     private MetodoPago metodoPago;
     private double total;
+    private ArrayList<LineaBoleta> lineasBoleta;
     private boolean activo;
     //posee array de consumible y entradas
-    private ArrayList<Consumible> consumibles;
-    private ArrayList<ButacaFuncion> butacasFunciones;
+
+    public ArrayList<LineaBoleta> getLineasBoleta() {
+        return lineasBoleta;
+    }
+
+    public void setLineasBoleta(ArrayList<LineaBoleta> lineasBoleta) {
+        this.lineasBoleta = lineasBoleta;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    
+    public Boleta(){
         
+    }
     	// Constructor con parámetros
     public Boleta(Date fechaCompra, MetodoPago metodoPago, double total) {
         this.fechaCompra = fechaCompra;
@@ -69,46 +85,8 @@ public class Boleta{
         this.total = total;
     }
 
-    public ArrayList<Consumible> getConsumibles(){
-        return new ArrayList<>(consumibles);
-    }
 
-    public void setConsumibles(ArrayList<Consumible> consumibles){
-        this.consumibles = consumibles;
-    }
-
-    public ArrayList<ButacaFuncion> getButacasFunciones(){
-        return new ArrayList<>(butacasFunciones);
-    }
-
-    public void setEntradas(ArrayList<ButacaFuncion> butacasFunciones){
-        this.butacasFunciones = butacasFunciones;
-    }
-
-    //////////////////////////////////////////////////////////////////METODOS///////////////////////////////////////////////////////////////////////////
-
-    // Método para agregar un consumible
-    public void agregarConsumible(Consumible consumible) {
-        this.consumibles.add(consumible);
-        System.out.println("Consumible agregado: " + consumible.getNombre());
-    }
-
-    // Método para agregar una entrada
-    public void agregarButaca(ButacaFuncion butaca) {
-        this.butacasFunciones.add(butaca);
-        //System.out.println("Entrada agregada: " + butacasFunciones.getNumero());
-    }
-
-    // Método para eliminar una entrada por índice
-    public void eliminarButaca(int indice) {
-        if (indice >= 0 && indice < butacasFunciones.size()) {
-            ButacaFuncion butElim = butacasFunciones.remove(indice);
-            //System.out.println("Entrada eliminada: " + butElim.getNumero());
-        } else {
-            System.out.println("Índice fuera de rango");
-        }
-    }
-
+   
     //////////////////////////////////////////////////////////////METODO INTERFACE///////////////////////////////////////////////////////////////////////////
 
     // Método para generar un reporte detallado
@@ -117,22 +95,6 @@ public class Boleta{
         reporte = "Fecha de compra: "+ fechaCompra + "\n";
         reporte = "Método de pago: "+ metodoPago + "\n";
         reporte ="Total: " + total + "\n";
-
-        reporte = "\nConsumibles:\n";
-        for (Consumible consumible : consumibles) {
-            reporte = " - " + consumible.getNombre() + " - Precio: " + consumible.getPrecio() + "\n";
-        }
-
-        reporte = "\nEntradas:\n";
-		
-        for (ButacaFuncion butaca : butacasFunciones) {
-            Sala sala;
-            sala=butaca.getSala();
-            Funcion funcion=butaca.getFuncion();
-            reporte = " - Película: " + funcion.getPelicula() + " - Sala: " + 
-            sala.getIdSala() + " - Butaca: " + butaca.getFila() + butaca.getColumna()+"\n";
-        }
-
         return reporte;
     }
 
