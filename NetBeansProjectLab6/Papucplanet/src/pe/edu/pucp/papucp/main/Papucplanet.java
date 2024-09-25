@@ -6,9 +6,22 @@ package pe.edu.pucp.papucp.main;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
+import pe.edu.pucp.papucplanet.cine.model.Genero;
+import pe.edu.pucp.papucplanet.cine.model.Pelicula;
 import pe.edu.pucp.papucplanet.cine.model.Sede;
+import pe.edu.pucp.papucplanet.cine.dao.ButacaDAO;
+import pe.edu.pucp.papucplanet.cine.model.EstadoButaca;
+import pe.edu.pucp.papucplanet.cine.model.Butaca;
+import pe.edu.pucp.papucplanet.cine.dao.ButacaFuncionDAO;
+import pe.edu.pucp.papucplanet.cine.model.ButacaFuncion;
+import pe.edu.pucp.papucplanet.cine.model.Funcion;
+import pe.edu.pucp.papucplanet.cine.dao.FuncionDAO;
+import pe.edu.pucp.papucplanet.cine.dao.PeliculaDAO;
+import pe.edu.pucp.papucplanet.cine.model.Sala;
+import pe.edu.pucp.papucplanet.cine.mysql.PeliculaMySQL;
 import pe.edu.pucp.papucplanet.confiteria.dao.AlimentoDAO;
 import pe.edu.pucp.papucplanet.confiteria.dao.BebidaDAO;
 import pe.edu.pucp.papucplanet.confiteria.model.Alimento;
@@ -188,15 +201,78 @@ public class Papucplanet {
             System.out.println("No se pudo eliminar la cuenta.");
         }
     }
-
+    public static void testCine(){
+        Sede sede = new Sede();
+        sede.setUniversidad("PUCP");
+        sede.setIdSede(1234);
+        sede.setUbicacion("SAN MIGUEL");
+        sede.setActivo(true);
+        
+        Pelicula pelicula = new Pelicula();
+        pelicula.setIdPelicula(3333);
+        pelicula.setTitulo("Intesamente 2");
+        pelicula.setGenero(Genero.COMEDIA);
+        pelicula.setDuracion(12.00);
+        pelicula.setSinopsis("Pelicula sobre las emociones");
+        pelicula.setActivo(true);
+        
+        Sala sala = new Sala();
+        sala.setIdSala(4321);
+        sala.setCapacidad(30);
+        sala.setNumeroSala(7);
+        sala.setSede(sede);
+        sala.setActivo(true);
+        
+        Funcion funcion = new Funcion();
+        funcion.setSala(sala);
+        funcion.setIdFuncion(7777);
+        funcion.setDia(new Date());
+        funcion.setPelicula(pelicula);
+        funcion.setActivo(true);
+        funcion.setHorarioFin(LocalTime.NOON);
+        funcion.setHorarioInicio(LocalTime.NOON);
+        
+        Butaca butaca = new Butaca();
+        butaca.setIdButaca(10);
+        butaca.setFila('A');
+        butaca.setSala(sala);
+        butaca.setColumna(2);
+        butaca.setDiscapacitado(true);
+        butaca.setActivo(true);
+        
+        ButacaFuncion butacaFuncion = new ButacaFuncion();
+        butacaFuncion.setIdButaca(10);
+        butacaFuncion.setFila('A');
+        butacaFuncion.setSala(sala);
+        butacaFuncion.setColumna(2);
+        butacaFuncion.setDiscapacitado(true);
+        butacaFuncion.setActivo(true);
+        butacaFuncion.setActivo(true);
+        butacaFuncion.setEstado(EstadoButaca.DISPONIBLE);
+        butacaFuncion.setFuncion(funcion);
+        butacaFuncion.setIdButacaFuncion(100);
+        butacaFuncion.setPrecio(100);
+        
+        PeliculaDAO peliDao = new PeliculaMySQL();
+        peliDao.insertar(pelicula);
+        pelicula.setTitulo(pelicula.getTitulo()+"+");
+        peliDao.modificar(pelicula);
+        Pelicula peli2 = peliDao.obtenerPorId(3333);
+        pelicula.setTitulo(pelicula.getTitulo()+"+");
+        peli2.setIdPelicula(4444);
+        peliDao.modificar(peli2);
+        peliDao.eliminar(4444);
+        
+    }
     public static void main(String[] args) throws ParseException {
         // Test ADMIN
         try{
-            testAdministrador();
-            testCliente();
+            //testAdministrador();
+            //testCliente();
             Administrador administrador = new Administrador();
             administrador.setId(24);
-            testCuenta(administrador);
+            //testCuenta(administrador);
+            testCine();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
