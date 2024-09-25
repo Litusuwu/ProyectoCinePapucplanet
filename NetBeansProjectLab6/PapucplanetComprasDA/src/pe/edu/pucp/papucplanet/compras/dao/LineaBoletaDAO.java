@@ -5,10 +5,10 @@ import pe.edu.pucp.papucplanet.compras.model.LineaBoleta;
 
 public interface LineaBoletaDAO {
     // Método para insertar una nueva boleta
-    int insertar(LineaBoleta alimento);
+    int insertar(LineaBoleta lineaBoleta);
     
     // Método para actualizar los datos de una boleta existente
-    int actualizar(LineaBoleta alimento);
+    int actualizar(LineaBoleta lineaBoleta);
     
     // Método para eliminar una boleta por su código
     int eliminar(int id);

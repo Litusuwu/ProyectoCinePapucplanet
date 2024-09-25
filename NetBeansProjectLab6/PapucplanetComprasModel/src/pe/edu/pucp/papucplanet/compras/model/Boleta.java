@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.ArrayList;
 
 public class Boleta{
+    private int idBoleta;
     private Date fechaCompra;
     private MetodoPago metodoPago;
     private double total;
@@ -14,14 +15,30 @@ public class Boleta{
     //posee array de consumible y entradas
     private ArrayList<Consumible> consumibles;
     private ArrayList<ButacaFuncion> butacasFunciones;
-	
-	// Constructor con parámetros
+        
+    	// Constructor con parámetros
     public Boleta(Date fechaCompra, MetodoPago metodoPago, double total) {
         this.fechaCompra = fechaCompra;
         this.metodoPago = metodoPago;
         this.total = total;
     }
+    
+    public int getIdBoleta() {
+        return idBoleta;
+    }
 
+    public void setIdBoleta(int idBoleta) {
+        this.idBoleta = idBoleta;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+   
     // Getter para fechaCompra
     public Date getFechaCompra() {
         return fechaCompra;
