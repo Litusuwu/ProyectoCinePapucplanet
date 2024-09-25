@@ -70,7 +70,7 @@ public class Cliente extends Usuario{
         str += "Genero: " + this.getGenero() + "\n";
         str += "Fecha de Nacimiento: " + this.getFechaNacimiento() + "\n";
         str += "Activo: " + this.isActivo() + "\n";
-        str += "ID Sede : " + this.getSede().getId();
+        str += "ID Sede : " + this.getSede().getIdSede();
         return str;
         
     }
