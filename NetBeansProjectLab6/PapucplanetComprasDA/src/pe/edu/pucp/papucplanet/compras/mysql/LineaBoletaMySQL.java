@@ -6,10 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import pe.edu.pucp.papucplanet.cine.dao.ButacaFuncionDAO;
+import pe.edu.pucp.papucplanet.cine.dao.SedeDAO;
 import pe.edu.pucp.papucplanet.cine.model.ButacaFuncion;
+import pe.edu.pucp.papucplanet.cine.model.Sala;
+import pe.edu.pucp.papucplanet.cine.mysql.SedeMySQL;
 import pe.edu.pucp.papucplanet.compras.dao.BoletaDAO;
 import pe.edu.pucp.papucplanet.compras.dao.LineaBoletaDAO;
 import pe.edu.pucp.papucplanet.compras.model.LineaBoleta;
+import pe.edu.pucp.papucplanet.confiteria.model.Alimento;
+import pe.edu.pucp.papucplanet.confiteria.model.Bebida;
 import pe.edu.pucp.papucplanet.confiteria.model.Consumible;
 import pe.edu.pucp.papucplanet.dbmanager.model.DBManager;
 
@@ -31,9 +36,16 @@ public class LineaBoletaMySQL implements LineaBoletaDAO{
             // Establecer los parámetros de entrada
             cs.registerOutParameter(1, java.sql.Types.INTEGER); // El parámetro de salida _id_lineaBoleta
             cs.setInt(2, lineaBoleta.getBoleta().getIdBoleta());
-            
-            cs.setInt(3, lineaBoleta.getConsumible().getId());
-            cs.setInt(4, lineaBoleta.getButacaFuncion().getIdButacaFuncion());
+            if(lineaBoleta.getConsumible() == null){
+                cs.setInt(3,0);
+            }else{
+                cs.setInt(3, lineaBoleta.getConsumible().getId());
+            }
+            if(lineaBoleta.getButacaFuncion() == null){
+                cs.setInt(4, 0);
+            }else{
+                cs.setInt(4, lineaBoleta.getButacaFuncion().getIdButacaFuncion());
+            }
             cs.setInt(5, lineaBoleta.getCantidad()); 
             // Ejecutar el procedimiento
             cs.executeUpdate();
@@ -117,11 +129,22 @@ public class LineaBoletaMySQL implements LineaBoletaDAO{
                idBoleta = rs.getInt("fid_boleta");
                lineaBoleta.setBoleta(BoletaDAO.obtenerPorId(idBoleta));//falta implementar
                
-               
-               
-               
-               idConsumible = rs.getInt("fid_consumible");
-               lineaBoleta.setConsumible(consumible.getId());
+               if (rs.next()) {
+                   Consumible consumible;
+                    // Asignar los valores desde el ResultSet
+                    if(rs.getInt("id_bebida") != 0){
+                        consumible = new Bebida();
+                    }
+                    else if(rs.getInt("id_alimento") != 0){
+                        consumible = new Alimento();
+                    }
+                    else{
+                        throw new IllegalArgumentException("No existe ese usuario.");
+                    }
+
+                    consumible.setId(rs.getInt("id_consumible"));
+                    lineaBoleta.setConsumible(consumible);
+                }
                
                
                idButacaFuncion = rs.getInt("fid_butaca_funcion");
@@ -141,22 +164,28 @@ public class LineaBoletaMySQL implements LineaBoletaDAO{
         ArrayList<LineaBoleta> lineaBoletas = new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_LINEAS_BOLETAS_TODAS()}");
+            con.setAutoCommit(false);
+            cs = con.prepareCall("{call LISTAR_SALAS_TODAS()}");
             rs = cs.executeQuery();
+            LineaBoleta lineaboleta;
+            int idSede;
+            SedeDAO sedeDao = new SedeMySQL();
             while(rs.next()){
-                LineaBoleta lineaBoleta = new LineaBoleta();
-                lineaBoleta.setIdLineaBoleta(rs.getInt("id_linea_boleta"));
-                lineaBoleta.setNombre(rs.getString("nombre"));
-                lineaBoleta.setPrecio(rs.getDouble("precio"));
-                lineaBoleta.setPesoPromedio(rs.getDouble("pesoPromedio"));
-                lineaBoleta.setTipoAlimento(TipoAlimento.valueOf(rs.getString("tipo_alimento")));
-                lineaBoleta.add(lineaBoleta);
+                lineaboleta = new LineaBoleta();
+                lineaboleta.setIdLineaBoleta(rs.getInt("id_linea_boleta"));
+                idBoleta = rs.getInt("fid_boleta");
+                lineaBoleta.setBoleta(BoletaDAO.obtenerPorId(idBoleta));//falta implementar
+                idSede = rs.getInt("fid_sede");
+                lineaboleta.setSede(sedeDao.obtenerPorId(idSede));
+                lineaboleta.setCapacidad(rs.getInt("capacidad"));
+                salas.add(lineaboleta);
             }
+            con.commit();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }finally{
             try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
         }
-        return productos;
+        return lineaBoletas;
     }
 }
