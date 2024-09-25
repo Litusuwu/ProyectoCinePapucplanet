@@ -254,13 +254,17 @@ public class Papucplanet {
         butacaFuncion.setPrecio(100);
         
         PeliculaDAO peliDao = new PeliculaMySQL();
+        System.out.println("INSERT");
         peliDao.insertar(pelicula);
         pelicula.setTitulo(pelicula.getTitulo()+"+");
+        System.out.println("MODI");
         peliDao.modificar(pelicula);
         Pelicula peli2 = peliDao.obtenerPorId(3333);
         pelicula.setTitulo(pelicula.getTitulo()+"+");
         peli2.setIdPelicula(4444);
-        peliDao.modificar(peli2);
+        System.out.println("INSERT");
+        peliDao.insertar(peli2);
+        System.out.println("ELIMI");
         peliDao.eliminar(4444);
         
     }
