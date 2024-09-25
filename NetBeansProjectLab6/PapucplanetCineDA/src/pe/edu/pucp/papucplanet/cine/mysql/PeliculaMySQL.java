@@ -26,7 +26,7 @@ public class PeliculaMySQL implements PeliculaDAO{
             cs.registerOutParameter("_id_pelicula", java.sql.Types.INTEGER);
             cs.setString("_titulo",pelicula.getTitulo());
             cs.setDouble("_duracion",pelicula.getDuracion());
-            cs.setString("_genero",String.valueOf(pelicula.getGenero()));
+            cs.setString("_genero",pelicula.getGenero().toString());
             cs.setString("_sinopsis",pelicula.getSinopsis());
             cs.executeUpdate();
             pelicula.setIdPelicula(cs.getInt("_id_pelicula"));
@@ -51,7 +51,7 @@ public class PeliculaMySQL implements PeliculaDAO{
             cs.setInt("_id_pelicula", pelicula.getIdPelicula());
             cs.setString("_titulo",pelicula.getTitulo());
             cs.setDouble("_duracion",pelicula.getDuracion());
-            cs.setString("_genero",String.valueOf(pelicula.getGenero()));
+            cs.setString("_genero",pelicula.getGenero().toString());
             cs.setString("_sinopsis",pelicula.getSinopsis());
             result = cs.executeUpdate();
             con.commit();
