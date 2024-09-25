@@ -5,7 +5,6 @@ import pe.edu.pucp.papucplanet.cine.model.Butaca;
 import pe.edu.pucp.papucplanet.cine.model.Funcion;
 import pe.edu.pucp.papucplanet.cine.model.Pelicula;
 import pe.edu.pucp.papucplanet.cine.model.Sede;
-import pe.edu.pucp.papucplanet.compras.model.Boleta;
 
 public interface IConsultableCliente {
    public void mostrarRegistroDeCompras();
