@@ -81,12 +81,64 @@ public class ButacaFuncionMySQL implements ButacaFuncionDAO{
 
     @Override
     public int eliminar(int idButacaFuncion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int result = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            con.setAutoCommit(false);
+            cs = con.prepareCall("{call ELIMINAR_BUTACA_FUNCION_X_ID(?)}");
+            cs.setInt("_id_butaca_funcion",idButacaFuncion);
+            result = cs.executeUpdate();
+            con.commit();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+            try{con.rollback();}catch(SQLException ex1){ex1.getMessage(); }
+        }finally{
+            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
+        }
+        return result;
     }
 
     @Override
     public ArrayList<ButacaFuncion> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArrayList<ButacaFuncion> butacasfunciones = new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            con.setAutoCommit(false);
+            cs = con.prepareCall("{call LISTAR_BUTACAS_TODAS()}");
+            rs = cs.executeQuery();
+            ButacaFuncion butacaFuncion;
+            int id;
+            FuncionDAO funcionDAO = new FuncionMySQL();
+            ButacaDAO butacaDAO = new ButacaMySQL();
+            while(rs.next()){
+                butacaFuncion = new ButacaFuncion();
+                butacaFuncion.setIdButacaFuncion(rs.getInt("id_butaca_funcion"));
+                butacaFuncion.setPrecio(rs.getDouble("precio"));
+                butacaFuncion.setActivo(rs.getBoolean("activo"));
+                EstadoButaca est=EstadoButaca.valueOf(rs.getString("estado"));
+                butacaFuncion.setEstado(est);
+                id = rs.getInt("fid_funcion");          
+                
+                Funcion fun=funcionDAO.obtenerPorId(id);
+                id = rs.getInt("fid_butaca");
+                
+                Butaca but=butacaDAO.obtenerPorId(id);
+                butacaFuncion.setIdButaca(id);
+                butacaFuncion.setFila(but.getFila());
+                butacaFuncion.setColumna(but.getColumna());
+                butacaFuncion.setDiscapacitado(but.isDiscapacitado());
+                butacaFuncion.setSala(but.getSala());
+                butacaFuncion.setFuncion(fun);
+                butacasfunciones.add(butacaFuncion);
+            }
+            con.commit();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+            try{con.rollback();}catch(SQLException ex1){ex1.getMessage(); }
+        }finally{
+            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
+        }
+        return butacasfunciones;
     }
 
     @Override
@@ -117,6 +169,7 @@ public class ButacaFuncionMySQL implements ButacaFuncionDAO{
                 butacaFuncion.setColumna(but.getColumna());
                 butacaFuncion.setDiscapacitado(but.isDiscapacitado());
                 butacaFuncion.setSala(but.getSala());
+                butacaFuncion.setFuncion(fun);
             }
             con.commit();
         }catch(SQLException ex){
