@@ -30,11 +30,7 @@ public class SedeMySQL implements SedeDAO{
             cs.setString("_ubicacion",sede.getUbicacion());
             cs.executeUpdate();
             sede.setIdSede(cs.getInt("_id_sede"));
-//            SalaDAO salaDao = new SalaMySQL();
-//            for(Sala sala : sede.getSalas()){
-//                sala.setSede(sede);
-//                salaDao.insertar(sala);
-//            }
+            
             result = sede.getIdSede();
             con.commit();
         }catch(SQLException ex){
@@ -118,7 +114,7 @@ public class SedeMySQL implements SedeDAO{
         try{
             con = DBManager.getInstance().getConnection();
             con.setAutoCommit(false);
-            cs = con.prepareCall("{call LISTAR_SALA_X_ID(?)}");
+            cs = con.prepareCall("{call LISTAR_SEDE_X_ID(?)}");
             cs.setInt("_id_sede",idSede);
             rs = cs.executeQuery();
             if(rs.next()){

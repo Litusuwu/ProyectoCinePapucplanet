@@ -6,6 +6,7 @@ public class Sala {
     private int numeroSala;
     private Sede sede;
     private boolean activo;
+    
     public Sala(){
     }
     
@@ -57,6 +58,15 @@ public class Sala {
 
     public void setActivo(boolean activo) {
         this.activo = activo;
+    }
+    public String imprimirDatos(){
+        String str = "--------------------------------\n";
+        str += "ID: " + this.getIdSala()+ "\n";
+        str +=  "Capacidad: " + this.getCapacidad()+ "\n";
+        str +=  "Numero Sala: " + this.getNumeroSala()+ "\n";
+        str +=  "Sede ID: " + this.getSede().getIdSede()+ "\n";
+        str +=  "Activo: " + this.isActivo();
+        return str;
     }
 	/*
     public ArrayList<Butaca> getButacas(){

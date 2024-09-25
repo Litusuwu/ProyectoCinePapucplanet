@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import pe.edu.pucp.papucplanet.cine.model.Sede;
 
 
 public class SalaMySQL implements SalaDAO{

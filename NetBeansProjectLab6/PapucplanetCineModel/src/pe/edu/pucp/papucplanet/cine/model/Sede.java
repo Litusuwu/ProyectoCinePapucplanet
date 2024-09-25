@@ -38,25 +38,7 @@ public class Sede {
         return ubicacion;
     }
 
-//    public ArrayList<Sala> getSalas(){
-//        return salas;
-////        return new ArrayList<>(salas);
-//    }
-//
-//    public void setSalas(ArrayList<Sala> salas){
-//        this.salas = salas;
-//    }
-    
-    
 
-    //////////////////////////////////////////////////////////////////METODOS///////////////////////////////////////////////////////////////////////////
-    // Método para agregar una nueva sala
-    /*
-    public void agregarSala(Sala sala) {
-    this.salas.add(sala);
-    System.out.println("Sala agregada en la sede: " + sala.getIdSala());
-    }
-     */
     public int getIdSede() {
         return idSede;
     }
@@ -73,7 +55,13 @@ public class Sede {
         this.activo = activo;
     }
     
-    
+    public String imprimirDatos(){
+        String str = "--------------------------------\n";
+        str += "ID: " + this.getIdSede()+ "\n";
+        str +=  "Universidad: " + this.getUniversidad()+ "\n";
+        str +=  "Ubicacion: " + this.getUbicacion();
+        return str;
+    }
     // Método para eliminar una sala por índice
     /*
     public void eliminarSala(int indice) {
@@ -98,4 +86,23 @@ public class Sede {
         }
     }
     */
+    //    public ArrayList<Sala> getSalas(){
+//        return salas;
+////        return new ArrayList<>(salas);
+//    }
+//
+//    public void setSalas(ArrayList<Sala> salas){
+//        this.salas = salas;
+//    }
+    
+    
+
+    //////////////////////////////////////////////////////////////////METODOS///////////////////////////////////////////////////////////////////////////
+    // Método para agregar una nueva sala
+    /*
+    public void agregarSala(Sala sala) {
+    this.salas.add(sala);
+    System.out.println("Sala agregada en la sede: " + sala.getIdSala());
+    }
+     */
 }
