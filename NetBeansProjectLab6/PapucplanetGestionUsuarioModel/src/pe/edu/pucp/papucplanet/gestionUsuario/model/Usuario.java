@@ -11,16 +11,24 @@ abstract public class Usuario implements IUsuario{
     private String segundoApellido;
     private char genero;
     private Date fechaNacimiento;
+
+    private boolean activo;
+    
     // Constructor que asigna automáticamente el ID usando el correlativo
     public Usuario(){
         
     }
     public Usuario(String dni, String nombre,
-                    String primerApellido, String segundoApellido) {
+                    String primerApellido, String segundoApellido, char genero,
+                    Date fechaNacimiento, String correo, String contrasena,
+                    boolean activo) {
         this.dni = dni;
         this.nombre = nombre;
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
+        this.genero = genero;
+        this.fechaNacimiento = fechaNacimiento;
+        this.activo = activo;
     }
 
     // Getter para id
@@ -56,52 +64,45 @@ abstract public class Usuario implements IUsuario{
     public String getPrimerApellido() {
         return primerApellido;
     }
-
-    /**
-     * @param primerApellido the primerApellido to set
-     */
     public void setPrimerApellido(String primerApellido) {
         this.primerApellido = primerApellido;
     }
-
-    /**
-     * @return the segundoApellido
-     */
     public String getSegundoApellido() {
         return segundoApellido;
     }
-
-    /**
-     * @param segundoApellido the segundoApellido to set
-     */
     public void setSegundoApellido(String segundoApellido) {
         this.segundoApellido = segundoApellido;
     }
      public char getGenero() {
         return genero;
     }
-
-    /**
-     * @param genero the genero to set
-     */
     public void setGenero(char genero) {
         this.genero = genero;
     }
 
-    /**
-     * @return the fechaNacimiento
-     */
     public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    /**
-     * @param fechaNacimiento the fechaNacimiento to set
-     */
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
+    public boolean isActivo() {
+        return activo;
+    }
+
+    /**
+     * @param activo the activo to set
+     */
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    /**
+     * @return the genero
+     */
     public abstract String emitirReporte();
+    public abstract String obtenerDatos();
     @Override
     public boolean iniciarSesion(String correo, String dni){
         return this.primerApellido.equals(primerApellido);
@@ -110,9 +111,4 @@ abstract public class Usuario implements IUsuario{
     public void cerrarSesion(){
         
     }
-
-    /**
-     * @return the genero
-     */
-   
 }

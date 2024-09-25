@@ -6,7 +6,7 @@ public class Pelicula {
     private String sinopsis;
     private boolean activo;
     //posee un arraylist de funciones
-    //private ArrayList<Funcion> funciones;
+//    private ArrayList<Funcion> funciones;
 
     // Constructor con parámetros
     public Pelicula(String titulo, double duracion, String genero, String sinopsis) {
@@ -102,20 +102,20 @@ public class Pelicula {
     }
 	*/
     // Método para mostrar la información completa de la película
-    /*
-    public void imprimirPelicula() {
-        System.out.println("Título: " + titulo);
-        System.out.println("Duración: " + duracion + " horas");
-        System.out.println("Género: " + genero);
-        System.out.println("Sinopsis: " + sinopsis);
-		
-        System.out.println("Funciones:");
-        for (Funcion funcion : funciones) {
-            System.out.println(" - " + funcion.getDia() + " a las " + funcion.getHorarioInicio());
-        }
-    }
-    */
-    public void consultarDatos(){
-
-    }
+    
+//    public void imprimirPelicula() {
+//        System.out.println("Título: " + titulo);
+//        System.out.println("Duración: " + duracion + " horas");
+//        System.out.println("Género: " + genero);
+//        System.out.println("Sinopsis: " + sinopsis);
+//		
+//        System.out.println("Funciones:");
+//        for (Funcion funcion : funciones) {
+//            System.out.println(" - " + funcion.getDia() + " a las " + funcion.getHorarioInicio());
+//        }
+//    }
+//    
+//    public void consultarDatos(){
+//
+//    
 }

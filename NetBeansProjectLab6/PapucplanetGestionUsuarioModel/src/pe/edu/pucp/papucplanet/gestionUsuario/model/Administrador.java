@@ -1,17 +1,21 @@
 package pe.edu.pucp.papucplanet.gestionUsuario.model;
 
+import java.util.Date;
+
 public class  Administrador extends Usuario{
 	
     private String codigo;
-    private int activo;
     
     public Administrador(){
         super();
     }
     // Constructor que llama al constructor de Usuario
-    public Administrador(String dni, String nombre, String codigo,
-                         String primerApellido, String segundoApellido) {
-        super(dni, nombre,  primerApellido, segundoApellido);
+    public Administrador(String dni, String nombre,
+                         String primerApellido, String segundoApellido, char genero,
+                         Date fechaNacimiento, String correo, String contrasena,
+                         boolean activo, String codigo) {
+        super(dni, nombre,  primerApellido, segundoApellido, genero, fechaNacimiento,
+                correo, contrasena, activo);
         this.codigo = codigo;
     }
 
@@ -24,23 +28,24 @@ public class  Administrador extends Usuario{
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-    /**
-     * @return the activo
-     */
-    public int getActivo() {
-        return activo;
+    @Override
+    public String obtenerDatos(){
+        String str = "--------------------------------------\n";
+        str += "ID: " + this.getId() + "\n";
+        str +=  "DNI: " + this.getDni() + "\n";
+        str +=  "Nombre: " + this.getNombre() + "\n";
+        str +=  "Primer Apellido: " + this.getPrimerApellido() + "\n";
+        str += "Segundo Apellido: " + this.getSegundoApellido() + "\n";
+        str += "Genero: " + this.getGenero() + "\n";
+        str += "Fecha de Nacimiento: " + this.getFechaNacimiento() + "\n";
+        str += "Codigo: " + this.getCodigo() + "\n";
+        str += "Activo: " + this.isActivo();
+        return str;
     }
 
-    /**
-     * @param activo the activo to set
-     */
-    public void setActivo(int activo) {
-        this.activo = activo;
-    }
     @Override
-    public String emitirReporte(){
-        String rep="";
-        return rep;
+    public String emitirReporte() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     
