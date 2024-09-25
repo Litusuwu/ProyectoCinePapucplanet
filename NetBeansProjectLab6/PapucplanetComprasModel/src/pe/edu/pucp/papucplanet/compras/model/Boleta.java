@@ -10,6 +10,7 @@ public class Boleta{
     private Date fechaCompra;
     private MetodoPago metodoPago;
     private double total;
+    private boolean activo;
     //posee array de consumible y entradas
     private ArrayList<Consumible> consumibles;
     private ArrayList<ButacaFuncion> butacasFunciones;

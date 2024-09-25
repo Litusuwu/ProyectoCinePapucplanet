@@ -1,25 +1,29 @@
 package pe.edu.pucp.papucplanet.confiteria.model;
 
 public abstract class Consumible {
-    private String codigo;
+    private int id;
     private String nombre;
     private double precio;
+    private boolean activo;
+    
+    public Consumible(){
+    }
 
     // Constructor con parámetros
-    public Consumible(String codigo, String nombre, double precio) {
-        this.codigo = codigo;
+    public Consumible(int codigo, String nombre, double precio) {
+        this.id = codigo;
         this.nombre = nombre;
         this.precio = precio;
     }
 
-    // Getter para codigo
-    public String getCodigo() {
-        return codigo;
+    // Getter para id
+    public int getId() {
+        return id;
     }
 
-    // Setter para codigo
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    // Setter para id
+    public void setId(int id) {
+        this.id = id;
     }
 
     // Getter para nombre
@@ -41,4 +45,13 @@ public abstract class Consumible {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+    
+    public boolean getActivo(){
+        return activo;
+    }
+    
+    public void setActivo(boolean activo){
+        this.activo=activo;
+    }
+    
 }
