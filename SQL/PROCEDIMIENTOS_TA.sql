@@ -249,10 +249,10 @@ CREATE PROCEDURE LISTAR_ADMINISTRADOR_X_ID(
 	IN _id_administrador INT
 )
 BEGIN
-	SELECT a.id_administrador, u.dni, u.nombres, u.primer_apellido, u.segundo_apellido, u.genero, u.fecha_nacimiento, a.codigo, a.activo 
+	SELECT a.id_administrador, u.dni, u.nombres, u.primer_apellido, u.segundo_apellido, u.genero, u.fecha_nacimiento, a.codigo, u.activo 
     FROM Usuario u 
-    INNER JOIN Administrador a ON u.id_persona = a.id_administrador
-    WHERE a.id_administrador = _id_administrador;
+    INNER JOIN Administrador a ON u.id_usuario = a.id_administrador
+    WHERE a.id_administrador = 1;
 END$
 
 -- AGREGADO (creo que este está de máx pq seria eliminar usuario de frente)

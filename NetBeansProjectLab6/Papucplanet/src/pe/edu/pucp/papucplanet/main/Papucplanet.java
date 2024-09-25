@@ -78,7 +78,7 @@ public class Papucplanet {
         }
 
         // Obtener Administrador por ID
-        int idAdministrador = 24;
+        int idAdministrador = 1;
         Administrador administrador1 = locura.obtenerPorCodigo(idAdministrador);
         if (administrador1 != null) {
             System.out.println(administrador1.imprimirDatos());
@@ -93,7 +93,7 @@ public class Papucplanet {
         }
 
         // Eliminar Administrador
-        resultado = locura.eliminar(5);
+        resultado = locura.eliminar(1);
         if (resultado > 0) {
             System.out.println("Administrador eliminado correctamente con ID: 5");
         } else {
@@ -128,7 +128,7 @@ public class Papucplanet {
         }
 
         // Obtener Cliente por ID
-        int idCliente = 57;
+        int idCliente = 1;
         cliente = clienteDAO.obtenerPorCodigo(idCliente);
         if (cliente != null) {
             System.out.println(cliente.imprimirDatos());
@@ -210,7 +210,7 @@ public class Papucplanet {
     public static void testCine(){
         Sede sede = new Sede();
         sede.setUniversidad("PUCP");
-        sede.setIdSede(1234);
+        sede.setIdSede(1);
         sede.setUbicacion("SAN MIGUEL");
         sede.setActivo(true);
         
@@ -429,15 +429,15 @@ public class Papucplanet {
     public static void main(String[] args) throws ParseException {
         // Test ADMIN
         try{
-            //testAdministrador();
-            //testCliente();
+            testAdministrador();
+            testCliente();
             Administrador administrador = new Administrador();
-            administrador.setId(24);
-            //testCuenta(administrador);
-//            testCine();
-//            testSede();
-//            testPelicula();
-              testSala();
+            administrador.setId(1);
+            testCuenta(administrador);
+            testCine();
+            testSede();
+            testPelicula();
+            testSala();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
