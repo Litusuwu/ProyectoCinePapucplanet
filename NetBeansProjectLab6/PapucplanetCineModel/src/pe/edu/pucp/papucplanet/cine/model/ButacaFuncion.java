@@ -18,7 +18,9 @@ public class ButacaFuncion extends Butaca{
         this.activo = true;
     }
     //Setter y Getter para id
-
+//    public void setButaca(Butaca butaca){
+//        super.copiar(butaca);
+//    }
     public int getIdButacaFuncion() {
         return idButacaFuncion;
     }

@@ -18,7 +18,13 @@ public class Butaca {
         this.activo = true;
     }
     //Setter y Getter para id
-
+//    public void copiar(Butaca butaca){
+//        this.fila = butaca.fila;
+//        this.columna = butaca.columna;
+//        this.discapacitado = butaca.discapacitado;
+//        this.sala = butaca.sala;
+//        this.activo = butaca.activo;
+//    }
     public int getIdButaca() {
         return idButaca;
     }

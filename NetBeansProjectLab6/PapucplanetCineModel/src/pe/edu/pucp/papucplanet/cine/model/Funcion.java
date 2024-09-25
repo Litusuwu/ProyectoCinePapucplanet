@@ -11,6 +11,8 @@ public class Funcion {
     private Sala sala;
     private ArrayList<ButacaFuncion> butacasFuncion;
     private boolean activo;
+    public Funcion(){
+    }
     public Funcion(LocalTime horarioInicio, LocalTime horarioFin, Date dia, Pelicula pelicula, Sala sala) {
         this.horarioInicio = horarioInicio;
         this.horarioFin = horarioFin;
