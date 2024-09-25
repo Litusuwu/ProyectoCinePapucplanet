@@ -102,7 +102,7 @@ abstract public class Usuario implements IUsuario{
      * @return the genero
      */
     public abstract String emitirReporte();
-    public abstract String obtenerDatos();
+    public abstract String imprimirDatos();
     @Override
     public boolean iniciarSesion(String correo, String dni){
         return this.primerApellido.equals(primerApellido);

@@ -1,6 +1,6 @@
 package pe.edu.pucp.papucplanet.confiteria.mysql;
 
-import com.papucplanet.dbmanager.model.DBManager;
+
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import pe.edu.pucp.papucplanet.confiteria.dao.AlimentoDAO;
 import pe.edu.pucp.papucplanet.confiteria.model.Alimento;
 import pe.edu.pucp.papucplanet.confiteria.model.TipoAlimento;
+import pe.edu.pucp.papucplanet.dbmanager.model.DBManager;
 
 public class AlimentoMySQL implements AlimentoDAO{
     private ResultSet rs;

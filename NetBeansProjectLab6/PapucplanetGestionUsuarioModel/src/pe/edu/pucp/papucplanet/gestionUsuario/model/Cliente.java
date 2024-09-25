@@ -60,7 +60,7 @@ public class Cliente extends Usuario{
     }
 
     @Override
-    public String obtenerDatos() {
+    public String imprimirDatos() {
         String str = "--------------------------------------\n";
         str += "ID: " + this.getId() + "\n";
         str +=  "DNI: " + this.getDni() + "\n";

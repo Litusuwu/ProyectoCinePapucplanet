@@ -29,7 +29,7 @@ public class  Administrador extends Usuario{
         this.codigo = codigo;
     }
     @Override
-    public String obtenerDatos(){
+    public String imprimirDatos(){
         String str = "--------------------------------------\n";
         str += "ID: " + this.getId() + "\n";
         str +=  "DNI: " + this.getDni() + "\n";

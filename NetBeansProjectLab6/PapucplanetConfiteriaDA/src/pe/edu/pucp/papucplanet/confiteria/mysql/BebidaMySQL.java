@@ -1,6 +1,6 @@
 package pe.edu.pucp.papucplanet.confiteria.mysql;
 
-import com.papucplanet.dbmanager.model.DBManager;
+
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import pe.edu.pucp.papucplanet.confiteria.dao.BebidaDAO;
 import pe.edu.pucp.papucplanet.confiteria.model.Bebida;
+import pe.edu.pucp.papucplanet.dbmanager.model.DBManager;
 
 public class BebidaMySQL implements BebidaDAO{
     private ResultSet rs;
