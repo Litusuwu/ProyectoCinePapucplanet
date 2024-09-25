@@ -1,5 +1,6 @@
 
-package pe.edu.pucp.papucplanet.cine.dao;
+package pe.edu.pucp.papucplanet.cine.mysql;
+import pe.edu.pucp.papucplanet.cine.dao.FuncionDAO;
 import pe.edu.pucp.papucplanet.cine.model.Funcion;
 import pe.edu.pucp.papucplanet.cine.dao.ButacaFuncionDAO;
 import pe.edu.pucp.papucplanet.cine.model.ButacaFuncion;
