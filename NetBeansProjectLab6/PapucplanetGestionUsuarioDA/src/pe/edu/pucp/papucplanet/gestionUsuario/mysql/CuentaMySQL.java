@@ -174,11 +174,11 @@ public class CuentaMySQL implements CuentaDAO,  GestionUsuarioDAO<Cuenta>{
             // Ejecutar el procedimiento y obtener los resultados
             rs = cs.executeQuery();
 
-            // Recorrer el ResultSet y crear objetos Administrador
+            // Recorrer el ResultSet
             while (rs.next()) {
                 Cuenta cuenta = new Cuenta();
                 Usuario usuario;
-                // Asignar los valores desde el ResultSet al objeto Administrador
+                // Asignar los valores desde el ResultSet  
                 if(rs.getInt("id_administrador") != 0){
                     usuario = new Administrador();
                 }
@@ -191,6 +191,7 @@ public class CuentaMySQL implements CuentaDAO,  GestionUsuarioDAO<Cuenta>{
                 
                 usuario.setId(rs.getInt("id_usuario"));
                 usuario.setActivo(rs.getBoolean("activo"));
+                
                 cuenta.setPassword(rs.getString("contrasena"));
                 cuenta.setCorreo(rs.getString("correo"));
                 cuenta.setUsuario(usuario);

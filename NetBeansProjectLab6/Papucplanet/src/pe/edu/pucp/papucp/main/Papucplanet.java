@@ -37,13 +37,12 @@ public class Papucplanet {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws ParseException {
-          // Test ADMIN
-        AdministradorDAO locura;
-        locura = new AdministradorMySQL();
-        int resultado;
+    public static void testAdministrador() throws Exception {
+        AdministradorDAO locura = new AdministradorMySQL();
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         Date fechaNacimiento = formato.parse("1990-01-01");
+
+        // Crear Administrador
         Administrador administrador = new Administrador();
         administrador.setCodigo("A123");
         administrador.setDni("12345678");
@@ -53,55 +52,48 @@ public class Papucplanet {
         administrador.setGenero('M');
         administrador.setFechaNacimiento(fechaNacimiento);
 
-        // Llamar al método para insertar el administrador
-        locura.insertar(administrador);
-        resultado = locura.insertar(administrador);
-        
+        int resultado = locura.insertar(administrador);
         if (resultado > 0) {
             System.out.println("Administrador insertado correctamente con ID: " + administrador.getId());
         } else {
-            System.out.println("Error al insertar administrador." + administrador.getId());
+            System.out.println("Error al insertar administrador.");
         }
+
+        // Obtener Administrador por ID
         int idAdministrador = 24;
         Administrador administrador1 = locura.obtenerPorCodigo(idAdministrador);
-
         if (administrador1 != null) {
-            String str = administrador1.imprimirDatos();
-            System.out.println(str);
+            System.out.println(administrador1.imprimirDatos());
         } else {
             System.out.println("No se encontró un administrador con el ID: " + idAdministrador);
         }
+
+        // Listar Administradores
         ArrayList<Administrador> administradores = locura.listar();
         for (Administrador ad : administradores) {
-            String str = ad.imprimirDatos();
-            System.out.println(str);
+            System.out.println(ad.imprimirDatos());
         }
-        locura.eliminar(5);
+
+        // Eliminar Administrador
+        resultado = locura.eliminar(5);
         if (resultado > 0) {
             System.out.println("Administrador eliminado correctamente con ID: 5");
         } else {
             System.out.println("Error al eliminar administrador.");
         }
-        administrador1 = locura.obtenerPorCodigo(5);
+    }
+    public static void testCliente() throws Exception {
+        ClienteDAO clienteDAO = new ClienteMySQL();
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        Date fechaNacimiento = formato.parse("1990-01-01");
 
-        if (administrador1 != null) {
-            String str = administrador1.imprimirDatos();
-            System.out.println(str);
-        } else {
-            System.out.println("No se encontró un administrador con el ID: " + idAdministrador);
-        }
-        System.out.println("hola!");
-
-        //Test Cuenta
-        ClienteDAO clienteDAO;
-        Sede sede;
-
-        clienteDAO = new ClienteMySQL();
-        Cliente cliente = new Cliente();
-        sede = new Sede();
+        // Crear Cliente
+        Sede sede = new Sede();
         sede.setIdSede(1);
         sede.setUniversidad("Sede PUCP");
-        sede.setUbicacion("Av.Universitaria");
+        sede.setUbicacion("Av. Universitaria");
+
+        Cliente cliente = new Cliente();
         cliente.setDni("76211902");
         cliente.setNombre("Guanira");
         cliente.setPrimerApellido("Erasmo");
@@ -109,89 +101,105 @@ public class Papucplanet {
         cliente.setGenero('F');
         cliente.setFechaNacimiento(fechaNacimiento);
         cliente.setSede(sede);
-        
-        resultado = clienteDAO.insertar(cliente);
-        if(resultado > 0){
-            System.out.println("Cliente insertado con el ID : " +  cliente.getId());
-        }
-        else{
+
+        int resultado = clienteDAO.insertar(cliente);
+        if (resultado > 0) {
+            System.out.println("Cliente insertado con el ID: " + cliente.getId());
+        } else {
             System.out.println("No se pudo insertar al cliente.");
         }
-        int idCliente = 57;
-        cliente = null;
-        cliente = clienteDAO.obtenerPorCodigo(59);
 
+        // Obtener Cliente por ID
+        int idCliente = 57;
+        cliente = clienteDAO.obtenerPorCodigo(idCliente);
         if (cliente != null) {
-            String str = cliente.imprimirDatos();
-            System.out.println(str);
+            System.out.println(cliente.imprimirDatos());
         } else {
             System.out.println("No se encontró un cliente con el ID: " + idCliente);
         }
-        cliente.setNombre("Guanira");
+
+        // Actualizar Cliente
+        cliente.setNombre("Guanira PRO");
         resultado = clienteDAO.actualizar(cliente);
         if (resultado > 0) {
-            String str = clienteDAO.obtenerPorCodigo(59).imprimirDatos();
-            System.out.println(str);
+            System.out.println(clienteDAO.obtenerPorCodigo(idCliente).imprimirDatos());
         } else {
-            System.out.println("No se encontró un cliente con el ID: " + idCliente);
+            System.out.println("No se pudo actualizar el cliente.");
         }
+
+        // Listar Clientes
         ArrayList<Cliente> clientes = clienteDAO.listar();
         for (Cliente cli : clientes) {
-            String str = cli.imprimirDatos();
-            System.out.println(str);
+            System.out.println(cli.imprimirDatos());
         }
-        resultado = clienteDAO.eliminar(59);
-        if (resultado > 0) {
-            String str = clienteDAO.obtenerPorCodigo(59).imprimirDatos();
-            System.out.println(str);
-        } else {
-            System.out.println("No se elimino un cliente con el ID: " + idCliente);
-        }
-        //Test Cliente
-        CuentaDAO cuentaDAO;
 
-        cuentaDAO = new CuentaMySQL();
+        // Eliminar Cliente
+        resultado = clienteDAO.eliminar(idCliente);
+        if (resultado > 0) {
+            System.out.println("Cliente eliminado con éxito.");
+        } else {
+            System.out.println("No se pudo eliminar el cliente.");
+        }
+    }
+    public static void testCuenta(Administrador administrador) throws Exception {
+        CuentaDAO cuentaDAO = new CuentaMySQL();
+
+        // Crear Cuenta
         Cuenta cuenta = new Cuenta();
         cuenta.setCorreo("vegetta777OMGRexXx@pucp.edu.pe");
         cuenta.setPassword("GuaniraXErasmo");
         cuenta.setUsuario(administrador);
-        resultado = cuentaDAO.insertar(cuenta);
-        if(resultado > 0){
-            System.out.println("Cuenta insertada con el ID : " +  cuenta.getUsuario().getId());
-        }
-        else{
+
+        int resultado = cuentaDAO.insertar(cuenta);
+        if (resultado > 0) {
+            System.out.println("Cuenta insertada con el ID: " + cuenta.getUsuario().getId());
+        } else {
             System.out.println("No se pudo insertar la cuenta.");
         }
-        
-        
-        cuenta = cuentaDAO.obtenerPorCodigo(administrador.getId());
 
+        // Obtener Cuenta por ID
+        cuenta = cuentaDAO.obtenerPorCodigo(administrador.getId());
         if (cuenta != null) {
-            String str = cuenta.imprimirDatos();
-            System.out.println(str);
+            System.out.println(cuenta.imprimirDatos());
         } else {
-            System.out.println("No se encontró un cliente con el ID: " + administrador.getId());
+            System.out.println("No se encontró una cuenta con el ID: " + administrador.getId());
         }
+
+        // Actualizar Cuenta
         cuenta.setCorreo("guaniraPROgamer");
         resultado = cuentaDAO.actualizar(cuenta);
         if (resultado > 0) {
-            String str = cuentaDAO.obtenerPorCodigo(administrador.getId()).imprimirDatos();
-            System.out.println(str);
+            System.out.println(cuentaDAO.obtenerPorCodigo(administrador.getId()).imprimirDatos());
         } else {
-            System.out.println("No se encontró un cliente con el ID: " + administrador.getId());
+            System.out.println("No se pudo actualizar la cuenta.");
         }
+
+        // Listar Cuentas
         ArrayList<Cuenta> cuentas = cuentaDAO.listar();
         for (Cuenta cu : cuentas) {
-            String str = cu.imprimirDatos();
-            System.out.println(str);
+            System.out.println(cu.imprimirDatos());
         }
+
+        // Eliminar Cuenta
         resultado = cuentaDAO.eliminar(administrador.getId());
         if (resultado > 0) {
-            String str = cuentaDAO.obtenerPorCodigo(administrador.getId()).imprimirDatos();
-            System.out.println(str);
+            System.out.println("Cuenta eliminada con éxito.");
         } else {
-            System.out.println("No se elimino un cliente con el ID: " + administrador.getId());
+            System.out.println("No se pudo eliminar la cuenta.");
         }
     }
-    
+
+    public static void main(String[] args) throws ParseException {
+        // Test ADMIN
+        try{
+            testAdministrador();
+            testCliente();
+            Administrador administrador = new Administrador();
+            administrador.setId(24);
+            testCuenta(administrador);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
+    }
 }
