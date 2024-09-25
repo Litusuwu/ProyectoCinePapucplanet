@@ -186,7 +186,7 @@ BEGIN
     FROM Usuario u
     LEFT JOIN Administrador a ON u.id_usuario = a.id_administrador
     LEFT JOIN Cliente c ON u.id_usuario = c.id_cliente
-    WHERE u.id_usuario = _id_cuenta AND u.correo IS NOT NULL;
+    WHERE u.id_usuario = _id_cuenta AND u.correo IS NOT NULL;
 END$
 
 -- AGREGADO
@@ -776,4 +776,3 @@ BEGIN
     SET activo = 0 
     WHERE id_linea_boleta = _id_linea_boleta;
 END$
-
