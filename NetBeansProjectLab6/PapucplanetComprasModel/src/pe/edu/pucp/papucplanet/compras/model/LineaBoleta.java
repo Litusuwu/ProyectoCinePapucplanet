@@ -1,11 +1,56 @@
 package pe.edu.pucp.papucplanet.compras.model;
+import pe.edu.pucp.papucplanet.cine.model.ButacaFuncion;
+import pe.edu.pucp.papucplanet.confiteria.model.Consumible;
+
+
 public class LineaBoleta {
+
+    private int idLineaBoleta;
     private double precio;
     private int cantidad;
     private boolean activo;
+    private ButacaFuncion butacaFuncion;
+    private Boleta boleta;
+    private Consumible consumible;
+    
+    public LineaBoleta(){
+
+    }
+    
+    public int getIdLineaBoleta() {
+        return idLineaBoleta;
+    }
+
+    public void setIdLineaBoleta(int idLineaBoleta) {
+        this.idLineaBoleta = idLineaBoleta;
+    }
 
     public double getPrecio() {
         return precio;
+    }
+
+    public ButacaFuncion getButacaFuncion() {
+        return butacaFuncion;
+    }
+
+    public void setButacaFuncion(ButacaFuncion butacaFuncion) {
+        this.butacaFuncion = butacaFuncion;
+    }
+
+    public Boleta getBoleta() {
+        return boleta;
+    }
+
+    public void setBoleta(Boleta boleta) {
+        this.boleta = boleta;
+    }
+
+    public Consumible getConsumible() {
+        return consumible;
+    }
+
+    public void setConsumible(Consumible consumible) {
+        this.consumible = consumible;
     }
 
     public void setPrecio(double precio) {

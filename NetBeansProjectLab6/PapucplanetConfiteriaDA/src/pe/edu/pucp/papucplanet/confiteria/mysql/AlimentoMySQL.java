@@ -1,6 +1,6 @@
 package pe.edu.pucp.papucplanet.confiteria.mysql;
 
-import com.papucplanet.dbmanager.model.DBManager;
+import pe.edu.pucp.papucplanet.dbmanager.model.DBManager;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
