@@ -12,6 +12,7 @@ DROP PROCEDURE IF EXISTS LISTAR_CUENTAS_TODAS;
 DROP PROCEDURE IF EXISTS MODIFICAR_CUENTA;
 DROP PROCEDURE IF EXISTS LISTAR_CUENTA_X_ID;
 DROP PROCEDURE IF EXISTS ELIMINAR_CUENTA_X_ID;
+DROP PROCEDURE IF EXISTS INFORMACION_EXTRA_LINEA_BOLETA;
 
 -- Drops de Administrador
 DROP PROCEDURE IF EXISTS INSERTAR_ADMINISTRADOR;
@@ -165,7 +166,6 @@ SELECT u.id_usuario, u.contrasena, u.correo, u.activo,
     LEFT JOIN Cliente c ON u.id_usuario = c.id_cliente
     WHERE u.id_usuario = id_usuario AND u.correo IS NOT NULL;
 END$
-
 
 CREATE PROCEDURE MODIFICAR_CUENTA(
     IN _id_cuenta INT,
@@ -775,4 +775,18 @@ BEGIN
     UPDATE LineaBoleta 
     SET activo = 0 
     WHERE id_linea_boleta = _id_linea_boleta;
+END$
+
+CREATE PROCEDURE INFORMACION_EXTRA_LINEA_BOLETA()
+BEGIN
+SELECT l.id_linea_boleta, l.fid_boleta, l.cantidad, l.activo, c.id_consumible, a.id_alimento, be.id_bebida, c.nombre, c.precio,
+	b.fechaCompra,bf.fid_butaca,bu.columna,bu.fila,bu.discapacitado
+    FROM LineaBoleta l
+    LEFT JOIN Consumible c ON l.fid_consumible = c.id_consumible
+    LEFT JOIN Alimento a ON l.fid_consumible = a.id_alimento
+    LEFT JOIN Bebida be ON l.fid_consumible = be.id_bebida
+    LEFT JOIN Boleta b ON l.fid_boleta = b.id_boleta
+    LEFT JOIN ButacaFuncion bf on l.fid_butaca_funcion = bf.id_butaca_funcion
+    LEFT JOIN Butaca bu on bu.id_butaca=bf.fid_butaca
+    LEFT JOIN Funcion f on f.id_funcion=bu.fid_sala;
 END$
