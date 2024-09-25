@@ -1,6 +1,9 @@
 package pe.edu.pucp.papucplanet.cine.model;
 //import pe.edu.pucp.papucplanet.cine.model.Genero;
 
+//import java.util.ArrayList;
+
+
 public class Pelicula {
     private int idPelicula;
     private String titulo;

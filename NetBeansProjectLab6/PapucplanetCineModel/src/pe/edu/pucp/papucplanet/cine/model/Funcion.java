@@ -9,7 +9,7 @@ public class Funcion {
     private Date dia;
     private Pelicula pelicula;
     private Sala sala;
-    private ArrayList<ButacaFuncion> butacasFuncion;
+    //private ArrayList<ButacaFuncion> butacasFuncion;
     private boolean activo;
     public Funcion(){
     }
@@ -78,7 +78,7 @@ public class Funcion {
         return sala;
     }
 	
-
+/*
     public ArrayList<ButacaFuncion> getButacasFuncion(){
         return butacasFuncion;
 //        return new ArrayList<>(butacasFuncion);
@@ -87,9 +87,8 @@ public class Funcion {
     public void setButacasFuncion(ArrayList<ButacaFuncion> butacasFuncion){
         this.butacasFuncion = butacasFuncion;
     }
+*/
     
-    
-
     //Setter y Getter para activo
     public boolean isActivo(){
         return activo;

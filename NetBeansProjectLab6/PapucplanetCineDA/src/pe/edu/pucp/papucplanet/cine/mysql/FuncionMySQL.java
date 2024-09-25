@@ -39,12 +39,14 @@ public class FuncionMySQL implements FuncionDAO{
             cs.setInt("_fid_sala",funcion.getSala().getIdSala());
             cs.setInt("_fid_pelicula",funcion.getPelicula().getIdPelicula());
             cs.executeUpdate();
+            /*
             ButacaFuncionDAO bufuDao = new ButacaFuncionMySQL();
             for(ButacaFuncion bufu: funcion.getButacasFuncion()){
                 bufu.setFuncion(funcion);
                 bufuDao.insertar(bufu);
             }
-            //pelicula.setIdPelicula(cs.getInt("_id_pelicula"));
+            //pelicula.setIdPelicula(cs.getInt("_id_pelicula"));*/
+            
             result = funcion.getIdFuncion();
             con.commit();
         }catch(SQLException ex){
@@ -72,11 +74,13 @@ public class FuncionMySQL implements FuncionDAO{
             cs.setInt("_fid_sala",funcion.getSala().getIdSala());
             cs.setInt("_fid_pelicula",funcion.getPelicula().getIdPelicula());
             cs.executeUpdate();
+            /*
             ButacaFuncionDAO bufuDao = new ButacaFuncionMySQL();
             for(ButacaFuncion bufu: funcion.getButacasFuncion()){
                 bufu.setFuncion(funcion);
                 bufuDao.insertar(bufu);
             }
+            */
             result = funcion.getIdFuncion();
             con.commit();
         }catch(SQLException ex){
@@ -165,7 +169,6 @@ public class FuncionMySQL implements FuncionDAO{
                 idSala = rs.getInt("fid_sala");
                 funcion.setSala(salaDao.obtenerPorId(idSala));
                 //No implementar listar de butacas funcion porque implicaria bucle
-                
             }
             con.commit();
         }catch(SQLException ex){
