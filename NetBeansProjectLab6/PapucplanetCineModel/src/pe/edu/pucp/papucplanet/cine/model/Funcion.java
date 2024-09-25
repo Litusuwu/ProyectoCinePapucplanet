@@ -100,4 +100,9 @@ public class Funcion {
 
     public void consultarDatos() {
     }
+    public String imprimirDatos(){
+        String str = "---------------------------\n";
+        
+        return str;
+    }
 }
