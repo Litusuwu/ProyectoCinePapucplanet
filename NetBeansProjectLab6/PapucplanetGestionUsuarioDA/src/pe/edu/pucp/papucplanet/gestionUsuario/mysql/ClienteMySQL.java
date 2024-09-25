@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.sql.SQLException;
 import pe.edu.pucp.papucplanet.cine.model.Sede;
 import pe.edu.pucp.papucplanet.gestionUsuario.dao.ClienteDAO;
 import pe.edu.pucp.papucplanet.gestionUsuario.dao.GestionUsuarioDAO;
@@ -45,16 +46,18 @@ public class ClienteMySQL implements ClienteDAO, GestionUsuarioDAO<Cliente>{
             cs.executeUpdate();
 
             // Obtener el ID del administrador generado (parámetro OUT)
-            int idCliente = cs.getInt(1);
-            cliente.setId(idCliente); // Establecer el ID en el objeto Administrador
-            resultado = 1;
-        }catch(Exception ex){
+            
+            resultado = cs.getInt(1);
+            cliente.setId(resultado);
+//            if(resultado > 0)cliente.setId(resultado); // Establecer el ID en el objeto Administrador
+//            resultado = 1;
+        }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }finally{
             try{
                 con.close();
             }
-            catch(Exception ex){
+            catch(SQLException ex){
                 System.out.println(ex.getMessage());
             }
         }
@@ -69,11 +72,11 @@ public class ClienteMySQL implements ClienteDAO, GestionUsuarioDAO<Cliente>{
              con = DBManager.getInstance().getConnection();
 
             // Preparamos la llamada al procedimiento
-            String sql = "{CALL MODIFICA_CLIENTE(?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+            String sql = "{CALL MODIFICAR_CLIENTE(?, ?, ?, ?, ?, ?, ?, ?)}";
             cs = con.prepareCall(sql);
 
             // Establecer los parámetros de entrada
-            cs.registerOutParameter(1, cliente.getId()); // El parámetro de salida _id_administrador
+            cs.setInt(1, cliente.getId()); 
             cs.setString(2, cliente.getDni());
             cs.setString(3, cliente.getNombre());
             cs.setString(4, cliente.getPrimerApellido());
@@ -81,21 +84,20 @@ public class ClienteMySQL implements ClienteDAO, GestionUsuarioDAO<Cliente>{
             cs.setString(6, String.valueOf(cliente.getGenero())); // Convertir char a String
             cs.setDate(7, new Date(cliente.getFechaNacimiento().getTime())); // Para usar java.sql.Date
             cs.setInt(8, cliente.getSede().getId());
-            cs.setInt(9, cliente.getActivo());
             // Ejecutar el procedimiento
-            cs.executeUpdate();
+            
 
             // Obtener el ID del administrador generado (parámetro OUT)
-//            int idCliente = cs.getInt(1);
+            resultado = cs.executeUpdate();
 //            cliente.setId(idCliente); // Establecer el ID en el objeto Administrador
-            resultado = 1;
-        }catch(Exception ex){
+//            resultado = 1;
+        }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }finally{
             try{
                 con.close();
             }
-            catch(Exception ex){
+            catch(SQLException ex){
                 System.out.println(ex.getMessage());
             }
         }
@@ -104,7 +106,24 @@ public class ClienteMySQL implements ClienteDAO, GestionUsuarioDAO<Cliente>{
 
     @Override
     public int eliminar(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int resultado = 0;
+        try {
+            con = DBManager.getInstance().getConnection();
+            String sql = "{CALL ELIMINAR_CLIENTE_X_ID(?)}";
+            cs = con.prepareCall(sql);
+            cs.setInt(1, codigo);
+            resultado = cs.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return resultado;
     }
 
     @Override
@@ -116,7 +135,7 @@ public class ClienteMySQL implements ClienteDAO, GestionUsuarioDAO<Cliente>{
             con = DBManager.getInstance().getConnection();
 
             // Preparar la llamada al procedimiento
-            String sql = "{CALL LISTAR_ADMINISTRADOR_X_ID(?)}";
+            String sql = "{CALL LISTAR_CLIENTE_X_ID(?)}";
             cs = con.prepareCall(sql);
 
             // Establecer el parámetro de entrada
@@ -139,16 +158,17 @@ public class ClienteMySQL implements ClienteDAO, GestionUsuarioDAO<Cliente>{
                 cliente.setSegundoApellido(rs.getString("segundo_apellido"));
                 cliente.setGenero(rs.getString("genero").charAt(0)); // Convertir String a char
                 cliente.setFechaNacimiento(rs.getDate("fecha_nacimiento")); // java.sql.Date
-                cliente.setActivo(rs.getInt("activo")); // Mapear TINYINT a boolean
+                cliente.setActivo(rs.getBoolean("activo")); // Mapear TINYINT a boolean
                 idSede = rs.getInt("fid_sede");
                 // Llama al segundo query de obtener sede por  id
                 sql = "{CALL LISTAR_SEDE_X_ID(?)}";
+                cs = con.prepareCall(sql);
                 cs.setInt(1, idSede);
                 //
                 rs2 = cs.executeQuery();
                 if(rs2.next()){
                     sede = new Sede();
-                    sede.setId(idSede);
+                    sede.setId(rs2.getInt("id_sede"));
                     sede.setUbicacion(rs2.getString("ubicacion"));
                     sede.setUniversidad(rs2.getString("nombre"));
                     
@@ -160,14 +180,17 @@ public class ClienteMySQL implements ClienteDAO, GestionUsuarioDAO<Cliente>{
                     return null;
                 }
             }
+            else{
+                System.out.println("No se encontro Cliente");
+            }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
             // Cerrar recursos
             try {
                 con.close();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -203,11 +226,14 @@ public class ClienteMySQL implements ClienteDAO, GestionUsuarioDAO<Cliente>{
                 cliente.setSegundoApellido(rs.getString("segundo_apellido"));
                 cliente.setGenero(rs.getString("genero").charAt(0)); // Convertir String a char
                 cliente.setFechaNacimiento(rs.getDate("fecha_nacimiento")); // java.sql.Date
-                cliente.setActivo(rs.getInt("activo")); // Mapear TINYINT a boolean
+                cliente.setActivo(rs.getBoolean("activo")); // Mapear TINYINT a boolean
                 idSede = rs.getInt("fid_sede");
                 // Llama al segundo query de obtener sede por  id
                 sql = "{CALL LISTAR_SEDE_X_ID(?)}";
+                cs = con.prepareCall(sql);
                 cs.setInt(1, idSede);
+                //
+//                rs2 = cs.executeQuery();
                 //
                 rs2 = cs.executeQuery();
                 if(rs2.next()){
@@ -228,13 +254,13 @@ public class ClienteMySQL implements ClienteDAO, GestionUsuarioDAO<Cliente>{
                 listaClientes.add(cliente);
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
             // Cerrar recursos
             try {
                 con.close();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
         }

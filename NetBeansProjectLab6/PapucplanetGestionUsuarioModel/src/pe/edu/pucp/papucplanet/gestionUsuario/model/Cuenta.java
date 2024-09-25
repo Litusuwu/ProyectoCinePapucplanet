@@ -6,13 +6,14 @@ public class Cuenta{
     private Usuario usuario;
     private String password;
     private String correo;
-    private int activo;
-    
+
+    public Cuenta(){
+        
+    }
     public Cuenta(Usuario usuario,String password, String correo, int activo){
         this.usuario = usuario;
         this.password = password;
         this.correo = correo;
-        this.activo = activo;
     }
     public String getPassword() {
         return password;
@@ -36,19 +37,17 @@ public class Cuenta{
     public Usuario getUsuario(){
         return usuario;
     }
-    /**
-     * @return the activo
-     */
-    public int getActivo() {
-        return activo;
+    public String imprimirDatos(){
+        String str = "--------------------------------------\n";
+        str += "ID: " + this.getUsuario().getId() + "\n";
+        str += "Correo: " + this.getCorreo()+ "\n";
+        str += "Contrasena: " + this.getPassword()+ "\n";
+        str += "Tipo de Cuenta: " + ((this.getUsuario() instanceof Administrador)? "Administrador":"Cliente") + "\n";
+        str += "Activo: " + (this.getUsuario().isActivo());
+        return str;
+        
     }
 
-    /**
-     * @param activo the activo to set
-     */
-    public void setActivo(int activo) {
-        this.activo = activo;
-    }
     //METODOS
 //    public void iniciarSesion(String password,String correo){
 //

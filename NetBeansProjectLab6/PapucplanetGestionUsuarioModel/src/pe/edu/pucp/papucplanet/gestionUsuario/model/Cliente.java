@@ -1,19 +1,22 @@
 package pe.edu.pucp.papucplanet.gestionUsuario.model;
 import java.util.ArrayList;
+import java.util.Date;
 import pe.edu.pucp.papucplanet.cine.model.Sede;
 import pe.edu.pucp.papucplanet.compras.model.Boleta;
 public class Cliente extends Usuario{	
     private Sede sede;
-    private int activo;
     //posee un arrayList de boletas
     private ArrayList<Boleta> boletas;
     // Constructor con parámetros para Cliente y Usuario
     public Cliente(){
         
     }
-    public Cliente(String dni, String nombre,Sede sede,
-                    String primerApellido, String segundoApellido) {
-        super(dni, nombre, primerApellido, segundoApellido);
+    public Cliente(String dni, String nombre,
+                         String primerApellido, String segundoApellido, char genero,
+                         Date fechaNacimiento, String correo, String contrasena,
+                         boolean activo, Sede sede) {
+        super(dni, nombre,  primerApellido, segundoApellido, genero, fechaNacimiento,
+                correo, contrasena, activo);
         this.sede=sede;
     }
 
@@ -33,19 +36,6 @@ public class Cliente extends Usuario{
 
     public void setBoletas(ArrayList<Boleta> boletas){
         this.boletas = boletas;
-    }
-    /**
-     * @return the activo
-     */
-    public int getActivo() {
-        return activo;
-    }
-
-    /**
-     * @param activo the activo to set
-     */
-    public void setActivo(int activo) {
-        this.activo = activo;
     }
     // Método para generar un reporte de todas las boletas del cliente
     @Override
@@ -67,6 +57,22 @@ public class Cliente extends Usuario{
     }
     public void consultarDatos(){
 
+    }
+
+    @Override
+    public String obtenerDatos() {
+        String str = "--------------------------------------\n";
+        str += "ID: " + this.getId() + "\n";
+        str +=  "DNI: " + this.getDni() + "\n";
+        str +=  "Nombre: " + this.getNombre() + "\n";
+        str +=  "Primer Apellido: " + this.getPrimerApellido() + "\n";
+        str += "Segundo Apellido: " + this.getSegundoApellido() + "\n";
+        str += "Genero: " + this.getGenero() + "\n";
+        str += "Fecha de Nacimiento: " + this.getFechaNacimiento() + "\n";
+        str += "Activo: " + this.isActivo() + "\n";
+        str += "ID Sede : " + this.getSede().getId();
+        return str;
+        
     }
 
     
