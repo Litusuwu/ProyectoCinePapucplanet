@@ -340,6 +340,7 @@ BEGIN
     UPDATE Boleta 
     SET fid_cliente = _fid_cliente, fechaCompra = _fechaCompra, metodo_pago = _metodo_pago, total = _total
     WHERE id_boleta = _id_boleta;
+    UPDATE LineaBoleta SET activo = 0 WHERE fid_boleta = _id_boleta;
 END$
 
 CREATE PROCEDURE LISTAR_BOLETA_X_ID(
@@ -735,10 +736,21 @@ CREATE PROCEDURE INSERTAR_LINEA_BOLETA(
     IN _cantidad INT
 )
 BEGIN
-	INSERT INTO LineaBoleta(fid_boleta, fid_consumible, fid_butaca_funcion, cantidad) 
-    VALUES(_fid_boleta, _fid_consumible, _fid_butaca_funcion, _cantidad);
-    
-    SET _id_linea_boleta = @@last_insert_id;
+    -- Verificar que solo uno de los dos parámetros sea diferente de 0
+    IF (_fid_consumible = 0 AND _fid_butaca_funcion = 0) OR (_fid_consumible != 0 AND _fid_butaca_funcion != 0) THEN
+        SIGNAL SQLSTATE '45000' 
+        SET MESSAGE_TEXT = 'Error: Debe establecer solo uno de los dos valores, fid_consumible o fid_butaca_funcion.';
+    ELSE
+        -- Insertar la línea de boleta
+        INSERT INTO LineaBoleta(fid_boleta, fid_consumible, fid_butaca_funcion, cantidad) 
+        VALUES(_fid_boleta, 
+               CASE WHEN _fid_consumible = 0 THEN NULL ELSE _fid_consumible END, 
+               CASE WHEN _fid_butaca_funcion = 0 THEN NULL ELSE _fid_butaca_funcion END, 
+               _cantidad);
+        
+        -- Obtener el último id insertado
+        SET _id_linea_boleta = @@last_insert_id;
+    END IF;
 END$
 
 CREATE PROCEDURE LISTAR_LINEAS_BOLETAS_TODAS()
