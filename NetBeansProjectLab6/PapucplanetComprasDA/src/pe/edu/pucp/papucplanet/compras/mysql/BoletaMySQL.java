@@ -33,7 +33,7 @@ public class BoletaMySQL implements BoletaDAO{
             cs.executeUpdate();
             boleta.setIdBoleta(cs.getInt("_id_boleta"));
             for(LineaBoleta lb : boleta.getLineasBoleta()){                
-                cs = con.prepareCall("{call INSERTAR_LINEA_BOLETA(?,?,?,?,?)}");
+                cs = con.prepareCall("{call INSERTAR_LINEA_BOLETA(?,?,?,?,?,?)}");
                 cs.registerOutParameter(1, java.sql.Types.INTEGER); // El parámetro de salida _id_lineaBoleta
                 cs.setInt(2, boleta.getIdBoleta());
                 if(lb.getConsumible() == null){
@@ -46,7 +46,8 @@ public class BoletaMySQL implements BoletaDAO{
                 }else{
                     cs.setInt(4, lb.getButacaFuncion().getIdButacaFuncion());
                 }
-                cs.setInt(5, lb.getCantidad()); 
+                cs.setInt(5, lb.getCantidad());
+                cs.setDouble(6, lb.getSubtotal());
                 // Ejecutar el procedimiento
                 cs.executeUpdate();
                 lb.setIdLineaBoleta(cs.getInt("_id_linea_boleta"));
@@ -89,7 +90,8 @@ public class BoletaMySQL implements BoletaDAO{
                 }else{
                     cs.setInt(4, lb.getButacaFuncion().getIdButacaFuncion());
                 }
-                cs.setInt(5, lb.getCantidad()); 
+                cs.setInt(5, lb.getCantidad());
+                cs.setDouble(6, lb.getSubtotal());
                 // Ejecutar el procedimiento
                 cs.executeUpdate();
                 lb.setIdLineaBoleta(cs.getInt("_id_linea_boleta"));

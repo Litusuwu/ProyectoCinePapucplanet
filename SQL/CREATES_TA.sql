@@ -157,6 +157,7 @@ CREATE TABLE LineaBoleta(
     fid_consumible INT NULL,
     fid_butaca_funcion INT NULL UNIQUE,
     cantidad INT,
+    subtotal INT,
     activo TINYINT DEFAULT 1,
     FOREIGN KEY (fid_boleta) REFERENCES Boleta(id_boleta),
     FOREIGN KEY (fid_butaca_funcion) REFERENCES  ButacaFuncion(id_butaca_funcion),

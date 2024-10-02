@@ -6,7 +6,7 @@ import pe.edu.pucp.papucplanet.confiteria.model.Consumible;
 public class LineaBoleta {
 
     private int idLineaBoleta;
-    private double precio;
+    private double subtotal;
     private int cantidad;
     private boolean activo;
     private ButacaFuncion butacaFuncion;
@@ -24,8 +24,12 @@ public class LineaBoleta {
         this.idLineaBoleta = idLineaBoleta;
     }
 
-    public double getPrecio() {
-        return precio;
+    public double getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
     }
 
     public ButacaFuncion getButacaFuncion() {
@@ -42,10 +46,6 @@ public class LineaBoleta {
 
     public void setConsumible(Consumible consumible) {
         this.consumible = consumible;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
     }
 
     public int getCantidad() {

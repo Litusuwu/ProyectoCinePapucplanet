@@ -493,12 +493,12 @@ public class Papucplanet {
         linea.setActivo(true);
         linea.setIdLineaBoleta(1);
         linea.setButacaFuncion(butacaFuncionSQL.obtenerPorId(1));
-        linea.setPrecio(10);
+        linea.setSubtotal(10);
 
         lineas.add(linea);
-        linea.setPrecio(3);
+        linea.setSubtotal(3);
         linea.setConsumible(alimento);
-        linea.setPrecio(12);
+        linea.setSubtotal(12);
         linea.setButacaFuncion(null);
         lineas.add(linea);
 
@@ -527,7 +527,7 @@ public class Papucplanet {
             
             testPelicula();
             testSala();
-            //testBoleta_Alimento();
+            testBoleta_Alimento();
             
         }catch(Exception ex){
             System.out.println(ex.getMessage());
