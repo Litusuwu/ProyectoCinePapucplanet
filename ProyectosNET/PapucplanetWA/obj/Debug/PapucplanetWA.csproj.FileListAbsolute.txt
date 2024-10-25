@@ -1,0 +1,7 @@
+C:\Users\derm2\Documents\PUCP_2024_2\PROGA3\TA\JavaClases\ProyectosNET\PapucplanetWA\bin\PapucplanetWA.dll.config
+C:\Users\derm2\Documents\PUCP_2024_2\PROGA3\TA\JavaClases\ProyectosNET\PapucplanetWA\bin\PapucplanetWA.dll
+C:\Users\derm2\Documents\PUCP_2024_2\PROGA3\TA\JavaClases\ProyectosNET\PapucplanetWA\bin\PapucplanetWA.pdb
+C:\Users\derm2\Documents\PUCP_2024_2\PROGA3\TA\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.csproj.AssemblyReference.cache
+C:\Users\derm2\Documents\PUCP_2024_2\PROGA3\TA\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.csproj.CoreCompileInputs.cache
+C:\Users\derm2\Documents\PUCP_2024_2\PROGA3\TA\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.dll
+C:\Users\derm2\Documents\PUCP_2024_2\PROGA3\TA\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.pdb
