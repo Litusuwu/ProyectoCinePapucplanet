@@ -11,7 +11,7 @@ namespace PapucplanetWA
 {
 
 
-    public partial class Sedes
+    public partial class Boletas
     {
     }
 }
