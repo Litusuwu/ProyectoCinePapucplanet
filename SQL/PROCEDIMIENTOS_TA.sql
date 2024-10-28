@@ -676,19 +676,14 @@ BEGIN
 END$
 
 -- AGREGADO
-CREATE PROCEDURE OBTENER_FUNCIONES_POR_PELICULA(IN _id_pelicula INT)
+DELIMITER $
+CREATE PROCEDURE OBTENER_FUNCIONES_POR_PELICULA(
+    IN _id_pelicula INT
+)
 BEGIN
-    SELECT 
-        f.id_funcion,
-        f.horaInicio,
-        f.horaFin,
-        f.dia,
-        f.fid_sala,
-        f.fid_pelicula
-    FROM 
-        Funcion f
-    WHERE 
-        f.fid_pelicula = _id_pelicula;
+    SELECT id_funcion, horaInicio, horaFin, dia, fid_sala, fid_pelicula
+    FROM Funcion
+    WHERE fid_pelicula = _id_pelicula;
 END$
 
 -- Procedimientos de ButacaFuncion
