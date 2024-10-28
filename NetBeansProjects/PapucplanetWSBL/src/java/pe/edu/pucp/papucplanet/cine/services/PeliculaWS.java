@@ -9,7 +9,7 @@ import pe.edu.pucp.papucplanet.cine.dao.PeliculaDAO;
 import pe.edu.pucp.papucplanet.cine.model.Pelicula;
 import pe.edu.pucp.papucplanet.cine.mysql.PeliculaMySQL;
 
-@WebService(serviceName = "PeliculaWS")
+@WebService(serviceName = "PeliculaWS", targetNamespace = "http://services.papucplanet.pucp.edu.pe")
 public class PeliculaWS {
     
     private PeliculaDAO daoPelicula;
@@ -24,5 +24,53 @@ public class PeliculaWS {
             System.out.println(ex.getMessage());
         }
         return peliculas;
+    }
+    
+    @WebMethod(operationName = "insertar")
+    public int insertar (@WebParam(name = "pelicula")Pelicula pelicula) {
+        int resultado = 0;
+        try{
+            daoPelicula = new PeliculaMySQL();
+            resultado = daoPelicula.insertar(pelicula);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return resultado;
+    }
+    
+    @WebMethod(operationName = "modificar")
+    public int modificar(@WebParam(name = "pelicula") Pelicula pelicula){
+        int resultado = 0;
+        try{
+            daoPelicula = new PeliculaMySQL();
+            resultado = daoPelicula.modificar(pelicula);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return resultado;
+    }
+    
+    @WebMethod(operationName = "eliminar")
+    public int eliminar(@WebParam(name = "idPelicula") int idPelicula){
+        int resultado = 0;
+        try{
+            daoPelicula = new PeliculaMySQL();
+            resultado = daoPelicula.eliminar(idPelicula);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return resultado;
+    }
+    
+    @WebMethod(operationName = "obtenerPorId")
+    public Pelicula obtenerPorId(@WebParam(name = "idPelicula") int idPelicula){
+        Pelicula pelicula = null;
+        try{
+            daoPelicula = new PeliculaMySQL();
+            pelicula = daoPelicula.obtenerPorId(idPelicula);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return pelicula;
     }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="cebc7ea4-11aa-41a6-b20f-f68682e1ad61" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8080/PapucplanetWSBL/archivo.disco" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PeliculaWS.xsd" MetadataType="Schema" ID="66ca81dc-280c-427b-85a0-a195ffb79927" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/PeliculaWS?xsd=1" />
+    <MetadataFile FileName="PeliculaWS.wsdl" MetadataType="Wsdl" ID="59743dc1-73d2-4945-a21d-c5682f2c1c18" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/PeliculaWS?WSDL" />
+    <MetadataFile FileName="archivo.disco" MetadataType="Disco" ID="67fd9c03-c26a-4a18-aa3e-ab7576fd4078" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/archivo.disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

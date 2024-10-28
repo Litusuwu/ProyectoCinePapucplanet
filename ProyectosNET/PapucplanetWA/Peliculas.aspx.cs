@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PapucplanetWA.Servicio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,7 @@ namespace PapucplanetWA
 {
     public partial class Peliculas : System.Web.UI.Page
     {
+        private PeliculaWSClient daoPelicula;
         protected void Page_Load(object sender, EventArgs e)
         {
 
