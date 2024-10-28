@@ -523,52 +523,52 @@ BEGIN
 END$
 
 -- Procedimientos de Sala
-CREATE PROCEDURE INSERTAR_SALA(
-    OUT _id_sala INT,
-    IN _numero_sala INT,
-    IN _fid_sede INT,
-    IN _capacidad INT
-)
-BEGIN
-    INSERT INTO Sala(numero_sala, fid_sede, capacidad) 
-    VALUES(_numero_sala, _fid_sede, _capacidad);
-    SET _id_sala = @@last_insert_id;
-END$
+    CREATE PROCEDURE INSERTAR_SALA(
+        OUT _id_sala INT,
+        IN _numero_sala INT,
+        IN _fid_sede INT,
+        IN _capacidad INT
+    )
+    BEGIN
+        INSERT INTO Sala(numero_sala, fid_sede, capacidad) 
+        VALUES(_numero_sala, _fid_sede, _capacidad);
+        SET _id_sala = @@last_insert_id;
+    END$
 
-CREATE PROCEDURE LISTAR_SALAS_TODAS()
-BEGIN
-    SELECT s.id_sala, s.numero_sala, s.fid_sede, s.capacidad, s.activo 
-    FROM Sala s;
-END$
+    CREATE PROCEDURE LISTAR_SALAS_TODAS()
+    BEGIN
+        SELECT s.id_sala, s.numero_sala, s.fid_sede, s.capacidad, s.activo 
+        FROM Sala s;
+    END$
 
-CREATE PROCEDURE MODIFICAR_SALA(
-    IN _id_sala INT,
-    IN _numero_sala INT,
-    IN _fid_sede INT,
-    IN _capacidad INT
-)
-BEGIN
-    UPDATE Sala 
-    SET numero_sala = _numero_sala, fid_sede = _fid_sede, capacidad = _capacidad
-    WHERE id_sala = _id_sala;
-END$
+    CREATE PROCEDURE MODIFICAR_SALA(
+        IN _id_sala INT,
+        IN _numero_sala INT,
+        IN _fid_sede INT,
+        IN _capacidad INT
+    )
+    BEGIN
+        UPDATE Sala 
+        SET numero_sala = _numero_sala, fid_sede = _fid_sede, capacidad = _capacidad
+        WHERE id_sala = _id_sala;
+    END$
 
-CREATE PROCEDURE LISTAR_SALA_X_ID(
-    IN _id_sala INT
-)
-BEGIN
-    SELECT s.id_sala, s.numero_sala, s.fid_sede, s.capacidad, s.activo 
-    FROM Sala s 
-    WHERE s.id_sala = _id_sala;
-END$
+    CREATE PROCEDURE LISTAR_SALA_X_ID(
+        IN _id_sala INT
+    )
+    BEGIN
+        SELECT s.id_sala, s.numero_sala, s.fid_sede, s.capacidad, s.activo 
+        FROM Sala s 
+        WHERE s.id_sala = _id_sala;
+    END$
 
--- AGREGADO
-CREATE PROCEDURE ELIMINAR_SALA_X_ID (IN _id_sala INT)
-BEGIN
-    UPDATE Sala 
-    SET activo = 0 
-    WHERE id_sala = _id_sala;
-END$
+    -- AGREGADO
+    CREATE PROCEDURE ELIMINAR_SALA_X_ID (IN _id_sala INT)
+    BEGIN
+        UPDATE Sala 
+        SET activo = 0 
+        WHERE id_sala = _id_sala;
+    END$
 
 -- Procedimientos de Butaca
 
