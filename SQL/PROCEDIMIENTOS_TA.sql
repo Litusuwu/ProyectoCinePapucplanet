@@ -75,6 +75,7 @@ DROP PROCEDURE IF EXISTS LISTAR_FUNCIONES_TODAS;
 DROP PROCEDURE IF EXISTS MODIFICAR_FUNCION;
 DROP PROCEDURE IF EXISTS LISTAR_FUNCION_X_ID;
 DROP PROCEDURE IF EXISTS ELIMINAR_FUNCION_X_ID;
+DROP PROCEDURE IF EXISTS OBTENER_FUNCIONES_POR_PELICULA;
 
 -- Drops de ButacaFuncion
 DROP PROCEDURE IF EXISTS INSERTAR_BUTACA_FUNCION;
@@ -524,52 +525,52 @@ BEGIN
 END$
 
 -- Procedimientos de Sala
-CREATE PROCEDURE INSERTAR_SALA(
-    OUT _id_sala INT,
-    IN _numero_sala INT,
-    IN _fid_sede INT,
-    IN _capacidad INT
-)
-BEGIN
-    INSERT INTO Sala(numero_sala, fid_sede, capacidad) 
-    VALUES(_numero_sala, _fid_sede, _capacidad);
-    SET _id_sala = @@last_insert_id;
-END$
+    CREATE PROCEDURE INSERTAR_SALA(
+        OUT _id_sala INT,
+        IN _numero_sala INT,
+        IN _fid_sede INT,
+        IN _capacidad INT
+    )
+    BEGIN
+        INSERT INTO Sala(numero_sala, fid_sede, capacidad) 
+        VALUES(_numero_sala, _fid_sede, _capacidad);
+        SET _id_sala = @@last_insert_id;
+    END$
 
-CREATE PROCEDURE LISTAR_SALAS_TODAS()
-BEGIN
-    SELECT s.id_sala, s.numero_sala, s.fid_sede, s.capacidad, s.activo 
-    FROM Sala s;
-END$
+    CREATE PROCEDURE LISTAR_SALAS_TODAS()
+    BEGIN
+        SELECT s.id_sala, s.numero_sala, s.fid_sede, s.capacidad, s.activo 
+        FROM Sala s;
+    END$
 
-CREATE PROCEDURE MODIFICAR_SALA(
-    IN _id_sala INT,
-    IN _numero_sala INT,
-    IN _fid_sede INT,
-    IN _capacidad INT
-)
-BEGIN
-    UPDATE Sala 
-    SET numero_sala = _numero_sala, fid_sede = _fid_sede, capacidad = _capacidad
-    WHERE id_sala = _id_sala;
-END$
+    CREATE PROCEDURE MODIFICAR_SALA(
+        IN _id_sala INT,
+        IN _numero_sala INT,
+        IN _fid_sede INT,
+        IN _capacidad INT
+    )
+    BEGIN
+        UPDATE Sala 
+        SET numero_sala = _numero_sala, fid_sede = _fid_sede, capacidad = _capacidad
+        WHERE id_sala = _id_sala;
+    END$
 
-CREATE PROCEDURE LISTAR_SALA_X_ID(
-    IN _id_sala INT
-)
-BEGIN
-    SELECT s.id_sala, s.numero_sala, s.fid_sede, s.capacidad, s.activo 
-    FROM Sala s 
-    WHERE s.id_sala = _id_sala;
-END$
+    CREATE PROCEDURE LISTAR_SALA_X_ID(
+        IN _id_sala INT
+    )
+    BEGIN
+        SELECT s.id_sala, s.numero_sala, s.fid_sede, s.capacidad, s.activo 
+        FROM Sala s 
+        WHERE s.id_sala = _id_sala;
+    END$
 
--- AGREGADO
-CREATE PROCEDURE ELIMINAR_SALA_X_ID (IN _id_sala INT)
-BEGIN
-    UPDATE Sala 
-    SET activo = 0 
-    WHERE id_sala = _id_sala;
-END$
+    -- AGREGADO
+    CREATE PROCEDURE ELIMINAR_SALA_X_ID (IN _id_sala INT)
+    BEGIN
+        UPDATE Sala 
+        SET activo = 0 
+        WHERE id_sala = _id_sala;
+    END$
 
 -- Procedimientos de Butaca
 
@@ -672,6 +673,17 @@ BEGIN
     UPDATE Funcion 
     SET activo = 0 
     WHERE id_funcion = _id_funcion;
+END$
+
+-- AGREGADO
+DELIMITER $
+CREATE PROCEDURE OBTENER_FUNCIONES_POR_PELICULA(
+    IN _id_pelicula INT
+)
+BEGIN
+    SELECT id_funcion, horaInicio, horaFin, dia, fid_sala, fid_pelicula
+    FROM Funcion
+    WHERE fid_pelicula = _id_pelicula;
 END$
 
 -- Procedimientos de ButacaFuncion

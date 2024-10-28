@@ -1,4 +1,4 @@
 Usuario: admin
-Contraseña: Lospapusprime123;
+Contraseña: Lospapusprime123
 Esquema: TAprog3
 URL (hostname): db-prog3-ta.c1880o4gidki.us-east-1.rds.amazonaws.com
