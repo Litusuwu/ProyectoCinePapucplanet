@@ -266,7 +266,7 @@ public class Papucplanet {
         System.out.println("MODIFICAR");
         peliDao.modificar(pelicula);
         
-        Pelicula peli2 = peliDao.obtenerPorId(1);
+        
         pelicula.setTitulo(pelicula.getTitulo()+"+");
         peli2.setIdPelicula(1);
         System.out.println("INSERT");
