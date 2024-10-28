@@ -1,0 +1,50 @@
+﻿html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    height: 100%;
+}
+
+#bdSidebar {
+        background-color: #fafafa !important;
+}
+
+h3 {
+    color: #000000;
+}
+
+.mynav .nav-item :hover {
+    background-color: #e6e0f8; /* Color de fondo al pasar el mouse, ajusta según el diseño */
+}
+
+.mynav .nav-item a {
+    padding: 30px 35px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.enlace-hover:hover {
+    color: #6a0dad !important; /* Cambia a un tono de morado cuando se pasa el cursor */
+}
+
+a,i {
+    text-decoration: none !important;
+}
+
+.bg-custom {
+    background-color: #d4b5f0 !important; /* Color lila claro */
+}
+
+.custom-width-card {
+    width: 65% !important;
+}
+
+.custom-body-card {
+    color: #4d4174 !important;
+}
+

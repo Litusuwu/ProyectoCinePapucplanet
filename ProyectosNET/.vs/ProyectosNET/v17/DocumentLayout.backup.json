@@ -1,0 +1,173 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\papucplanetwa\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\papucplanetwa\\papucplanet.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\papucplanet.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|c:\\users\\derm2\\documents\\pucp_2024_2\\proga3\\ta\\javaclases\\proyectosnet\\papucplanetwa\\boletas.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\boletas.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|c:\\users\\derm2\\documents\\pucp_2024_2\\proga3\\ta\\javaclases\\proyectosnet\\papucplanetwa\\reportes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\reportes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|c:\\users\\derm2\\documents\\pucp_2024_2\\proga3\\ta\\javaclases\\proyectosnet\\papucplanetwa\\sedes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\sedes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|c:\\users\\derm2\\documents\\pucp_2024_2\\proga3\\ta\\javaclases\\proyectosnet\\papucplanetwa\\peliculas.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\peliculas.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|c:\\users\\derm2\\documents\\pucp_2024_2\\proga3\\ta\\javaclases\\proyectosnet\\papucplanetwa\\usuarios.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\usuarios.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|c:\\users\\derm2\\documents\\pucp_2024_2\\proga3\\ta\\javaclases\\proyectosnet\\papucplanetwa\\consumibles.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\consumibles.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\papucplanetwa\\content\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\content\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Reportes.aspx",
+              "DocumentMoniker": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Reportes.aspx",
+              "RelativeDocumentMoniker": "PapucplanetWA\\Reportes.aspx",
+              "ToolTip": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Reportes.aspx",
+              "RelativeToolTip": "PapucplanetWA\\Reportes.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-27T23:03:23.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Boletas.aspx",
+              "DocumentMoniker": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Boletas.aspx",
+              "RelativeDocumentMoniker": "PapucplanetWA\\Boletas.aspx",
+              "ToolTip": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Boletas.aspx",
+              "RelativeToolTip": "PapucplanetWA\\Boletas.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-27T23:02:44.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Usuarios.aspx",
+              "DocumentMoniker": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Usuarios.aspx",
+              "RelativeDocumentMoniker": "PapucplanetWA\\Usuarios.aspx",
+              "ToolTip": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Usuarios.aspx",
+              "RelativeToolTip": "PapucplanetWA\\Usuarios.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-27T23:01:10.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Consumibles.aspx",
+              "DocumentMoniker": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Consumibles.aspx",
+              "RelativeDocumentMoniker": "PapucplanetWA\\Consumibles.aspx",
+              "ToolTip": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Consumibles.aspx",
+              "RelativeToolTip": "PapucplanetWA\\Consumibles.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-27T22:36:17.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Peliculas.aspx",
+              "DocumentMoniker": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Peliculas.aspx",
+              "RelativeDocumentMoniker": "PapucplanetWA\\Peliculas.aspx",
+              "ToolTip": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Peliculas.aspx",
+              "RelativeToolTip": "PapucplanetWA\\Peliculas.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-27T20:52:21.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Sedes.aspx",
+              "DocumentMoniker": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Sedes.aspx",
+              "RelativeDocumentMoniker": "PapucplanetWA\\Sedes.aspx",
+              "ToolTip": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Sedes.aspx",
+              "RelativeToolTip": "PapucplanetWA\\Sedes.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-25T19:23:34.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "styles.css",
+              "DocumentMoniker": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Content\\styles.css",
+              "RelativeDocumentMoniker": "PapucplanetWA\\Content\\styles.css",
+              "ToolTip": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Content\\styles.css",
+              "RelativeToolTip": "PapucplanetWA\\Content\\styles.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-24T16:31:27.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Papucplanet.Master",
+              "DocumentMoniker": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Papucplanet.Master",
+              "RelativeDocumentMoniker": "PapucplanetWA\\Papucplanet.Master",
+              "ToolTip": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Papucplanet.Master",
+              "RelativeToolTip": "PapucplanetWA\\Papucplanet.Master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-24T16:21:16.438Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Home.aspx",
+              "DocumentMoniker": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Home.aspx",
+              "RelativeDocumentMoniker": "PapucplanetWA\\Home.aspx",
+              "ToolTip": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Home.aspx",
+              "RelativeToolTip": "PapucplanetWA\\Home.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-24T16:21:00.055Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
