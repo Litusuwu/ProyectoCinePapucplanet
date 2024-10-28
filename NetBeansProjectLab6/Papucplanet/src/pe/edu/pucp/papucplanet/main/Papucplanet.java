@@ -516,18 +516,18 @@ public class Papucplanet {
     public static void main(String[] args) throws ParseException {
         // Test ADMIN
         try{
-            testAdministrador();
+//            testAdministrador();
             testSede();
+//            
+//            testCliente();
+//            Administrador administrador = new Administrador();
+//            administrador.setId(1);
+//            testCuenta(administrador);
+//            testCine();
             
-            testCliente();
-            Administrador administrador = new Administrador();
-            administrador.setId(1);
-            testCuenta(administrador);
-            testCine();
-            
-            testPelicula();
-            testSala();
-            testBoleta_Alimento();
+//            testPelicula();
+//            testSala();
+//            testBoleta_Alimento();
             
         }catch(Exception ex){
             System.out.println(ex.getMessage());

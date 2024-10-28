@@ -9,9 +9,18 @@ namespace PapucplanetWA
 {
     public partial class Sedes : System.Web.UI.Page
     {
+        private string a;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                CargarSedes();
+            }
+        }
 
+        private void CargarSedes()
+        {
+            
         }
     }
 }

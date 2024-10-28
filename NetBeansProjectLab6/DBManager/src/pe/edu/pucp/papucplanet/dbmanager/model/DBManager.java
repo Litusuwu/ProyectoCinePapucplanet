@@ -4,10 +4,10 @@ import java.sql.DriverManager;
 public class DBManager {
     private static DBManager dbManager;
     private String url = "jdbc:mysql://" +
-                          "papusinsanos.cigydvhru98t.us-east-1.rds.amazonaws.com"
-                          + ":3306/" + "insane";
+                          "db-prog3-ta.c1880o4gidki.us-east-1.rds.amazonaws.com"
+                          + ":3306/" + "TAprog3";
     private String usuario = "admin";
-    private String password = "Lospapusprime123;";
+    private String password = "Lospapusprime123";
     private Connection con;
             
     public static DBManager getInstance(){
