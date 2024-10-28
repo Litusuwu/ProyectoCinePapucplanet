@@ -75,6 +75,7 @@ DROP PROCEDURE IF EXISTS LISTAR_FUNCIONES_TODAS;
 DROP PROCEDURE IF EXISTS MODIFICAR_FUNCION;
 DROP PROCEDURE IF EXISTS LISTAR_FUNCION_X_ID;
 DROP PROCEDURE IF EXISTS ELIMINAR_FUNCION_X_ID;
+DROP PROCEDURE IF EXISTS OBTENER_FUNCIONES_POR_PELICULA;
 
 -- Drops de ButacaFuncion
 DROP PROCEDURE IF EXISTS INSERTAR_BUTACA_FUNCION;
@@ -671,6 +672,22 @@ BEGIN
     UPDATE Funcion 
     SET activo = 0 
     WHERE id_funcion = _id_funcion;
+END$
+
+-- AGREGADO
+CREATE PROCEDURE OBTENER_FUNCIONES_POR_PELICULA(IN _id_pelicula INT)
+BEGIN
+    SELECT 
+        f.id_funcion,
+        f.horaInicio,
+        f.horaFin,
+        f.dia,
+        f.fid_sala,
+        f.fid_pelicula
+    FROM 
+        Funcion f
+    WHERE 
+        f.fid_pelicula = _id_pelicula;
 END$
 
 -- Procedimientos de ButacaFuncion
