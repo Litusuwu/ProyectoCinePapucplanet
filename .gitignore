@@ -63,3 +63,7 @@ nbdist/
 /NetBeansProjectLab6/PapucplanetCineModel/nbproject/private/
 /NetBeansProjectLab6/PapucplanetComprasDA/nbproject/private/
 /NetBeansProjectLab6/PapucplanetConfiteriaDA/nbproject/private/
+
+!/NetBeansProjects/Papucplanet/src/pe/edu/pucp/papucplanet/lib/mysql-connector-j-9.0.0.jar
+!/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/jakarta.xml.ws-api-4.0.2.jar
+!/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/mysql-connector-j-9.0.0.jar
