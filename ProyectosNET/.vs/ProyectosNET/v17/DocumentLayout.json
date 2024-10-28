@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|c:\\users\\derm2\\documents\\pucp_2024_2\\proga3\\ta\\javaclases\\proyectosnet\\papucplanetwa\\sedes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\sedes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\papucplanetwa\\sedes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\sedes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|c:\\users\\derm2\\documents\\pucp_2024_2\\proga3\\ta\\javaclases\\proyectosnet\\papucplanetwa\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|c:\\users\\derm2\\documents\\pucp_2024_2\\proga3\\ta\\javaclases\\proyectosnet\\papucplanetwa\\sedes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\sedes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\papucplanetwa\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
@@ -30,24 +30,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Sedes.aspx.cs",
               "DocumentMoniker": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Sedes.aspx.cs",
               "RelativeDocumentMoniker": "PapucplanetWA\\Sedes.aspx.cs",
               "ToolTip": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Sedes.aspx.cs",
               "RelativeToolTip": "PapucplanetWA\\Sedes.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-28T05:10:48.489Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Sedes.aspx",
               "DocumentMoniker": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Sedes.aspx",
               "RelativeDocumentMoniker": "PapucplanetWA\\Sedes.aspx",
@@ -78,7 +78,6 @@
               "RelativeDocumentMoniker": "PapucplanetWA\\Papucplanet.Master",
               "ToolTip": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Papucplanet.Master",
               "RelativeToolTip": "PapucplanetWA\\Papucplanet.Master",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2024-10-24T16:21:16.438Z",
               "EditorCaption": ""
@@ -93,8 +92,7 @@
               "RelativeToolTip": "PapucplanetWA\\Home.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-10-24T16:21:00.055Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-24T16:21:00.055Z"
             }
           ]
         }

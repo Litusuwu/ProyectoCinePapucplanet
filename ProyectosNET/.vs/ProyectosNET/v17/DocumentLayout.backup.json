@@ -3,9 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|PapucplanetWA||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|c:\\users\\derm2\\documents\\pucp_2024_2\\proga3\\ta\\javaclases\\proyectosnet\\papucplanetwa\\sedes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\sedes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -24,9 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\papucplanetwa\\content\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\content\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|c:\\users\\derm2\\documents\\pucp_2024_2\\proga3\\ta\\javaclases\\proyectosnet\\papucplanetwa\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|909d16b3-c8e8-43d1-a2b8-26ea0d4b6b57"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,23 +35,11 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PapucplanetWA",
-              "DocumentMoniker": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\PapucplanetWA.csproj",
-              "RelativeDocumentMoniker": "PapucplanetWA\\PapucplanetWA.csproj",
-              "ToolTip": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\PapucplanetWA.csproj",
-              "RelativeToolTip": "PapucplanetWA\\PapucplanetWA.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-28T15:38:08.686Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Sedes.aspx.cs",
               "DocumentMoniker": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Sedes.aspx.cs",
               "RelativeDocumentMoniker": "PapucplanetWA\\Sedes.aspx.cs",
-              "ToolTip": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Sedes.aspx.cs*",
-              "RelativeToolTip": "PapucplanetWA\\Sedes.aspx.cs*",
+              "ToolTip": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Sedes.aspx.cs",
+              "RelativeToolTip": "PapucplanetWA\\Sedes.aspx.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-28T05:10:48.489Z",
@@ -65,7 +47,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Sedes.aspx",
               "DocumentMoniker": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Sedes.aspx",
               "RelativeDocumentMoniker": "PapucplanetWA\\Sedes.aspx",
@@ -78,7 +60,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "styles.css",
               "DocumentMoniker": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Content\\styles.css",
               "RelativeDocumentMoniker": "PapucplanetWA\\Content\\styles.css",
@@ -90,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Papucplanet.Master",
               "DocumentMoniker": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Papucplanet.Master",
               "RelativeDocumentMoniker": "PapucplanetWA\\Papucplanet.Master",
@@ -103,7 +85,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Home.aspx",
               "DocumentMoniker": "C:\\Users\\derm2\\Documents\\PUCP_2024_2\\PROGA3\\TA\\JavaClases\\ProyectosNET\\PapucplanetWA\\Home.aspx",
               "RelativeDocumentMoniker": "PapucplanetWA\\Home.aspx",
