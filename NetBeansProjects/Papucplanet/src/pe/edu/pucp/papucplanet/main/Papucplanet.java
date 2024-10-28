@@ -276,9 +276,9 @@ public class Papucplanet {
         
         
         pelicula.setTitulo(pelicula.getTitulo()+"+");
-        peli2.setIdPelicula(1);
+        pelicula.setIdPelicula(1);
         System.out.println("INSERT");
-        peliDao.insertar(peli2);
+        peliDao.insertar(pelicula);
         System.out.println("ELIMINAR");
         peliDao.eliminar(1);
         
