@@ -38,35 +38,35 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="ListarAreas.aspx" class="enlace-hover text-black text-decoration-none fs-5">
+                    <a href="Peliculas.aspx" class="enlace-hover text-black text-decoration-none fs-5">
                         <i class="fa-regular fa-film pe-2"></i>
                         Peliculas
                     </a>
                 </li>
                 <li class="nav-item ">
                      <!--Cambiar href-->
-                    <a href="GestionarEmpleados.aspx" class="enlace-hover text-decoration-none text-black fs-5">
+                    <a href="Consumibles.aspx" class="enlace-hover text-decoration-none text-black fs-5">
                         <i class="fa-regular fa-popcorn pe-2"></i>
                         Consumibles
                     </a>
                 </li>
                 <li class="nav-item ">
                     <!--Cambiar href-->
-                    <a href="ListarEmpleados.aspx" class="enlace-hover  text-black fs-5 text-decoration-none">
+                    <a href="Usuarios.aspx" class="enlace-hover  text-black fs-5 text-decoration-none">
                         <i class="fa-solid fa-user pe-2"></i>
                         Usuarios
                     </a>
                 </li>
                 <li class="nav-item ">
                     <!--Cambiar href-->
-                    <a href="#" class="enlace-hover sidebar-link collapsed text-black fs-5 text-decoration-none">
+                    <a href="Boletas.aspx" class="enlace-hover sidebar-link collapsed text-black fs-5 text-decoration-none">
                         <i class="fa-regular fa-receipt pe-2"></i>
                         <span class="topic">Boletas</span>
                     </a>
                 </li>
                 <li class="nav-item ">
                     <!--Cambiar href-->
-                    <a href="#" class="enlace-hover sidebar-link collapsed text-black fs-5 text-decoration-none">
+                    <a href="Reportes.aspx" class="enlace-hover sidebar-link collapsed text-black fs-5 text-decoration-none">
                         <i class="fa-light fa-file-alt pe-2"></i>
                         Reportes
                     </a>
@@ -111,7 +111,9 @@
             <!-- Contenido -->
             <div class="p-1 ">
                 <form runat="server">
-                    <asp:ContentPlaceHolder ID="cphContenido" runat="server"></asp:ContentPlaceHolder>
+                    <div class="container border my-4">
+                        <asp:ContentPlaceHolder ID="cphContenido" runat="server"></asp:ContentPlaceHolder>
+                    </div>
                 </form>
             </div>
         </div>
