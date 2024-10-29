@@ -48,3 +48,13 @@ a,i {
     color: #4d4174 !important;
 }
 
+.btn-sede {
+    background-color: #b063d5 !important; /* Color de fondo */
+    color: #000 !important; /* Color del texto */
+    border: none;
+    border-radius: 10px; /* Borde redondeado */
+    padding: 9px 30px;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+}
