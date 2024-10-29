@@ -12,6 +12,7 @@ DROP PROCEDURE IF EXISTS LISTAR_CUENTAS_TODAS;
 DROP PROCEDURE IF EXISTS MODIFICAR_CUENTA;
 DROP PROCEDURE IF EXISTS LISTAR_CUENTA_X_ID;
 DROP PROCEDURE IF EXISTS ELIMINAR_CUENTA_X_ID;
+DROP PROCEDURE IF EXISTS VERIFICAR_CUENTA;
 
 -- Drops de Administrador
 DROP PROCEDURE IF EXISTS INSERTAR_ADMINISTRADOR;
@@ -153,7 +154,7 @@ CREATE PROCEDURE INSERTAR_CUENTA(
 )
 BEGIN
 	UPDATE Usuario
-    SET correo = _correo, contrasena = _contrasena WHERE id_usuario = _id_usuario;
+    SET correo = _correo, contrasena = MD5(_contrasena) WHERE id_usuario = _id_usuario;
     SET _id_cuenta = _id_usuario;
 END$
 
@@ -175,13 +176,14 @@ CREATE PROCEDURE MODIFICAR_CUENTA(
 )
 BEGIN
     UPDATE Usuario 
-    SET contrasena = _contrasena, correo = _correo
+    SET contrasena = MD5(_contrasena), correo = _correo
     WHERE id_usuario = _id_cuenta;
 END$
 
 CREATE PROCEDURE LISTAR_CUENTA_X_ID(IN _id_cuenta INT)
 BEGIN
-    SELECT u.id_usuario, u.nombres, u.contrasena, u.correo, u.activo,
+    SELECT u.id_usuario, u.nombres,u.primer_apellido,u.segundo_apellido,
+		   u.contrasena, u.correo, u.activo,
            a.id_administrador, a.codigo,  
            c.id_cliente 
     FROM Usuario u
@@ -197,6 +199,14 @@ BEGIN
     SET activo = 0 
     WHERE id_usuario = _id_cuenta;
 END$
+CREATE PROCEDURE VERIFICAR_CUENTA(
+	IN _correo VARCHAR(100),
+    IN _contrasena VARCHAR(100))
+BEGIN
+    SELECT * FROM usuario WHERE correo = _correo AND contrasena = _contrasena
+    AND activo = 1;
+END$
+
 
 -- Procedimientos de Administradores
 CREATE PROCEDURE INSERTAR_ADMINISTRADOR(
