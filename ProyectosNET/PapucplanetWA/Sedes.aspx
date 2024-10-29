@@ -2,7 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitulo" runat="server">
     Sedes
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="cphContenido" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h2>Sedes</h2>

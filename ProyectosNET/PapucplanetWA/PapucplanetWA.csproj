@@ -63,6 +63,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AgregarNuevaPelicula.aspx" />
     <Content Include="Boletas.aspx" />
     <None Include="Connected Services\Servicio\archivo.disco" />
     <None Include="Connected Services\Servicio\configuration91.svcinfo" />
@@ -83,6 +84,15 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.pelicula.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.genero.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarGenerosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarPorNombreResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\Servicio\Reference.svcmap">
@@ -131,6 +141,7 @@
     <Content Include="Content\Fonts\css\v5-font-face.css" />
     <Content Include="Content\Fonts\css\v5-font-face.min.css" />
     <Content Include="Content\styles.css" />
+    <Content Include="Funciones.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Peliculas.aspx" />
     <Content Include="Reportes.aspx" />
@@ -154,6 +165,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarNuevaPelicula.aspx.cs">
+      <DependentUpon>AgregarNuevaPelicula.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarNuevaPelicula.aspx.designer.cs">
+      <DependentUpon>AgregarNuevaPelicula.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Boletas.aspx.cs">
       <DependentUpon>Boletas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -172,6 +190,14 @@
     </Compile>
     <Compile Include="Consumibles.aspx.designer.cs">
       <DependentUpon>Consumibles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Estado.cs" />
+    <Compile Include="Funciones.aspx.cs">
+      <DependentUpon>Funciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Funciones.aspx.designer.cs">
+      <DependentUpon>Funciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

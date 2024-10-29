@@ -48,3 +48,36 @@ a,i {
     color: #4d4174 !important;
 }
 
+.btn-purple {
+    background-color: #7153f2; /* Color morado */
+    color: white;
+    border: 1px solid #7153f2;
+}
+
+.btn-purple:hover {
+    background-color: #7153f2; /* Un tono más oscuro para el hover */
+    border-color: #7153f2;
+    color: white;
+}
+
+.card-header-colored {
+    border-bottom: 3px solid #7153f2; /* Cambia el color a tu preferencia */
+    color: #7153f2; /* Cambia el color del texto a juego */
+    font-weight: bold;
+    background-color: #ffffff; /* Fondo blanco */
+}
+
+.card.no-border {
+    border: none; /* Quita todos los bordes de la tarjeta */
+    box-shadow: none; /* Opcional: quita la sombra de la tarjeta si la tiene */
+}
+
+.text-purple {
+    text-decoration: none;
+    color: #8a2be2; /* Personaliza el color */
+}
+
+.text-purple:hover {
+    text-decoration: underline; /* Opcional: subrayado al pasar el mouse */
+    color: #6a1bb3; /* Color al pasar el mouse */
+}

@@ -1,8 +1,7 @@
 package pe.edu.pucp.papucplanet.cine.model;
 //import pe.edu.pucp.papucplanet.cine.model.Genero;
 
-//import java.util.ArrayList;
-
+import java.util.ArrayList;
 
 public class Pelicula {
     private int idPelicula;
@@ -11,17 +10,19 @@ public class Pelicula {
     private Genero genero;
     private String sinopsis;
     private boolean activo;
-    //posee un arraylist de funciones
-    //private ArrayList<Funcion> funciones;
+    private String imagenPromocional;   
+    private ArrayList<Funcion> funciones;
+    
     public Pelicula(){
     }
-    // Constructor con parámetros
-    public Pelicula(String titulo, double duracion, Genero genero, String sinopsis) {
+
+    public Pelicula(String titulo, double duracion, Genero genero, String sinopsis, String imagenPromocional) {
         this.titulo = titulo;
         this.duracion = duracion;
         this.genero = genero;
         this.sinopsis = sinopsis;
         this.activo = true;
+        this.imagenPromocional = imagenPromocional;
     }
     // Getter y Setter para titulo
 
@@ -68,6 +69,22 @@ public class Pelicula {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
+
+    public ArrayList<Funcion> getFunciones(){
+        return funciones;
+    }
+
+    public void setFunciones(ArrayList<Funcion> funciones){
+        this.funciones = funciones;
+    }
+    
+    public String getImagenPromocional() {
+        return imagenPromocional;
+    }
+
+    public void setImagenPromocional(String imagenPromocional) {
+        this.imagenPromocional = imagenPromocional;
+    }
     
     public String imprimirDatos(){
         String str = "--------------------------------\n";
@@ -78,59 +95,5 @@ public class Pelicula {
         str +=  "Sinopsis: " + this.getSinopsis()+ "\n";
         str +=  "Activo: " + this.isActivo();
         return str;
-    }
-	/*
-    public ArrayList<Funcion> getFunciones(){
-        return new ArrayList<>(funciones);
-    }
-
-    public void setFunciones(ArrayList<Funcion> funciones){
-        this.funciones = funciones;
-    }
-    */
-    //////////////////////////////////////////////////////////////////METODOS///////////////////////////////////////////////////////////////////////////
-	/*
-    // Método para agregar una nueva función
-    public void agregarFuncion(Funcion funcion) {
-        this.funciones.add(funcion);
-    }
-
-    // Método para eliminar una función por índice
-    public void eliminarFuncion(int indice) {
-        if (indice >= 0 && indice < funciones.size()) {
-            this.funciones.remove(indice);
-        } else {
-            System.out.println("Índice fuera de rango");
-        }
-    }
-	*/
-	
-    // Método para buscar una función por fecha
-	/*
-    public Funcion buscarFuncionPorFecha(String fecha) {
-        for (Funcion funcion : funciones) {
-            if (funcion.getDia().equals(fecha)) {
-                return funcion;
-            }
-        }
-        return null; // Si no se encuentra, retorna null
-    }
-	*/
-    // Método para mostrar la información completa de la película
-    /*
-    public void imprimirPelicula() {
-        System.out.println("Título: " + titulo);
-        System.out.println("Duración: " + duracion + " horas");
-        System.out.println("Género: " + genero);
-        System.out.println("Sinopsis: " + sinopsis);
-		
-        System.out.println("Funciones:");
-        for (Funcion funcion : funciones) {
-            System.out.println(" - " + funcion.getDia() + " a las " + funcion.getHorarioInicio());
-        }
-    }
-    */
-    public void consultarDatos(){
-
     }
 }
