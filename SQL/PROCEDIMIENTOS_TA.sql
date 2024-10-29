@@ -480,17 +480,19 @@ CREATE PROCEDURE INSERTAR_PELICULA(
     IN _titulo VARCHAR(60),
     IN _duracion DOUBLE,
     IN _genero ENUM('ACCION', 'DRAMA', 'COMEDIA', 'DOCUMENTAL'),
-    IN _sinopsis VARCHAR(200)
+    IN _sinopsis VARCHAR(200),
+    IN _imagen_link VARCHAR(255)  -- Nuevo parámetro para el link de la imagen
 )
 BEGIN
-    INSERT INTO Pelicula(titulo, duracion, genero, sinopsis) 
-    VALUES(_titulo, _duracion, _genero, _sinopsis);
+    INSERT INTO Pelicula(titulo, duracion, genero, sinopsis, imagen_link) 
+    VALUES(_titulo, _duracion, _genero, _sinopsis, _imagen_link);
     SET _id_pelicula = @@last_insert_id;
 END$
 
+
 CREATE PROCEDURE LISTAR_PELICULAS_TODAS()
 BEGIN
-    SELECT p.id_pelicula, p.titulo, p.duracion, p.genero, p.sinopsis, p.activo 
+    SELECT p.id_pelicula, p.titulo, p.duracion, p.genero, p.sinopsis, p.imagen_link  , p.activo 
     FROM Pelicula p;
 END$
 
@@ -499,11 +501,12 @@ CREATE PROCEDURE MODIFICAR_PELICULA(
     IN _titulo VARCHAR(60),
     IN _duracion DOUBLE,
     IN _genero ENUM('ACCION', 'DRAMA', 'COMEDIA', 'DOCUMENTAL'),
-    IN _sinopsis VARCHAR(200)
+    IN _sinopsis VARCHAR(200),
+    IN _imagen_link VARCHAR(255)
 )
 BEGIN
     UPDATE Pelicula 
-    SET titulo = _titulo, duracion = _duracion, genero = _genero, sinopsis = _sinopsis
+    SET titulo = _titulo, duracion = _duracion, genero = _genero, sinopsis = _sinopsis, imagen_link = _imagen_link
     WHERE id_pelicula = _id_pelicula;
 END$
 
@@ -511,7 +514,7 @@ CREATE PROCEDURE LISTAR_PELICULA_X_ID(
     IN _id_pelicula INT
 )
 BEGIN
-    SELECT p.id_pelicula, p.titulo, p.duracion, p.genero, p.sinopsis, p.activo 
+    SELECT p.id_pelicula, p.titulo, p.duracion, p.genero, p.sinopsis, p.imagen_link, p.activo 
     FROM Pelicula p 
     WHERE p.id_pelicula = _id_pelicula;
 END$
@@ -555,22 +558,31 @@ END$
         WHERE id_sala = _id_sala;
     END$
 
-    CREATE PROCEDURE LISTAR_SALA_X_ID(
-        IN _id_sala INT
-    )
-    BEGIN
-        SELECT s.id_sala, s.numero_sala, s.fid_sede, s.capacidad, s.activo 
-        FROM Sala s 
-        WHERE s.id_sala = _id_sala;
-    END$
+CREATE PROCEDURE LISTAR_SALA_X_ID(
+	IN _id_sala INT
+)
+BEGIN
+	SELECT s.id_sala, s.numero_sala, s.fid_sede, s.capacidad, s.activo 
+	FROM Sala s 
+	WHERE s.id_sala = _id_sala;
+END$
 
-    -- AGREGADO
-    CREATE PROCEDURE ELIMINAR_SALA_X_ID (IN _id_sala INT)
-    BEGIN
-        UPDATE Sala 
-        SET activo = 0 
-        WHERE id_sala = _id_sala;
-    END$
+-- AGREGADO
+CREATE PROCEDURE ELIMINAR_SALA_X_ID (IN _id_sala INT)
+BEGIN
+	UPDATE Sala 
+	SET activo = 0 
+	WHERE id_sala = _id_sala;
+END$
+    
+CREATE PROCEDURE OBTENER_SALAS_POR_SEDE(
+    IN _id_sede INT
+)
+BEGIN
+    SELECT s.id_sala, s.numero_sala, s.capacidad, s.activo 
+    FROM Sala s
+    WHERE s.fid_sede = _id_sede AND s.activo = 1;
+END$
 
 -- Procedimientos de Butaca
 
