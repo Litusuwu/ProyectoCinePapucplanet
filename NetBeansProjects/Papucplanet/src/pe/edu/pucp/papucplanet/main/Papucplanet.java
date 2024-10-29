@@ -281,6 +281,13 @@ public class Papucplanet {
         peliDao.insertar(pelicula);
         System.out.println("ELIMINAR");
         peliDao.eliminar(1);
+        pelicula.setTitulo(pelicula.getTitulo()+"+");
+        
+        //peli2.setIdPelicula(1);
+        System.out.println("INSERT");
+        //peliDao.insertar(peli2);
+        System.out.println("ELIMINAR");
+        peliDao.eliminar(1);
         
     }
     // Funciones CRUD para Sede
