@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|d:\\universidad\\ciclo7\\programacion3\\trabajogrupal\\javaclases\\proyectosnet\\papucplanetwa\\usuarios.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|D:\\Universidad\\Ciclo7\\Programacion3\\TrabajoGrupal\\JavaClases\\ProyectosNET\\papucplanetwa\\usuarios.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\usuarios.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
@@ -46,9 +46,8 @@
               "ToolTip": "D:\\Universidad\\Ciclo7\\Programacion3\\TrabajoGrupal\\JavaClases\\ProyectosNET\\PapucplanetWA\\Usuarios.aspx",
               "RelativeToolTip": "PapucplanetWA\\Usuarios.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-10-29T19:07:57.612Z",
-              "EditorCaption": ""
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000192|",
+              "WhenOpened": "2024-10-29T19:07:57.612Z"
             }
           ]
         }

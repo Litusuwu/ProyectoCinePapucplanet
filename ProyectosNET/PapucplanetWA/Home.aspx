@@ -19,11 +19,11 @@
         <!-- Tarjeta 2: Películas -->
         <div class="col">
             <div class="card custom-width-card mx-auto text-center bg-custom border-0 shadow-sm">
-                <a href="Peliculas.aspx" class="text-decoration-none">    
+                <a href="Peliculas.aspx" class="text-decoration-none">
                     <div class="card-body my-4">
                         <i class="fa-solid fa-film fs-1 custom-body-card"></i>
                         <h5 class="card-title mt-2 custom-body-card">Películas</h5>
-                        </div>
+                    </div>
                 </a>
             </div>
         </div>

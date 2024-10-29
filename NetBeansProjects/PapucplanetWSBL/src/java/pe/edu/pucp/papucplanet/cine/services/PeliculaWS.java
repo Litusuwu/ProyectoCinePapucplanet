@@ -9,6 +9,7 @@ import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import java.util.ArrayList;
 import pe.edu.pucp.papucplanet.cine.dao.PeliculaDAO;
+import pe.edu.pucp.papucplanet.cine.model.Genero;
 import pe.edu.pucp.papucplanet.cine.model.Pelicula;
 import pe.edu.pucp.papucplanet.cine.mysql.PeliculaMySQL;
 
@@ -29,10 +30,12 @@ public class PeliculaWS {
         return peliculas;
     }
     
+    /*public int insertar (@WebParam(name = "pelicula")Pelicula pelicula, @WebParam(name = "genero") Genero genero)*/
     @WebMethod(operationName = "insertar")
     public int insertar (@WebParam(name = "pelicula")Pelicula pelicula) {
         int resultado = 0;
         try{
+            /*pelicula.setGenero(genero);*/
             daoPelicula = new PeliculaMySQL();
             resultado = daoPelicula.insertar(pelicula);
         }catch(Exception ex){
@@ -75,5 +78,29 @@ public class PeliculaWS {
             System.out.println(ex.getMessage());
         }
         return pelicula;
+    }
+    
+    @WebMethod(operationName = "listarGeneros")
+    public ArrayList<Genero> listarGeneros(){
+        ArrayList<Genero> generos = null;
+        try{
+            daoPelicula = new PeliculaMySQL();
+            generos = daoPelicula.listarGeneros();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return generos;
+    }
+    
+    @WebMethod(operationName = "listarPorNombre")
+    public ArrayList<Pelicula> listarPorNombre(@WebParam(name = "nombre") String nombre) {
+        ArrayList<Pelicula> peliculas = null;
+        try{
+            daoPelicula = new PeliculaMySQL();
+            peliculas = daoPelicula.listarPorNombre(nombre);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return peliculas;
     }
 }
