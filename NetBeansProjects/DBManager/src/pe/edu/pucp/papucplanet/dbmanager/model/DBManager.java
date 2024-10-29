@@ -5,7 +5,7 @@ public class DBManager {
     private static DBManager dbManager;
     private String url = "jdbc:mysql://" +
                           "db-prog3-ta.c1880o4gidki.us-east-1.rds.amazonaws.com"
-                          + ":3306/" + "TAprog3";
+                          + ":3306/" + "TAprog3" + "?useSSL=false";
     private String usuario = "admin";
     private String password = "Lospapusprime123";
     private Connection con;
