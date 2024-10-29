@@ -1,3 +1,9 @@
+#Proyectos C#
+*.suo
+[Dd]ebug/
+[Rr]elease/
+.vs/
+
 # Ignorar las carpetas generadas por NetBeans
 nbproject/private/
 build/
