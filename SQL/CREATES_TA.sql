@@ -101,6 +101,7 @@ CREATE TABLE Pelicula (
     duracion DOUBLE NOT NULL,
     genero ENUM ('ACCION', 'DRAMA', 'COMEDIA', 'DOCUMENTAL'),
     sinopsis VARCHAR(200),
+    imagen_link VARCHAR(255),
     activo TINYINT DEFAULT 1
 );
 
