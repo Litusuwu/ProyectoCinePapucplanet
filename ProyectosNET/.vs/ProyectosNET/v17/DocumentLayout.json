@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Estudios\\Universidad\\8 Octavo Ciclo\\Programacion 3\\Tarea Acad\u00E9mica\\JavaClases\\ProyectosNET\\",
+  "WorkspaceRootPath": "D:\\Universidad\\Ciclo7\\Programacion3\\TrabajoGrupal\\JavaClases\\ProyectosNET\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|e:\\estudios\\universidad\\8 octavo ciclo\\programacion 3\\tarea acad\u00E9mica\\javaclases\\proyectosnet\\papucplanetwa\\peliculas.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\peliculas.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|d:\\universidad\\ciclo7\\programacion3\\trabajogrupal\\javaclases\\proyectosnet\\papucplanetwa\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\home.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|d:\\universidad\\ciclo7\\programacion3\\trabajogrupal\\javaclases\\proyectosnet\\papucplanetwa\\usuarios.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\usuarios.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +18,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Peliculas.aspx.cs",
-              "DocumentMoniker": "E:\\Estudios\\Universidad\\8 Octavo Ciclo\\Programacion 3\\Tarea Acad\u00E9mica\\JavaClases\\ProyectosNET\\PapucplanetWA\\Peliculas.aspx.cs",
-              "RelativeDocumentMoniker": "PapucplanetWA\\Peliculas.aspx.cs",
-              "ToolTip": "E:\\Estudios\\Universidad\\8 Octavo Ciclo\\Programacion 3\\Tarea Acad\u00E9mica\\JavaClases\\ProyectosNET\\PapucplanetWA\\Peliculas.aspx.cs",
-              "RelativeToolTip": "PapucplanetWA\\Peliculas.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T22:42:34.827Z",
+              "Title": "Home.aspx",
+              "DocumentMoniker": "D:\\Universidad\\Ciclo7\\Programacion3\\TrabajoGrupal\\JavaClases\\ProyectosNET\\PapucplanetWA\\Home.aspx",
+              "RelativeDocumentMoniker": "PapucplanetWA\\Home.aspx",
+              "ToolTip": "D:\\Universidad\\Ciclo7\\Programacion3\\TrabajoGrupal\\JavaClases\\ProyectosNET\\PapucplanetWA\\Home.aspx",
+              "RelativeToolTip": "PapucplanetWA\\Home.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-29T19:08:15.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Usuarios.aspx",
+              "DocumentMoniker": "D:\\Universidad\\Ciclo7\\Programacion3\\TrabajoGrupal\\JavaClases\\ProyectosNET\\PapucplanetWA\\Usuarios.aspx",
+              "RelativeDocumentMoniker": "PapucplanetWA\\Usuarios.aspx",
+              "ToolTip": "D:\\Universidad\\Ciclo7\\Programacion3\\TrabajoGrupal\\JavaClases\\ProyectosNET\\PapucplanetWA\\Usuarios.aspx",
+              "RelativeToolTip": "PapucplanetWA\\Usuarios.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-29T19:07:57.612Z",
               "EditorCaption": ""
             }
           ]
