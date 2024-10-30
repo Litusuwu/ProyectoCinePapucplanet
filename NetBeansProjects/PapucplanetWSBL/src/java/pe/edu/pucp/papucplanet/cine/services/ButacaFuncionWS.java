@@ -20,8 +20,8 @@ public class ButacaFuncionWS {
 
     private ButacaFuncionDAO daoButacaFuncion;
     
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList<ButacaFuncion> listarTodos() {
+    @WebMethod(operationName = "listarTodosButacaFuncion")
+    public ArrayList<ButacaFuncion> listarTodosButacaFuncion() {
         ArrayList<ButacaFuncion> butacasFunciones = null;
         try {
             daoButacaFuncion = new ButacaFuncionMySQL();
@@ -32,8 +32,8 @@ public class ButacaFuncionWS {
         return butacasFunciones;
     }
     
-    @WebMethod(operationName = "insertar")
-    public int insertar(@WebParam(name = "butacaFuncion") ButacaFuncion butacaFuncion) {
+    @WebMethod(operationName = "insertarButacaFuncion")
+    public int insertarButacaFuncion(@WebParam(name = "butacaFuncion") ButacaFuncion butacaFuncion) {
         int resultado = 0;
         try {
             daoButacaFuncion = new ButacaFuncionMySQL();
@@ -44,8 +44,8 @@ public class ButacaFuncionWS {
         return resultado;
     }
     
-    @WebMethod(operationName = "modificar")
-    public int modificar(@WebParam(name = "butacaFuncion") ButacaFuncion butacaFuncion) {
+    @WebMethod(operationName = "modificarButacaFuncion")
+    public int modificarButacaFuncion(@WebParam(name = "butacaFuncion") ButacaFuncion butacaFuncion) {
         int resultado = 0;
         try {
             daoButacaFuncion = new ButacaFuncionMySQL();
@@ -56,8 +56,8 @@ public class ButacaFuncionWS {
         return resultado;
     }
     
-    @WebMethod(operationName = "eliminar")
-    public int eliminar(@WebParam(name = "idButacaFuncion") int idButacaFuncion) {
+    @WebMethod(operationName = "eliminarButacaFuncion")
+    public int eliminarButucaFuncion(@WebParam(name = "idButacaFuncion") int idButacaFuncion) {
         int resultado = 0;
         try {
             daoButacaFuncion = new ButacaFuncionMySQL();
@@ -68,8 +68,8 @@ public class ButacaFuncionWS {
         return resultado;
     }
     
-    @WebMethod(operationName = "obtenerPorId")
-    public ButacaFuncion obtenerPorId(@WebParam(name = "idButacaFuncion") int idButacaFuncion) {
+    @WebMethod(operationName = "obtenerPorIdButacaFuncion")
+    public ButacaFuncion obtenerPorIdButacaFuncion(@WebParam(name = "idButacaFuncion") int idButacaFuncion) {
         ButacaFuncion butacaFuncion = null;
         try {
             daoButacaFuncion = new ButacaFuncionMySQL();

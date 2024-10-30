@@ -13,8 +13,8 @@ public class FuncionWS {
 
     private FuncionDAO daoFuncion;
     
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList<Funcion> listarTodos() {
+    @WebMethod(operationName = "listarTodosFuncion")
+    public ArrayList<Funcion> listarTodosFuncion() {
         ArrayList<Funcion> funciones = null;
         try{
             daoFuncion = new FuncionMySQL();

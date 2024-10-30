@@ -13,8 +13,8 @@ public class SedeWS {
 
     private SedeDAO daoSede;
     
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList<Sede> listarTodos() {
+    @WebMethod(operationName = "listarTodosSede")
+    public ArrayList<Sede> listarTodosSede() {
         ArrayList<Sede> sedes = null;
         try{
             daoSede = new SedeMySQL();

@@ -14,8 +14,8 @@ public class PeliculaWS {
     
     private PeliculaDAO daoPelicula;
     
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList<Pelicula> listarTodos() {
+    @WebMethod(operationName = "listarTodosPelicula")
+    public ArrayList<Pelicula> listarTodosPelicula() {
         ArrayList<Pelicula> peliculas = null;
         try{
             daoPelicula = new PeliculaMySQL();
@@ -26,9 +26,8 @@ public class PeliculaWS {
         return peliculas;
     }
     
-    /*public int insertar (@WebParam(name = "pelicula")Pelicula pelicula, @WebParam(name = "genero") Genero genero)*/
-    @WebMethod(operationName = "insertar")
-    public int insertar (@WebParam(name = "pelicula")Pelicula pelicula) {
+    @WebMethod(operationName = "insertarPelicula")
+    public int insertarPelicula (@WebParam(name = "pelicula")Pelicula pelicula) {
         int resultado = 0;
         try{
             /*pelicula.setGenero(genero);*/
@@ -40,8 +39,8 @@ public class PeliculaWS {
         return resultado;
     }
     
-    @WebMethod(operationName = "modificar")
-    public int modificar(@WebParam(name = "pelicula") Pelicula pelicula){
+    @WebMethod(operationName = "modificarPelicula")
+    public int modificarPelicula(@WebParam(name = "pelicula") Pelicula pelicula){
         int resultado = 0;
         try{
             daoPelicula = new PeliculaMySQL();
@@ -52,8 +51,8 @@ public class PeliculaWS {
         return resultado;
     }
     
-    @WebMethod(operationName = "eliminar")
-    public int eliminar(@WebParam(name = "idPelicula") int idPelicula){
+    @WebMethod(operationName = "eliminarPelicula")
+    public int eliminarPelicula(@WebParam(name = "idPelicula") int idPelicula){
         int resultado = 0;
         try{
             daoPelicula = new PeliculaMySQL();
@@ -64,8 +63,8 @@ public class PeliculaWS {
         return resultado;
     }
     
-    @WebMethod(operationName = "obtenerPorId")
-    public Pelicula obtenerPorId(@WebParam(name = "idPelicula") int idPelicula){
+    @WebMethod(operationName = "obtenerPorIdPelicula")
+    public Pelicula obtenerPorIdPelicula(@WebParam(name = "idPelicula") int idPelicula){
         Pelicula pelicula = null;
         try{
             daoPelicula = new PeliculaMySQL();
@@ -88,8 +87,8 @@ public class PeliculaWS {
         return generos;
     }
     
-    @WebMethod(operationName = "listarPorNombre")
-    public ArrayList<Pelicula> listarPorNombre(@WebParam(name = "nombre") String nombre) {
+    @WebMethod(operationName = "listarPorNombrePelicula")
+    public ArrayList<Pelicula> listarPorNombrePelicula(@WebParam(name = "nombre") String nombre) {
         ArrayList<Pelicula> peliculas = null;
         try{
             daoPelicula = new PeliculaMySQL();

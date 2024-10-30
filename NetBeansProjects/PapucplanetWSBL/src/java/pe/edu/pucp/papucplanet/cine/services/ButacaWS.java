@@ -21,8 +21,8 @@ public class ButacaWS {
 
     private ButacaDAO daoButaca;
     
-    @WebMethod(operationName = "listarTodos")
-    public ArrayList<Butaca> listarTodos() {
+    @WebMethod(operationName = "listarTodosButaca")
+    public ArrayList<Butaca> listarTodosButaca() {
         ArrayList<Butaca> butacas = null;
         try {
             daoButaca = new ButacaMySQL();
@@ -33,8 +33,8 @@ public class ButacaWS {
         return butacas;
     }
     
-    @WebMethod(operationName = "insertar")
-    public int insertar(@WebParam(name = "butaca") Butaca butaca) {
+    @WebMethod(operationName = "insertarButaca")
+    public int insertarButaca(@WebParam(name = "butaca") Butaca butaca) {
         int resultado = 0;
         try {
             daoButaca = new ButacaMySQL();
@@ -45,8 +45,8 @@ public class ButacaWS {
         return resultado;
     }
     
-    @WebMethod(operationName = "modificar")
-    public int modificar(@WebParam(name = "butaca") Butaca butaca) {
+    @WebMethod(operationName = "modificarButaca")
+    public int modificarButaca(@WebParam(name = "butaca") Butaca butaca) {
         int resultado = 0;
         try {
             daoButaca = new ButacaMySQL();
@@ -57,8 +57,8 @@ public class ButacaWS {
         return resultado;
     }
     
-    @WebMethod(operationName = "eliminar")
-    public int eliminar(@WebParam(name = "idButaca") int idButaca) {
+    @WebMethod(operationName = "eliminarButaca")
+    public int eliminarButaca(@WebParam(name = "idButaca") int idButaca) {
         int resultado = 0;
         try {
             daoButaca = new ButacaMySQL();
@@ -69,8 +69,8 @@ public class ButacaWS {
         return resultado;
     }
     
-    @WebMethod(operationName = "obtenerPorId")
-    public Butaca obtenerPorId(@WebParam(name = "idButaca") int idButaca) {
+    @WebMethod(operationName = "obtenerPorIdButaca")
+    public Butaca obtenerPorIdButaca(@WebParam(name = "idButaca") int idButaca) {
         Butaca butaca = null;
         try {
             daoButaca = new ButacaMySQL();
