@@ -168,6 +168,8 @@
     <Content Include="Content\Fonts\css\v5-font-face.css" />
     <Content Include="Content\Fonts\css\v5-font-face.min.css" />
     <Content Include="Content\styles.css" />
+    <Content Include="Content\Styles\DetallePelicula.css" />
+    <Content Include="DetallePelicula.aspx" />
     <Content Include="Funciones.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Peliculas.aspx" />
@@ -236,6 +238,13 @@
     </Compile>
     <Compile Include="Consumibles.aspx.designer.cs">
       <DependentUpon>Consumibles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetallePelicula.aspx.cs">
+      <DependentUpon>DetallePelicula.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetallePelicula.aspx.designer.cs">
+      <DependentUpon>DetallePelicula.aspx</DependentUpon>
     </Compile>
     <Compile Include="Estado.cs" />
     <Compile Include="Funciones.aspx.cs">

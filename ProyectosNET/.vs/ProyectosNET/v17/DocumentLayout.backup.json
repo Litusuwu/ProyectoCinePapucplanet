@@ -3,18 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\papucplanetwa\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\papucplanetwa\\peliculas.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\peliculas.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\papucplanetwa\\confiteriavusuario.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\confiteriavusuario.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\papucplanetwa\\confiteriavusuario.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\confiteriavusuario.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
@@ -23,16 +11,28 @@
       "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\peliculasvusuario.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\papucplanetwa\\peliculas.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\peliculas.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|c:\\users\\carlo\\documents\\github\\javaclases\\proyectosnet\\papucplanetwa\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\papucplanetwa\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\papucplanetwa\\confiteriavusuario.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\confiteriavusuario.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\papucplanetwa\\peliculasvusuario.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\peliculasvusuario.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\papucplanetwa\\usuarios.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\usuarios.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|c:\\users\\carlo\\documents\\github\\javaclases\\proyectosnet\\papucplanetwa\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\papucplanetwa\\styles\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -54,11 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Usuarios.aspx",
               "DocumentMoniker": "C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\PapucplanetWA\\Usuarios.aspx",
               "RelativeDocumentMoniker": "PapucplanetWA\\Usuarios.aspx",
@@ -72,20 +72,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "Login.aspx.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\PapucplanetWA\\Login.aspx.cs",
               "RelativeDocumentMoniker": "PapucplanetWA\\Login.aspx.cs",
               "ToolTip": "C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\PapucplanetWA\\Login.aspx.cs",
               "RelativeToolTip": "PapucplanetWA\\Login.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-30T02:45:24.346Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Login.aspx",
               "DocumentMoniker": "C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\PapucplanetWA\\Login.aspx",
               "RelativeDocumentMoniker": "PapucplanetWA\\Login.aspx",
@@ -98,7 +98,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ConfiteriaVUsuario.aspx.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\PapucplanetWA\\ConfiteriaVUsuario.aspx.cs",
               "RelativeDocumentMoniker": "PapucplanetWA\\ConfiteriaVUsuario.aspx.cs",
@@ -111,7 +111,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "ConfiteriaVUsuario.aspx",
               "DocumentMoniker": "C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\PapucplanetWA\\ConfiteriaVUsuario.aspx",
               "RelativeDocumentMoniker": "PapucplanetWA\\ConfiteriaVUsuario.aspx",
@@ -124,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "PeliculasVUsuario.aspx.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\PapucplanetWA\\PeliculasVUsuario.aspx.cs",
               "RelativeDocumentMoniker": "PapucplanetWA\\PeliculasVUsuario.aspx.cs",
@@ -173,7 +173,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "PeliculasVUsuario.aspx",
               "DocumentMoniker": "C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\PapucplanetWA\\PeliculasVUsuario.aspx",
               "RelativeDocumentMoniker": "PapucplanetWA\\PeliculasVUsuario.aspx",
@@ -186,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Peliculas.aspx.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\PapucplanetWA\\Peliculas.aspx.cs",
               "RelativeDocumentMoniker": "PapucplanetWA\\Peliculas.aspx.cs",

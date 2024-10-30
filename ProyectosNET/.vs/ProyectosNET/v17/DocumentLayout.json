@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\papucplanetwa\\confiteriavusuario.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|c:\\users\\carlo\\documents\\github\\javaclases\\proyectosnet\\papucplanetwa\\confiteriavusuario.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\confiteriavusuario.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
@@ -15,7 +15,7 @@
       "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\peliculas.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|c:\\users\\carlo\\documents\\github\\javaclases\\proyectosnet\\papucplanetwa\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|C:\\Users\\carlo\\Documents\\GitHub\\JavaClases\\ProyectosNET\\papucplanetwa\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{048094B8-F5B6-4570-9171-8044C6C78ED8}|PapucplanetWA\\PapucplanetWA.csproj|solutionrelative:papucplanetwa\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -67,8 +67,7 @@
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2024-10-29T19:07:57.612Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -80,8 +79,7 @@
               "RelativeToolTip": "PapucplanetWA\\Login.aspx.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T02:45:24.346Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T02:45:24.346Z"
             },
             {
               "$type": "Document",
@@ -93,8 +91,7 @@
               "RelativeToolTip": "PapucplanetWA\\Login.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-10-30T02:44:56.901Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T02:44:56.901Z"
             },
             {
               "$type": "Document",
@@ -106,8 +103,7 @@
               "RelativeToolTip": "PapucplanetWA\\ConfiteriaVUsuario.aspx.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAuwDAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T02:39:21.424Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T02:39:21.424Z"
             },
             {
               "$type": "Document",
@@ -132,8 +128,7 @@
               "RelativeToolTip": "PapucplanetWA\\PeliculasVUsuario.aspx.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T02:37:47.534Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T02:37:47.534Z"
             },
             {
               "$type": "Document",
@@ -181,8 +176,7 @@
               "RelativeToolTip": "PapucplanetWA\\PeliculasVUsuario.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-10-30T02:33:36.433Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T02:33:36.433Z"
             },
             {
               "$type": "Document",
@@ -194,8 +188,7 @@
               "RelativeToolTip": "PapucplanetWA\\Peliculas.aspx.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAowDAAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T00:33:32.785Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T00:33:32.785Z"
             }
           ]
         }
