@@ -25,7 +25,7 @@ public class FuncionMySQL implements FuncionDAO{
     private ResultSet rs;
     @Override
     public int insertar(Funcion funcion) {
-        int result = 0;
+        int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
             con.setAutoCommit(false);
@@ -39,15 +39,8 @@ public class FuncionMySQL implements FuncionDAO{
             cs.setInt("_fid_sala",funcion.getSala().getIdSala());
             cs.setInt("_fid_pelicula",funcion.getPelicula().getIdPelicula());
             cs.executeUpdate();
-            /*
-            ButacaFuncionDAO bufuDao = new ButacaFuncionMySQL();
-            for(ButacaFuncion bufu: funcion.getButacasFuncion()){
-                bufu.setFuncion(funcion);
-                bufuDao.insertar(bufu);
-            }
-            //pelicula.setIdPelicula(cs.getInt("_id_pelicula"));*/
             
-            result = funcion.getIdFuncion();
+            resultado = funcion.getIdFuncion();
             con.commit();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -55,7 +48,7 @@ public class FuncionMySQL implements FuncionDAO{
         }finally{
             try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
         }
-        return result;
+        return resultado;
     }
 
     @Override
