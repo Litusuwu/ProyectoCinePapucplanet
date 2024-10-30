@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="cebc7ea4-11aa-41a6-b20f-f68682e1ad61" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="9cffc684-e724-4dd2-9f6e-55b41e085dde" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,16 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8080/PapucplanetWSBL/archivo.disco" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8080/PapucplanetWSBL/archivo2.disco" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PeliculaWS.xsd" MetadataType="Schema" ID="66ca81dc-280c-427b-85a0-a195ffb79927" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/PeliculaWS?xsd=1" />
-    <MetadataFile FileName="PeliculaWS.wsdl" MetadataType="Wsdl" ID="59743dc1-73d2-4945-a21d-c5682f2c1c18" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/PeliculaWS?WSDL" />
-    <MetadataFile FileName="SedeWS.xsd" MetadataType="Schema" ID="03a66e35-1ee7-41a7-8db0-eee6fdee83f1" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/SedeWS?xsd=1" />
-    <MetadataFile FileName="SedeWS.wsdl" MetadataType="Wsdl" ID="c5295054-87b9-48e7-b4be-b4de268d3f83" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/SedeWS?WSDL" />
-    <MetadataFile FileName="archivo.disco" MetadataType="Disco" ID="67fd9c03-c26a-4a18-aa3e-ab7576fd4078" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/archivo.disco" />
+    <MetadataFile FileName="PeliculaWS.xsd" MetadataType="Schema" ID="77f94faf-36ad-4cfc-99a0-929ec0fbe42f" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/PeliculaWS?xsd=1" />
+    <MetadataFile FileName="SedeWS.xsd" MetadataType="Schema" ID="30ebbe0b-0285-47f8-8171-a3b328d831cf" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/SedeWS?xsd=1" />
+    <MetadataFile FileName="FuncionWS.wsdl" MetadataType="Wsdl" ID="bc5c0702-b5c2-4138-827b-f37ceb6fc533" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/FuncionWS?WSDL" />
+    <MetadataFile FileName="PeliculaWS.wsdl" MetadataType="Wsdl" ID="d6d6297e-eba1-4a43-97b0-545a67e0089c" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/PeliculaWS?WSDL" />
+    <MetadataFile FileName="FuncionWS.xsd" MetadataType="Schema" ID="e0151f6e-b7f4-4973-a188-ae80cfd5eac4" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/FuncionWS?xsd=1" />
+    <MetadataFile FileName="archivo2.disco" MetadataType="Disco" ID="0251393b-cc4a-4d2d-80d8-9b1b5663a21e" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/archivo2.disco" />
+    <MetadataFile FileName="SedeWS.wsdl" MetadataType="Wsdl" ID="4ec97235-604c-428a-825a-10243b2b4af4" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/SedeWS?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

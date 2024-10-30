@@ -22,7 +22,7 @@ namespace PapucplanetWA
 
         private void CargarSedes()
         {
-            sedes.DataSource = daoSede.listarTodos();
+            sedes.DataSource = daoSede.listarTodosSede();
             sedes.DataBind();
         }
 

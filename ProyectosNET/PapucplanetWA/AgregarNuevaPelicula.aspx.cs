@@ -33,7 +33,7 @@ namespace PapucplanetWA
       
             if (accion != null && accion == "modificar" && idPelicula != null)
             {
-                pelicula = daoPelicula.obtenerPorId(Int32.Parse(idPelicula));
+                pelicula = daoPelicula.obtenerPorIdPelicula(Int32.Parse(idPelicula));
                 string imageUrl = pelicula.imagenPromocional;
                 imgImagenPromocional.ImageUrl = imageUrl;
                 txtDuracion.Text = pelicula.duracion.ToString("N2");
@@ -67,9 +67,9 @@ namespace PapucplanetWA
             int resultado = 0;
           
             if (estado == Estado.Nuevo)
-                resultado = daoPelicula.insertar(pelicula);
+                resultado = daoPelicula.insertarPelicula(pelicula);
             else if (estado == Estado.Modificar)
-                resultado = daoPelicula.modificar(pelicula);
+                resultado = daoPelicula.modificarPelicula(pelicula);
 
             if (resultado != 0)
                 Response.Redirect("Peliculas.aspx");

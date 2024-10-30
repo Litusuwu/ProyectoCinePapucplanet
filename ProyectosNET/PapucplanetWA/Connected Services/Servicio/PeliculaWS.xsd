@@ -1,33 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://services.papucplanet.pucp.edu.pe" targetNamespace="http://services.papucplanet.pucp.edu.pe" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="eliminar" type="tns:eliminar" />
-  <xs:element name="eliminarResponse" type="tns:eliminarResponse" />
-  <xs:element name="insertar" type="tns:insertar" />
-  <xs:element name="insertarResponse" type="tns:insertarResponse" />
+  <xs:element name="eliminarPelicula" type="tns:eliminarPelicula" />
+  <xs:element name="eliminarPeliculaResponse" type="tns:eliminarPeliculaResponse" />
+  <xs:element name="insertarPelicula" type="tns:insertarPelicula" />
+  <xs:element name="insertarPeliculaResponse" type="tns:insertarPeliculaResponse" />
   <xs:element name="listarGeneros" type="tns:listarGeneros" />
   <xs:element name="listarGenerosResponse" type="tns:listarGenerosResponse" />
-  <xs:element name="listarPorNombre" type="tns:listarPorNombre" />
-  <xs:element name="listarPorNombreResponse" type="tns:listarPorNombreResponse" />
-  <xs:element name="listarTodos" type="tns:listarTodos" />
-  <xs:element name="listarTodosResponse" type="tns:listarTodosResponse" />
-  <xs:element name="modificar" type="tns:modificar" />
-  <xs:element name="modificarResponse" type="tns:modificarResponse" />
-  <xs:element name="obtenerPorId" type="tns:obtenerPorId" />
-  <xs:element name="obtenerPorIdResponse" type="tns:obtenerPorIdResponse" />
-  <xs:complexType name="listarGeneros">
+  <xs:element name="listarPorNombrePelicula" type="tns:listarPorNombrePelicula" />
+  <xs:element name="listarPorNombrePeliculaResponse" type="tns:listarPorNombrePeliculaResponse" />
+  <xs:element name="listarTodosPelicula" type="tns:listarTodosPelicula" />
+  <xs:element name="listarTodosPeliculaResponse" type="tns:listarTodosPeliculaResponse" />
+  <xs:element name="modificarPelicula" type="tns:modificarPelicula" />
+  <xs:element name="modificarPeliculaResponse" type="tns:modificarPeliculaResponse" />
+  <xs:element name="obtenerPorIdPelicula" type="tns:obtenerPorIdPelicula" />
+  <xs:element name="obtenerPorIdPeliculaResponse" type="tns:obtenerPorIdPeliculaResponse" />
+  <xs:complexType name="listarTodosPelicula">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="listarGenerosResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:genero" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarPorNombre">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="nombre" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarPorNombreResponse">
+  <xs:complexType name="listarTodosPeliculaResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:pelicula" />
     </xs:sequence>
@@ -75,60 +65,62 @@
       <xs:element minOccurs="0" name="universidad" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="modificar">
+  <xs:complexType name="insertarPelicula">
     <xs:sequence>
       <xs:element minOccurs="0" name="pelicula" type="tns:pelicula" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="modificarResponse">
+  <xs:complexType name="insertarPeliculaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="eliminar">
-    <xs:sequence>
-      <xs:element name="idPelicula" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="eliminarResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarTodos">
+  <xs:complexType name="listarGeneros">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="listarTodosResponse">
+  <xs:complexType name="listarGenerosResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:sede" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:genero" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="sede">
-    <xs:sequence>
-      <xs:element name="activo" type="xs:boolean" />
-      <xs:element name="idSede" type="xs:int" />
-      <xs:element minOccurs="0" name="ubicacion" type="xs:string" />
-      <xs:element minOccurs="0" name="universidad" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertar">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="pelicula" type="tns:pelicula" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertarResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="obtenerPorId">
+  <xs:complexType name="eliminarPelicula">
     <xs:sequence>
       <xs:element name="idPelicula" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="obtenerPorIdResponse">
+  <xs:complexType name="eliminarPeliculaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdPelicula">
+    <xs:sequence>
+      <xs:element name="idPelicula" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdPeliculaResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:pelicula" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarPorNombrePelicula">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarPorNombrePeliculaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:pelicula" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarPelicula">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="pelicula" type="tns:pelicula" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarPeliculaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="genero">

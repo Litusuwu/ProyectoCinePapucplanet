@@ -4,15 +4,18 @@
   <xs:element name="eliminarSedeResponse" type="tns:eliminarSedeResponse" />
   <xs:element name="insertarSede" type="tns:insertarSede" />
   <xs:element name="insertarSedeResponse" type="tns:insertarSedeResponse" />
-  <xs:element name="listarTodos" type="tns:listarTodos" />
-  <xs:element name="listarTodosResponse" type="tns:listarTodosResponse" />
+  <xs:element name="listarTodosSede" type="tns:listarTodosSede" />
+  <xs:element name="listarTodosSedeResponse" type="tns:listarTodosSedeResponse" />
   <xs:element name="modificarSede" type="tns:modificarSede" />
   <xs:element name="modificarSedeResponse" type="tns:modificarSedeResponse" />
   <xs:element name="obtenerPorIdSede" type="tns:obtenerPorIdSede" />
   <xs:element name="obtenerPorIdSedeResponse" type="tns:obtenerPorIdSedeResponse" />
-  <xs:complexType name="modificarSede">
+  <xs:complexType name="listarTodosSede">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTodosSedeResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="sede" type="tns:sede" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:sede" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="sede">
@@ -21,6 +24,11 @@
       <xs:element name="idSede" type="xs:int" />
       <xs:element minOccurs="0" name="ubicacion" type="xs:string" />
       <xs:element minOccurs="0" name="universidad" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarSede">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="sede" type="tns:sede" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="modificarSedeResponse">
@@ -36,14 +44,6 @@
   <xs:complexType name="obtenerPorIdSedeResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:sede" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarTodos">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarTodosResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:sede" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarSede">

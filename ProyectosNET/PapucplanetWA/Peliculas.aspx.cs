@@ -14,7 +14,7 @@ namespace PapucplanetWA
         protected void Page_Load(object sender, EventArgs e)
         {
             daoPelicula = new PeliculaWSClient();
-            gvPeliculas.DataSource = daoPelicula.listarPorNombre(txtNombre.Text);
+            gvPeliculas.DataSource = daoPelicula.listarPorNombrePelicula(txtNombre.Text);
             gvPeliculas.DataBind();
         }
 
@@ -38,7 +38,7 @@ namespace PapucplanetWA
         protected void lbEliminar_Click(object sender, EventArgs e)
         {
             int idPelicula = Int32.Parse(((LinkButton)sender).CommandArgument);
-            daoPelicula.eliminar(idPelicula);
+            daoPelicula.eliminarPelicula(idPelicula);
             Response.Redirect("Peliculas.aspx");
         }
 

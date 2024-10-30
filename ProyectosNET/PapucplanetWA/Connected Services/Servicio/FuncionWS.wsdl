@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.papucplanet.pucp.edu.pe" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="FuncionWS" targetNamespace="http://services.papucplanet.pucp.edu.pe" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/FuncionWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
+    </xsd:schema>
+  </types>
+  <message name="listarTodosFuncion">
+    <part name="parameters" element="tns:listarTodosFuncion" />
+  </message>
+  <message name="listarTodosFuncionResponse">
+    <part name="parameters" element="tns:listarTodosFuncionResponse" />
+  </message>
+  <portType name="FuncionWS">
+    <operation name="listarTodosFuncion">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/listarTodosFuncionRequest" message="tns:listarTodosFuncion" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/listarTodosFuncionResponse" message="tns:listarTodosFuncionResponse" />
+    </operation>
+  </portType>
+  <binding name="FuncionWSPortBinding" type="tns:FuncionWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listarTodosFuncion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="FuncionWS">
+    <port name="FuncionWSPort" binding="tns:FuncionWSPortBinding">
+      <soap:address location="http://localhost:8080/PapucplanetWSBL/FuncionWS" />
+    </port>
+  </service>
+</definitions>

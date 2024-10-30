@@ -5,41 +5,41 @@
       <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/PeliculaWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
     </xsd:schema>
   </types>
-<<<<<<< HEAD
-  <message name="insertar">
-    <part name="parameters" element="tns:insertar" />
+  <message name="insertarPelicula">
+    <part name="parameters" element="tns:insertarPelicula" />
   </message>
-  <message name="insertarResponse">
-    <part name="parameters" element="tns:insertarResponse" />
+  <message name="insertarPeliculaResponse">
+    <part name="parameters" element="tns:insertarPeliculaResponse" />
   </message>
-=======
->>>>>>> seresoyer
-  <message name="eliminar">
-    <part name="parameters" element="tns:eliminar" />
+  <message name="modificarPelicula">
+    <part name="parameters" element="tns:modificarPelicula" />
   </message>
-  <message name="eliminarResponse">
-    <part name="parameters" element="tns:eliminarResponse" />
+  <message name="modificarPeliculaResponse">
+    <part name="parameters" element="tns:modificarPeliculaResponse" />
   </message>
-  <message name="modificar">
-    <part name="parameters" element="tns:modificar" />
-<<<<<<< HEAD
-=======
+  <message name="eliminarPelicula">
+    <part name="parameters" element="tns:eliminarPelicula" />
   </message>
-  <message name="modificarResponse">
-    <part name="parameters" element="tns:modificarResponse" />
+  <message name="eliminarPeliculaResponse">
+    <part name="parameters" element="tns:eliminarPeliculaResponse" />
   </message>
-  <message name="insertar">
-    <part name="parameters" element="tns:insertar" />
->>>>>>> seresoyer
+  <message name="listarTodosPelicula">
+    <part name="parameters" element="tns:listarTodosPelicula" />
   </message>
-  <message name="modificarResponse">
-    <part name="parameters" element="tns:modificarResponse" />
+  <message name="listarTodosPeliculaResponse">
+    <part name="parameters" element="tns:listarTodosPeliculaResponse" />
   </message>
-  <message name="listarTodos">
-    <part name="parameters" element="tns:listarTodos" />
+  <message name="obtenerPorIdPelicula">
+    <part name="parameters" element="tns:obtenerPorIdPelicula" />
   </message>
-  <message name="listarTodosResponse">
-    <part name="parameters" element="tns:listarTodosResponse" />
+  <message name="obtenerPorIdPeliculaResponse">
+    <part name="parameters" element="tns:obtenerPorIdPeliculaResponse" />
+  </message>
+  <message name="listarPorNombrePelicula">
+    <part name="parameters" element="tns:listarPorNombrePelicula" />
+  </message>
+  <message name="listarPorNombrePeliculaResponse">
+    <part name="parameters" element="tns:listarPorNombrePeliculaResponse" />
   </message>
   <message name="listarGeneros">
     <part name="parameters" element="tns:listarGeneros" />
@@ -47,69 +47,39 @@
   <message name="listarGenerosResponse">
     <part name="parameters" element="tns:listarGenerosResponse" />
   </message>
-  <message name="listarPorNombre">
-    <part name="parameters" element="tns:listarPorNombre" />
-  </message>
-  <message name="listarPorNombreResponse">
-    <part name="parameters" element="tns:listarPorNombreResponse" />
-  </message>
-  <message name="obtenerPorId">
-    <part name="parameters" element="tns:obtenerPorId" />
-  </message>
-  <message name="obtenerPorIdResponse">
-    <part name="parameters" element="tns:obtenerPorIdResponse" />
-  </message>
   <portType name="PeliculaWS">
-<<<<<<< HEAD
-    <operation name="insertar">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarRequest" message="tns:insertar" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarResponse" message="tns:insertarResponse" />
+    <operation name="insertarPelicula">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarPeliculaRequest" message="tns:insertarPelicula" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarPeliculaResponse" message="tns:insertarPeliculaResponse" />
     </operation>
-=======
->>>>>>> seresoyer
-    <operation name="eliminar">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/eliminarRequest" message="tns:eliminar" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/eliminarResponse" message="tns:eliminarResponse" />
+    <operation name="modificarPelicula">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/modificarPeliculaRequest" message="tns:modificarPelicula" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/modificarPeliculaResponse" message="tns:modificarPeliculaResponse" />
     </operation>
-    <operation name="modificar">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/modificarRequest" message="tns:modificar" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/modificarResponse" message="tns:modificarResponse" />
-<<<<<<< HEAD
-=======
+    <operation name="eliminarPelicula">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/eliminarPeliculaRequest" message="tns:eliminarPelicula" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/eliminarPeliculaResponse" message="tns:eliminarPeliculaResponse" />
     </operation>
-    <operation name="insertar">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarRequest" message="tns:insertar" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarResponse" message="tns:insertarResponse" />
+    <operation name="listarTodosPelicula">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarTodosPeliculaRequest" message="tns:listarTodosPelicula" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarTodosPeliculaResponse" message="tns:listarTodosPeliculaResponse" />
     </operation>
-    <operation name="obtenerPorId">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/obtenerPorIdRequest" message="tns:obtenerPorId" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/obtenerPorIdResponse" message="tns:obtenerPorIdResponse" />
->>>>>>> seresoyer
+    <operation name="obtenerPorIdPelicula">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/obtenerPorIdPeliculaRequest" message="tns:obtenerPorIdPelicula" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/obtenerPorIdPeliculaResponse" message="tns:obtenerPorIdPeliculaResponse" />
     </operation>
-    <operation name="listarTodos">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarTodosRequest" message="tns:listarTodos" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarTodosResponse" message="tns:listarTodosResponse" />
+    <operation name="listarPorNombrePelicula">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarPorNombrePeliculaRequest" message="tns:listarPorNombrePelicula" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarPorNombrePeliculaResponse" message="tns:listarPorNombrePeliculaResponse" />
     </operation>
     <operation name="listarGeneros">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarGenerosRequest" message="tns:listarGeneros" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarGenerosResponse" message="tns:listarGenerosResponse" />
     </operation>
-    <operation name="listarPorNombre">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarPorNombreRequest" message="tns:listarPorNombre" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarPorNombreResponse" message="tns:listarPorNombreResponse" />
-    </operation>
-    <operation name="obtenerPorId">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/obtenerPorIdRequest" message="tns:obtenerPorId" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/obtenerPorIdResponse" message="tns:obtenerPorIdResponse" />
-    </operation>
   </portType>
   <binding name="PeliculaWSPortBinding" type="tns:PeliculaWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-<<<<<<< HEAD
-    <operation name="insertar">
-=======
-    <operation name="eliminar">
->>>>>>> seresoyer
+    <operation name="insertarPelicula">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -118,7 +88,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="modificar">
+    <operation name="modificarPelicula">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -127,7 +97,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="modificar">
+    <operation name="eliminarPelicula">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -136,7 +106,25 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarTodos">
+    <operation name="listarTodosPelicula">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerPorIdPelicula">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarPorNombrePelicula">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -146,24 +134,6 @@
       </output>
     </operation>
     <operation name="listarGeneros">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarPorNombre">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerPorId">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
