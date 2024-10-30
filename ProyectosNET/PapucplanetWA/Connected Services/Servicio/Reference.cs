@@ -16,24 +16,6 @@ namespace PapucplanetWA.Servicio {
     public interface PeliculaWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarTodosRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarTodosResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        PapucplanetWA.Servicio.listarTodosResponse listarTodos(PapucplanetWA.Servicio.listarTodosRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarTodosRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarTodosResponse")]
-        System.Threading.Tasks.Task<PapucplanetWA.Servicio.listarTodosResponse> listarTodosAsync(PapucplanetWA.Servicio.listarTodosRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        PapucplanetWA.Servicio.insertarResponse insertar(PapucplanetWA.Servicio.insertarRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarResponse")]
-        System.Threading.Tasks.Task<PapucplanetWA.Servicio.insertarResponse> insertarAsync(PapucplanetWA.Servicio.insertarRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/eliminarRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/PeliculaWS/eliminarResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -52,6 +34,15 @@ namespace PapucplanetWA.Servicio {
         System.Threading.Tasks.Task<PapucplanetWA.Servicio.modificarResponse> modificarAsync(PapucplanetWA.Servicio.modificarRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        PapucplanetWA.Servicio.insertarResponse insertar(PapucplanetWA.Servicio.insertarRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarResponse")]
+        System.Threading.Tasks.Task<PapucplanetWA.Servicio.insertarResponse> insertarAsync(PapucplanetWA.Servicio.insertarRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/obtenerPorIdRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/PeliculaWS/obtenerPorIdResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -59,79 +50,50 @@ namespace PapucplanetWA.Servicio {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/obtenerPorIdRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/PeliculaWS/obtenerPorIdResponse")]
         System.Threading.Tasks.Task<PapucplanetWA.Servicio.obtenerPorIdResponse> obtenerPorIdAsync(PapucplanetWA.Servicio.obtenerPorIdRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarTodosRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarTodosResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        PapucplanetWA.Servicio.listarTodosResponse listarTodos(PapucplanetWA.Servicio.listarTodosRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarTodosRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarTodosResponse")]
+        System.Threading.Tasks.Task<PapucplanetWA.Servicio.listarTodosResponse> listarTodosAsync(PapucplanetWA.Servicio.listarTodosRequest request);
     }
     
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.papucplanet.pucp.edu.pe")]
-    public partial class sede : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminar", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
+    public partial class eliminarRequest {
         
-        private bool activoField;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.papucplanet.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idPelicula;
         
-        private int idSedeField;
-        
-        private string ubicacionField;
-        
-        private string universidadField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public bool activo {
-            get {
-                return this.activoField;
-            }
-            set {
-                this.activoField = value;
-                this.RaisePropertyChanged("activo");
-            }
+        public eliminarRequest() {
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public int idSede {
-            get {
-                return this.idSedeField;
-            }
-            set {
-                this.idSedeField = value;
-                this.RaisePropertyChanged("idSede");
-            }
+        public eliminarRequest(int idPelicula) {
+            this.idPelicula = idPelicula;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarResponse", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
+    public partial class eliminarResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.papucplanet.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public eliminarResponse() {
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string ubicacion {
-            get {
-                return this.ubicacionField;
-            }
-            set {
-                this.ubicacionField = value;
-                this.RaisePropertyChanged("ubicacion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string universidad {
-            get {
-                return this.universidadField;
-            }
-            set {
-                this.universidadField = value;
-                this.RaisePropertyChanged("universidad");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
+        public eliminarResponse(int @return) {
+            this.@return = @return;
         }
     }
     
@@ -270,30 +232,112 @@ namespace PapucplanetWA.Servicio {
         DOCUMENTAL,
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodos", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarTodosRequest {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.papucplanet.pucp.edu.pe")]
+    public partial class sede : object, System.ComponentModel.INotifyPropertyChanged {
         
-        public listarTodosRequest() {
+        private bool activoField;
+        
+        private int idSedeField;
+        
+        private string ubicacionField;
+        
+        private string universidadField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public bool activo {
+            get {
+                return this.activoField;
+            }
+            set {
+                this.activoField = value;
+                this.RaisePropertyChanged("activo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public int idSede {
+            get {
+                return this.idSedeField;
+            }
+            set {
+                this.idSedeField = value;
+                this.RaisePropertyChanged("idSede");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string ubicacion {
+            get {
+                return this.ubicacionField;
+            }
+            set {
+                this.ubicacionField = value;
+                this.RaisePropertyChanged("ubicacion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string universidad {
+            get {
+                return this.universidadField;
+            }
+            set {
+                this.universidadField = value;
+                this.RaisePropertyChanged("universidad");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosResponse", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
-    public partial class listarTodosResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificar", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
+    public partial class modificarRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.papucplanet.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PapucplanetWA.Servicio.sede[] @return;
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public PapucplanetWA.Servicio.pelicula pelicula;
         
-        public listarTodosResponse() {
+        public modificarRequest() {
         }
         
-        public listarTodosResponse(PapucplanetWA.Servicio.sede[] @return) {
+        public modificarRequest(PapucplanetWA.Servicio.pelicula pelicula) {
+            this.pelicula = pelicula;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarResponse", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
+    public partial class modificarResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.papucplanet.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public modificarResponse() {
+        }
+        
+        public modificarResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -337,78 +381,6 @@ namespace PapucplanetWA.Servicio {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminar", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
-    public partial class eliminarRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.papucplanet.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idPelicula;
-        
-        public eliminarRequest() {
-        }
-        
-        public eliminarRequest(int idPelicula) {
-            this.idPelicula = idPelicula;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarResponse", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
-    public partial class eliminarResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.papucplanet.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public eliminarResponse() {
-        }
-        
-        public eliminarResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="modificar", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
-    public partial class modificarRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.papucplanet.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PapucplanetWA.Servicio.pelicula pelicula;
-        
-        public modificarRequest() {
-        }
-        
-        public modificarRequest(PapucplanetWA.Servicio.pelicula pelicula) {
-            this.pelicula = pelicula;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarResponse", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
-    public partial class modificarResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.papucplanet.pucp.edu.pe", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public modificarResponse() {
-        }
-        
-        public modificarResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorId", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
     public partial class obtenerPorIdRequest {
         
@@ -442,6 +414,34 @@ namespace PapucplanetWA.Servicio {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodos", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarTodosRequest {
+        
+        public listarTodosRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodosResponse", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
+    public partial class listarTodosResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.papucplanet.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public PapucplanetWA.Servicio.sede[] @return;
+        
+        public listarTodosResponse() {
+        }
+        
+        public listarTodosResponse(PapucplanetWA.Servicio.sede[] @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface PeliculaWSChannel : PapucplanetWA.Servicio.PeliculaWS, System.ServiceModel.IClientChannel {
     }
@@ -467,50 +467,6 @@ namespace PapucplanetWA.Servicio {
         
         public PeliculaWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        PapucplanetWA.Servicio.listarTodosResponse PapucplanetWA.Servicio.PeliculaWS.listarTodos(PapucplanetWA.Servicio.listarTodosRequest request) {
-            return base.Channel.listarTodos(request);
-        }
-        
-        public PapucplanetWA.Servicio.sede[] listarTodos() {
-            PapucplanetWA.Servicio.listarTodosRequest inValue = new PapucplanetWA.Servicio.listarTodosRequest();
-            PapucplanetWA.Servicio.listarTodosResponse retVal = ((PapucplanetWA.Servicio.PeliculaWS)(this)).listarTodos(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<PapucplanetWA.Servicio.listarTodosResponse> PapucplanetWA.Servicio.PeliculaWS.listarTodosAsync(PapucplanetWA.Servicio.listarTodosRequest request) {
-            return base.Channel.listarTodosAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<PapucplanetWA.Servicio.listarTodosResponse> listarTodosAsync() {
-            PapucplanetWA.Servicio.listarTodosRequest inValue = new PapucplanetWA.Servicio.listarTodosRequest();
-            return ((PapucplanetWA.Servicio.PeliculaWS)(this)).listarTodosAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        PapucplanetWA.Servicio.insertarResponse PapucplanetWA.Servicio.PeliculaWS.insertar(PapucplanetWA.Servicio.insertarRequest request) {
-            return base.Channel.insertar(request);
-        }
-        
-        public int insertar(PapucplanetWA.Servicio.pelicula pelicula) {
-            PapucplanetWA.Servicio.insertarRequest inValue = new PapucplanetWA.Servicio.insertarRequest();
-            inValue.pelicula = pelicula;
-            PapucplanetWA.Servicio.insertarResponse retVal = ((PapucplanetWA.Servicio.PeliculaWS)(this)).insertar(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<PapucplanetWA.Servicio.insertarResponse> PapucplanetWA.Servicio.PeliculaWS.insertarAsync(PapucplanetWA.Servicio.insertarRequest request) {
-            return base.Channel.insertarAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<PapucplanetWA.Servicio.insertarResponse> insertarAsync(PapucplanetWA.Servicio.pelicula pelicula) {
-            PapucplanetWA.Servicio.insertarRequest inValue = new PapucplanetWA.Servicio.insertarRequest();
-            inValue.pelicula = pelicula;
-            return ((PapucplanetWA.Servicio.PeliculaWS)(this)).insertarAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -560,6 +516,29 @@ namespace PapucplanetWA.Servicio {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        PapucplanetWA.Servicio.insertarResponse PapucplanetWA.Servicio.PeliculaWS.insertar(PapucplanetWA.Servicio.insertarRequest request) {
+            return base.Channel.insertar(request);
+        }
+        
+        public int insertar(PapucplanetWA.Servicio.pelicula pelicula) {
+            PapucplanetWA.Servicio.insertarRequest inValue = new PapucplanetWA.Servicio.insertarRequest();
+            inValue.pelicula = pelicula;
+            PapucplanetWA.Servicio.insertarResponse retVal = ((PapucplanetWA.Servicio.PeliculaWS)(this)).insertar(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<PapucplanetWA.Servicio.insertarResponse> PapucplanetWA.Servicio.PeliculaWS.insertarAsync(PapucplanetWA.Servicio.insertarRequest request) {
+            return base.Channel.insertarAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<PapucplanetWA.Servicio.insertarResponse> insertarAsync(PapucplanetWA.Servicio.pelicula pelicula) {
+            PapucplanetWA.Servicio.insertarRequest inValue = new PapucplanetWA.Servicio.insertarRequest();
+            inValue.pelicula = pelicula;
+            return ((PapucplanetWA.Servicio.PeliculaWS)(this)).insertarAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         PapucplanetWA.Servicio.obtenerPorIdResponse PapucplanetWA.Servicio.PeliculaWS.obtenerPorId(PapucplanetWA.Servicio.obtenerPorIdRequest request) {
             return base.Channel.obtenerPorId(request);
         }
@@ -581,11 +560,41 @@ namespace PapucplanetWA.Servicio {
             inValue.idPelicula = idPelicula;
             return ((PapucplanetWA.Servicio.PeliculaWS)(this)).obtenerPorIdAsync(inValue);
         }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        PapucplanetWA.Servicio.listarTodosResponse PapucplanetWA.Servicio.PeliculaWS.listarTodos(PapucplanetWA.Servicio.listarTodosRequest request) {
+            return base.Channel.listarTodos(request);
+        }
+        
+        public PapucplanetWA.Servicio.sede[] listarTodos() {
+            PapucplanetWA.Servicio.listarTodosRequest inValue = new PapucplanetWA.Servicio.listarTodosRequest();
+            PapucplanetWA.Servicio.listarTodosResponse retVal = ((PapucplanetWA.Servicio.PeliculaWS)(this)).listarTodos(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<PapucplanetWA.Servicio.listarTodosResponse> PapucplanetWA.Servicio.PeliculaWS.listarTodosAsync(PapucplanetWA.Servicio.listarTodosRequest request) {
+            return base.Channel.listarTodosAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<PapucplanetWA.Servicio.listarTodosResponse> listarTodosAsync() {
+            PapucplanetWA.Servicio.listarTodosRequest inValue = new PapucplanetWA.Servicio.listarTodosRequest();
+            return ((PapucplanetWA.Servicio.PeliculaWS)(this)).listarTodosAsync(inValue);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.papucplanet.pucp.edu.pe", ConfigurationName="Servicio.SedeWS")]
     public interface SedeWS {
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/SedeWS/modificarSedeRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/SedeWS/modificarSedeResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        PapucplanetWA.Servicio.modificarSedeResponse modificarSede(PapucplanetWA.Servicio.modificarSedeRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/SedeWS/modificarSedeRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/SedeWS/modificarSedeResponse")]
+        System.Threading.Tasks.Task<PapucplanetWA.Servicio.modificarSedeResponse> modificarSedeAsync(PapucplanetWA.Servicio.modificarSedeRequest request);
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/SedeWS/insertarSedeRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/SedeWS/insertarSedeResponse")]
@@ -613,6 +622,51 @@ namespace PapucplanetWA.Servicio {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/SedeWS/eliminarSedeRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/SedeWS/eliminarSedeResponse")]
         System.Threading.Tasks.Task<PapucplanetWA.Servicio.eliminarSedeResponse> eliminarSedeAsync(PapucplanetWA.Servicio.eliminarSedeRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/SedeWS/obtenerPorIdSedeRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/SedeWS/obtenerPorIdSedeResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        PapucplanetWA.Servicio.obtenerPorIdSedeResponse obtenerPorIdSede(PapucplanetWA.Servicio.obtenerPorIdSedeRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/SedeWS/obtenerPorIdSedeRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/SedeWS/obtenerPorIdSedeResponse")]
+        System.Threading.Tasks.Task<PapucplanetWA.Servicio.obtenerPorIdSedeResponse> obtenerPorIdSedeAsync(PapucplanetWA.Servicio.obtenerPorIdSedeRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarSede", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
+    public partial class modificarSedeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.papucplanet.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public PapucplanetWA.Servicio.sede sede;
+        
+        public modificarSedeRequest() {
+        }
+        
+        public modificarSedeRequest(PapucplanetWA.Servicio.sede sede) {
+            this.sede = sede;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarSedeResponse", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
+    public partial class modificarSedeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.papucplanet.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public modificarSedeResponse() {
+        }
+        
+        public modificarSedeResponse(int @return) {
+            this.@return = @return;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -687,6 +741,42 @@ namespace PapucplanetWA.Servicio {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdSede", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerPorIdSedeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.papucplanet.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idSede;
+        
+        public obtenerPorIdSedeRequest() {
+        }
+        
+        public obtenerPorIdSedeRequest(int idSede) {
+            this.idSede = idSede;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerPorIdSedeResponse", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
+    public partial class obtenerPorIdSedeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.papucplanet.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public PapucplanetWA.Servicio.sede @return;
+        
+        public obtenerPorIdSedeResponse() {
+        }
+        
+        public obtenerPorIdSedeResponse(PapucplanetWA.Servicio.sede @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface SedeWSChannel : PapucplanetWA.Servicio.SedeWS, System.ServiceModel.IClientChannel {
     }
@@ -712,6 +802,29 @@ namespace PapucplanetWA.Servicio {
         
         public SedeWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        PapucplanetWA.Servicio.modificarSedeResponse PapucplanetWA.Servicio.SedeWS.modificarSede(PapucplanetWA.Servicio.modificarSedeRequest request) {
+            return base.Channel.modificarSede(request);
+        }
+        
+        public int modificarSede(PapucplanetWA.Servicio.sede sede) {
+            PapucplanetWA.Servicio.modificarSedeRequest inValue = new PapucplanetWA.Servicio.modificarSedeRequest();
+            inValue.sede = sede;
+            PapucplanetWA.Servicio.modificarSedeResponse retVal = ((PapucplanetWA.Servicio.SedeWS)(this)).modificarSede(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<PapucplanetWA.Servicio.modificarSedeResponse> PapucplanetWA.Servicio.SedeWS.modificarSedeAsync(PapucplanetWA.Servicio.modificarSedeRequest request) {
+            return base.Channel.modificarSedeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<PapucplanetWA.Servicio.modificarSedeResponse> modificarSedeAsync(PapucplanetWA.Servicio.sede sede) {
+            PapucplanetWA.Servicio.modificarSedeRequest inValue = new PapucplanetWA.Servicio.modificarSedeRequest();
+            inValue.sede = sede;
+            return ((PapucplanetWA.Servicio.SedeWS)(this)).modificarSedeAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -779,6 +892,29 @@ namespace PapucplanetWA.Servicio {
             PapucplanetWA.Servicio.eliminarSedeRequest inValue = new PapucplanetWA.Servicio.eliminarSedeRequest();
             inValue.idSede = idSede;
             return ((PapucplanetWA.Servicio.SedeWS)(this)).eliminarSedeAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        PapucplanetWA.Servicio.obtenerPorIdSedeResponse PapucplanetWA.Servicio.SedeWS.obtenerPorIdSede(PapucplanetWA.Servicio.obtenerPorIdSedeRequest request) {
+            return base.Channel.obtenerPorIdSede(request);
+        }
+        
+        public PapucplanetWA.Servicio.sede obtenerPorIdSede(int idSede) {
+            PapucplanetWA.Servicio.obtenerPorIdSedeRequest inValue = new PapucplanetWA.Servicio.obtenerPorIdSedeRequest();
+            inValue.idSede = idSede;
+            PapucplanetWA.Servicio.obtenerPorIdSedeResponse retVal = ((PapucplanetWA.Servicio.SedeWS)(this)).obtenerPorIdSede(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<PapucplanetWA.Servicio.obtenerPorIdSedeResponse> PapucplanetWA.Servicio.SedeWS.obtenerPorIdSedeAsync(PapucplanetWA.Servicio.obtenerPorIdSedeRequest request) {
+            return base.Channel.obtenerPorIdSedeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<PapucplanetWA.Servicio.obtenerPorIdSedeResponse> obtenerPorIdSedeAsync(int idSede) {
+            PapucplanetWA.Servicio.obtenerPorIdSedeRequest inValue = new PapucplanetWA.Servicio.obtenerPorIdSedeRequest();
+            inValue.idSede = idSede;
+            return ((PapucplanetWA.Servicio.SedeWS)(this)).obtenerPorIdSedeAsync(inValue);
         }
     }
 }

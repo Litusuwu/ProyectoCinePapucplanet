@@ -94,6 +94,12 @@
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.sede.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.obtenerPorIdSedeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.modificarSedeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\Servicio\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -187,6 +193,7 @@
     <Compile Include="Consumibles.aspx.designer.cs">
       <DependentUpon>Consumibles.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Estado.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

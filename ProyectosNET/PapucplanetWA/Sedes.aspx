@@ -33,8 +33,8 @@
             </div>
         </ItemTemplate>
     </asp:Repeater>
-    <!--POP UP-->
-    <div class="modal" id="form-modal-sede">
+    <!--POP UP de Añadir-->
+    <div class="modal" id="form-modal-sede-add">
         <div class="modal-dialog modal-sm">
             <div class="modal-content ">
                 <div class="modal-header">
@@ -49,6 +49,26 @@
                 </div>
                 <div class="modal-footer">
                     <asp:LinkButton ID="lbGuardar" runat="server" CssClass="btn-sede" OnClick="lbGuardar_Click">Confirmar</asp:LinkButton>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--POP UP de Modificar-->
+    <div class="modal" id="form-modal-sede-mod">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sede</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <asp:Label ID="lbNombreSedeMod" CssClass="form-label mb-2" runat="server" Text="Nombre:"></asp:Label>
+                    <asp:TextBox ID="txtNombreSedeMod" CssClass="form-control mb-3" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblUbicacionSedeMod" CssClass="form-label mb-2" runat="server" Text="Ubicacion:"></asp:Label>
+                    <asp:TextBox ID="txtUbicacionSedeMod" CssClass="form-control mb-3" runat="server"></asp:TextBox>
+                </div>
+                <div class="modal-footer">
+                    <asp:LinkButton ID="lbGuardarMod" runat="server" CssClass="btn-sede" OnClick="lbGuardar_ClickMod">Confirmar</asp:LinkButton>
                 </div>
             </div>
         </div>

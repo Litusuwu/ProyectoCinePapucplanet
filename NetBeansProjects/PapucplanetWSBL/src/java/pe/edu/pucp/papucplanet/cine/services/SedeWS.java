@@ -48,4 +48,29 @@ public class SedeWS {
         }
         return resultado;
     }
+    
+    @WebMethod(operationName = "obtenerPorIdSede")
+    public Sede obtenerPorIdSede(@WebParam(name = "idSede") int idSede){
+        Sede sede = null;
+        try{
+            daoSede = new SedeMySQL();
+            sede = daoSede.obtenerPorId(idSede);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return sede;
+    }
+    
+    @WebMethod(operationName = "modificarSede")
+    public int modificarSede(@WebParam(name="sede") Sede sede) {
+        int resultado=0;
+        try{
+            daoSede = new SedeMySQL();
+            resultado = daoSede.modificar(sede);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return resultado;
+    }
+    
 }
