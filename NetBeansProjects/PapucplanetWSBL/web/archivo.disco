@@ -1,4 +1,8 @@
 <discovery xmlns="http://schemas.xmlsoap.org/disco/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <contractRef xmlns="http://schemas.xmlsoap.org/disco/scl/" ref="http://localhost:8080/PapucplanetWSBL/PeliculaWS?WSDL"/>
+<<<<<<< Updated upstream
     <contractRef xmlns="http://schemas.xmlsoap.org/disco/scl/" ref="http://localhost:8080/PapucplanetWSBL/SedeWS?WSDL"/>
+=======
+    <contractRef xmlns="http://schemas.xmlsoap.org/disco/scl/" ref="http://localhost:8080/PapucplanetWSBL/FuncionsWS?WSDL"/>
+>>>>>>> Stashed changes
 </discovery>
