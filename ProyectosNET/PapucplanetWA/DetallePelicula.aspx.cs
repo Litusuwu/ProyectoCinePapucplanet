@@ -42,7 +42,6 @@ namespace PapucplanetWA
         private void CargarDetallesPelicula(int idPelicula)
         {
             pelicula pelicula = daoPelicula.obtenerPorIdPelicula(idPelicula);
-
             if (pelicula != null)
             {
                 // Asignar datos al HTML de la página

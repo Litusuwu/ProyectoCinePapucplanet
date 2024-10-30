@@ -11,7 +11,7 @@ namespace PapucplanetWA
 {
 
 
-    public partial class PeliculasVUsuario
+    public partial class PeliculasUsuario
     {
 
         /// <summary>

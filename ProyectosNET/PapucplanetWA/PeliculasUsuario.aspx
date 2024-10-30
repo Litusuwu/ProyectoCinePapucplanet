@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Peliculas.aspx.cs" Inherits="PapucplanetWA.PeliculasVUsuario" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PeliculasUsuario.aspx.cs" Inherits="PapucplanetWA.PeliculasUsuario" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -26,7 +26,7 @@
                 <div class="collapse navbar-collapse navBar-Expandido" id="navbarNav">
                     <ul class="navbar-nav ms-auto navBar-Expandido">
                         <li class="nav-item me-3">
-                            <asp:LinkButton ID="lnkPeliculas" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/PeliculasVUsuario.aspx">Películas</asp:LinkButton>
+                            <asp:LinkButton ID="lnkPeliculas" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/Peliculas.aspx">Películas</asp:LinkButton>
                         </li>
                         <li class="nav-item me-3">
                             <asp:LinkButton ID="lnkConfiteria" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/ConfiteriaVUsuario.aspx">Confitería</asp:LinkButton>
@@ -90,11 +90,11 @@
                     <ItemTemplate>
                         <div class="col">
                             <div class="card h-100 contenedor-Peliculas">
-                                <a href='<%# "DetallePelicula.aspx?id_pelicula=" + Eval("MovieID") %>'>
-                                    <div class="card-img full-image image-container img-fluid" style="background-image: url('<%# Eval("ImageUrl") %>');"></div>
+                                <a href='<%# "DetallePelicula.aspx?id_pelicula=" + Eval("idPelicula") %>'>
+                                    <div class="card-img full-image image-container img-fluid" style='background-image: url("<%# Eval("imagenPromocional").ToString().Substring(1) %>");'></div>
                                 </a>
                                 <div class="card-body text-center label-Peliculas">
-                                    <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>' CssClass="card-title"></asp:Label>
+                                    <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("titulo") %>' CssClass="card-title"></asp:Label>
                                 </div>
                             </div>
                         </div>

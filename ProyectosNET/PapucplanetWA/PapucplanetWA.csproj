@@ -66,8 +66,6 @@
     <Content Include="AgregarNuevaPelicula.aspx" />
     <Content Include="Boletas.aspx" />
     <Content Include="ConfiteriaVUsuario.aspx" />
-    <Content Include="Login.aspx" />
-    <Content Include="PeliculasVUsuario.aspx" />
     <None Include="Connected Services\Servicio\AlimentoWS.wsdl" />
     <None Include="Connected Services\Servicio\AlimentoWS.xsd">
       <SubType>Designer</SubType>
@@ -293,7 +291,9 @@
     <Content Include="DetallePelicula.aspx" />
     <Content Include="Funciones.aspx" />
     <Content Include="Home.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Peliculas.aspx" />
+    <Content Include="PeliculasUsuario.aspx" />
     <Content Include="Reportes.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -407,6 +407,13 @@
     <Compile Include="Peliculas.aspx.designer.cs">
       <DependentUpon>Peliculas.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PeliculasUsuario.aspx.cs">
+      <DependentUpon>PeliculasUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PeliculasUsuario.aspx.designer.cs">
+      <DependentUpon>PeliculasUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reportes.aspx.cs">
       <DependentUpon>Reportes.aspx</DependentUpon>
@@ -428,13 +435,6 @@
     </Compile>
     <Compile Include="Usuarios.aspx.designer.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PeliculasVUsuario.aspx.cs">
-      <DependentUpon>PeliculasVUsuario.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PeliculasVUsuario.aspx.designer.cs">
-      <DependentUpon>PeliculasVUsuario.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

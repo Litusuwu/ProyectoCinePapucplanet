@@ -5,17 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/FuncionWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
     </xsd:schema>
   </types>
-  <message name="obtenerPorIdFuncion">
-    <part name="parameters" element="tns:obtenerPorIdFuncion" />
+  <message name="insertarFuncion">
+    <part name="parameters" element="tns:insertarFuncion" />
   </message>
-  <message name="obtenerPorIdFuncionResponse">
-    <part name="parameters" element="tns:obtenerPorIdFuncionResponse" />
-  </message>
-  <message name="obtenerFuncionesPorPeliculaFuncion">
-    <part name="parameters" element="tns:obtenerFuncionesPorPeliculaFuncion" />
-  </message>
-  <message name="obtenerFuncionesPorPeliculaFuncionResponse">
-    <part name="parameters" element="tns:obtenerFuncionesPorPeliculaFuncionResponse" />
+  <message name="insertarFuncionResponse">
+    <part name="parameters" element="tns:insertarFuncionResponse" />
   </message>
   <message name="listarTodosFuncion">
     <part name="parameters" element="tns:listarTodosFuncion" />
@@ -23,17 +17,11 @@
   <message name="listarTodosFuncionResponse">
     <part name="parameters" element="tns:listarTodosFuncionResponse" />
   </message>
-  <message name="insertarFuncion">
-    <part name="parameters" element="tns:insertarFuncion" />
+  <message name="obtenerPorIdFuncion">
+    <part name="parameters" element="tns:obtenerPorIdFuncion" />
   </message>
-  <message name="insertarFuncionResponse">
-    <part name="parameters" element="tns:insertarFuncionResponse" />
-  </message>
-  <message name="modificarFuncion">
-    <part name="parameters" element="tns:modificarFuncion" />
-  </message>
-  <message name="modificarFuncionResponse">
-    <part name="parameters" element="tns:modificarFuncionResponse" />
+  <message name="obtenerPorIdFuncionResponse">
+    <part name="parameters" element="tns:obtenerPorIdFuncionResponse" />
   </message>
   <message name="eliminarFuncion">
     <part name="parameters" element="tns:eliminarFuncion" />
@@ -41,44 +29,47 @@
   <message name="eliminarFuncionResponse">
     <part name="parameters" element="tns:eliminarFuncionResponse" />
   </message>
+  <message name="modificarFuncion">
+    <part name="parameters" element="tns:modificarFuncion" />
+  </message>
+  <message name="modificarFuncionResponse">
+    <part name="parameters" element="tns:modificarFuncionResponse" />
+  </message>
+  <message name="obtenerFuncionesPorPeliculaFuncion">
+    <part name="parameters" element="tns:obtenerFuncionesPorPeliculaFuncion" />
+  </message>
+  <message name="obtenerFuncionesPorPeliculaFuncionResponse">
+    <part name="parameters" element="tns:obtenerFuncionesPorPeliculaFuncionResponse" />
+  </message>
   <portType name="FuncionWS">
-    <operation name="obtenerPorIdFuncion">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/obtenerPorIdFuncionRequest" message="tns:obtenerPorIdFuncion" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/obtenerPorIdFuncionResponse" message="tns:obtenerPorIdFuncionResponse" />
-    </operation>
-    <operation name="obtenerFuncionesPorPeliculaFuncion">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/obtenerFuncionesPorPeliculaFuncionRequest" message="tns:obtenerFuncionesPorPeliculaFuncion" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/obtenerFuncionesPorPeliculaFuncionResponse" message="tns:obtenerFuncionesPorPeliculaFuncionResponse" />
+    <operation name="insertarFuncion">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/insertarFuncionRequest" message="tns:insertarFuncion" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/insertarFuncionResponse" message="tns:insertarFuncionResponse" />
     </operation>
     <operation name="listarTodosFuncion">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/listarTodosFuncionRequest" message="tns:listarTodosFuncion" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/listarTodosFuncionResponse" message="tns:listarTodosFuncionResponse" />
     </operation>
-    <operation name="insertarFuncion">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/insertarFuncionRequest" message="tns:insertarFuncion" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/insertarFuncionResponse" message="tns:insertarFuncionResponse" />
-    </operation>
-    <operation name="modificarFuncion">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/modificarFuncionRequest" message="tns:modificarFuncion" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/modificarFuncionResponse" message="tns:modificarFuncionResponse" />
+    <operation name="obtenerPorIdFuncion">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/obtenerPorIdFuncionRequest" message="tns:obtenerPorIdFuncion" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/obtenerPorIdFuncionResponse" message="tns:obtenerPorIdFuncionResponse" />
     </operation>
     <operation name="eliminarFuncion">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/eliminarFuncionRequest" message="tns:eliminarFuncion" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/eliminarFuncionResponse" message="tns:eliminarFuncionResponse" />
     </operation>
+    <operation name="modificarFuncion">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/modificarFuncionRequest" message="tns:modificarFuncion" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/modificarFuncionResponse" message="tns:modificarFuncionResponse" />
+    </operation>
+    <operation name="obtenerFuncionesPorPeliculaFuncion">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/obtenerFuncionesPorPeliculaFuncionRequest" message="tns:obtenerFuncionesPorPeliculaFuncion" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/obtenerFuncionesPorPeliculaFuncionResponse" message="tns:obtenerFuncionesPorPeliculaFuncionResponse" />
+    </operation>
   </portType>
   <binding name="FuncionWSPortBinding" type="tns:FuncionWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="obtenerPorIdFuncion">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerFuncionesPorPeliculaFuncion">
+    <operation name="insertarFuncion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -96,7 +87,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarFuncion">
+    <operation name="obtenerPorIdFuncion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarFuncion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -114,7 +114,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarFuncion">
+    <operation name="obtenerFuncionesPorPeliculaFuncion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

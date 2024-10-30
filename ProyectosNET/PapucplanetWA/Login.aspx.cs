@@ -15,7 +15,7 @@ namespace PapucplanetWA
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            Response.Redirect("PeliculasVUsuario.aspx");
+            Response.Redirect("PeliculasUsuario.aspx");
         }
     }
 }
