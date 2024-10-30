@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.papucplanet.pucp.edu.pe" targetNamespace="http://services.papucplanet.pucp.edu.pe" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="eliminarSala" type="tns:eliminarSala" />
+  <xs:element name="eliminarSalaResponse" type="tns:eliminarSalaResponse" />
+  <xs:element name="insertarSala" type="tns:insertarSala" />
+  <xs:element name="insertarSalaResponse" type="tns:insertarSalaResponse" />
+  <xs:element name="listarTodosSala" type="tns:listarTodosSala" />
+  <xs:element name="listarTodosSalaResponse" type="tns:listarTodosSalaResponse" />
+  <xs:element name="modificarSala" type="tns:modificarSala" />
+  <xs:element name="modificarSalaResponse" type="tns:modificarSalaResponse" />
+  <xs:element name="obtenerPorIdSala" type="tns:obtenerPorIdSala" />
+  <xs:element name="obtenerPorIdSalaResponse" type="tns:obtenerPorIdSalaResponse" />
+  <xs:complexType name="insertarSala">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="sala" type="tns:sala" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sala">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="capacidad" type="xs:int" />
+      <xs:element name="idSala" type="xs:int" />
+      <xs:element name="numeroSala" type="xs:int" />
+      <xs:element minOccurs="0" name="sede" type="tns:sede" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sede">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="idSede" type="xs:int" />
+      <xs:element minOccurs="0" name="ubicacion" type="xs:string" />
+      <xs:element minOccurs="0" name="universidad" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarSalaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarSala">
+    <xs:sequence>
+      <xs:element name="idSala" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarSalaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdSala">
+    <xs:sequence>
+      <xs:element name="idSala" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdSalaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:sala" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarSala">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="sala" type="tns:sala" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarSalaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTodosSala">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTodosSalaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:sala" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

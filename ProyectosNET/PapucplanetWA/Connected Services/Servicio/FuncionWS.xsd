@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://services.papucplanet.pucp.edu.pe" targetNamespace="http://services.papucplanet.pucp.edu.pe" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="eliminarFuncion" type="tns:eliminarFuncion" />
+  <xs:element name="eliminarFuncionResponse" type="tns:eliminarFuncionResponse" />
+  <xs:element name="insertarFuncion" type="tns:insertarFuncion" />
+  <xs:element name="insertarFuncionResponse" type="tns:insertarFuncionResponse" />
   <xs:element name="listarTodosFuncion" type="tns:listarTodosFuncion" />
   <xs:element name="listarTodosFuncionResponse" type="tns:listarTodosFuncionResponse" />
+  <xs:element name="modificarFuncion" type="tns:modificarFuncion" />
+  <xs:element name="modificarFuncionResponse" type="tns:modificarFuncionResponse" />
+  <xs:element name="obtenerFuncionesPorPeliculaFuncion" type="tns:obtenerFuncionesPorPeliculaFuncion" />
+  <xs:element name="obtenerFuncionesPorPeliculaFuncionResponse" type="tns:obtenerFuncionesPorPeliculaFuncionResponse" />
+  <xs:element name="obtenerPorIdFuncion" type="tns:obtenerPorIdFuncion" />
+  <xs:element name="obtenerPorIdFuncionResponse" type="tns:obtenerPorIdFuncionResponse" />
   <xs:complexType name="listarTodosFuncion">
     <xs:sequence />
   </xs:complexType>
@@ -51,6 +61,56 @@
       <xs:element name="idSede" type="xs:int" />
       <xs:element minOccurs="0" name="ubicacion" type="xs:string" />
       <xs:element minOccurs="0" name="universidad" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarFuncion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="funcion" type="tns:funcion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarFuncionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerFuncionesPorPeliculaFuncion">
+    <xs:sequence>
+      <xs:element name="idPelicula" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerFuncionesPorPeliculaFuncionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:funcion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarFuncion">
+    <xs:sequence>
+      <xs:element name="idFuncion" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarFuncionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdFuncion">
+    <xs:sequence>
+      <xs:element name="idFuncion" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdFuncionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:funcion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarFuncion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="funcion" type="tns:funcion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarFuncionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="genero">

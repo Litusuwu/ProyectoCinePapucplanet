@@ -22,13 +22,23 @@
     <MetadataSource Address="http://localhost:8080/PapucplanetWSBL/archivo2.disco" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PeliculaWS.xsd" MetadataType="Schema" ID="77f94faf-36ad-4cfc-99a0-929ec0fbe42f" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/PeliculaWS?xsd=1" />
-    <MetadataFile FileName="SedeWS.xsd" MetadataType="Schema" ID="30ebbe0b-0285-47f8-8171-a3b328d831cf" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/SedeWS?xsd=1" />
-    <MetadataFile FileName="FuncionWS.wsdl" MetadataType="Wsdl" ID="bc5c0702-b5c2-4138-827b-f37ceb6fc533" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/FuncionWS?WSDL" />
-    <MetadataFile FileName="PeliculaWS.wsdl" MetadataType="Wsdl" ID="d6d6297e-eba1-4a43-97b0-545a67e0089c" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/PeliculaWS?WSDL" />
-    <MetadataFile FileName="FuncionWS.xsd" MetadataType="Schema" ID="e0151f6e-b7f4-4973-a188-ae80cfd5eac4" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/FuncionWS?xsd=1" />
+    <MetadataFile FileName="BebidaWS.wsdl" MetadataType="Wsdl" ID="71fa45b7-0eb6-42f4-9787-136c24b6e1a9" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/BebidaWS?WSDL" />
     <MetadataFile FileName="archivo2.disco" MetadataType="Disco" ID="0251393b-cc4a-4d2d-80d8-9b1b5663a21e" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/archivo2.disco" />
+    <MetadataFile FileName="ButacaFuncionWS.wsdl" MetadataType="Wsdl" ID="2fd01958-3904-48c5-8f33-f0c7a5a1b7e1" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/ButacaFuncionWS?WSDL" />
+    <MetadataFile FileName="ButacaWS.wsdl" MetadataType="Wsdl" ID="4574c177-2912-4fcb-b0b1-c859ac111827" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/ButacaWS?WSDL" />
+    <MetadataFile FileName="SalaWS.xsd" MetadataType="Schema" ID="9ee05dbc-8b72-4d88-8d30-b23b0b53122c" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/SalaWS?xsd=1" />
     <MetadataFile FileName="SedeWS.wsdl" MetadataType="Wsdl" ID="4ec97235-604c-428a-825a-10243b2b4af4" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/SedeWS?WSDL" />
+    <MetadataFile FileName="ButacaWS.xsd" MetadataType="Schema" ID="81f0511c-bdd4-440f-b353-49d48079c991" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/ButacaWS?xsd=1" />
+    <MetadataFile FileName="PeliculaWS.xsd" MetadataType="Schema" ID="77f94faf-36ad-4cfc-99a0-929ec0fbe42f" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/PeliculaWS?xsd=1" />
+    <MetadataFile FileName="SalaWS.wsdl" MetadataType="Wsdl" ID="fd30a5c7-c1b3-411d-8c39-e08ecef60d75" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/SalaWS?WSDL" />
+    <MetadataFile FileName="PeliculaWS.wsdl" MetadataType="Wsdl" ID="d6d6297e-eba1-4a43-97b0-545a67e0089c" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/PeliculaWS?WSDL" />
+    <MetadataFile FileName="AlimentoWS.wsdl" MetadataType="Wsdl" ID="e232b20b-97c4-46a1-8a83-e4cd6ad4c50f" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/AlimentoWS?WSDL" />
+    <MetadataFile FileName="ButacaFuncionWS.xsd" MetadataType="Schema" ID="0736a77a-7e1b-4b31-874e-b2c4e54790e1" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/ButacaFuncionWS?xsd=1" />
+    <MetadataFile FileName="FuncionWS.xsd" MetadataType="Schema" ID="e0151f6e-b7f4-4973-a188-ae80cfd5eac4" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/FuncionWS?xsd=1" />
+    <MetadataFile FileName="FuncionWS.wsdl" MetadataType="Wsdl" ID="bc5c0702-b5c2-4138-827b-f37ceb6fc533" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/FuncionWS?WSDL" />
+    <MetadataFile FileName="SedeWS.xsd" MetadataType="Schema" ID="30ebbe0b-0285-47f8-8171-a3b328d831cf" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/SedeWS?xsd=1" />
+    <MetadataFile FileName="BebidaWS.xsd" MetadataType="Schema" ID="8dc31730-3f03-41a8-a7b3-f855d37b5cd9" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/BebidaWS?xsd=1" />
+    <MetadataFile FileName="AlimentoWS.xsd" MetadataType="Schema" ID="c2b2fcd1-89a5-46de-b8ec-d9645c673461" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/AlimentoWS?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
