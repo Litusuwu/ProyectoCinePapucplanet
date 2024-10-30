@@ -11,88 +11,106 @@ namespace PapucplanetWA
 {
 
 
-    public partial class PeliculasVUsuario
+    public partial class ConfiteriaVUsuario
     {
 
         /// <summary>
-        /// lnkPeliculas control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkPeliculas;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lnkConfiteria control.
+        /// btnAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkConfiteria;
+        protected global::System.Web.UI.WebControls.LinkButton btnAll;
 
         /// <summary>
-        /// lnkCines control.
+        /// btnAlimentos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCines;
+        protected global::System.Web.UI.WebControls.LinkButton btnAlimentos;
 
         /// <summary>
-        /// lnkPerfil control.
+        /// btnBebidas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkPerfil;
+        protected global::System.Web.UI.WebControls.LinkButton btnBebidas;
 
         /// <summary>
-        /// ddlPelicula control.
+        /// panelAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPelicula;
+        protected global::System.Web.UI.WebControls.Panel panelAll;
 
         /// <summary>
-        /// ddlCine control.
+        /// rptAllItems control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCine;
+        protected global::System.Web.UI.WebControls.Repeater rptAllItems;
 
         /// <summary>
-        /// ddlFecha control.
+        /// panelAlimentos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFecha;
+        protected global::System.Web.UI.WebControls.Panel panelAlimentos;
 
         /// <summary>
-        /// btnFiltrar control.
+        /// rptAlimentos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnFiltrar;
+        protected global::System.Web.UI.WebControls.Repeater rptAlimentos;
 
         /// <summary>
-        /// rptMovies control.
+        /// panelBebidas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptMovies;
+        protected global::System.Web.UI.WebControls.Panel panelBebidas;
+
+        /// <summary>
+        /// rptBebidas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptBebidas;
+
+        /// <summary>
+        /// cartCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label cartCount;
     }
 }

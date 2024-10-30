@@ -65,6 +65,9 @@
   <ItemGroup>
     <Content Include="AgregarNuevaPelicula.aspx" />
     <Content Include="Boletas.aspx" />
+    <Content Include="ConfiteriaVUsuario.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="PeliculasVUsuario.aspx" />
     <None Include="Connected Services\Servicio\archivo2.disco" />
     <None Include="Connected Services\Servicio\configuration91.svcinfo" />
     <None Include="Connected Services\Servicio\configuration.svcinfo" />
@@ -194,6 +197,9 @@
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
     <Content Include="Scripts\Papucplanet\Sedes.js" />
     <Content Include="Sedes.aspx" />
+    <Content Include="Styles\Login.css" />
+    <Content Include="Styles\Confiteria.css" />
+    <Content Include="Styles\Peliculas.css" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -211,6 +217,13 @@
     </Compile>
     <Compile Include="Boletas.aspx.designer.cs">
       <DependentUpon>Boletas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfiteriaVUsuario.aspx.cs">
+      <DependentUpon>ConfiteriaVUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfiteriaVUsuario.aspx.designer.cs">
+      <DependentUpon>ConfiteriaVUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\Servicio\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -238,6 +251,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Papucplanet.Master.cs">
       <DependentUpon>Papucplanet.Master</DependentUpon>
@@ -274,6 +294,13 @@
     </Compile>
     <Compile Include="Usuarios.aspx.designer.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PeliculasVUsuario.aspx.cs">
+      <DependentUpon>PeliculasVUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PeliculasVUsuario.aspx.designer.cs">
+      <DependentUpon>PeliculasVUsuario.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
