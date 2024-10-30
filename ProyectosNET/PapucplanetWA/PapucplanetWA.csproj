@@ -65,50 +65,58 @@
   <ItemGroup>
     <Content Include="AgregarNuevaPelicula.aspx" />
     <Content Include="Boletas.aspx" />
-    <None Include="Connected Services\Servicio\archivo.disco" />
+    <None Include="Connected Services\Servicio\archivo2.disco" />
     <None Include="Connected Services\Servicio\configuration91.svcinfo" />
     <None Include="Connected Services\Servicio\configuration.svcinfo" />
-    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.eliminarResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.insertarResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarTodosResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.modificarResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.obtenerPorIdResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.pelicula.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-<<<<<<< HEAD
-    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.genero.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarGenerosResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarPorNombreResponse.datasource">
-=======
-    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.insertarSedeResponse.datasource">
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.eliminarPeliculaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.eliminarSedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.sede.datasource">
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.funcion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.genero.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.insertarPeliculaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.insertarSedeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarGenerosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarPorNombrePeliculaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarTodosFuncionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarTodosPeliculaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarTodosSedeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.modificarPeliculaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.modificarSedeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.obtenerPorIdPeliculaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.obtenerPorIdSedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.modificarSedeResponse.datasource">
->>>>>>> seresoyer
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.pelicula.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.sede.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\Servicio\Reference.svcmap">
@@ -167,6 +175,10 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Connected Services\Servicio\FuncionWS.wsdl" />
+    <None Include="Connected Services\Servicio\FuncionWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\Servicio\PeliculaWS.wsdl" />
     <None Include="Connected Services\Servicio\PeliculaWS.xsd">
       <SubType>Designer</SubType>
@@ -213,7 +225,6 @@
       <DependentUpon>Consumibles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Estado.cs" />
-<<<<<<< HEAD
     <Compile Include="Funciones.aspx.cs">
       <DependentUpon>Funciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -221,8 +232,6 @@
     <Compile Include="Funciones.aspx.designer.cs">
       <DependentUpon>Funciones.aspx</DependentUpon>
     </Compile>
-=======
->>>>>>> seresoyer
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
