@@ -11,8 +11,8 @@ namespace PapucplanetWA
 {
     public partial class DetallePelicula : System.Web.UI.Page
     {
-        private PeliculaDAO daoPelicula;
-        private FuncionDAO daoFuncion;
+        private PeliculaWSClient daoPelicula = new PeliculaWSClient();
+        private FuncionWSClient daoFuncion = new FuncionWSClient();
         // Variables para almacenar el día y el horario seleccionados
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,27 +41,26 @@ namespace PapucplanetWA
 
         private void CargarDetallesPelicula(int idPelicula)
         {
-            daoPelicula = new PeliculaMySQL();
-            Pelicula pelicula = daoPelicula.obtenerPorId(idPelicula);
+            pelicula pelicula = daoPelicula.obtenerPorIdPelicula(idPelicula);
 
             if (pelicula != null)
             {
                 // Asignar datos al HTML de la página
-                movieTitle.InnerText = pelicula.Titulo;
-                movieImage_Link.ImageUrl = pelicula.Imagen_link;
-                lblMovieDescription.Text = pelicula.Sinopsis;
-                lblMovieDuration.Text = $"Duración: {pelicula.Duracion} horas";
-                lblMovieGenre.Text = $"Género: {pelicula.Genero}";
+                movieTitle.InnerText = pelicula.titulo;
+                movieImage_Link.ImageUrl = pelicula.imagenPromocional;
+                lblMovieDescription.Text = pelicula.sinopsis;
+                lblMovieDuration.Text = $"Duración: {pelicula.duracion} horas";
+                lblMovieGenre.Text = $"Género: {pelicula.genero}";
             }
         }
 
         protected void CargarDiasYHorarios(int idPelicula)
         {
-            daoFuncion = new FuncionMySQL();
-            BindingList<Funcion> funciones = daoFuncion.obtenerFuncionesPorPelicula(idPelicula);
+            BindingList<funcion> funciones = new BindingList<funcion>(daoFuncion.obtenerFuncionesPorPeliculaFuncion(idPelicula));
+                
 
             // Filtrar días únicos
-            var diasUnicos = funciones.Select(f => f.Dia.Date).Distinct();
+            var diasUnicos = funciones.Select(f => f.dia.Date).Distinct();
             foreach (var dia in diasUnicos)
             {
                 Button diaButton = new Button
@@ -75,13 +74,13 @@ namespace PapucplanetWA
             }
 
             // Filtrar horarios únicos
-            var horariosUnicos = funciones.Select(f => f.HorarioInicio).Distinct();
+            var horariosUnicos = funciones.Select(f => f.horarioInicio).Distinct();
             foreach (var horario in horariosUnicos)
             {
                 Button horarioButton = new Button
                 {
                     CssClass = "btn btn-outline-secondary",
-                    Text = horario.ToString(@"hh\:mm"),
+                    Text = horario.ToString(), // Esto usará el formato predeterminado de LocalTime
                     CommandArgument = horario.ToString(),
                     OnClientClick = $"selectTime(this, '{horario.ToString()}'); return false;" // Agregar llamada a JavaScript
                 };
