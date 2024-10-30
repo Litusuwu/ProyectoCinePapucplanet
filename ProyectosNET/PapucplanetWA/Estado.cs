@@ -7,6 +7,10 @@ namespace PapucplanetWA
 {
     public enum Estado
     {
+<<<<<<< HEAD
         Nuevo, Modificar 
+=======
+        Nuevo, Modificar
+>>>>>>> seresoyer
     }
 }

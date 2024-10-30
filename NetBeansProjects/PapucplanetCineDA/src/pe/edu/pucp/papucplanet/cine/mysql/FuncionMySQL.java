@@ -173,4 +173,50 @@ public class FuncionMySQL implements FuncionDAO{
         return funcion;
     }
     
+    @Override
+    public ArrayList<Funcion> obtenerFuncionesPorPelicula(int idPelicula) {
+        ArrayList<Funcion> funciones = new ArrayList<>();
+        try {
+            con = DBManager.getInstance().getConnection();
+            con.setAutoCommit(false);
+
+            // Llamada al procedimiento almacenado con el parámetro idPelicula
+            cs = con.prepareCall("{call OBTENER_FUNCIONES_POR_PELICULA(?)}");
+            cs.setInt("_id_pelicula", idPelicula);
+            rs = cs.executeQuery();
+
+            Funcion funcion;
+            PeliculaDAO peliculaDao = new PeliculaMySQL();
+            SalaDAO salaDao = new SalaMySQL();
+            int idSala,idPeliculaDB;
+
+            while (rs.next()) {
+                funcion = new Funcion();
+                funcion.setIdFuncion(rs.getInt("id_funcion"));
+                funcion.setHorarioInicio(rs.getTime("horaInicio").toLocalTime());
+                funcion.setHorarioFin(rs.getTime("horaFin").toLocalTime());       
+                funcion.setDia(rs.getDate("dia"));          
+
+                // Asignación de la película y la sala a través de DAOs
+                idPeliculaDB = rs.getInt("fid_pelicula");
+                funcion.setPelicula(peliculaDao.obtenerPorId(idPeliculaDB));
+
+                idSala = rs.getInt("fid_sala");
+                funcion.setSala(salaDao.obtenerPorId(idSala));
+
+                // Agregar la función a la lista
+                funciones.add(funcion);
+            }
+
+            con.commit();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            try { con.rollback(); } catch (SQLException ex1) { System.out.println(ex1.getMessage()); }
+        } finally {
+            try { con.close(); } catch (SQLException ex) { System.out.println(ex.getMessage()); }
+        }
+        return funciones;
+    }
+    
+    
 }

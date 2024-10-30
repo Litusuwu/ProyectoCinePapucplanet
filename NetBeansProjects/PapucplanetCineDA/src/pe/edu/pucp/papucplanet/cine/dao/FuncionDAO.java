@@ -10,4 +10,6 @@ public interface FuncionDAO {
     int eliminar(int idFuncion);
     ArrayList<Funcion> listarTodos();
     Funcion obtenerPorId(int idFuncion);
+    // Nuevo método para obtener funciones por película
+    ArrayList<Funcion> obtenerFuncionesPorPelicula(int idPelicula);
 }

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.papucplanet.pucp.edu.pe" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="SedeWS" targetNamespace="http://services.papucplanet.pucp.edu.pe" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/SedeWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
+    </xsd:schema>
+  </types>
+  <message name="modificarSede">
+    <part name="parameters" element="tns:modificarSede" />
+  </message>
+  <message name="modificarSedeResponse">
+    <part name="parameters" element="tns:modificarSedeResponse" />
+  </message>
+  <message name="insertarSede">
+    <part name="parameters" element="tns:insertarSede" />
+  </message>
+  <message name="insertarSedeResponse">
+    <part name="parameters" element="tns:insertarSedeResponse" />
+  </message>
+  <message name="listarTodos">
+    <part name="parameters" element="tns:listarTodos" />
+  </message>
+  <message name="listarTodosResponse">
+    <part name="parameters" element="tns:listarTodosResponse" />
+  </message>
+  <message name="eliminarSede">
+    <part name="parameters" element="tns:eliminarSede" />
+  </message>
+  <message name="eliminarSedeResponse">
+    <part name="parameters" element="tns:eliminarSedeResponse" />
+  </message>
+  <message name="obtenerPorIdSede">
+    <part name="parameters" element="tns:obtenerPorIdSede" />
+  </message>
+  <message name="obtenerPorIdSedeResponse">
+    <part name="parameters" element="tns:obtenerPorIdSedeResponse" />
+  </message>
+  <portType name="SedeWS">
+    <operation name="modificarSede">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/modificarSedeRequest" message="tns:modificarSede" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/modificarSedeResponse" message="tns:modificarSedeResponse" />
+    </operation>
+    <operation name="insertarSede">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/insertarSedeRequest" message="tns:insertarSede" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/insertarSedeResponse" message="tns:insertarSedeResponse" />
+    </operation>
+    <operation name="listarTodos">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/listarTodosRequest" message="tns:listarTodos" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/listarTodosResponse" message="tns:listarTodosResponse" />
+    </operation>
+    <operation name="eliminarSede">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/eliminarSedeRequest" message="tns:eliminarSede" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/eliminarSedeResponse" message="tns:eliminarSedeResponse" />
+    </operation>
+    <operation name="obtenerPorIdSede">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/obtenerPorIdSedeRequest" message="tns:obtenerPorIdSede" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/obtenerPorIdSedeResponse" message="tns:obtenerPorIdSedeResponse" />
+    </operation>
+  </portType>
+  <binding name="SedeWSPortBinding" type="tns:SedeWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="modificarSede">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarSede">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarTodos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarSede">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerPorIdSede">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="SedeWS">
+    <port name="SedeWSPort" binding="tns:SedeWSPortBinding">
+      <soap:address location="http://localhost:8080/PapucplanetWSBL/SedeWS" />
+    </port>
+  </service>
+</definitions>

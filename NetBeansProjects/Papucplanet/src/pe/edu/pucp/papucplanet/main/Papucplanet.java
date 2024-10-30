@@ -281,6 +281,13 @@ public class Papucplanet {
         peliDao.insertar(pelicula);
         System.out.println("ELIMINAR");
         peliDao.eliminar(1);
+        pelicula.setTitulo(pelicula.getTitulo()+"+");
+        
+        //peli2.setIdPelicula(1);
+        System.out.println("INSERT");
+        //peliDao.insertar(peli2);
+        System.out.println("ELIMINAR");
+        peliDao.eliminar(1);
         
     }
     // Funciones CRUD para Sede
@@ -516,18 +523,18 @@ public class Papucplanet {
     public static void main(String[] args) throws ParseException {
         // Test ADMIN
         try{
-            testAdministrador();
+//            testAdministrador();
             testSede();
+//            
+//            testCliente();
+//            Administrador administrador = new Administrador();
+//            administrador.setId(1);
+//            testCuenta(administrador);
+//            testCine();
             
-            testCliente();
-            Administrador administrador = new Administrador();
-            administrador.setId(1);
-            testCuenta(administrador);
-            testCine();
-            
-            testPelicula();
-            testSala();
-            testBoleta_Alimento();
+//            testPelicula();
+//            testSala();
+//            testBoleta_Alimento();
             
         }catch(Exception ex){
             System.out.println(ex.getMessage());

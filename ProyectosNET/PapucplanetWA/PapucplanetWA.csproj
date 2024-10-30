@@ -86,6 +86,7 @@
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.pelicula.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+<<<<<<< HEAD
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.genero.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -93,6 +94,21 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarPorNombreResponse.datasource">
+=======
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.insertarSedeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.eliminarSedeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.sede.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.obtenerPorIdSedeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.modificarSedeResponse.datasource">
+>>>>>>> seresoyer
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\Servicio\Reference.svcmap">
@@ -155,11 +171,16 @@
     <None Include="Connected Services\Servicio\PeliculaWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\Servicio\SedeWS.wsdl" />
+    <None Include="Connected Services\Servicio\SedeWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="Scripts\Papucplanet\Sedes.js" />
     <Content Include="Sedes.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Web.config" />
@@ -192,6 +213,7 @@
       <DependentUpon>Consumibles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Estado.cs" />
+<<<<<<< HEAD
     <Compile Include="Funciones.aspx.cs">
       <DependentUpon>Funciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -199,6 +221,8 @@
     <Compile Include="Funciones.aspx.designer.cs">
       <DependentUpon>Funciones.aspx</DependentUpon>
     </Compile>
+=======
+>>>>>>> seresoyer
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

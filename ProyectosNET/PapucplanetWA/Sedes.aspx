@@ -3,6 +3,7 @@
     Sedes
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
+<<<<<<< HEAD
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container mt-4">
@@ -11,48 +12,74 @@
             <a href="#" class="btn btn-primary rounded-circle">
                 <i class="fa-solid fa-plus"></i> Añadir
             </a>
+=======
+    <script src="Scripts/Papucplanet/Sedes.js"></script>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
+    <div class="d-flex justify-content-center justify-content-md-between align-items-center mb-4 mt-1">
+        <h1 class="text-center mb-0 w-100">Sedes</h1>
+        <asp:LinkButton ID="btnAdd" runat="server" CssClass="btn-sede" OnClick="btnAddClienteClick">
+            <i class="fa-solid fa-plus mr-1"></i>Añadir
+        </asp:LinkButton>
+    </div>
+    <asp:Repeater ID="sedes" runat="server">
+        <HeaderTemplate>
+            <div class="row">
+        </HeaderTemplate>
+        <ItemTemplate>
+            <div class="col-md-6 mb-4">
+                <div class="card custom-width-card mx-auto text-center bg-custom  border-0 shadow-sm">
+                    <div class="card-body ">
+                        <h5 class="card-title "><%# Eval("universidad") %></h5>
+                        <i class="fa-solid fa-building fs-1 custom-body-card"></i>
+                        <p class="card-text">Ubicación: <%# Eval("ubicacion") %></p>
+                        <asp:LinkButton ID="lbModificar" runat="server" Text="<i class='fa-solid fa-edit'></i> Modificar" CssClass="btn btn-warning" OnClick="lbModificar_Click" CommandArgument='<%# Eval("idSede") %>'/>
+                        <asp:LinkButton ID="lbEliminar" runat="server" Text="<i class='fa-solid fa-trash'></i> Eliminar" CssClass="btn btn-danger" OnClick="lbEliminar_Click" CommandArgument='<%# Eval("idSede") %>'/>
+                        <asp:LinkButton ID="lbSalas" runat="server" CssClass="btn-sede">
+                            Salas
+                        </asp:LinkButton>
+                    </div>
+                </div>
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
+    <!--POP UP de Añadir-->
+    <div class="modal" id="form-modal-sede-add">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sede</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <asp:Label ID="lblNombreSede" CssClass="form-label mb-2" runat="server" Text="Nombre:"></asp:Label>
+                    <asp:TextBox ID="txtNombreSede" CssClass="form-control mb-3" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblUbicacionSede" CssClass="form-label mb-2" runat="server" Text="Ubicacion:"></asp:Label>
+                    <asp:TextBox ID="txtUbicacionSede" CssClass="form-control mb-3" runat="server"></asp:TextBox>
+                </div>
+                <div class="modal-footer">
+                    <asp:LinkButton ID="lbGuardar" runat="server" CssClass="btn-sede" OnClick="lbGuardar_Click">Confirmar</asp:LinkButton>
+                </div>
+            </div>
+>>>>>>> seresoyer
         </div>
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-            <!-- Tarjeta 1 -->
-            <div class="col">
-                <div class="card text-center p-3 border-0 shadow-sm">
-                    <i class="fa-solid fa-building card-icon"></i>
-                    <h5 class="mt-2">Sede 1</h5>
+    </div>
+    <!--POP UP de Modificar-->
+    <div class="modal" id="form-modal-sede-mod">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sede</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
-            <!-- Tarjeta 2 -->
-            <div class="col">
-                <div class="card text-center p-3 border-0 shadow-sm">
-                    <i class="fa-solid fa-building card-icon"></i>
-                    <h5 class="mt-2">Sede 2</h5>
+                <div class="modal-body">
+                    <asp:Label ID="lbNombreSedeMod" CssClass="form-label mb-2" runat="server" Text="Nombre:"></asp:Label>
+                    <asp:TextBox ID="txtNombreSedeMod" CssClass="form-control mb-3" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblUbicacionSedeMod" CssClass="form-label mb-2" runat="server" Text="Ubicacion:"></asp:Label>
+                    <asp:TextBox ID="txtUbicacionSedeMod" CssClass="form-control mb-3" runat="server"></asp:TextBox>
                 </div>
-            </div>
-            <!-- Tarjeta 3 -->
-            <div class="col">
-                <div class="card text-center p-3 border-0 shadow-sm">
-                    <i class="fa-solid fa-building card-icon"></i>
-                    <h5 class="mt-2">Sede 3</h5>
-                </div>
-            </div>
-            <!-- Tarjeta 4 -->
-            <div class="col">
-                <div class="card text-center p-3 border-0 shadow-sm">
-                    <i class="fa-solid fa-building card-icon"></i>
-                    <h5 class="mt-2">Sede 4</h5>
-                </div>
-            </div>
-            <!-- Tarjeta 5 -->
-            <div class="col">
-                <div class="card text-center p-3 border-0 shadow-sm">
-                    <i class="fa-solid fa-building card-icon"></i>
-                    <h5 class="mt-2">Sede 5</h5>
-                </div>
-            </div>
-            <!-- Tarjeta 6 -->
-            <div class="col">
-                <div class="card text-center p-3 border-0 shadow-sm">
-                    <i class="fa-solid fa-building card-icon"></i>
-                    <h5 class="mt-2">Sede 6</h5>
+                <div class="modal-footer">
+                    <asp:LinkButton ID="lbGuardarMod" runat="server" CssClass="btn-sede" OnClick="lbGuardar_ClickMod">Confirmar</asp:LinkButton>
                 </div>
             </div>
         </div>
