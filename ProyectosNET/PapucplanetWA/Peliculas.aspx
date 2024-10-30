@@ -22,37 +22,40 @@
             </div>
         </div>
         <div class="container row">
-            <asp:GridView ID="gvPeliculas" runat="server" AllowPaging="true" PageSize="3" AutoGenerateColumns="false" CssClass="table table-hover table-responsive table-striped" 
-                ShowHeaderWhenEmpty="true" OnPageIndexChanging="gvPeliculas_PageIndexChanging">
+            <asp:GridView ID="gvPeliculas" runat="server" AllowPaging="true" PageSize="3" AutoGenerateColumns="false"
+                CssClass="table table-hover table-responsive table-striped text-center gridview-pagination" ShowHeaderWhenEmpty="true"
+                PagerStyle-CssClass="pagination-container" OnPageIndexChanging="gvPeliculas_PageIndexChanging" OnRowDataBound="gvPeliculas_RowDataBound">
+                <RowStyle CssClass="centered-row" />
+
                 <Columns>
-                    <asp:TemplateField HeaderText="Poster">
+                    <asp:TemplateField HeaderText="Poster" ItemStyle-CssClass="text-center">
                         <ItemTemplate>
                             <asp:Image ID="imgPoster" runat="server" CssClass="img-fluid img-thumbnail" ImageUrl='<%# Eval("imagenPromocional") %>' Height="150" Width="100" />
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField HeaderText="Titulo" DataField="titulo" />
-                    <asp:BoundField HeaderText="Duracion" DataField="duracion" />
-                    <asp:BoundField HeaderText="Género" DataField="genero" />
 
-                    <asp:TemplateField HeaderText="Funciones">
+                    <asp:BoundField HeaderText="Titulo" ItemStyle-CssClass="text-center" />
+                    <asp:BoundField HeaderText="Duracion" ItemStyle-CssClass="text-center" />
+                    <asp:BoundField HeaderText="Género" ItemStyle-CssClass="text-center" />
+
+                    <asp:TemplateField HeaderText="Funciones" ItemStyle-CssClass="text-center">
                         <ItemTemplate>
-                            <asp:LinkButton runat="server" Text="Ver funciones" OnClick="lbFunciones_Click" CommandArgument='<%# Eval("idPelicula") %>' CssClass="text-purple"/>
+                            <asp:LinkButton runat="server" Text="Ver funciones" OnClick="lbFunciones_Click" CommandArgument='<%# Eval("idPelicula") %>' CssClass="text-purple" />
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Acciones">
+                    <asp:TemplateField HeaderText="Acciones" ItemStyle-CssClass="text-center">
                         <ItemTemplate>
                             <!-- Botón para Modificar -->
                             <asp:LinkButton runat="server" Text="<i class='fa-solid fa-pencil'></i>"
                                 OnClick="lbModificar_Click" CommandArgument='<%# Eval("idPelicula") %>'
-                                CssClass="btn btn-purpure btn-sm" ToolTip="Modificar" />
+                                CssClass="btn btn-purple btn-sm" ToolTip="Modificar" />
                             <!-- Botón para Eliminar -->
                             <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash'></i>"
                                 OnClick="lbEliminar_Click" CommandArgument='<%# Eval("idPelicula") %>'
                                 CssClass="btn btn-danger btn-sm" ToolTip="Eliminar" />
                         </ItemTemplate>
                     </asp:TemplateField>
-
                 </Columns>
             </asp:GridView>
         </div>

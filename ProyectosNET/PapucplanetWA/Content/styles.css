@@ -92,3 +92,36 @@ a,i {
     display: inline-flex;
     align-items: center;
 }
+
+.pagination-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+    .pagination-container a, .pagination-container span {
+        display: inline-block;
+        margin: 0 5px;
+        padding: 8px 12px;
+        color: #6c757d; /* Color para los enlaces */
+        background-color: #f8f9fa; /* Fondo para los botones */
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+
+        .pagination-container a:hover {
+            background-color: #7153f2;
+            color: white;
+        }
+
+    .pagination-container .selected {
+        background-color: #7153f2;
+        color: white;
+        font-weight: bold;
+        border-color: #7153f2;
+    }
+
+.centered-row td {
+    text-align: center; /* Centra el contenido de cada celda */
+    vertical-align: middle; /* Centra verticalmente */
+}
