@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.papucplanet.pucp.edu.pe" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="SalaWS" targetNamespace="http://services.papucplanet.pucp.edu.pe" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/SalaWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
+    </xsd:schema>
+  </types>
+  <message name="listarTodosSala">
+    <part name="parameters" element="tns:listarTodosSala" />
+  </message>
+  <message name="listarTodosSalaResponse">
+    <part name="parameters" element="tns:listarTodosSalaResponse" />
+  </message>
+  <message name="eliminarSala">
+    <part name="parameters" element="tns:eliminarSala" />
+  </message>
+  <message name="eliminarSalaResponse">
+    <part name="parameters" element="tns:eliminarSalaResponse" />
+  </message>
+  <message name="obtenerPorIdSala">
+    <part name="parameters" element="tns:obtenerPorIdSala" />
+  </message>
+  <message name="obtenerPorIdSalaResponse">
+    <part name="parameters" element="tns:obtenerPorIdSalaResponse" />
+  </message>
+  <message name="insertarSala">
+    <part name="parameters" element="tns:insertarSala" />
+  </message>
+  <message name="insertarSalaResponse">
+    <part name="parameters" element="tns:insertarSalaResponse" />
+  </message>
+  <message name="modificarSala">
+    <part name="parameters" element="tns:modificarSala" />
+  </message>
+  <message name="modificarSalaResponse">
+    <part name="parameters" element="tns:modificarSalaResponse" />
+  </message>
+  <portType name="SalaWS">
+    <operation name="listarTodosSala">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/listarTodosSalaRequest" message="tns:listarTodosSala" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/listarTodosSalaResponse" message="tns:listarTodosSalaResponse" />
+    </operation>
+    <operation name="eliminarSala">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/eliminarSalaRequest" message="tns:eliminarSala" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/eliminarSalaResponse" message="tns:eliminarSalaResponse" />
+    </operation>
+    <operation name="obtenerPorIdSala">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/obtenerPorIdSalaRequest" message="tns:obtenerPorIdSala" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/obtenerPorIdSalaResponse" message="tns:obtenerPorIdSalaResponse" />
+    </operation>
+    <operation name="insertarSala">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/insertarSalaRequest" message="tns:insertarSala" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/insertarSalaResponse" message="tns:insertarSalaResponse" />
+    </operation>
+    <operation name="modificarSala">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/modificarSalaRequest" message="tns:modificarSala" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/modificarSalaResponse" message="tns:modificarSalaResponse" />
+    </operation>
+  </portType>
+  <binding name="SalaWSPortBinding" type="tns:SalaWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listarTodosSala">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarSala">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerPorIdSala">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarSala">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificarSala">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="SalaWS">
+    <port name="SalaWSPort" binding="tns:SalaWSPortBinding">
+      <soap:address location="http://localhost:8080/PapucplanetWSBL/SalaWS" />
+    </port>
+  </service>
+</definitions>

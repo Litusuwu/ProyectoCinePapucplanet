@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.papucplanet.pucp.edu.pe" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="BebidaWS" targetNamespace="http://services.papucplanet.pucp.edu.pe" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/BebidaWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
+    </xsd:schema>
+  </types>
+  <message name="listarTodasBebidas">
+    <part name="parameters" element="tns:listarTodasBebidas" />
+  </message>
+  <message name="listarTodasBebidasResponse">
+    <part name="parameters" element="tns:listarTodasBebidasResponse" />
+  </message>
+  <message name="insertarBebida">
+    <part name="parameters" element="tns:insertarBebida" />
+  </message>
+  <message name="insertarBebidaResponse">
+    <part name="parameters" element="tns:insertarBebidaResponse" />
+  </message>
+  <message name="obtenerPorIdBebida">
+    <part name="parameters" element="tns:obtenerPorIdBebida" />
+  </message>
+  <message name="obtenerPorIdBebidaResponse">
+    <part name="parameters" element="tns:obtenerPorIdBebidaResponse" />
+  </message>
+  <message name="actualizarBebida">
+    <part name="parameters" element="tns:actualizarBebida" />
+  </message>
+  <message name="actualizarBebidaResponse">
+    <part name="parameters" element="tns:actualizarBebidaResponse" />
+  </message>
+  <message name="eliminarBebida">
+    <part name="parameters" element="tns:eliminarBebida" />
+  </message>
+  <message name="eliminarBebidaResponse">
+    <part name="parameters" element="tns:eliminarBebidaResponse" />
+  </message>
+  <portType name="BebidaWS">
+    <operation name="listarTodasBebidas">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/listarTodasBebidasRequest" message="tns:listarTodasBebidas" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/listarTodasBebidasResponse" message="tns:listarTodasBebidasResponse" />
+    </operation>
+    <operation name="insertarBebida">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/insertarBebidaRequest" message="tns:insertarBebida" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/insertarBebidaResponse" message="tns:insertarBebidaResponse" />
+    </operation>
+    <operation name="obtenerPorIdBebida">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/obtenerPorIdBebidaRequest" message="tns:obtenerPorIdBebida" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/obtenerPorIdBebidaResponse" message="tns:obtenerPorIdBebidaResponse" />
+    </operation>
+    <operation name="actualizarBebida">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/actualizarBebidaRequest" message="tns:actualizarBebida" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/actualizarBebidaResponse" message="tns:actualizarBebidaResponse" />
+    </operation>
+    <operation name="eliminarBebida">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/eliminarBebidaRequest" message="tns:eliminarBebida" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/eliminarBebidaResponse" message="tns:eliminarBebidaResponse" />
+    </operation>
+  </portType>
+  <binding name="BebidaWSPortBinding" type="tns:BebidaWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listarTodasBebidas">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarBebida">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerPorIdBebida">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="actualizarBebida">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarBebida">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="BebidaWS">
+    <port name="BebidaWSPort" binding="tns:BebidaWSPortBinding">
+      <soap:address location="http://localhost:8080/PapucplanetWSBL/BebidaWS" />
+    </port>
+  </service>
+</definitions>

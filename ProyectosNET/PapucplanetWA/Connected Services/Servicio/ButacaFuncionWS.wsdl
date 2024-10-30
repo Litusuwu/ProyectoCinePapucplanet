@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.papucplanet.pucp.edu.pe" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="ButacaFuncionWS" targetNamespace="http://services.papucplanet.pucp.edu.pe" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/ButacaFuncionWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
+    </xsd:schema>
+  </types>
+  <message name="obtenerPorIdButacaFuncion">
+    <part name="parameters" element="tns:obtenerPorIdButacaFuncion" />
+  </message>
+  <message name="obtenerPorIdButacaFuncionResponse">
+    <part name="parameters" element="tns:obtenerPorIdButacaFuncionResponse" />
+  </message>
+  <message name="modificarButacaFuncion">
+    <part name="parameters" element="tns:modificarButacaFuncion" />
+  </message>
+  <message name="modificarButacaFuncionResponse">
+    <part name="parameters" element="tns:modificarButacaFuncionResponse" />
+  </message>
+  <message name="eliminarButacaFuncion">
+    <part name="parameters" element="tns:eliminarButacaFuncion" />
+  </message>
+  <message name="eliminarButacaFuncionResponse">
+    <part name="parameters" element="tns:eliminarButacaFuncionResponse" />
+  </message>
+  <message name="listarTodosButacaFuncion">
+    <part name="parameters" element="tns:listarTodosButacaFuncion" />
+  </message>
+  <message name="listarTodosButacaFuncionResponse">
+    <part name="parameters" element="tns:listarTodosButacaFuncionResponse" />
+  </message>
+  <message name="insertarButacaFuncion">
+    <part name="parameters" element="tns:insertarButacaFuncion" />
+  </message>
+  <message name="insertarButacaFuncionResponse">
+    <part name="parameters" element="tns:insertarButacaFuncionResponse" />
+  </message>
+  <portType name="ButacaFuncionWS">
+    <operation name="obtenerPorIdButacaFuncion">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/obtenerPorIdButacaFuncionRequest" message="tns:obtenerPorIdButacaFuncion" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/obtenerPorIdButacaFuncionResponse" message="tns:obtenerPorIdButacaFuncionResponse" />
+    </operation>
+    <operation name="modificarButacaFuncion">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/modificarButacaFuncionRequest" message="tns:modificarButacaFuncion" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/modificarButacaFuncionResponse" message="tns:modificarButacaFuncionResponse" />
+    </operation>
+    <operation name="eliminarButacaFuncion">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/eliminarButacaFuncionRequest" message="tns:eliminarButacaFuncion" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/eliminarButacaFuncionResponse" message="tns:eliminarButacaFuncionResponse" />
+    </operation>
+    <operation name="listarTodosButacaFuncion">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/listarTodosButacaFuncionRequest" message="tns:listarTodosButacaFuncion" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/listarTodosButacaFuncionResponse" message="tns:listarTodosButacaFuncionResponse" />
+    </operation>
+    <operation name="insertarButacaFuncion">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/insertarButacaFuncionRequest" message="tns:insertarButacaFuncion" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/insertarButacaFuncionResponse" message="tns:insertarButacaFuncionResponse" />
+    </operation>
+  </portType>
+  <binding name="ButacaFuncionWSPortBinding" type="tns:ButacaFuncionWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="obtenerPorIdButacaFuncion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificarButacaFuncion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarButacaFuncion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarTodosButacaFuncion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarButacaFuncion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ButacaFuncionWS">
+    <port name="ButacaFuncionWSPort" binding="tns:ButacaFuncionWSPortBinding">
+      <soap:address location="http://localhost:8080/PapucplanetWSBL/ButacaFuncionWS" />
+    </port>
+  </service>
+</definitions>
