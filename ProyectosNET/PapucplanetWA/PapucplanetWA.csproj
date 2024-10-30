@@ -65,16 +65,13 @@
   <ItemGroup>
     <Content Include="AgregarNuevaPelicula.aspx" />
     <Content Include="Boletas.aspx" />
-<<<<<<< HEAD
     <Content Include="ConfiteriaVUsuario.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="PeliculasVUsuario.aspx" />
-=======
     <None Include="Connected Services\Servicio\AlimentoWS.wsdl" />
     <None Include="Connected Services\Servicio\AlimentoWS.xsd">
       <SubType>Designer</SubType>
     </None>
->>>>>>> prueba4
     <None Include="Connected Services\Servicio\archivo2.disco" />
     <None Include="Connected Services\Servicio\BebidaWS.wsdl" />
     <None Include="Connected Services\Servicio\BebidaWS.xsd">
