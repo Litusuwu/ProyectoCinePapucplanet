@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.papucplanet.pucp.edu.pe" targetNamespace="http://services.papucplanet.pucp.edu.pe" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="eliminarSede" type="tns:eliminarSede" />
+  <xs:element name="eliminarSedeResponse" type="tns:eliminarSedeResponse" />
+  <xs:element name="insertarSede" type="tns:insertarSede" />
+  <xs:element name="insertarSedeResponse" type="tns:insertarSedeResponse" />
+  <xs:element name="listarTodos" type="tns:listarTodos" />
+  <xs:element name="listarTodosResponse" type="tns:listarTodosResponse" />
+  <xs:element name="modificarSede" type="tns:modificarSede" />
+  <xs:element name="modificarSedeResponse" type="tns:modificarSedeResponse" />
+  <xs:element name="obtenerPorIdSede" type="tns:obtenerPorIdSede" />
+  <xs:element name="obtenerPorIdSedeResponse" type="tns:obtenerPorIdSedeResponse" />
+  <xs:complexType name="modificarSede">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="sede" type="tns:sede" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sede">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="idSede" type="xs:int" />
+      <xs:element minOccurs="0" name="ubicacion" type="xs:string" />
+      <xs:element minOccurs="0" name="universidad" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarSedeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdSede">
+    <xs:sequence>
+      <xs:element name="idSede" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdSedeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:sede" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTodos">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTodosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:sede" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarSede">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="sede" type="tns:sede" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarSedeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarSede">
+    <xs:sequence>
+      <xs:element name="idSede" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarSedeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

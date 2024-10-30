@@ -5,12 +5,15 @@
       <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/PeliculaWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
     </xsd:schema>
   </types>
+<<<<<<< HEAD
   <message name="insertar">
     <part name="parameters" element="tns:insertar" />
   </message>
   <message name="insertarResponse">
     <part name="parameters" element="tns:insertarResponse" />
   </message>
+=======
+>>>>>>> seresoyer
   <message name="eliminar">
     <part name="parameters" element="tns:eliminar" />
   </message>
@@ -19,6 +22,15 @@
   </message>
   <message name="modificar">
     <part name="parameters" element="tns:modificar" />
+<<<<<<< HEAD
+=======
+  </message>
+  <message name="modificarResponse">
+    <part name="parameters" element="tns:modificarResponse" />
+  </message>
+  <message name="insertar">
+    <part name="parameters" element="tns:insertar" />
+>>>>>>> seresoyer
   </message>
   <message name="modificarResponse">
     <part name="parameters" element="tns:modificarResponse" />
@@ -48,10 +60,13 @@
     <part name="parameters" element="tns:obtenerPorIdResponse" />
   </message>
   <portType name="PeliculaWS">
+<<<<<<< HEAD
     <operation name="insertar">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarRequest" message="tns:insertar" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarResponse" message="tns:insertarResponse" />
     </operation>
+=======
+>>>>>>> seresoyer
     <operation name="eliminar">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/eliminarRequest" message="tns:eliminar" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/eliminarResponse" message="tns:eliminarResponse" />
@@ -59,6 +74,17 @@
     <operation name="modificar">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/modificarRequest" message="tns:modificar" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/modificarResponse" message="tns:modificarResponse" />
+<<<<<<< HEAD
+=======
+    </operation>
+    <operation name="insertar">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarRequest" message="tns:insertar" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/insertarResponse" message="tns:insertarResponse" />
+    </operation>
+    <operation name="obtenerPorId">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/obtenerPorIdRequest" message="tns:obtenerPorId" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/obtenerPorIdResponse" message="tns:obtenerPorIdResponse" />
+>>>>>>> seresoyer
     </operation>
     <operation name="listarTodos">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/PeliculaWS/listarTodosRequest" message="tns:listarTodos" />
@@ -79,7 +105,11 @@
   </portType>
   <binding name="PeliculaWSPortBinding" type="tns:PeliculaWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+<<<<<<< HEAD
     <operation name="insertar">
+=======
+    <operation name="eliminar">
+>>>>>>> seresoyer
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -88,7 +118,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminar">
+    <operation name="modificar">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -24,6 +24,8 @@
   <Metadata>
     <MetadataFile FileName="PeliculaWS.xsd" MetadataType="Schema" ID="66ca81dc-280c-427b-85a0-a195ffb79927" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/PeliculaWS?xsd=1" />
     <MetadataFile FileName="PeliculaWS.wsdl" MetadataType="Wsdl" ID="59743dc1-73d2-4945-a21d-c5682f2c1c18" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/PeliculaWS?WSDL" />
+    <MetadataFile FileName="SedeWS.xsd" MetadataType="Schema" ID="03a66e35-1ee7-41a7-8db0-eee6fdee83f1" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/SedeWS?xsd=1" />
+    <MetadataFile FileName="SedeWS.wsdl" MetadataType="Wsdl" ID="c5295054-87b9-48e7-b4be-b4de268d3f83" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/SedeWS?WSDL" />
     <MetadataFile FileName="archivo.disco" MetadataType="Disco" ID="67fd9c03-c26a-4a18-aa3e-ab7576fd4078" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/archivo.disco" />
   </Metadata>
   <Extensions>
