@@ -45,7 +45,7 @@
                             <!-- Botón para Modificar -->
                             <asp:LinkButton runat="server" Text="<i class='fa-solid fa-pencil'></i>"
                                 OnClick="lbModificar_Click" CommandArgument='<%# Eval("idPelicula") %>'
-                                CssClass="btn btn-primary btn-sm" ToolTip="Modificar" />
+                                CssClass="btn btn-purpure btn-sm" ToolTip="Modificar" />
                             <!-- Botón para Eliminar -->
                             <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash'></i>"
                                 OnClick="lbEliminar_Click" CommandArgument='<%# Eval("idPelicula") %>'

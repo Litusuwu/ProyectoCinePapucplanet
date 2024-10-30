@@ -3,16 +3,6 @@
     Sedes
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
-<<<<<<< HEAD
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
-    <div class="container mt-4">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2>Sedes</h2>
-            <a href="#" class="btn btn-primary rounded-circle">
-                <i class="fa-solid fa-plus"></i> Añadir
-            </a>
-=======
     <script src="Scripts/Papucplanet/Sedes.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">

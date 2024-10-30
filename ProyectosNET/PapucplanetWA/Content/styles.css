@@ -48,7 +48,6 @@ a,i {
     color: #4d4174 !important;
 }
 
-<<<<<<< HEAD
 .btn-purple {
     background-color: #7153f2; /* Color morado */
     color: white;
@@ -82,7 +81,7 @@ a,i {
     text-decoration: underline; /* Opcional: subrayado al pasar el mouse */
     color: #6a1bb3; /* Color al pasar el mouse */
 }
-=======
+
 .btn-sede {
     background-color: #b063d5 !important; /* Color de fondo */
     color: #000 !important; /* Color del texto */
@@ -93,4 +92,3 @@ a,i {
     display: inline-flex;
     align-items: center;
 }
->>>>>>> seresoyer
