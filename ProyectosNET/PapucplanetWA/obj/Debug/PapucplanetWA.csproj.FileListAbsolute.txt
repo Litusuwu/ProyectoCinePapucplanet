@@ -12,7 +12,6 @@ E:\Estudios\Universidad\8 Octavo Ciclo\Programacion 3\Tarea Académica\JavaClase
 E:\Estudios\Universidad\8 Octavo Ciclo\Programacion 3\Tarea Académica\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.csproj.CoreCompileInputs.cache
 E:\Estudios\Universidad\8 Octavo Ciclo\Programacion 3\Tarea Académica\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.dll
 E:\Estudios\Universidad\8 Octavo Ciclo\Programacion 3\Tarea Académica\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.pdb
-<<<<<<< Updated upstream
 C:\Users\ARQ-GUEVARA\Documents\CLARA\LP2\PAPURRADAS\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.csproj.AssemblyReference.cache
 C:\Users\ARQ-GUEVARA\Documents\CLARA\LP2\PAPURRADAS\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.csproj.CoreCompileInputs.cache
 C:\Users\ARQ-GUEVARA\Documents\CLARA\LP2\PAPURRADAS\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.dll
@@ -27,12 +26,3 @@ C:\Users\carlo\Documents\GitHub\JavaClases\ProyectosNET\PapucplanetWA\bin\Papucp
 C:\Users\carlo\Documents\GitHub\JavaClases\ProyectosNET\PapucplanetWA\bin\PapucplanetWA.pdb
 C:\Users\carlo\Documents\GitHub\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.dll
 C:\Users\carlo\Documents\GitHub\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.pdb
-=======
-C:\Users\carlo\Documents\GitHub\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.csproj.AssemblyReference.cache
-C:\Users\carlo\Documents\GitHub\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.csproj.CoreCompileInputs.cache
-C:\Users\carlo\Documents\GitHub\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.dll
-C:\Users\carlo\Documents\GitHub\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.pdb
-C:\Users\carlo\Documents\GitHub\JavaClases\ProyectosNET\PapucplanetWA\bin\PapucplanetWA.dll.config
-C:\Users\carlo\Documents\GitHub\JavaClases\ProyectosNET\PapucplanetWA\bin\PapucplanetWA.dll
-C:\Users\carlo\Documents\GitHub\JavaClases\ProyectosNET\PapucplanetWA\bin\PapucplanetWA.pdb
->>>>>>> Stashed changes
