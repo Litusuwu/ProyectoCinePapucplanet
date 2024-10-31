@@ -82,12 +82,7 @@ namespace PapucplanetWA
             {
                 alimentos = new List<alimento>();
             }
-            var todosLosProductos = new List<Producto>
-            {
-                new Producto { Id = 1, Nombre = "Popcorn Grande", Descripcion = "Deliciosa popcorn con mantequilla.", Precio = 10.00, UrlImagen = "https://plazavea.vteximg.com.br/arquivos/ids/19260798-1000-1000/imageUrl_2.jpg" },
-                new Producto { Id = 2, Nombre = "Coca Cola", Descripcion = "Refrescante bebida gaseosa.", Precio = 7.00, UrlImagen = "https://www.coca-cola.com/content/dam/onexp/gt/es/brands/coca-cola/es_coca-cola_prod_orginal-bottle-600mL_750x750_v1.jpg/width2674.jpg" },
-                new Producto { Id = 3, Nombre = "Nachos", Descripcion = "Nachos con queso.", Precio = 12.00, UrlImagen = "https://stordfkenticomedia.blob.core.windows.net/df-us/rms/media/recipesmedia/recipes/foodservice/desktop%20images/2021/feb/2021_com_take-out-nachos_900x600.jpg?ext=.jpg" }
-            };
+            var todosLosProductos = new List<Producto>();
             var aliment = new List<Producto>();
             var bebid = new List<Producto>();
 
