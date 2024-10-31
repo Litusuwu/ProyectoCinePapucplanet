@@ -79,4 +79,18 @@ public class ButacaFuncionWS {
         }
         return butacaFuncion;
     }
+    
+    @WebMethod(operationName = "obtenerButacasPorFuncionButacaFuncion")
+    public ArrayList<ButacaFuncion> obtenerButacasPorFuncionButacaFuncion(@WebParam(name = "idFuncion") int idFuncion) {
+        ArrayList<ButacaFuncion> butacasFuncion = null;
+        try {
+            daoButacaFuncion = new ButacaFuncionMySQL();
+            butacasFuncion = daoButacaFuncion.obtenerButacasPorFuncion(idFuncion); // Llama al método de la DAO
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return butacasFuncion; // Devolver la lista de ButacaFuncion
+    }
+
+    
 }

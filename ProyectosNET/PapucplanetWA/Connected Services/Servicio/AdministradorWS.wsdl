@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.papucplanet.pucp.edu.pe" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="AdministradorWS" targetNamespace="http://services.papucplanet.pucp.edu.pe" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/AdministradorWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
+    </xsd:schema>
+  </types>
+  <message name="modificarAdministrador">
+    <part name="parameters" element="tns:modificarAdministrador" />
+  </message>
+  <message name="modificarAdministradorResponse">
+    <part name="parameters" element="tns:modificarAdministradorResponse" />
+  </message>
+  <message name="listarTodosAdministradores">
+    <part name="parameters" element="tns:listarTodosAdministradores" />
+  </message>
+  <message name="listarTodosAdministradoresResponse">
+    <part name="parameters" element="tns:listarTodosAdministradoresResponse" />
+  </message>
+  <message name="insertarAdministrador">
+    <part name="parameters" element="tns:insertarAdministrador" />
+  </message>
+  <message name="insertarAdministradorResponse">
+    <part name="parameters" element="tns:insertarAdministradorResponse" />
+  </message>
+  <message name="obtenerAdministradorPorId">
+    <part name="parameters" element="tns:obtenerAdministradorPorId" />
+  </message>
+  <message name="obtenerAdministradorPorIdResponse">
+    <part name="parameters" element="tns:obtenerAdministradorPorIdResponse" />
+  </message>
+  <message name="eliminarAdministrador">
+    <part name="parameters" element="tns:eliminarAdministrador" />
+  </message>
+  <message name="eliminarAdministradorResponse">
+    <part name="parameters" element="tns:eliminarAdministradorResponse" />
+  </message>
+  <portType name="AdministradorWS">
+    <operation name="modificarAdministrador">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/modificarAdministradorRequest" message="tns:modificarAdministrador" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/modificarAdministradorResponse" message="tns:modificarAdministradorResponse" />
+    </operation>
+    <operation name="listarTodosAdministradores">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/listarTodosAdministradoresRequest" message="tns:listarTodosAdministradores" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/listarTodosAdministradoresResponse" message="tns:listarTodosAdministradoresResponse" />
+    </operation>
+    <operation name="insertarAdministrador">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/insertarAdministradorRequest" message="tns:insertarAdministrador" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/insertarAdministradorResponse" message="tns:insertarAdministradorResponse" />
+    </operation>
+    <operation name="obtenerAdministradorPorId">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/obtenerAdministradorPorIdRequest" message="tns:obtenerAdministradorPorId" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/obtenerAdministradorPorIdResponse" message="tns:obtenerAdministradorPorIdResponse" />
+    </operation>
+    <operation name="eliminarAdministrador">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/eliminarAdministradorRequest" message="tns:eliminarAdministrador" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/eliminarAdministradorResponse" message="tns:eliminarAdministradorResponse" />
+    </operation>
+  </portType>
+  <binding name="AdministradorWSPortBinding" type="tns:AdministradorWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="modificarAdministrador">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarTodosAdministradores">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarAdministrador">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerAdministradorPorId">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarAdministrador">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="AdministradorWS">
+    <port name="AdministradorWSPort" binding="tns:AdministradorWSPortBinding">
+      <soap:address location="http://localhost:8080/PapucplanetWSBL/AdministradorWS" />
+    </port>
+  </service>
+</definitions>

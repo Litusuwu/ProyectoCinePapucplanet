@@ -181,4 +181,40 @@ public class ButacaFuncionMySQL implements ButacaFuncionDAO{
         return butacaFuncion;
     }
     
+    @Override
+    public ArrayList<ButacaFuncion> obtenerButacasPorFuncion(int idFuncion) {
+        ArrayList<ButacaFuncion> butacasFuncion = new ArrayList<>();
+        try {
+            con = DBManager.getInstance().getConnection();
+            con.setAutoCommit(false);
+            cs = con.prepareCall("{call OBTENER_BUTACAS_X_FUNCION(?)}"); // Llamada al procedimiento
+            cs.setInt("_id_funcion",idFuncion);
+            rs = cs.executeQuery();
+            while (rs.next()) {
+                // Crear un objeto ButacaFuncion y llenarlo con los datos de la consulta
+                ButacaFuncion bf = new ButacaFuncion();
+                bf.setIdButaca(rs.getInt("id_butaca"));
+                bf.setFila(rs.getString("fila").charAt(0));
+                bf.setColumna(rs.getInt("columna"));
+                bf.setDiscapacitado(rs.getBoolean("discapacitado"));
+                bf.setIdButacaFuncion(rs.getInt("id_butaca_funcion"));
+                bf.setPrecio(rs.getDouble("precio"));
+                bf.setEstado(EstadoButaca.valueOf(rs.getString("estado_butaca")));
+
+                // Agregar el objeto a la lista
+                butacasFuncion.add(bf);
+            }
+            con.commit();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+            try{con.rollback();}catch(SQLException ex1){ex1.getMessage(); }
+        }finally{
+            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
+        }
+
+        return butacasFuncion; // Devolver la lista
+    }
+    
+    
+
 }

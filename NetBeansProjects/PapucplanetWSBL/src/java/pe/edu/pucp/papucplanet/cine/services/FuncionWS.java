@@ -26,7 +26,7 @@ public class FuncionWS {
     }
     
     @WebMethod(operationName = "insertarFuncion")
-    public int insertar(@WebParam(name = "funcion") Funcion funcion) {
+    public int insertarFuncion(@WebParam(name = "funcion") Funcion funcion) {
         int resultado = 0;
         try {
             daoFuncion = new FuncionMySQL();
@@ -38,7 +38,7 @@ public class FuncionWS {
     }
     
     @WebMethod(operationName = "modificarFuncion")
-    public int modificar(@WebParam(name = "funcion") Funcion funcion) {
+    public int modificarFuncion(@WebParam(name = "funcion") Funcion funcion) {
         int resultado = 0;
         try {
             daoFuncion = new FuncionMySQL();
@@ -50,7 +50,7 @@ public class FuncionWS {
     }
     
     @WebMethod(operationName = "eliminarFuncion")
-    public int eliminar(@WebParam(name = "idFuncion") int idFuncion) {
+    public int eliminarFuncion(@WebParam(name = "idFuncion") int idFuncion) {
         int resultado = 0;
         try {
             daoFuncion = new FuncionMySQL();
@@ -62,7 +62,7 @@ public class FuncionWS {
     }
     
     @WebMethod(operationName = "obtenerPorIdFuncion")
-    public Funcion obtenerPorId(@WebParam(name = "idFuncion") int idFuncion) {
+    public Funcion obtenerPorIdFuncion(@WebParam(name = "idFuncion") int idFuncion) {
         Funcion funcion = null;
         try {
             daoFuncion = new FuncionMySQL();

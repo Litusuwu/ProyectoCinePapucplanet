@@ -26,3 +26,17 @@ C:\Users\carlo\Documents\GitHub\JavaClases\ProyectosNET\PapucplanetWA\bin\Papucp
 C:\Users\carlo\Documents\GitHub\JavaClases\ProyectosNET\PapucplanetWA\bin\PapucplanetWA.pdb
 C:\Users\carlo\Documents\GitHub\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.dll
 C:\Users\carlo\Documents\GitHub\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.pdb
+C:\Users\Patricia\OneDrive\2024-2\PROG3\proyect3\JavaClases\ProyectosNET\PapucplanetWA\bin\PapucplanetWA.dll.config
+C:\Users\Patricia\OneDrive\2024-2\PROG3\proyect3\JavaClases\ProyectosNET\PapucplanetWA\bin\PapucplanetWA.dll
+C:\Users\Patricia\OneDrive\2024-2\PROG3\proyect3\JavaClases\ProyectosNET\PapucplanetWA\bin\PapucplanetWA.pdb
+C:\Users\Patricia\OneDrive\2024-2\PROG3\proyect3\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.csproj.AssemblyReference.cache
+C:\Users\Patricia\OneDrive\2024-2\PROG3\proyect3\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.csproj.CoreCompileInputs.cache
+C:\Users\Patricia\OneDrive\2024-2\PROG3\proyect3\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.dll
+C:\Users\Patricia\OneDrive\2024-2\PROG3\proyect3\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.pdb
+E:\Estudios\Universidad\8 Octavo Ciclo\Programacion 3\Semana 14\ENTREGAFINAL\JavaClases\ProyectosNET\PapucplanetWA\bin\PapucplanetWA.dll.config
+E:\Estudios\Universidad\8 Octavo Ciclo\Programacion 3\Semana 14\ENTREGAFINAL\JavaClases\ProyectosNET\PapucplanetWA\bin\PapucplanetWA.dll
+E:\Estudios\Universidad\8 Octavo Ciclo\Programacion 3\Semana 14\ENTREGAFINAL\JavaClases\ProyectosNET\PapucplanetWA\bin\PapucplanetWA.pdb
+E:\Estudios\Universidad\8 Octavo Ciclo\Programacion 3\Semana 14\ENTREGAFINAL\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.csproj.AssemblyReference.cache
+E:\Estudios\Universidad\8 Octavo Ciclo\Programacion 3\Semana 14\ENTREGAFINAL\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.csproj.CoreCompileInputs.cache
+E:\Estudios\Universidad\8 Octavo Ciclo\Programacion 3\Semana 14\ENTREGAFINAL\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.dll
+E:\Estudios\Universidad\8 Octavo Ciclo\Programacion 3\Semana 14\ENTREGAFINAL\JavaClases\ProyectosNET\PapucplanetWA\obj\Debug\PapucplanetWA.pdb

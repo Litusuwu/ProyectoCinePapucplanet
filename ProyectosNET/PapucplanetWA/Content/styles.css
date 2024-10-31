@@ -9,7 +9,7 @@
 }
 
 #bdSidebar {
-        background-color: #fafafa !important;
+    background-color: #fafafa !important;
 }
 
 h3 {
@@ -32,7 +32,7 @@ h3 {
     color: #6a0dad !important; /* Cambia a un tono de morado cuando se pasa el cursor */
 }
 
-a,i {
+a, i {
     text-decoration: none !important;
 }
 
@@ -54,11 +54,11 @@ a,i {
     border: 1px solid #7153f2;
 }
 
-.btn-purple:hover {
-    background-color: #7153f2; /* Un tono más oscuro para el hover */
-    border-color: #7153f2;
-    color: white;
-}
+    .btn-purple:hover {
+        background-color: #7153f2; /* Un tono más oscuro para el hover */
+        border-color: #7153f2;
+        color: white;
+    }
 
 .card-header-colored {
     border-bottom: 3px solid #7153f2; /* Cambia el color a tu preferencia */
@@ -77,10 +77,10 @@ a,i {
     color: #8a2be2; /* Personaliza el color */
 }
 
-.text-purple:hover {
-    text-decoration: underline; /* Opcional: subrayado al pasar el mouse */
-    color: #6a1bb3; /* Color al pasar el mouse */
-}
+    .text-purple:hover {
+        text-decoration: underline; /* Opcional: subrayado al pasar el mouse */
+        color: #6a1bb3; /* Color al pasar el mouse */
+    }
 
 .btn-sede {
     background-color: #b063d5 !important; /* Color de fondo */
@@ -98,28 +98,28 @@ a,i {
     margin-top: 15px;
 }
 
-    .pagination-container a, .pagination-container span {
-        display: inline-block;
-        margin: 0 5px;
-        padding: 8px 12px;
-        color: #6c757d; /* Color para los enlaces */
-        background-color: #f8f9fa; /* Fondo para los botones */
-        border: 1px solid #dee2e6;
-        border-radius: 4px;
-        text-decoration: none;
-    }
+.pagination-container a, .pagination-container span {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 12px;
+    color: #6c757d; /* Color para los enlaces */
+    background-color: #f8f9fa; /* Fondo para los botones */
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    text-decoration: none;
+}
 
-        .pagination-container a:hover {
-            background-color: #7153f2;
-            color: white;
-        }
-
-    .pagination-container .selected {
+    .pagination-container a:hover {
         background-color: #7153f2;
         color: white;
-        font-weight: bold;
-        border-color: #7153f2;
     }
+
+.pagination-container .selected {
+    background-color: #7153f2;
+    color: white;
+    font-weight: bold;
+    border-color: #7153f2;
+}
 
 .centered-row td {
     text-align: center; /* Centra el contenido de cada celda */

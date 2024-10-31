@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.papucplanet.pucp.edu.pe" targetNamespace="http://services.papucplanet.pucp.edu.pe" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="eliminarLineaBoleta" type="tns:eliminarLineaBoleta" />
+  <xs:element name="eliminarLineaBoletaResponse" type="tns:eliminarLineaBoletaResponse" />
+  <xs:element name="insertarLineaBoleta" type="tns:insertarLineaBoleta" />
+  <xs:element name="insertarLineaBoletaResponse" type="tns:insertarLineaBoletaResponse" />
+  <xs:element name="listarTodosLineaBoleta" type="tns:listarTodosLineaBoleta" />
+  <xs:element name="listarTodosLineaBoletaResponse" type="tns:listarTodosLineaBoletaResponse" />
+  <xs:element name="modificarLineaBoleta" type="tns:modificarLineaBoleta" />
+  <xs:element name="modificarLineaBoletaResponse" type="tns:modificarLineaBoletaResponse" />
+  <xs:element name="obtenerPorIdLineaBoleta2" type="tns:obtenerPorIdLineaBoleta2" />
+  <xs:element name="obtenerPorIdLineaBoleta2Response" type="tns:obtenerPorIdLineaBoleta2Response" />
+  <xs:complexType name="modificarLineaBoleta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="lineaBoleta" type="tns:lineaBoleta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lineaBoleta">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="butacaFuncion" type="tns:butacaFuncion" />
+      <xs:element name="cantidad" type="xs:int" />
+      <xs:element minOccurs="0" name="consumible" type="tns:consumible" />
+      <xs:element name="idLineaBoleta" type="xs:int" />
+      <xs:element name="subtotal" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="butacaFuncion">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:butaca">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="estado" type="tns:estadoButaca" />
+          <xs:element minOccurs="0" name="funcion" type="tns:funcion" />
+          <xs:element name="idButacaFuncion" type="xs:int" />
+          <xs:element name="precio" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="butaca">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="columna" type="xs:int" />
+      <xs:element name="discapacitado" type="xs:boolean" />
+      <xs:element name="fila" type="xs:unsignedShort" />
+      <xs:element name="idButaca" type="xs:int" />
+      <xs:element minOccurs="0" name="sala" type="tns:sala" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="funcion">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="dia" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="horarioFin" type="tns:localTime" />
+      <xs:element minOccurs="0" name="horarioInicio" type="tns:localTime" />
+      <xs:element name="idFuncion" type="xs:int" />
+      <xs:element minOccurs="0" name="pelicula" type="tns:pelicula" />
+      <xs:element minOccurs="0" name="sala" type="tns:sala" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="localTime" final="extension restriction">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="pelicula">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="duracion" type="xs:double" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="funciones" nillable="true" type="tns:funcion" />
+      <xs:element minOccurs="0" name="genero" type="tns:genero" />
+      <xs:element name="idPelicula" type="xs:int" />
+      <xs:element minOccurs="0" name="imagenPromocional" type="xs:string" />
+      <xs:element minOccurs="0" name="sinopsis" type="xs:string" />
+      <xs:element minOccurs="0" name="titulo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sala">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="capacidad" type="xs:int" />
+      <xs:element name="idSala" type="xs:int" />
+      <xs:element name="numeroSala" type="xs:int" />
+      <xs:element minOccurs="0" name="sede" type="tns:sede" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sede">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="idSede" type="xs:int" />
+      <xs:element minOccurs="0" name="ubicacion" type="xs:string" />
+      <xs:element minOccurs="0" name="universidad" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="consumible" abstract="true">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element name="precio" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarLineaBoletaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarLineaBoleta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="lineaBoleta" type="tns:lineaBoleta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarLineaBoletaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdLineaBoleta2">
+    <xs:sequence>
+      <xs:element name="idLineaBoleta" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdLineaBoleta2Response">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:lineaBoleta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarLineaBoleta">
+    <xs:sequence>
+      <xs:element name="idLineaBoleta" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarLineaBoletaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTodosLineaBoleta">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTodosLineaBoletaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:lineaBoleta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="estadoButaca">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DISPONIBLE" />
+      <xs:enumeration value="OCUPADA" />
+      <xs:enumeration value="RESERVADA" />
+      <xs:enumeration value="MANTENIMIENTO" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="genero">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACCION" />
+      <xs:enumeration value="COMEDIA" />
+      <xs:enumeration value="DRAMA" />
+      <xs:enumeration value="DOCUMENTAL" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

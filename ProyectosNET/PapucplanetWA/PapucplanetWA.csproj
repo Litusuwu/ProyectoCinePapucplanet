@@ -65,9 +65,12 @@
   <ItemGroup>
     <Content Include="AgregarNuevaPelicula.aspx" />
     <Content Include="Boletas.aspx" />
+    <Content Include="Butacas.aspx" />
     <Content Include="ConfiteriaVUsuario.aspx" />
-    <Content Include="Login.aspx" />
-    <Content Include="PeliculasUsuario.aspx" />
+    <None Include="Connected Services\Servicio\AdministradorWS.wsdl" />
+    <None Include="Connected Services\Servicio\AdministradorWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\Servicio\AlimentoWS.wsdl" />
     <None Include="Connected Services\Servicio\AlimentoWS.xsd">
       <SubType>Designer</SubType>
@@ -77,12 +80,20 @@
     <None Include="Connected Services\Servicio\BebidaWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\Servicio\BoletaWS.wsdl" />
+    <None Include="Connected Services\Servicio\BoletaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\Servicio\ButacaFuncionWS.wsdl" />
     <None Include="Connected Services\Servicio\ButacaFuncionWS.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\Servicio\ButacaWS.wsdl" />
     <None Include="Connected Services\Servicio\ButacaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Servicio\ClienteWS.wsdl" />
+    <None Include="Connected Services\Servicio\ClienteWS.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\Servicio\configuration91.svcinfo" />
@@ -243,6 +254,110 @@
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.sala.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\Servicio\CuentaWS.wsdl" />
+    <None Include="Connected Services\Servicio\CuentaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Servicio\LineaBoletaWS.wsdl" />
+    <None Include="Connected Services\Servicio\LineaBoletaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.administrador.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.boleta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.cliente.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.cuenta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.eliminarAdministradorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.eliminarBoletaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.eliminarClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.eliminarCuentaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.eliminarLineaBoletaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.insertarAdministradorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.insertarBoletaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.insertarClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.insertarCuentaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.insertarLineaBoletaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.lineaBoleta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarTodasBoletasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarTodasCuentasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarTodosAdministradoresResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarTodosClientesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarTodosLineaBoletaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.modificarAdministradorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.modificarBoletaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.modificarClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.modificarCuentaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.modificarLineaBoletaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.obtenerAdministradorPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.obtenerBoletaPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.obtenerButacasPorFuncionButacaFuncionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.obtenerClientePorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.obtenerCuentaPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.obtenerPorIdLineaBoleta2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.verificarCuentaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\Servicio\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -293,7 +408,9 @@
     <Content Include="DetallePelicula.aspx" />
     <Content Include="Funciones.aspx" />
     <Content Include="Home.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Peliculas.aspx" />
+    <Content Include="PeliculasUsuario.aspx" />
     <Content Include="Reportes.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -344,6 +461,13 @@
     </Compile>
     <Compile Include="Boletas.aspx.designer.cs">
       <DependentUpon>Boletas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Butacas.aspx.cs">
+      <DependentUpon>Butacas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Butacas.aspx.designer.cs">
+      <DependentUpon>Butacas.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConfiteriaVUsuario.aspx.cs">
       <DependentUpon>ConfiteriaVUsuario.aspx</DependentUpon>

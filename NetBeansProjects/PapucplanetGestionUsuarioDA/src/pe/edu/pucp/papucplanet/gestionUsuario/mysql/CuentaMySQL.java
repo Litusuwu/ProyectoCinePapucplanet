@@ -198,6 +198,33 @@ public class CuentaMySQL implements CuentaDAO,  GestionUsuarioDAO<Cuenta>{
         return listaCuentas;
     }
 
+    @Override
+    public int verificar(Cuenta usuario){
+        int resultado = 0;
+        try{
+            // Obtener la conexión
+            con = DBManager.getInstance().getConnection();
 
-    
+            // Preparar la llamada al procedimiento
+            String sql = "{CALL VERIFICAR_CUENTA()}";
+            cs = con.prepareCall(sql);
+            cs.setString(1,usuario.getCorreo());
+            cs.setString(2,usuario.getPassword());
+            // Ejecutar el procedimiento y obtener los resultados
+            rs = cs.executeQuery();
+            if(rs.next()){
+                resultado = rs.getInt("id_usuario");
+            }
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            // Cerrar recursos
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return resultado;
+    }
 }

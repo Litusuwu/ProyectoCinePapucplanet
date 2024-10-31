@@ -8,6 +8,8 @@
   <xs:element name="listarTodosButacaFuncionResponse" type="tns:listarTodosButacaFuncionResponse" />
   <xs:element name="modificarButacaFuncion" type="tns:modificarButacaFuncion" />
   <xs:element name="modificarButacaFuncionResponse" type="tns:modificarButacaFuncionResponse" />
+  <xs:element name="obtenerButacasPorFuncionButacaFuncion" type="tns:obtenerButacasPorFuncionButacaFuncion" />
+  <xs:element name="obtenerButacasPorFuncionButacaFuncionResponse" type="tns:obtenerButacasPorFuncionButacaFuncionResponse" />
   <xs:element name="obtenerPorIdButacaFuncion" type="tns:obtenerPorIdButacaFuncion" />
   <xs:element name="obtenerPorIdButacaFuncionResponse" type="tns:obtenerPorIdButacaFuncionResponse" />
   <xs:complexType name="obtenerPorIdButacaFuncion">
@@ -93,6 +95,16 @@
   <xs:complexType name="insertarButacaFuncionResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerButacasPorFuncionButacaFuncion">
+    <xs:sequence>
+      <xs:element name="idFuncion" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerButacasPorFuncionButacaFuncionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:butacaFuncion" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarTodosButacaFuncion">

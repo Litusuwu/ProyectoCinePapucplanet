@@ -9,4 +9,5 @@ public interface ButacaFuncionDAO {
     int eliminar(int idButacaFuncion);
     ArrayList<ButacaFuncion> listarTodos();
     ButacaFuncion obtenerPorId(int idButacaFuncion);
+    public ArrayList<ButacaFuncion> obtenerButacasPorFuncion(int idFuncion);
 }

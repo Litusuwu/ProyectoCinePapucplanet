@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.papucplanet.pucp.edu.pe" targetNamespace="http://services.papucplanet.pucp.edu.pe" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="eliminarAdministrador" type="tns:eliminarAdministrador" />
+  <xs:element name="eliminarAdministradorResponse" type="tns:eliminarAdministradorResponse" />
+  <xs:element name="insertarAdministrador" type="tns:insertarAdministrador" />
+  <xs:element name="insertarAdministradorResponse" type="tns:insertarAdministradorResponse" />
+  <xs:element name="listarTodosAdministradores" type="tns:listarTodosAdministradores" />
+  <xs:element name="listarTodosAdministradoresResponse" type="tns:listarTodosAdministradoresResponse" />
+  <xs:element name="modificarAdministrador" type="tns:modificarAdministrador" />
+  <xs:element name="modificarAdministradorResponse" type="tns:modificarAdministradorResponse" />
+  <xs:element name="obtenerAdministradorPorId" type="tns:obtenerAdministradorPorId" />
+  <xs:element name="obtenerAdministradorPorIdResponse" type="tns:obtenerAdministradorPorIdResponse" />
+  <xs:complexType name="obtenerAdministradorPorId">
+    <xs:sequence>
+      <xs:element name="idAdmin" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerAdministradorPorIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:administrador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="administrador">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:usuario">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigo" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="usuario" abstract="true">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="dni" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaNacimiento" type="xs:dateTime" />
+      <xs:element name="genero" type="xs:unsignedShort" />
+      <xs:element name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="primerApellido" type="xs:string" />
+      <xs:element minOccurs="0" name="segundoApellido" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTodosAdministradores">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTodosAdministradoresResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:administrador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarAdministrador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="admin" type="tns:administrador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarAdministradorResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarAdministrador">
+    <xs:sequence>
+      <xs:element name="idAdmin" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarAdministradorResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarAdministrador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="admin" type="tns:administrador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarAdministradorResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

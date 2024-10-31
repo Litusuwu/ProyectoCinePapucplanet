@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.papucplanet.pucp.edu.pe" targetNamespace="http://services.papucplanet.pucp.edu.pe" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="eliminarCuenta" type="tns:eliminarCuenta" />
+  <xs:element name="eliminarCuentaResponse" type="tns:eliminarCuentaResponse" />
+  <xs:element name="insertarCuenta" type="tns:insertarCuenta" />
+  <xs:element name="insertarCuentaResponse" type="tns:insertarCuentaResponse" />
+  <xs:element name="listarTodasCuentas" type="tns:listarTodasCuentas" />
+  <xs:element name="listarTodasCuentasResponse" type="tns:listarTodasCuentasResponse" />
+  <xs:element name="modificarCuenta" type="tns:modificarCuenta" />
+  <xs:element name="modificarCuentaResponse" type="tns:modificarCuentaResponse" />
+  <xs:element name="obtenerCuentaPorId" type="tns:obtenerCuentaPorId" />
+  <xs:element name="obtenerCuentaPorIdResponse" type="tns:obtenerCuentaPorIdResponse" />
+  <xs:element name="verificarCuenta" type="tns:verificarCuenta" />
+  <xs:element name="verificarCuentaResponse" type="tns:verificarCuentaResponse" />
+  <xs:complexType name="verificarCuenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usuario" type="tns:cuenta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cuenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="correo" type="xs:string" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element minOccurs="0" name="usuario" type="tns:usuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="usuario" abstract="true">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="dni" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaNacimiento" type="xs:dateTime" />
+      <xs:element name="genero" type="xs:unsignedShort" />
+      <xs:element name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="primerApellido" type="xs:string" />
+      <xs:element minOccurs="0" name="segundoApellido" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="verificarCuentaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTodasCuentas">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTodasCuentasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cuenta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarCuenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usuario" type="tns:cuenta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarCuentaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerCuentaPorId">
+    <xs:sequence>
+      <xs:element name="idCuenta" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerCuentaPorIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:cuenta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarCuenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usuario" type="tns:cuenta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarCuentaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarCuenta">
+    <xs:sequence>
+      <xs:element name="idCuenta" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarCuentaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

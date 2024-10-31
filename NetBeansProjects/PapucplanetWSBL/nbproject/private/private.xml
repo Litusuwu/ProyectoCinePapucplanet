@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< Updated upstream
         <group/>
+=======
+        <group>
+            <file>file:/C:/Users/Patricia/OneDrive/2024-2/PROG3/proyect3/JavaClases/NetBeansProjects/PapucplanetWSBL/web/archivo2.disco</file>
+            <file>file:/C:/Users/Patricia/OneDrive/2024-2/PROG3/proyect3/JavaClases/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/cine/services/PeliculaWS.java</file>
+            <file>file:/C:/Users/Patricia/OneDrive/2024-2/PROG3/proyect3/JavaClases/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/gestionUsuario/services/CuentaWS.java</file>
+            <file>file:/C:/Users/Patricia/OneDrive/2024-2/PROG3/proyect3/JavaClases/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/cine/services/ButacaFuncionWS.java</file>
+            <file>file:/C:/Users/Patricia/OneDrive/2024-2/PROG3/proyect3/JavaClases/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/cine/services/FuncionWS.java</file>
+            <file>file:/C:/Users/Patricia/OneDrive/2024-2/PROG3/proyect3/JavaClases/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/compras/services/BoletaWS.java</file>
+        </group>
+>>>>>>> Stashed changes
     </open-files>
 </project-private>

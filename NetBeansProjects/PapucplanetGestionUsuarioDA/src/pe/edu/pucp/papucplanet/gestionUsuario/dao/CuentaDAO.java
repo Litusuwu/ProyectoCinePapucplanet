@@ -26,4 +26,6 @@ public interface CuentaDAO {
     
     // Método para listar todos los administradores
     ArrayList<Cuenta> listar();
+    
+    int verificar(Cuenta usuario);
 }
