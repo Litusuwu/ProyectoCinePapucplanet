@@ -1,11 +1,14 @@
 package pe.edu.pucp.papucplanet.confiteria.model;
 
 public abstract class Consumible {
+
+    
     private int id;
     private String nombre;
     private double precio;
     private boolean activo;
-    
+    private String imagenURL;
+    private char tipo;
     public Consumible(){
     }
 
@@ -53,5 +56,31 @@ public abstract class Consumible {
     public void setActivo(boolean activo){
         this.activo=activo;
     }
-    
+    /**
+     * @return the imagenURL
+     */
+    public String getImagenURL() {
+        return imagenURL;
+    }
+
+    /**
+     * @param imagenURL the imagenURL to set
+     */
+    public void setImagenURL(String imagenURL) {
+        this.imagenURL = imagenURL;
+    }
+
+    /**
+     * @return the tipo
+     */
+    public char getTipo() {
+        return tipo;
+    }
+
+    /**
+     * @param tipo the tipo to set
+     */
+    public void setTipo(char tipo) {
+        this.tipo = tipo;
+    }
 }

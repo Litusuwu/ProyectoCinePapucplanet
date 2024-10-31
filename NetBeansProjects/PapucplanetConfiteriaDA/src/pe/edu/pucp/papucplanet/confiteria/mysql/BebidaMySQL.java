@@ -31,6 +31,9 @@ public class BebidaMySQL implements BebidaDAO{
             cs.setDouble(3, bebida.getPrecio());
             cs.setInt(4,bebida.getOnzas());
             cs.setBoolean(5,bebida.isTieneHielo()); 
+            cs.setString(6, bebida.getImagenURL());
+            cs.setString(7, String.valueOf(bebida.getTipo()));
+            // Ejecutar el procedimiento
             // Ejecutar el procedimiento
             cs.executeUpdate();
 
@@ -67,6 +70,8 @@ public class BebidaMySQL implements BebidaDAO{
             cs.setDouble(3, bebida.getPrecio());
             cs.setInt(4,bebida.getOnzas());
             cs.setBoolean(5,bebida.isTieneHielo());
+            cs.setString(6, bebida.getImagenURL());
+            cs.setString(7, String.valueOf(bebida.getTipo()));
             // Ejecutar el procedimiento
             cs.executeUpdate();
             resultado = bebida.getId();
@@ -114,6 +119,8 @@ public class BebidaMySQL implements BebidaDAO{
                bebida.setOnzas(rs.getInt("onzas"));
                bebida.setTieneHielo(rs.getBoolean("tieneHielo"));
                bebida.setActivo(rs.getBoolean("activo"));
+               bebida.setImagenURL(rs.getString("imagen_link"));
+               bebida.setTipo(rs.getString("tipo").charAt(0));
             }
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -138,6 +145,8 @@ public class BebidaMySQL implements BebidaDAO{
                 bebida.setOnzas(rs.getInt("onzas"));
                 bebida.setTieneHielo(rs.getBoolean("tieneHielo"));
                 bebida.setActivo(rs.getBoolean("activo"));
+                bebida.setImagenURL(rs.getString("imagen_link"));
+                bebida.setTipo(rs.getString("tipo").charAt(0));
                 bebidas.add(bebida);
             }
         }catch(SQLException ex){
