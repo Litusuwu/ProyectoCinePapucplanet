@@ -58,8 +58,6 @@ namespace PapucplanetWA
         }
         private void CargarProductos()
         {
-
-            // Verificar si el resultado de listarTodasBebidas() es null y asignar una lista vacía si es necesario
             List<bebida> bebidas;
             var resultadoBebidas = bebidaDAO.listarTodasBebidas();
             if (resultadoBebidas != null)
@@ -70,8 +68,6 @@ namespace PapucplanetWA
             {
                 bebidas = new List<bebida>();
             }
-
-            // Verificar si el resultado de listarTodosAlimentos() es null y asignar una lista vacía si es necesario
             List<alimento> alimentos;
             var resultadoAlimentos = alimentoDAO.listarTodosAlimentos();
             if (resultadoAlimentos != null)
