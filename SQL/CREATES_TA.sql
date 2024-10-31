@@ -75,6 +75,8 @@ CREATE TABLE Consumible (
     id_consumible INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL,
     precio DOUBLE NOT NULL,
+    imagen_link VARCHAR(255) NOT NULL,
+	tipo CHAR NOT NULL,
     activo TINYINT DEFAULT 1
 );
 

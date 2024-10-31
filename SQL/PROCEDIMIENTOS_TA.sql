@@ -386,11 +386,13 @@ CREATE PROCEDURE INSERTAR_BEBIDA(
     IN _nombre VARCHAR(100),
     IN _precio DOUBLE,
     IN _onzas INT,
-    IN _tieneHielo BOOLEAN
+    IN _tieneHielo BOOLEAN,
+	IN _imagen_link VARCHAR(255),
+	IN _tipo CHAR
 )
 BEGIN
-    INSERT INTO Consumible(nombre, precio) 
-    VALUES(_nombre, _precio);
+    INSERT INTO Consumible(nombre, precio, imagen_link, tipo) 
+    VALUES(_nombre, _precio, _imagen_link, _tipo);
     SET _id_bebida = @@last_insert_id;
     INSERT INTO Bebida(id_bebida, onzas, tieneHielo) 
     VALUES(_id_bebida, _onzas, _tieneHielo);
@@ -398,7 +400,7 @@ END$
 
 CREATE PROCEDURE LISTAR_BEBIDAS_TODAS()
 BEGIN
-    SELECT b.id_bebida, c.nombre, c.precio, b.onzas, b.tieneHielo, c.activo 
+    SELECT b.id_bebida, c.nombre, c.precio, b.onzas, b.tieneHielo, c.activo, c.imagen_link, c.tipo
     FROM Consumible c 
     INNER JOIN Bebida b ON c.id_consumible = b.id_bebida
     WHERE c.activo = 1;
@@ -409,11 +411,12 @@ CREATE PROCEDURE MODIFICAR_BEBIDA(
     IN _nombre VARCHAR(100),
     IN _precio DOUBLE,
     IN _onzas INT,
-    IN _tieneHielo BOOLEAN
+    IN _tieneHielo BOOLEAN,
+	IN _imagen_link VARCHAR(255)
 )
 BEGIN
     UPDATE Consumible 
-    SET nombre = _nombre, precio = _precio
+    SET nombre = _nombre, precio = _precio, imagen_link = _imagen_link
     WHERE id_consumible = _id_bebida;
     
     UPDATE Bebida 
@@ -425,7 +428,7 @@ CREATE PROCEDURE LISTAR_BEBIDA_X_ID(
     IN _id_bebida INT
 )
 BEGIN
-    SELECT b.id_bebida, c.nombre, c.precio, b.onzas, b.tieneHielo, c.activo 
+    SELECT b.id_bebida, c.nombre, c.precio, b.onzas, b.tieneHielo, c.activo, c.imagen_link, c.tipo 
     FROM Consumible c 
     INNER JOIN Bebida b ON c.id_consumible = b.id_bebida 
     WHERE b.id_bebida = _id_bebida AND c.activo = 1;
@@ -444,11 +447,13 @@ CREATE PROCEDURE INSERTAR_ALIMENTO(
     IN _nombre VARCHAR(100),
     IN _precio DOUBLE,
     IN _pesoPromedio DOUBLE,
-    IN _tipo_alimento ENUM('SNACK', 'CANCHA', 'POSTRE')
+    IN _tipo_alimento ENUM('SNACK', 'CANCHA', 'POSTRE'),
+	IN _imagen_link VARCHAR(255),
+	IN _tipo CHAR
 )
 BEGIN
-    INSERT INTO Consumible(nombre, precio) 
-    VALUES(_nombre, _precio);
+    INSERT INTO Consumible(nombre, precio, imagen_link, tipo) 
+    VALUES(_nombre, _precio, _imagen_link, _tipo);
     SET _id_alimento = @@last_insert_id;
     INSERT INTO Alimento(id_alimento, pesoPromedio, tipo_alimento) 
     VALUES(_id_alimento, _pesoPromedio, _tipo_alimento);
@@ -456,7 +461,7 @@ END$
 
 CREATE PROCEDURE LISTAR_ALIMENTOS_TODOS()
 BEGIN
-    SELECT a.id_alimento, c.nombre, c.precio, a.pesoPromedio, a.tipo_alimento, c.activo 
+    SELECT a.id_alimento, c.nombre, c.precio, a.pesoPromedio, a.tipo_alimento, c.activo, c.imagen_link, c.tipo 
     FROM Consumible c 
     INNER JOIN Alimento a ON c.id_consumible = a.id_alimento
     WHERE c.activo = 1;
@@ -467,11 +472,13 @@ CREATE PROCEDURE MODIFICAR_ALIMENTO(
     IN _nombre VARCHAR(100),
     IN _precio DOUBLE,
     IN _pesoPromedio DOUBLE,
-    IN _tipo_alimento ENUM('SNACK', 'CANCHA', 'POSTRE')
+    IN _tipo_alimento ENUM('SNACK', 'CANCHA', 'POSTRE'),
+	IN _tipo CHAR,
+	IN _imagen_link VARCHAR(255)
 )
 BEGIN
     UPDATE Consumible 
-    SET nombre = _nombre, precio = _precio
+    SET nombre = _nombre, precio = _precio, tipo = _tipo, imagen_link = _imagen_link
     WHERE id_consumible = _id_alimento;
     
     UPDATE Alimento 
@@ -483,7 +490,7 @@ CREATE PROCEDURE LISTAR_ALIMENTO_X_ID(
     IN _id_alimento INT
 )
 BEGIN
-    SELECT a.id_alimento, c.nombre, c.precio, a.pesoPromedio, a.tipo_alimento, c.activo 
+    SELECT a.id_alimento, c.nombre, c.precio, a.pesoPromedio, a.tipo_alimento, c.activo, c.tipo, c.image_link 
     FROM Consumible c 
     INNER JOIN Alimento a ON c.id_consumible = a.id_alimento 
     WHERE a.id_alimento = _id_alimento AND c.activo = 1;
