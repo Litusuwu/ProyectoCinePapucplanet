@@ -17,7 +17,7 @@ h3 {
 }
 
 .mynav .nav-item :hover {
-    background-color: #e6e0f8; /* Color de fondo al pasar el mouse, ajusta según el diseño */
+    background-color: #fddbdb; /* Color de fondo al pasar el mouse, ajusta según el diseño  de la side bar*/
 }
 
 .mynav .nav-item a {
@@ -29,7 +29,7 @@ h3 {
 }
 
 .enlace-hover:hover {
-    color: #6a0dad !important; /* Cambia a un tono de morado cuando se pasa el cursor */
+    color: #8B0000 !important; /* Cambia a un tono de morado cuando se pasa el cursor en el enlace */
 }
 
 a, i {
@@ -37,7 +37,8 @@ a, i {
 }
 
 .bg-custom {
-    background-color: #d4b5f0 !important; /* Color lila claro */
+    background-color: #f6f3f3 !important; /* Color lila claro*/
+    border: 6px solid #8B0000 !important;
 }
 
 .custom-width-card {
@@ -45,18 +46,18 @@ a, i {
 }
 
 .custom-body-card {
-    color: #4d4174 !important;
+    color: black !important;
 }
 
 .btn-purple {
-    background-color: #7153f2; /* Color morado */
+    background-color: #8B0000; /* Color morado */
     color: white;
     border: 1px solid #7153f2;
 }
 
     .btn-purple:hover {
-        background-color: #7153f2; /* Un tono más oscuro para el hover */
-        border-color: #7153f2;
+        background-color: #8B0000; /* Un tono más oscuro para el hover */
+        border-color: #8B0000;
         color: white;
     }
 
@@ -83,8 +84,8 @@ a, i {
     }
 
 .btn-sede {
-    background-color: #b063d5 !important; /* Color de fondo */
-    color: #000 !important; /* Color del texto */
+    background-color: #8B0000 !important; /* Color de fondo */
+    color: white !important; /* Color del texto */
     border: none;
     border-radius: 10px; /* Borde redondeado */
     padding: 9px 30px;
