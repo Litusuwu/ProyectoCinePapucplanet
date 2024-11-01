@@ -21,3 +21,24 @@ CALL INSERTAR_ALIMENTO(@id_bebida, "Nachos", 14.80, 240, "SNACK", "~/Uploads/nac
 CALL INSERTAR_ALIMENTO(@id_bebida, "Papas Lays", 8.80, 240, "SNACK", "~/Uploads/papaslays.jpg", 'A');
 CALL INSERTAR_ALIMENTO(@id_bebida, "Porción Torta", 5.80, 400, "POSTRE", "~/Uploads/torta.jpg", 'A');
 CALL INSERTAR_ALIMENTO(@id_bebida, "Helado", 6.80, 400, "POSTRE", "~/Uploads/helado.jpg", 'A');
+
+
+INSERT INTO Butaca (fila, columna, discapacitado, fid_sala, activo) VALUES
+('A', 1, FALSE, 1, 1),
+('A', 2, FALSE, 1, 1),
+('A', 3, FALSE, 1, 1),
+('A', 4, FALSE, 1, 1),
+('B', 5, FALSE, 1, 1),
+('B', 6, FALSE, 1, 1),
+('B', 7, FALSE, 1, 1),
+('B', 8, FALSE, 1, 1);
+
+INSERT INTO ButacaFuncion (fid_butaca, fid_funcion, estado_butaca, precio, activo) VALUES
+(1, 2, 'DISPONIBLE', 15.00, 1),
+(2, 2, 'DISPONIBLE', 15.00, 1),
+(3, 2, 'DISPONIBLE', 15.00, 1),
+(4, 2, 'OCUPADA', 15.00, 1),
+(5, 2, 'DISPONIBLE', 15.00, 1),
+(6, 2, 'DISPONIBLE', 15.00, 1),
+(7, 2, 'DISPONIBLE', 15.00, 1),
+(8, 2, 'DISPONIBLE', 15.00, 1);
