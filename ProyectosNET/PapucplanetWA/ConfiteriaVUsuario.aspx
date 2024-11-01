@@ -21,7 +21,7 @@
     <form id="form1" runat="server">
     <nav class="navbar fixed-top navBar-login">
         <div class="container-fluid">
-            <a class="navBar-login d-flex align-items-center gap-2" href="PeliculasVUsuario.aspx"
+            <a class="navBar-login d-flex align-items-center gap-2" href="PeliculasUsuario.aspx"
                 style="text-decoration: none; font-size: 1.25rem;">
                 <i class="fa fa-film icon d-inline-block align-text-top" alt="Logo" width="20" height="44"/></i>
                 PAPUCPLANET

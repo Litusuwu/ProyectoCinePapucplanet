@@ -16,7 +16,13 @@ namespace PapucplanetWA
         {
             if (!IsPostBack)
             {
+                
+                if (Session["CantidadProductos"] != null)
+                {
+                    Session["CantidadProductos"] = new Dictionary<int, int>();
+                }
                 CargarProductos();
+                ActualizarContadorCarrito();
             }
             if (Session["CantidadProductos"] == null)
             {
@@ -24,14 +30,14 @@ namespace PapucplanetWA
             }
         }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
-            {
-                CargarProductos();
-                ActualizarContadorCarrito();
-            }
-        }
+        //protected void Page_Load(object sender, EventArgs e)
+        //{
+        //    if (!IsPostBack)
+        //    {
+        //        CargarProductos();
+        //        ActualizarContadorCarrito();
+        //    }
+        //}
         private void ActualizarContadorCarrito()
         {
             var cantidades = (Dictionary<int, int>)Session["CantidadProductos"];
