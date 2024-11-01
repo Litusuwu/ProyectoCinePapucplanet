@@ -210,10 +210,10 @@ BEGIN
 END$
 
 CREATE PROCEDURE VERIFICAR_CUENTA(
-	IN _correo VARCHAR(100),
-    IN _contrasena VARCHAR(100))
+	IN _correo VARCHAR(150),
+    IN _contrasena VARCHAR(150))
 BEGIN
-    SELECT * FROM Usuario WHERE correo = _correo AND contrasena = _contrasena
+    SELECT * FROM Usuario WHERE correo = _correo AND contrasena = MD5(_contrasena)
     AND activo = 1;
 END$
 
