@@ -89,8 +89,8 @@ namespace PapucplanetWA
                     Id = ali.id,
                     Nombre = ali.nombre,
                     Precio = ali.precio,
-                    UrlImagen = "https://stordfkenticomedia.blob.core.windows.net/df-us/rms/media/recipesmedia/recipes/foodservice/desktop%20images/2021/feb/2021_com_take-out-nachos_900x600.jpg?ext=.jpg",
-                    Descripcion = "HOLA MUNDO"
+                    UrlImagen = ali.imagenURL,
+                    Descripcion = ali.tipoAlimento.ToString() + " - " + ali.pesoPromedio.ToString() +" gr.",
                 };
                 aliment.Add( prod );
                 todosLosProductos.Add(prod);
@@ -102,8 +102,8 @@ namespace PapucplanetWA
                     Id = be.id,
                     Nombre = be.nombre,
                     Precio = be.precio,
-                    UrlImagen = "https://stordfkenticomedia.blob.core.windows.net/df-us/rms/media/recipesmedia/recipes/foodservice/desktop%20images/2021/feb/2021_com_take-out-nachos_900x600.jpg?ext=.jpg",
-                    Descripcion = "HOLA MUNDO"
+                    UrlImagen = be.imagenURL,
+                    Descripcion = be.onzas.ToString() + "oz."
                 };
                 bebid.Add(prod);
                 todosLosProductos.Add(prod);

@@ -57,7 +57,7 @@
                     <ItemTemplate>
                         <div class="col-md-4 mb-3">
                             <div class="card">
-                                <img src='<%# Eval("UrlImagen") %>' class="card-img-top carta" alt='<%# Eval("Nombre") %>'>
+                                <img src='<%# Eval("UrlImagen").ToString().Substring(1) %>' class="card-img-top carta" alt='<%# Eval("Nombre") %>'>
                                 <div class="card-body text-center">
                                     <h5 class="card-title"><%# Eval("Nombre") %></h5>
                                     <p class="card-text"><%# Eval("Descripcion") %></p>
@@ -78,7 +78,7 @@
                     <ItemTemplate>
                         <div class="col-md-4 mb-3">
                             <div class="card">
-                                <img src='<%# Eval("UrlImagen") %>' class="card-img-top carta" alt='<%# Eval("Nombre") %>'>
+                                <img src='<%# Eval("UrlImagen").ToString().Substring(1) %>' class="card-img-top carta" alt='<%# Eval("Nombre") %>'>
                                 <div class="card-body text-center">
                                     <h5 class="card-title"><%# Eval("Nombre") %></h5>
                                     <p class="card-text"><%# Eval("Descripcion") %></p>
@@ -99,7 +99,7 @@
                     <ItemTemplate>
                         <div class="col-md-4 mb-3">
                             <div class="card">
-                               <img src='<%# Eval("UrlImagen") %>' class="card-img-top carta" alt='<%# Eval("Nombre") %>'>
+                               <img src='<%# Eval("UrlImagen").ToString().Substring(1) %>' class="card-img-top carta" alt='<%# Eval("Nombre") %>'>
                                 <div class="card-body text-center">
                                     <h5 class="card-title"><%# Eval("Nombre") %></h5>
                                     <p class="card-text"><%# Eval("Descripcion") %></p>
