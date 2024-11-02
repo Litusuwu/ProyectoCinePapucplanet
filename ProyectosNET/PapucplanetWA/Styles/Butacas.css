@@ -1,61 +1,11 @@
-﻿/* customStyles.css */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
-
-
-
-/* Ajuste de la imagen en la tarjeta para que ocupe todo el contenedor */
-.card-img-top {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
-
-/* Margen inferior para el título de la sección */
-h2.mb-4 {
-    margin-bottom: 4rem;
-}
-
-/* Ajuste del selector de categoría */
-.form-select {
-    width: auto;
-    display: inline-block;
-}
-
-/* Estilo para los títulos de las tarjetas */
-.card-title {
-    font-weight: bold;
-}
-
-/* Estilo para los botones seleccionados */
-.btn.selected {
-    background-color: darkred !important; /* Color de fondo morado oscuro */
-    border-color: darkred !important; /* Color del borde morado oscuro */
-    color: #ffffff !important; /* Texto en color blanco */
-}
-
-/* Espaciado inferior para separar las tarjetas al final de la página */
-.container .row.g-4 {
-    margin-bottom: 100px;
-}
-
-.sinopsis-box {
-    background-color: darkred; /* Fondo morado */
-    color: #ffffff; /* Texto en blanco */
-    padding: 10px 20px; /* Espaciado */
-    font-weight: bold; /* Negrita */
-    text-transform: uppercase; /* Mayúsculas */
-    border-radius: 5px; /* Bordes redondeados */
-    text-align: center;
-    display: inline-block;
-    margin-bottom: 10px; /* Separación inferior */
-}
+﻿@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
 .body {
     font-family: "Space Grotesk", serif;
 }
 
 .user-icon {
-    background-color: darkred;
+    background-color: #6f42c1;
     border-radius: 50%;
     color: white;
     display: flex;
@@ -114,6 +64,13 @@ h2.mb-4 {
         width: 100%;
     }
 
+.espacio-PeliculasLabel {
+    padding-top: 80px;
+    border-bottom: 4px solid darkred;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-family: "Space Grotesk", serif;
+}
 
 .container .row .border {
     background-color: white;
@@ -142,6 +99,24 @@ h2.mb-4 {
     font-family: "Space Grotesk", serif;
 }
 
+.contenedor-Peliculas {
+    box-shadow: 1px 1px 3px black;
+    font-family: "Space Grotesk", serif;
+    transition: transform 0.3s ease;
+}
+
+.label-Peliculas {
+    background-color: darkred;
+    backdrop-filter: blur(20px);
+    border-top: 1px solid white;
+    color: white;
+    font-weight: 400;
+    padding: 3px;
+}
+
+.contenedor-Peliculas:hover {
+    transform: scale(1.05);
+}
 
 .form-select:focus {
     border-color: darkred !important;

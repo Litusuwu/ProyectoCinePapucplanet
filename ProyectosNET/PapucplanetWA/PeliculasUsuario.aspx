@@ -26,7 +26,7 @@
                 <div class="collapse navbar-collapse navBar-Expandido" id="navbarNav">
                     <ul class="navbar-nav ms-auto navBar-Expandido">
                         <li class="nav-item me-3">
-                            <asp:LinkButton ID="lnkPeliculas" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/Peliculas.aspx">Películas</asp:LinkButton>
+                            <asp:LinkButton ID="lnkPeliculas" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/PeliculasUsuario.aspx">Películas</asp:LinkButton>
                         </li>
                         <li class="nav-item me-3">
                             <asp:LinkButton ID="lnkConfiteria" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/ConfiteriaVUsuario.aspx">Confitería</asp:LinkButton>

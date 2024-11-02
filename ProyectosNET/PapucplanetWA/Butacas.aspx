@@ -6,7 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAPUCPLANET - Selección de Asientos</title>
+    <link href="Styles/Butacas.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet"/>
     <style>
             .seat.available-est {
                 border-color: #8a4baf;
@@ -151,6 +153,41 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
+        <!--Para realizar la barra de navegación responsive-->
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm fixed-top navBar-Peliculas">
+            <div class="container position-relative">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <i class="fa fa-film me-2" style="font-size: 24px; color: white;"></i>
+                    <strong>PAPUCPLANET</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars" style="color: white; font-size: 24px;"></i>
+                </button>
+                <div class="collapse navbar-collapse navBar-Expandido" id="navbarNav">
+                    <ul class="navbar-nav ms-auto navBar-Expandido">
+                        <li class="nav-item me-3">
+                            <asp:LinkButton ID="lnkPeliculas" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/PeliculasUsuario.aspx">Películas</asp:LinkButton>
+                        </li>
+                        <li class="nav-item me-3">
+                            <asp:LinkButton ID="lnkConfiteria" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/ConfiteriaVUsuario.aspx">Confitería</asp:LinkButton>
+                        </li>
+                        <li class="nav-item me-3">
+                            <asp:LinkButton ID="lnkCines" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/Cines.aspx">Cines</asp:LinkButton>
+                        </li>
+                        <li class="nav-item me-3">
+                            <asp:LinkButton ID="lnkPerfil" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/MiPerfil.aspx">
+                        <span class="d-inline d-lg-none">Mi Perfil</span>
+                        <i class="fas fa-user d-none d-lg-inline"></i>
+                            </asp:LinkButton>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div style="margin-bottom: 100px;"></div>
+
          <%--<asp:ScriptManager ID="ScriptManager1" runat="server" /> --%>
         <div class="container mt-4">
             <h2 class="mb-4 text-center">Escoge tus asientos</h2>
