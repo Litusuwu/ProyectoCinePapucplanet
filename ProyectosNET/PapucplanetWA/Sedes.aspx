@@ -23,7 +23,7 @@
                         <h5 class="card-title "><%# Eval("universidad") %></h5>
                         <i class="fa-solid fa-building fs-1 custom-body-card"></i>
                         <p class="card-text">Ubicación: <%# Eval("ubicacion") %></p>
-                        <asp:LinkButton ID="lbSalas" runat="server" CssClass="btn-sede">Salas</asp:LinkButton>
+                        <asp:LinkButton ID="lbSalas" runat="server" CssClass="btn-sede" OnClick="lbSalasXSede_Click" CommandArgument='<%# Eval("idSede") %>'>Salas</asp:LinkButton>
                         <asp:LinkButton ID="lbModificar" runat="server" Text="<i class='fa-solid fa-edit'></i> Modificar" CssClass="btn btn-warning btn-sede" OnClick="lbModificar_Click" CommandArgument='<%# Eval("idSede") %>'/>
                         <asp:LinkButton ID="lbEliminar" runat="server" Text="<i class='fa-solid fa-trash'></i> Eliminar" CssClass="btn btn-danger" OnClick="lbEliminar_Click" CommandArgument='<%# Eval("idSede") %>'/>
                     </div>
@@ -49,7 +49,6 @@
                     <asp:LinkButton ID="lbGuardar" runat="server" CssClass="btn-sede" OnClick="lbGuardar_Click">Confirmar</asp:LinkButton>
                 </div>
             </div>
->>>>>>> seresoyer
         </div>
     </div>
     <!--POP UP de Modificar-->

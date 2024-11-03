@@ -9,4 +9,5 @@ public interface SalaDAO {
     int eliminar(int idSala);
     ArrayList<Sala> listarTodos();
     Sala obtenerPorId(int idSala);
+    ArrayList<Sala> listarSalasxIdSede(int idSede);
 }
