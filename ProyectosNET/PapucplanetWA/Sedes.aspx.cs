@@ -85,7 +85,11 @@ namespace PapucplanetWA
             Response.Redirect("Sedes.aspx");
         }
 
-
+        protected void lbSalasXSede_Click(object sender, EventArgs e)
+        {
+            int idSede = Int32.Parse(((LinkButton)sender).CommandArgument);
+            Response.Redirect("Salas.aspx?IdSele=" + idSede);
+        }
 
     }
 }
