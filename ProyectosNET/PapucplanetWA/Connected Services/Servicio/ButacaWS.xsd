@@ -65,16 +65,6 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="obtenerPorIdButaca">
-    <xs:sequence>
-      <xs:element name="idButaca" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="obtenerPorIdButacaResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:butaca" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="eliminarButaca">
     <xs:sequence>
       <xs:element name="idButaca" type="xs:int" />
@@ -83,6 +73,16 @@
   <xs:complexType name="eliminarButacaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdButaca">
+    <xs:sequence>
+      <xs:element name="idButaca" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdButacaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:butaca" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

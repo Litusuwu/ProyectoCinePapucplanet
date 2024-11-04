@@ -65,6 +65,14 @@
       <xs:element minOccurs="0" name="universidad" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="listarGeneros">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarGenerosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:genero" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="insertarPelicula">
     <xs:sequence>
       <xs:element minOccurs="0" name="pelicula" type="tns:pelicula" />
@@ -73,14 +81,6 @@
   <xs:complexType name="insertarPeliculaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarGeneros">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarGenerosResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:genero" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="obtenerPorIdPelicula">
