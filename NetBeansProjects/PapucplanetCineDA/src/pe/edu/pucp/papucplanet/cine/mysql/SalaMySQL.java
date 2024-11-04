@@ -144,5 +144,34 @@ public class SalaMySQL implements SalaDAO{
         }
         return sala;
     }
+
+    @Override
+    public ArrayList<Sala> listarSalasxIdSede(int idSede) {
+        ArrayList<Sala> salas = new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            con.setAutoCommit(false);
+            cs = con.prepareCall("{call OBTENER_SALAS_POR_SEDE(?)}");
+            cs.setInt("_id_sede",idSede);
+            rs = cs.executeQuery();
+            Sala sala;
+            SedeDAO sedeDao = new SedeMySQL();
+            while(rs.next()){
+                sala = new Sala();
+                sala.setIdSala(rs.getInt("id_sala"));
+                sala.setNumeroSala(rs.getInt("numero_sala"));
+                sala.setSede(sedeDao.obtenerPorId(idSede));
+                sala.setCapacidad(rs.getInt("capacidad"));
+                salas.add(sala);
+            }
+            con.commit();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+            try{con.rollback();}catch(SQLException ex1){ex1.getMessage(); }
+        }finally{
+            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
+        }
+        return salas;
+    }
     
 }
