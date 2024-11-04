@@ -21,7 +21,6 @@ namespace PapucplanetWA
             {
                 listaPeliculas = new BindingList<pelicula>(daoPelicula.listarTodosPelicula());
                 
-
                 // Bind to repeater
                 rptMovies.DataSource = listaPeliculas;
                 rptMovies.DataBind();

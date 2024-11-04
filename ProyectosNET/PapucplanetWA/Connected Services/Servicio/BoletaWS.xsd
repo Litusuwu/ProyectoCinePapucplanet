@@ -45,7 +45,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="usuario" abstract="true">
+  <xs:complexType name="usuario">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
       <xs:element minOccurs="0" name="dni" type="xs:string" />
@@ -55,6 +55,7 @@
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
       <xs:element minOccurs="0" name="primerApellido" type="xs:string" />
       <xs:element minOccurs="0" name="segundoApellido" type="xs:string" />
+      <xs:element name="tipoUsuario" type="xs:unsignedShort" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="sede">

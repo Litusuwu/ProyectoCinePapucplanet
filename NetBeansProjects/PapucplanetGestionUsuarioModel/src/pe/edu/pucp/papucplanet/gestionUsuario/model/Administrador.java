@@ -28,25 +28,25 @@ public class  Administrador extends Usuario{
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-    @Override
-    public String imprimirDatos(){
-        String str = "--------------------------------------\n";
-        str += "ID: " + this.getId() + "\n";
-        str +=  "DNI: " + this.getDni() + "\n";
-        str +=  "Nombre: " + this.getNombre() + "\n";
-        str +=  "Primer Apellido: " + this.getPrimerApellido() + "\n";
-        str += "Segundo Apellido: " + this.getSegundoApellido() + "\n";
-        str += "Genero: " + this.getGenero() + "\n";
-        str += "Fecha de Nacimiento: " + this.getFechaNacimiento() + "\n";
-        str += "Codigo: " + this.getCodigo() + "\n";
-        str += "Activo: " + this.isActivo();
-        return str;
-    }
-
-    @Override
-    public String emitirReporte() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+//    @Override
+//    public String imprimirDatos(){
+//        String str = "--------------------------------------\n";
+//        str += "ID: " + this.getId() + "\n";
+//        str +=  "DNI: " + this.getDni() + "\n";
+//        str +=  "Nombre: " + this.getNombre() + "\n";
+//        str +=  "Primer Apellido: " + this.getPrimerApellido() + "\n";
+//        str += "Segundo Apellido: " + this.getSegundoApellido() + "\n";
+//        str += "Genero: " + this.getGenero() + "\n";
+//        str += "Fecha de Nacimiento: " + this.getFechaNacimiento() + "\n";
+//        str += "Codigo: " + this.getCodigo() + "\n";
+//        str += "Activo: " + this.isActivo();
+//        return str;
+//    }
+//
+//    @Override
+//    public String emitirReporte() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
 
     
 }
