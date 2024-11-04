@@ -10,6 +10,8 @@
   <xs:element name="modificarSalaResponse" type="tns:modificarSalaResponse" />
   <xs:element name="obtenerPorIdSala" type="tns:obtenerPorIdSala" />
   <xs:element name="obtenerPorIdSalaResponse" type="tns:obtenerPorIdSalaResponse" />
+  <xs:element name="salasXIdsede" type="tns:salasXIdsede" />
+  <xs:element name="salasXIdsedeResponse" type="tns:salasXIdsedeResponse" />
   <xs:complexType name="insertarSala">
     <xs:sequence>
       <xs:element minOccurs="0" name="sala" type="tns:sala" />
@@ -45,6 +47,16 @@
   <xs:complexType name="eliminarSalaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="salasXIdsede">
+    <xs:sequence>
+      <xs:element name="idSede" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="salasXIdsedeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:sala" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="obtenerPorIdSala">

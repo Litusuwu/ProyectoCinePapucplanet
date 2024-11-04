@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AgregarNuevaPelicula.aspx" />
+    <Content Include="AgregarNuevoConsumible.aspx" />
     <Content Include="Boletas.aspx" />
     <Content Include="Butacas.aspx" />
     <Content Include="ConfiteriaVUsuario.aspx" />
@@ -361,6 +362,9 @@
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.verificarCuentaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.salasXIdsedeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\Servicio\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -416,6 +420,7 @@
     <Content Include="Peliculas.aspx" />
     <Content Include="PeliculasUsuario.aspx" />
     <Content Include="Reportes.aspx" />
+    <Content Include="Salas.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -458,6 +463,13 @@
     </Compile>
     <Compile Include="AgregarNuevaPelicula.aspx.designer.cs">
       <DependentUpon>AgregarNuevaPelicula.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarNuevoConsumible.aspx.cs">
+      <DependentUpon>AgregarNuevoConsumible.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarNuevoConsumible.aspx.designer.cs">
+      <DependentUpon>AgregarNuevoConsumible.aspx</DependentUpon>
     </Compile>
     <Compile Include="Boletas.aspx.cs">
       <DependentUpon>Boletas.aspx</DependentUpon>
@@ -549,6 +561,13 @@
     </Compile>
     <Compile Include="Reportes.aspx.designer.cs">
       <DependentUpon>Reportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Salas.aspx.cs">
+      <DependentUpon>Salas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Salas.aspx.designer.cs">
+      <DependentUpon>Salas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sedes.aspx.cs">
       <DependentUpon>Sedes.aspx</DependentUpon>
