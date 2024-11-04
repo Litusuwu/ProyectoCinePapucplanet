@@ -292,6 +292,10 @@ namespace PapucplanetWAS
             }
         }
 
-      
+        protected void LbtnSiguiente_OnClick(object sender, EventArgs e)
+        {
+            Response.Redirect("ConfiteriaVUsuario.aspx");
+        }
+
     }
 }
