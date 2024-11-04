@@ -87,9 +87,26 @@
         width: 100%;
     }
 
+.pantalla-container {
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pantalla {
+    background-color: #d3d3d3;
+    color: black;
+    width: 500px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
 
 .main-content {
-    padding-top: 70px;
+    padding-top: 30px;
 }
 
 .seat.available-est {
@@ -146,7 +163,7 @@
 }
 
 .summary-container {
-    margin-top: 30px;
+    margin-top: 20px;
     background-color: #ffffff;
     padding: 20px;
     border: none;
@@ -196,7 +213,7 @@
     .summary-grid th, .summary-grid td {
         padding: 10px;
         text-align: left;
-        border: 1px solid #ffffff;
+        border: none;
     }
 
     .summary-grid th {

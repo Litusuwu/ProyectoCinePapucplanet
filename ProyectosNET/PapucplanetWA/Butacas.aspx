@@ -51,8 +51,9 @@
                 </div>
             </div>
         </nav>
-
-
+        <div class="pantalla-container">
+             <div class="pantalla">Pantalla</div>
+        </div>
         <div class="container mt-4 main-content">
 
             <div class="seat-selection text-center">
@@ -79,40 +80,40 @@
                 <%--</asp:UpdatePanel>--%>
             </div>
         </div>
-        <div class="container justify-content-center" style="max-width: 700px; position: relative; left: 30px; margin-top: 60px;">
+        <div class="container justify-content-center" style="max-width: 750px; position: relative; left: 30px; margin-top: 60px;">
             <div class="row justify-content-center">
                 <div class="col-4 mb-3 d-flex justify-content-center">
-                    <div style="width: 300px; display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 350px; display: flex; align-items: center; gap: 8px;">
                         <span class="badge" style="background-color: #ffffff; border: 1px solid darkred; width: 20px; height: 20px; display: inline-block;"></span>
                         <span>Estandar Disponible</span>
                     </div>
                 </div>
                 <div class="col-4 mb-3 d-flex justify-content-center">
-                    <div style="width: 300px; display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 350px; display: flex; align-items: center; gap: 8px;">
                         <span class="badge" style="background-color: #ffffff; border: 1px solid black; width: 20px; height: 20px; display: inline-block;"></span>
                         <span>Discapacitado Disponible</span>
                     </div>
                 </div>
                 <div class="col-4 mb-3 d-flex justify-content-center">
-                    <div style="width: 300px; display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 350px; display: flex; align-items: center; gap: 8px;">
                         <span class="badge" style="background-color: #dc3545; width: 20px; height: 20px; display: inline-block;"></span>
                         <span>Ocupado</span>
                     </div>
                 </div>
                 <div class="col-4 mb-3 d-flex justify-content-center">
-                    <div style="width: 300px; display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 350px; display: flex; align-items: center; gap: 8px;">
                         <span class="badge" style="background-color: darkred; width: 20px; height: 20px; display: inline-block;"></span>
-                        <span>Estandar Reservado</span>
+                        <span>Estandar Seleccionado</span>
                     </div>
                 </div>
                 <div class="col-4 mb-3 d-flex justify-content-center">
-                    <div style="width: 300px; display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 350px; display: flex; align-items: center; gap: 8px;">
                         <span class="badge" style="background-color: black; width: 20px; height: 20px; display: inline-block;"></span>
-                        <span>Discapacitado Reservado</span>
+                        <span>Discapacitado Seleccionado</span>
                     </div>
                 </div>
                 <div class="col-4 mb-3 d-flex justify-content-center">
-                    <div style="width: 300px; display: flex; align-items: center; gap: 8px;">
+                    <div style="width: 350px; display: flex; align-items: center; gap: 8px;">
                         <span class="badge" style="background-color: gray; width: 20px; height: 20px; display: inline-block;"></span>
                         <span>En Mantenimiento</span>
                     </div>
