@@ -14,6 +14,7 @@ namespace PapucplanetWA
         private SedeWSClient daoSede = new SedeWSClient();
         protected void Page_Init(object sender, EventArgs e)
         {
+
             string id= Request.QueryString["IdSele"];
             if(id!= null)
             {
@@ -21,6 +22,22 @@ namespace PapucplanetWA
                 sede=daoSede.obtenerPorIdSede(Int32.Parse(id));
                 lblSedeNombre.Text = sede.universidad;
                 lblUbicacion.Text = sede.ubicacion;
+            }
+        }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            usuario usuarioDatos = (usuario)Session["Usuario"];
+            if (usuarioDatos == null || !usuarioDatos.tipoUsuario.Equals("A"))
+            {
+                if (usuarioDatos == null)
+                {
+                    Session["Redireccion"] = "Login.aspx";
+                }
+                else if (usuarioDatos.tipoUsuario.Equals("C"))
+                {
+                    Session["Redireccion"] = "PeliculasUsuario.aspx";
+                }
+                Response.Redirect("AccesoDenegado.aspx");
             }
         }
     }

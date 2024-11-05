@@ -14,6 +14,21 @@ namespace PapucplanetWA
         private int idSede;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            usuario usuarioDatos = (usuario)Session["Usuario"];
+            if (usuarioDatos == null || !usuarioDatos.tipoUsuario.Equals("A"))
+            {
+                if (usuarioDatos == null)
+                {
+                    Session["Redireccion"] = "Login.aspx";
+                }
+                else if (usuarioDatos.tipoUsuario.Equals("C"))
+                {
+                    Session["Redireccion"] = "PeliculasUsuario.aspx";
+                }
+                Response.Redirect("AccesoDenegado.aspx");
+            }
+
             if (!IsPostBack)
             {
                 CargarSedes();

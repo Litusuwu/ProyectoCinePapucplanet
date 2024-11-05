@@ -23,20 +23,14 @@ namespace PapucplanetWA
             usuario usuarioVerificado = daoCuenta.verificarCuenta(cuenta);
             if (usuarioVerificado != null)
             {
-                // Imprime el tipo de clase que estás recibiendo
-                Response.Write($"<script>console.log('Tipo de usuarioVerificado: {usuarioVerificado.GetType()}');</script>");
-
                 Session["Usuario"] = usuarioVerificado;
-
-                // Verifica el tipo de usuario
                 if (usuarioVerificado.tipoUsuario == 'A')
                 {
-                    Response.Write("<script>console.log('Usuario es administrador');</script>");
                     Response.Redirect("Home.aspx");
                 }
                 else if (usuarioVerificado.tipoUsuario == 'C')
                 {
-                    Response.Write("<script>console.log('Usuario es cliente');</script>");
+                    Session["Redireccion"] = "PeliculasUsuario.aspx";
                     Response.Redirect("PeliculasUsuario.aspx");
                 }
             }
