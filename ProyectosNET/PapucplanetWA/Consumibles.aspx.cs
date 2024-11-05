@@ -13,6 +13,7 @@ namespace PapucplanetWA
     {
         private AlimentoWSClient daoAlimento;
         private BebidaWSClient daoBebiba;
+        private string guardado = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             usuario usuarioDatos = (usuario)Session["Usuario"];
@@ -28,10 +29,12 @@ namespace PapucplanetWA
                 }
                 Response.Redirect("AccesoDenegado.aspx");
             }
+            
+            guardado = txtNombre.Text;
             daoAlimento = new AlimentoWSClient();
             daoBebiba = new BebidaWSClient();
             BindingList<consumible> ListadoConsumibles= new BindingList<consumible>();
-            alimento[] arregloA = daoAlimento.listarAlimentosPorNombre(txtNombre.Text);
+            alimento[] arregloA = daoAlimento.listarAlimentosPorNombre(guardado);
             if(arregloA != null)
             {
                 foreach (alimento a in arregloA)
@@ -40,7 +43,7 @@ namespace PapucplanetWA
                 }
             }
             
-            bebida[] arregloB = daoBebiba.listarBebidasPorNombre(txtNombre.Text);
+            bebida[] arregloB = daoBebiba.listarBebidasPorNombre(guardado);
             if (arregloB != null)
             {
                 foreach (bebida b in arregloB)
