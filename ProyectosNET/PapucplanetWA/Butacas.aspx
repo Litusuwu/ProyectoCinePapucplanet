@@ -54,6 +54,7 @@
         <div class="pantalla-container">
              <div class="pantalla">Pantalla</div>
         </div>
+
         <div class="container mt-4 main-content">
 
             <div class="seat-selection text-center">
@@ -120,10 +121,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
         <div class="summary-container">
 
             <asp:GridView ID="GridViewSummary" runat="server" AutoGenerateColumns="False" CssClass="summary-grid" OnRowDataBound="GridViewSummary_RowDataBound">
@@ -142,6 +139,9 @@
                 <div>
                     <asp:Label ID="LabelCantidadTotal" runat="server" Text="0"></asp:Label>
                 </div>
+            </div>
+            <div class="text-start" style="margin-top: 20px;">
+                <asp:Label ID="lblDate" runat="server"></asp:Label>
             </div>
             <div class="text-end" style="margin-top: 20px;">
                 <asp:LinkButton ID="LabelContinuarConfiteria" CssClass="btn btn-dark" runat="server" Text="Siguiente" OnClick="LbtnSiguiente_OnClick"></asp:LinkButton>

@@ -20,7 +20,7 @@ namespace PapucplanetWAS
             if (!IsPostBack)
             {
                 ButacaFuncionWSClient daoButacaFuncion = new ButacaFuncionWSClient();
-
+                showDate();
                 BindingList<butacaFuncion> listaButacas = new BindingList<butacaFuncion>(daoButacaFuncion.obtenerButacasPorFuncionButacaFuncion(2));
                 matrizButacas = ConvertirListaEnMatriz(listaButacas);
                 Session["MatrizButacas"] = matrizButacas;
@@ -82,6 +82,16 @@ namespace PapucplanetWAS
         }
         */
 
+        protected void showDate()
+        {
+            FuncionWSClient daoFuncion = new FuncionWSClient();
+            funcion fun=daoFuncion.obtenerPorIdFuncion(2);
+            DateTime date = fun.dia;
+            DateTime horaInicio = fun.horarioInicio;  // Suponiendo que puedes convertirlo
+            DateTime horaFin = fun.horarioFin;
+            lblDate.Text = "Fecha de la función: " + date.ToString("dd/MM/yyyy") +
+                           "<br>Hora de la función:  " + horaInicio.ToString() + " - "  +  horaFin.ToString();
+        } 
         private BindingList<BindingList<butacaFuncion>> ConvertirListaEnMatriz(BindingList<butacaFuncion> lista)
         {
             var agrupadasPorFila = new Dictionary<char, BindingList<butacaFuncion>>();
@@ -185,16 +195,7 @@ namespace PapucplanetWAS
                 //se añade a la boleta
                 lineaBoleta linea=new lineaBoleta();
                 linea.butacaFuncion= but;
-                /*
-                BindingList<lineaBoleta> listaLineas = new BindingList<lineaBoleta>(bol.lineasBoleta);
-                listaLineas.Add(linea);
                 
-                
-
-                // Convertir de nuevo a arreglo y actualizar bol.lineasBoleta
-                bol.lineasBoleta = listaLineas.ToArray();
-                */
-
                 bol.lineasBoleta.Append(linea);
                 if (!but.discapacitado)
                 {
