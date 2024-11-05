@@ -17,17 +17,17 @@
   <message name="obtenerPorIdButacaFuncionResponse">
     <part name="parameters" element="tns:obtenerPorIdButacaFuncionResponse" />
   </message>
-  <message name="modificarButacaFuncion">
-    <part name="parameters" element="tns:modificarButacaFuncion" />
-  </message>
-  <message name="modificarButacaFuncionResponse">
-    <part name="parameters" element="tns:modificarButacaFuncionResponse" />
-  </message>
   <message name="insertarButacaFuncion">
     <part name="parameters" element="tns:insertarButacaFuncion" />
   </message>
   <message name="insertarButacaFuncionResponse">
     <part name="parameters" element="tns:insertarButacaFuncionResponse" />
+  </message>
+  <message name="modificarButacaFuncion">
+    <part name="parameters" element="tns:modificarButacaFuncion" />
+  </message>
+  <message name="modificarButacaFuncionResponse">
+    <part name="parameters" element="tns:modificarButacaFuncionResponse" />
   </message>
   <message name="listarTodosButacaFuncion">
     <part name="parameters" element="tns:listarTodosButacaFuncion" />
@@ -50,13 +50,13 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/obtenerPorIdButacaFuncionRequest" message="tns:obtenerPorIdButacaFuncion" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/obtenerPorIdButacaFuncionResponse" message="tns:obtenerPorIdButacaFuncionResponse" />
     </operation>
-    <operation name="modificarButacaFuncion">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/modificarButacaFuncionRequest" message="tns:modificarButacaFuncion" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/modificarButacaFuncionResponse" message="tns:modificarButacaFuncionResponse" />
-    </operation>
     <operation name="insertarButacaFuncion">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/insertarButacaFuncionRequest" message="tns:insertarButacaFuncion" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/insertarButacaFuncionResponse" message="tns:insertarButacaFuncionResponse" />
+    </operation>
+    <operation name="modificarButacaFuncion">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/modificarButacaFuncionRequest" message="tns:modificarButacaFuncion" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/modificarButacaFuncionResponse" message="tns:modificarButacaFuncionResponse" />
     </operation>
     <operation name="listarTodosButacaFuncion">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/listarTodosButacaFuncionRequest" message="tns:listarTodosButacaFuncion" />
@@ -87,7 +87,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="modificarButacaFuncion">
+    <operation name="insertarButacaFuncion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -96,7 +96,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarButacaFuncion">
+    <operation name="modificarButacaFuncion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

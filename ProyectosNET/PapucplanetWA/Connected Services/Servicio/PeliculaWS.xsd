@@ -53,6 +53,8 @@
       <xs:element name="activo" type="xs:boolean" />
       <xs:element name="capacidad" type="xs:int" />
       <xs:element name="idSala" type="xs:int" />
+      <xs:element name="numCol" type="xs:int" />
+      <xs:element name="numFila" type="xs:int" />
       <xs:element name="numeroSala" type="xs:int" />
       <xs:element minOccurs="0" name="sede" type="tns:sede" />
     </xs:sequence>
@@ -83,16 +85,6 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:genero" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="obtenerPorIdPelicula">
-    <xs:sequence>
-      <xs:element name="idPelicula" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="obtenerPorIdPeliculaResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:pelicula" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="eliminarPelicula">
     <xs:sequence>
       <xs:element name="idPelicula" type="xs:int" />
@@ -101,6 +93,16 @@
   <xs:complexType name="eliminarPeliculaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdPelicula">
+    <xs:sequence>
+      <xs:element name="idPelicula" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdPeliculaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:pelicula" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarPorNombrePelicula">

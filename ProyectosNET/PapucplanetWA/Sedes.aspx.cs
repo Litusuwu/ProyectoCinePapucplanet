@@ -81,10 +81,11 @@ namespace PapucplanetWA
         protected void lbEliminar_Click(object sender, EventArgs e)
         {
             int idSede = Int32.Parse(((LinkButton)sender).CommandArgument);
-            daoSede.eliminarSede(idSede);
-            Response.Redirect("Sedes.aspx");
+            int resultado=daoSede.eliminarSede(idSede);
+            if(resultado!=0){
+                Response.Redirect("Sedes.aspx");
+            }
         }
-
         protected void lbSalasXSede_Click(object sender, EventArgs e)
         {
             int idSede = Int32.Parse(((LinkButton)sender).CommandArgument);

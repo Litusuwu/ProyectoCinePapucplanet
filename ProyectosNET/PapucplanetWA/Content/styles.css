@@ -126,3 +126,8 @@ a, i {
     text-align: center; /* Centra el contenido de cada celda */
     vertical-align: middle; /* Centra verticalmente */
 }
+
+.text-red {
+    color: #8B0000 !important;
+    background-color: #8B0000;
+}

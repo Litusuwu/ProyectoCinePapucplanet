@@ -443,6 +443,7 @@
     <Content Include="Scripts\jquery-3.7.1.min.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="Scripts\Papucplanet\Sala.js" />
     <Content Include="Scripts\Papucplanet\Sedes.js" />
     <Content Include="Sedes.aspx" />
     <Content Include="Styles\Login.css" />

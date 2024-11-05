@@ -4,6 +4,8 @@ public class Sala {
     private int idSala;
     private int capacidad;
     private int numeroSala;
+    private int numCol;
+    private int numFila;
     private Sede sede;
     private boolean activo;
     
@@ -17,6 +19,23 @@ public class Sala {
 	this.sede=sede;
         this.activo = true;
     }
+
+    public int getNumCol() {
+        return numCol;
+    }
+
+    public void setNumCol(int numCol) {
+        this.numCol = numCol;
+    }
+
+    public int getNumFila() {
+        return numFila;
+    }
+
+    public void setNumFila(int numFila) {
+        this.numFila = numFila;
+    }
+    
     // Getter y Setter para numero_sala
     public void setNumeroSala(int numeroSala) {
         this.numeroSala = numeroSala;

@@ -78,6 +78,8 @@
       <xs:element name="activo" type="xs:boolean" />
       <xs:element name="capacidad" type="xs:int" />
       <xs:element name="idSala" type="xs:int" />
+      <xs:element name="numCol" type="xs:int" />
+      <xs:element name="numFila" type="xs:int" />
       <xs:element name="numeroSala" type="xs:int" />
       <xs:element minOccurs="0" name="sede" type="tns:sede" />
     </xs:sequence>

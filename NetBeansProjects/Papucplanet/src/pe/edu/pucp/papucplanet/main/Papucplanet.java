@@ -524,7 +524,7 @@ public class Papucplanet {
         // Test ADMIN
         try{
 //            testAdministrador();
-            testSede();
+//            testSede();
 //            
 //            testCliente();
 //            Administrador administrador = new Administrador();
@@ -535,7 +535,16 @@ public class Papucplanet {
 //            testPelicula();
 //            testSala();
 //            testBoleta_Alimento();
-            
+//            Sala s = new Sala();
+//            Sede se= new Sede();
+//            se.setIdSede(3);
+//            SalaDAO daoSala = new SalaMySQL();
+//            s.setNumCol(2);
+//            s.setNumFila(2);
+//            s.setNumeroSala(8);
+//            s.setSede(se);
+//            s.setCapacidad(4);
+//            daoSala.insertar(s);
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
