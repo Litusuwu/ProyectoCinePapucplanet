@@ -16,7 +16,7 @@ namespace PapucplanetWA
         protected void Page_Load(object sender, EventArgs e)
         {
             usuario usuarioDatos = (usuario)Session["Usuario"];
-            if (usuarioDatos == null || !usuarioDatos.tipoUsuario.Equals("A"))
+            if (usuarioDatos == null || usuarioDatos.tipoUsuario == 'C')
             {
                 if (usuarioDatos == null)
                 {
