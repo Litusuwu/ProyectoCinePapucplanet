@@ -40,6 +40,7 @@ DROP PROCEDURE IF EXISTS INSERTAR_BEBIDA;
 DROP PROCEDURE IF EXISTS LISTAR_BEBIDAS_TODAS;
 DROP PROCEDURE IF EXISTS MODIFICAR_BEBIDA;
 DROP PROCEDURE IF EXISTS LISTAR_BEBIDA_X_ID;
+DROP PROCEDURE IF EXISTS LISTAR_BEBIDA_X_NOMBRE;
 DROP PROCEDURE IF EXISTS ELIMINAR_BEBIDA_X_ID;
 
 -- Drops de Alimento
@@ -47,6 +48,7 @@ DROP PROCEDURE IF EXISTS INSERTAR_ALIMENTO;
 DROP PROCEDURE IF EXISTS LISTAR_ALIMENTOS_TODOS;
 DROP PROCEDURE IF EXISTS MODIFICAR_ALIMENTO;
 DROP PROCEDURE IF EXISTS LISTAR_ALIMENTO_X_ID;
+DROP PROCEDURE IF EXISTS LISTAR_ALIMENTO_X_NOMBRE;
 DROP PROCEDURE IF EXISTS ELIMINAR_ALIMENTO_X_ID;
 
 -- Drops de Sala
@@ -434,6 +436,16 @@ BEGIN
     WHERE b.id_bebida = _id_bebida AND c.activo = 1;
 END$
 
+CREATE PROCEDURE LISTAR_BEBIDA_X_NOMBRE(
+    IN _nombre_bebida VARCHAR(150)
+)
+BEGIN
+    SELECT b.id_bebida, c.nombre, c.precio, b.onzas, b.tieneHielo, c.activo, c.imagen_link, c.tipo 
+    FROM Consumible c 
+    INNER JOIN Bebida b ON c.id_consumible = b.id_bebida 
+    WHERE c.activo = 1 AND c.nombre LIKE CONCAT('%',_nombre_bebida,'%');
+END$
+
 CREATE PROCEDURE ELIMINAR_BEBIDA_X_ID(IN _id_bebida INT)
 BEGIN
     UPDATE Consumible 
@@ -490,10 +502,20 @@ CREATE PROCEDURE LISTAR_ALIMENTO_X_ID(
     IN _id_alimento INT
 )
 BEGIN
-    SELECT a.id_alimento, c.nombre, c.precio, a.pesoPromedio, a.tipo_alimento, c.activo, c.tipo, c.image_link 
+    SELECT a.id_alimento, c.nombre, c.precio, a.pesoPromedio, a.tipo_alimento, c.activo, c.tipo, c.imagen_link 
     FROM Consumible c 
     INNER JOIN Alimento a ON c.id_consumible = a.id_alimento 
     WHERE a.id_alimento = _id_alimento AND c.activo = 1;
+END$
+
+CREATE PROCEDURE LISTAR_ALIMENTO_X_NOMBRE(
+    IN _nombre_alimento VARCHAR(150)
+)
+BEGIN
+    SELECT a.id_alimento, c.nombre, c.precio, a.pesoPromedio, a.tipo_alimento, c.activo, c.tipo, c.imagen_link 
+    FROM Consumible c 
+    INNER JOIN Alimento a ON c.id_consumible = a.id_alimento 
+    WHERE c.activo = 1 AND c.nombre LIKE CONCAT('%',_nombre_alimento,'%');
 END$
 
 CREATE PROCEDURE ELIMINAR_ALIMENTO_X_ID (IN _id_alimento INT)

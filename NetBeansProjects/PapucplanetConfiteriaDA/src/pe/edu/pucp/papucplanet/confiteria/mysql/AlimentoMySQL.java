@@ -154,5 +154,30 @@ public class AlimentoMySQL implements AlimentoDAO{
         }
         return productos;
     }
-    
+    @Override
+    public ArrayList<Alimento> listarPorNombre(String nombre){
+        ArrayList<Alimento> productos = new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_ALIMENTO_X_NOMBRE(?)}");
+            cs.setString("_nombre_alimento", nombre);
+            rs = cs.executeQuery();
+            while(rs.next()){
+                Alimento producto = new Alimento();
+                producto.setId(rs.getInt("id_alimento"));
+                producto.setNombre(rs.getString("nombre"));
+                producto.setPrecio(rs.getDouble("precio"));
+                producto.setPesoPromedio(rs.getDouble("pesoPromedio"));
+                producto.setTipoAlimento(TipoAlimento.valueOf(rs.getString("tipo_alimento")));
+                producto.setImagenURL(rs.getString("imagen_link"));
+                producto.setTipo(rs.getString("tipo").charAt(0));
+                productos.add(producto);
+            }
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
+        }
+        return productos;
+    }
 }

@@ -12,14 +12,9 @@
   <xs:element name="obtenerFuncionesPorPeliculaFuncionResponse" type="tns:obtenerFuncionesPorPeliculaFuncionResponse" />
   <xs:element name="obtenerPorIdFuncion" type="tns:obtenerPorIdFuncion" />
   <xs:element name="obtenerPorIdFuncionResponse" type="tns:obtenerPorIdFuncionResponse" />
-  <xs:complexType name="obtenerPorIdFuncion">
+  <xs:complexType name="modificarFuncion">
     <xs:sequence>
-      <xs:element name="idFuncion" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="obtenerPorIdFuncionResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:funcion" />
+      <xs:element minOccurs="0" name="funcion" type="tns:funcion" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="funcion">
@@ -65,14 +60,19 @@
       <xs:element minOccurs="0" name="universidad" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="modificarFuncion">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="funcion" type="tns:funcion" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="modificarFuncionResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdFuncion">
+    <xs:sequence>
+      <xs:element name="idFuncion" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdFuncionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:funcion" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarTodosFuncion">

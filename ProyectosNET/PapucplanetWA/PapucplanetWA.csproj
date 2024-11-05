@@ -365,6 +365,12 @@
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.salasXIdsedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarAlimentosPorNombreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarBebidasPorNombreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\Servicio\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -411,6 +417,7 @@
     <Content Include="Content\Fonts\css\v5-font-face.css" />
     <Content Include="Content\Fonts\css\v5-font-face.min.css" />
     <Content Include="Content\styles.css" />
+    <Content Include="Scripts\Papucplanet\Consumibles.js" />
     <Content Include="Styles\Butacas.css" />
     <Content Include="Styles\DetallePelicula.css" />
     <Content Include="DetallePelicula.aspx" />
