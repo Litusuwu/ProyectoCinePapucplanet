@@ -60,27 +60,6 @@ namespace PapucplanetWAS
             GridViewSummary.DataBind();
             Session["Summary"] = summaryData;
         }
-        /*
-        protected BindingList<ButacaFuncion> ObtenerButacasDesdeBaseDeDatos()
-        {
-            return new BindingList<ButacaFuncion>
-            {
-                new ButacaFuncion { IdButacaFuncion=1, Fila= 'A', Columna = 1, Estado = EstadoButaca.DISPONIBLE, Discapacitado = false , Precio=15},
-                new ButacaFuncion { IdButacaFuncion=2, Fila = 'A', Columna = 2, Estado = EstadoButaca.DISPONIBLE, Discapacitado = false, Precio=15},
-                new ButacaFuncion { IdButacaFuncion=3, Fila = 'A', Columna = 3, Estado = EstadoButaca.OCUPADA, Discapacitado = false, Precio=15 },
-                new ButacaFuncion { IdButacaFuncion=4, Fila = 'A', Columna = 4, Estado = EstadoButaca.DISPONIBLE, Discapacitado = false,Precio=15 },
-                new ButacaFuncion { IdButacaFuncion=5, Fila = 'B', Columna = 1, Estado = EstadoButaca.DISPONIBLE, Discapacitado = false,Precio=15 },
-                new ButacaFuncion { IdButacaFuncion=6, Fila = 'B', Columna = 2, Estado = EstadoButaca.DISPONIBLE, Discapacitado = true,Precio=10 }, // Ejemplo de asiento discapacitado
-                new ButacaFuncion { IdButacaFuncion=7, Fila = 'B', Columna = 3, Estado = EstadoButaca.OCUPADA, Discapacitado = false , Precio = 15},
-                new ButacaFuncion { IdButacaFuncion=8, Fila = 'B', Columna = 4, Estado = EstadoButaca.DISPONIBLE, Discapacitado = false ,Precio=15},
-                new ButacaFuncion { IdButacaFuncion=9, Fila = 'C', Columna = 1, Estado = EstadoButaca.MANTENIMIENTO, Discapacitado = false , Precio = 15},
-                new ButacaFuncion { IdButacaFuncion=10, Fila = 'C', Columna = 2, Estado = EstadoButaca.DISPONIBLE, Discapacitado = true, Precio=10 }, // Ejemplo de asiento discapacitado
-                new ButacaFuncion { IdButacaFuncion=11, Fila = 'C', Columna = 3, Estado = EstadoButaca.DISPONIBLE, Discapacitado = false,Precio=15  },
-                new ButacaFuncion { IdButacaFuncion=12, Fila = 'C', Columna = 4, Estado = EstadoButaca.DISPONIBLE, Discapacitado = false, Precio=15 }
-
-            };
-        }
-        */
 
         protected void showDate()
         {
@@ -90,7 +69,7 @@ namespace PapucplanetWAS
             DateTime horaInicio = fun.horarioInicio;  // Suponiendo que puedes convertirlo
             DateTime horaFin = fun.horarioFin;
             lblDate.Text = "Fecha de la función: " + date.ToString("dd/MM/yyyy") +
-                           "<br>Hora de la función:  " + horaInicio.ToString() + " - "  +  horaFin.ToString();
+                           "<br>Hora de la función:  " + horaInicio.ToString("HH:mm") + " - "  +  horaFin.ToString("HH:mm");
         } 
         private BindingList<BindingList<butacaFuncion>> ConvertirListaEnMatriz(BindingList<butacaFuncion> lista)
         {

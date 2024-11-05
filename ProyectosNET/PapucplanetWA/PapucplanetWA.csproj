@@ -467,6 +467,7 @@
     </Compile>
     <Compile Include="AgregarNuevoConsumible.aspx.cs">
       <DependentUpon>AgregarNuevoConsumible.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AgregarNuevoConsumible.aspx.designer.cs">
       <DependentUpon>AgregarNuevoConsumible.aspx</DependentUpon>
@@ -564,6 +565,7 @@
     </Compile>
     <Compile Include="Salas.aspx.cs">
       <DependentUpon>Salas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Salas.aspx.designer.cs">
       <DependentUpon>Salas.aspx</DependentUpon>
