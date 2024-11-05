@@ -5,6 +5,12 @@
       <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/ButacaWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
     </xsd:schema>
   </types>
+  <message name="modificarButaca">
+    <part name="parameters" element="tns:modificarButaca" />
+  </message>
+  <message name="modificarButacaResponse">
+    <part name="parameters" element="tns:modificarButacaResponse" />
+  </message>
   <message name="insertarButaca">
     <part name="parameters" element="tns:insertarButaca" />
   </message>
@@ -29,13 +35,11 @@
   <message name="obtenerPorIdButacaResponse">
     <part name="parameters" element="tns:obtenerPorIdButacaResponse" />
   </message>
-  <message name="modificarButaca">
-    <part name="parameters" element="tns:modificarButaca" />
-  </message>
-  <message name="modificarButacaResponse">
-    <part name="parameters" element="tns:modificarButacaResponse" />
-  </message>
   <portType name="ButacaWS">
+    <operation name="modificarButaca">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/modificarButacaRequest" message="tns:modificarButaca" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/modificarButacaResponse" message="tns:modificarButacaResponse" />
+    </operation>
     <operation name="insertarButaca">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/insertarButacaRequest" message="tns:insertarButaca" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/insertarButacaResponse" message="tns:insertarButacaResponse" />
@@ -52,13 +56,18 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/obtenerPorIdButacaRequest" message="tns:obtenerPorIdButaca" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/obtenerPorIdButacaResponse" message="tns:obtenerPorIdButacaResponse" />
     </operation>
-    <operation name="modificarButaca">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/modificarButacaRequest" message="tns:modificarButaca" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/modificarButacaResponse" message="tns:modificarButacaResponse" />
-    </operation>
   </portType>
   <binding name="ButacaWSPortBinding" type="tns:ButacaWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="modificarButaca">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="insertarButaca">
       <soap:operation soapAction="" />
       <input>
@@ -87,15 +96,6 @@
       </output>
     </operation>
     <operation name="obtenerPorIdButaca">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="modificarButaca">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

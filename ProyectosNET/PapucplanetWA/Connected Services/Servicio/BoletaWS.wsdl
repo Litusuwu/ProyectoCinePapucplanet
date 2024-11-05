@@ -5,6 +5,18 @@
       <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/BoletaWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
     </xsd:schema>
   </types>
+  <message name="modificarBoleta">
+    <part name="parameters" element="tns:modificarBoleta" />
+  </message>
+  <message name="modificarBoletaResponse">
+    <part name="parameters" element="tns:modificarBoletaResponse" />
+  </message>
+  <message name="insertarBoleta">
+    <part name="parameters" element="tns:insertarBoleta" />
+  </message>
+  <message name="insertarBoletaResponse">
+    <part name="parameters" element="tns:insertarBoletaResponse" />
+  </message>
   <message name="eliminarBoleta">
     <part name="parameters" element="tns:eliminarBoleta" />
   </message>
@@ -17,25 +29,21 @@
   <message name="obtenerBoletaPorIdResponse">
     <part name="parameters" element="tns:obtenerBoletaPorIdResponse" />
   </message>
-  <message name="modificarBoleta">
-    <part name="parameters" element="tns:modificarBoleta" />
-  </message>
-  <message name="modificarBoletaResponse">
-    <part name="parameters" element="tns:modificarBoletaResponse" />
-  </message>
   <message name="listarTodasBoletas">
     <part name="parameters" element="tns:listarTodasBoletas" />
   </message>
   <message name="listarTodasBoletasResponse">
     <part name="parameters" element="tns:listarTodasBoletasResponse" />
   </message>
-  <message name="insertarBoleta">
-    <part name="parameters" element="tns:insertarBoleta" />
-  </message>
-  <message name="insertarBoletaResponse">
-    <part name="parameters" element="tns:insertarBoletaResponse" />
-  </message>
   <portType name="BoletaWS">
+    <operation name="modificarBoleta">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BoletaWS/modificarBoletaRequest" message="tns:modificarBoleta" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BoletaWS/modificarBoletaResponse" message="tns:modificarBoletaResponse" />
+    </operation>
+    <operation name="insertarBoleta">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BoletaWS/insertarBoletaRequest" message="tns:insertarBoleta" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BoletaWS/insertarBoletaResponse" message="tns:insertarBoletaResponse" />
+    </operation>
     <operation name="eliminarBoleta">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BoletaWS/eliminarBoletaRequest" message="tns:eliminarBoleta" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BoletaWS/eliminarBoletaResponse" message="tns:eliminarBoletaResponse" />
@@ -44,21 +52,31 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BoletaWS/obtenerBoletaPorIdRequest" message="tns:obtenerBoletaPorId" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BoletaWS/obtenerBoletaPorIdResponse" message="tns:obtenerBoletaPorIdResponse" />
     </operation>
-    <operation name="modificarBoleta">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BoletaWS/modificarBoletaRequest" message="tns:modificarBoleta" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BoletaWS/modificarBoletaResponse" message="tns:modificarBoletaResponse" />
-    </operation>
     <operation name="listarTodasBoletas">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BoletaWS/listarTodasBoletasRequest" message="tns:listarTodasBoletas" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BoletaWS/listarTodasBoletasResponse" message="tns:listarTodasBoletasResponse" />
     </operation>
-    <operation name="insertarBoleta">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BoletaWS/insertarBoletaRequest" message="tns:insertarBoleta" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BoletaWS/insertarBoletaResponse" message="tns:insertarBoletaResponse" />
-    </operation>
   </portType>
   <binding name="BoletaWSPortBinding" type="tns:BoletaWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="modificarBoleta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarBoleta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="eliminarBoleta">
       <soap:operation soapAction="" />
       <input>
@@ -77,25 +95,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="modificarBoleta">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="listarTodasBoletas">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertarBoleta">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

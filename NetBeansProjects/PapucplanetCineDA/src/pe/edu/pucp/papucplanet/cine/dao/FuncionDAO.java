@@ -12,4 +12,5 @@ public interface FuncionDAO {
     Funcion obtenerPorId(int idFuncion);
     // Nuevo método para obtener funciones por película
     ArrayList<Funcion> obtenerFuncionesPorPelicula(int idPelicula);
+    ArrayList<Funcion> listarPeliculasConFuncionesActivas();
 }
