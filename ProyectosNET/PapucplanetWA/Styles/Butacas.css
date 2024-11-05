@@ -1,3 +1,4 @@
+
 ﻿.body {
     font-family: "Space Grotesk", serif;
 }
@@ -21,13 +22,11 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     width: 100%;
     height: calc(100%+0px);
     display: block;
     padding-bottom: 133%;
 }
-
 
 .navbar {
     display: flex;
@@ -87,6 +86,71 @@
         width: 100%;
     }
 
+.espacio-PeliculasLabel {
+    padding-top: 80px;
+    border-bottom: 4px solid darkred;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-family: "Space Grotesk", serif;
+}
+
+.container .row .border {
+    background-color: white;
+    border-color: #ccc;
+}
+
+.container .row strong {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.boton-Filtrar {
+    background-color: darkred;
+    border-color: white;
+    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(255, 99, 71, 0.25);
+    border-radius: 45px;
+    font-size: 17px;
+    font-weight: 300;
+    font-family: "Space Grotesk", serif;
+}
+
+.contenedor-Filtro {
+    box-shadow: 2px 2px 7px black;
+    font-family: "Space Grotesk", serif;
+}
+
+.contenedor-Peliculas {
+    box-shadow: 1px 1px 3px black;
+    font-family: "Space Grotesk", serif;
+    transition: transform 0.3s ease;
+}
+
+.label-Peliculas {
+    background-color: darkred;
+    backdrop-filter: blur(20px);
+    border-top: 1px solid white;
+    color: white;
+    font-weight: 400;
+    padding: 3px;
+}
+
+.contenedor-Peliculas:hover {
+    transform: scale(1.05);
+}
+
+.form-select:focus {
+    border-color: darkred !important;
+    box-shadow: 0 0 0 0.25rem rgba(139, 0, 0, 0.5) !important;
+}
+
+.form-select {
+    background-position: calc(100% - 0.75em) calc(1em + 0.15em), calc(100% - 0.375em) calc(1em + 0.15em), calc(100% - 1.25em) 0.5em;
+    background-size: 0.5em 0.5em, 0.5em 0.5em, 1em 1em;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
 .pantalla-container {
     padding-top: 80px;
     display: flex;

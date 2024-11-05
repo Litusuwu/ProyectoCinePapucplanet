@@ -26,7 +26,7 @@
                 <div class="collapse navbar-collapse navBar-Expandido" id="navbarNav">
                     <ul class="navbar-nav ms-auto navBar-Expandido">
                         <li class="nav-item me-3">
-                            <asp:LinkButton ID="lnkPeliculas" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/Peliculas.aspx">Películas</asp:LinkButton>
+                            <asp:LinkButton ID="lnkPeliculas" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/PeliculasUsuario.aspx">Películas</asp:LinkButton>
                         </li>
                         <li class="nav-item me-3">
                             <asp:LinkButton ID="lnkConfiteria" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/ConfiteriaVUsuario.aspx">Confitería</asp:LinkButton>
@@ -53,23 +53,20 @@
                         <div class="col-6 col-md-2 p-1 ">
                             <div class="p-3 border rounded contenedor-Filtro">
                                 <strong>Película</strong>
-                                <asp:DropDownList ID="ddlPelicula" runat="server" CssClass="form-select mt-2">
-                                </asp:DropDownList>
+                                <asp:DropDownList ID="ddlMovie" runat="server" CssClass="form-select mt-2" AutoPostBack="true" OnSelectedIndexChanged="FiltrarPeliculas"></asp:DropDownList>
                             </div>
                         </div>
                         <div class="col-6 col-md-2 p-1">
                             <div class="p-3 border rounded contenedor-Filtro">
                                 <strong>Sede</strong>
-                                <asp:DropDownList ID="ddlCine" runat="server" CssClass="form-select mt-2">
-                                </asp:DropDownList>
+                                <asp:DropDownList ID="ddlCine" runat="server" CssClass="form-select mt-2" AutoPostBack="true" OnSelectedIndexChanged="FiltrarPeliculas"></asp:DropDownList>
                             </div>
                         </div>
 
                         <div class="col-6 col-md-2 p-1">
                             <div class="p-3 border rounded contenedor-Filtro">
                                 <strong>Fecha</strong>
-                                <asp:DropDownList ID="ddlFecha" runat="server" CssClass="form-select mt-2">
-                                </asp:DropDownList>
+                                <asp:DropDownList ID="ddlFecha" runat="server" CssClass="form-select mt-2" AutoPostBack="true" OnSelectedIndexChanged="FiltrarPeliculas"></asp:DropDownList>
                             </div>
                         </div>
 

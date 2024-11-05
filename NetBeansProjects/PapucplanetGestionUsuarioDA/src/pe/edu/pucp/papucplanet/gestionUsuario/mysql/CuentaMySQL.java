@@ -118,9 +118,11 @@ public class CuentaMySQL implements CuentaDAO,  GestionUsuarioDAO<Cuenta>{
                 
                 if(rs.getInt("id_administrador") != 0){
                     usuario = new Administrador();
+                    usuario.setTipoUsuario('A');
                 }
                 else if(rs.getInt("id_cliente") != 0){
                     usuario = new Cliente();
+                    usuario.setTipoUsuario('C');
                 }
                 else{
                     throw new IllegalArgumentException("No existe ese usuario.");
@@ -167,9 +169,12 @@ public class CuentaMySQL implements CuentaDAO,  GestionUsuarioDAO<Cuenta>{
                 // Asignar los valores desde el ResultSet  
                 if(rs.getInt("id_administrador") != 0){
                     usuario = new Administrador();
+                    usuario.setTipoUsuario('A');
                 }
                 else if(rs.getInt("id_cliente") != 0){
                     usuario = new Cliente();
+                    
+                    usuario.setTipoUsuario('C');
                 }
                 else{
                     throw new IllegalArgumentException("No existe ese usuario.");
@@ -194,26 +199,49 @@ public class CuentaMySQL implements CuentaDAO,  GestionUsuarioDAO<Cuenta>{
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println("GA");
         return listaCuentas;
     }
 
     @Override
-    public int verificar(Cuenta usuario){
-        int resultado = 0;
+    public Usuario verificar(Cuenta usuario){
+        Usuario response = null;
         try{
             // Obtener la conexión
             con = DBManager.getInstance().getConnection();
 
             // Preparar la llamada al procedimiento
-            String sql = "{CALL VERIFICAR_CUENTA()}";
+            String sql = "{CALL VERIFICAR_CUENTA_FINAL(?, ?)}";
             cs = con.prepareCall(sql);
+            
+            System.out.println("Correo : " + usuario.getCorreo());
+
+            System.out.println("Constrasena : " + usuario.getPassword());
             cs.setString(1,usuario.getCorreo());
             cs.setString(2,usuario.getPassword());
             // Ejecutar el procedimiento y obtener los resultados
             rs = cs.executeQuery();
             if(rs.next()){
-                resultado = rs.getInt("id_usuario");
+                System.out.println("Entro al if");
+                if(rs.getInt("id_administrador") != 0){
+                    response = new Administrador();
+                    ((Administrador)response).setCodigo(rs.getString("codigo"));
+                    response.setTipoUsuario('A');
+                }
+                else if(rs.getInt("id_cliente") != 0){
+                    response = new Cliente();
+                    response.setTipoUsuario('C');
+                }
+                else{
+                    throw new IllegalArgumentException("No existe ese usuario.");
+                }
+                response.setId(rs.getInt("id_usuario"));
+                response.setActivo(rs.getBoolean("activo"));
+                response.setGenero((rs.getString("genero")).charAt(0));
+                response.setNombre(rs.getString("nombres"));
+                response.setPrimerApellido(rs.getString("primer_apellido"));
+                response.setSegundoApellido(rs.getString("segundo_apellido"));
+                System.out.println("Hola : " + response.getNombre());
+               
             }
         }catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -225,6 +253,6 @@ public class CuentaMySQL implements CuentaDAO,  GestionUsuarioDAO<Cuenta>{
                 System.out.println(e.getMessage());
             }
         }
-        return resultado;
+        return response;
     }
 }

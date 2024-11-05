@@ -14,6 +14,21 @@ namespace PapucplanetWA
         private int idSede;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            usuario usuarioDatos = (usuario)Session["Usuario"];
+            if (usuarioDatos == null || usuarioDatos.tipoUsuario == 'C')
+            {
+                if (usuarioDatos == null)
+                {
+                    Session["Redireccion"] = "Login.aspx";
+                }
+                else if (usuarioDatos.tipoUsuario.Equals("C"))
+                {
+                    Session["Redireccion"] = "PeliculasUsuario.aspx";
+                }
+                Response.Redirect("AccesoDenegado.aspx");
+            }
+
             if (!IsPostBack)
             {
                 CargarSedes();
@@ -85,7 +100,11 @@ namespace PapucplanetWA
             Response.Redirect("Sedes.aspx");
         }
 
-
+        protected void lbSalasXSede_Click(object sender, EventArgs e)
+        {
+            int idSede = Int32.Parse(((LinkButton)sender).CommandArgument);
+            Response.Redirect("Salas.aspx?IdSele=" + idSede);
+        }
 
     }
 }

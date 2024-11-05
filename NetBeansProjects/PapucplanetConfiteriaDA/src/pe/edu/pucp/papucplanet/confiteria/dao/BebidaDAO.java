@@ -17,5 +17,7 @@ public interface BebidaDAO {
     Bebida obtenerPorId(int id);
     
     // Método para listar todos las bebidas
-    ArrayList<Bebida> listar();      
+    ArrayList<Bebida> listar();
+    // Método para listar todos las bebidas por nombre
+    ArrayList<Bebida> listarPorNombre(String nombre); 
 }

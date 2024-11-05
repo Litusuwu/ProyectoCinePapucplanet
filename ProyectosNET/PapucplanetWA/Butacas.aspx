@@ -56,7 +56,7 @@
         </div>
 
         <div class="container mt-4 main-content">
-
+         <%--<asp:ScriptManager ID="ScriptManager1" runat="server" /> --%>
             <div class="seat-selection text-center">
                 <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">--%>
                 <contenttemplate>

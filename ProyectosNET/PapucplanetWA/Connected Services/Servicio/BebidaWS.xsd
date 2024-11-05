@@ -6,14 +6,18 @@
   <xs:element name="eliminarBebidaResponse" type="tns:eliminarBebidaResponse" />
   <xs:element name="insertarBebida" type="tns:insertarBebida" />
   <xs:element name="insertarBebidaResponse" type="tns:insertarBebidaResponse" />
+  <xs:element name="listarBebidasPorNombre" type="tns:listarBebidasPorNombre" />
+  <xs:element name="listarBebidasPorNombreResponse" type="tns:listarBebidasPorNombreResponse" />
   <xs:element name="listarTodasBebidas" type="tns:listarTodasBebidas" />
   <xs:element name="listarTodasBebidasResponse" type="tns:listarTodasBebidasResponse" />
   <xs:element name="obtenerPorIdBebida" type="tns:obtenerPorIdBebida" />
   <xs:element name="obtenerPorIdBebidaResponse" type="tns:obtenerPorIdBebidaResponse" />
-  <xs:complexType name="listarTodasBebidas">
-    <xs:sequence />
+  <xs:complexType name="listarBebidasPorNombre">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombreBebida" type="xs:string" />
+    </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarTodasBebidasResponse">
+  <xs:complexType name="listarBebidasPorNombreResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:bebida" />
     </xs:sequence>
@@ -36,6 +40,14 @@
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
       <xs:element name="precio" type="xs:double" />
       <xs:element name="tipo" type="xs:unsignedShort" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTodasBebidas">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTodasBebidasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:bebida" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="actualizarBebida">

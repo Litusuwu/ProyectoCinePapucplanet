@@ -85,5 +85,16 @@ public class FuncionWS {
         return funciones;
     }
     
+    @WebMethod(operationName = "listarPeliculasConFuncionesActivasFuncion")
+    public ArrayList<Funcion> listarPeliculasConFuncionesActivasFuncion() {
+        ArrayList<Funcion> funciones = null;
+        try {
+            daoFuncion = new FuncionMySQL();
+            funciones = daoFuncion.listarPeliculasConFuncionesActivas();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return funciones;
+    }
     
 }

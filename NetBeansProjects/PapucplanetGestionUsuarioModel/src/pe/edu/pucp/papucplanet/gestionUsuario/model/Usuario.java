@@ -1,8 +1,7 @@
 package pe.edu.pucp.papucplanet.gestionUsuario.model;
 
 import java.util.Date;
-
-abstract public class Usuario implements IUsuario{
+public class Usuario{
 
     private int id;
     private String dni;
@@ -11,8 +10,8 @@ abstract public class Usuario implements IUsuario{
     private String segundoApellido;
     private char genero;
     private Date fechaNacimiento;
-
     private boolean activo;
+    private char TipoUsuario;
     
     // Constructor que asigna automáticamente el ID usando el correlativo
     public Usuario(){
@@ -99,16 +98,30 @@ abstract public class Usuario implements IUsuario{
     }
 
     /**
+     * @return the TipoUsuario
+     */
+    public char getTipoUsuario() {
+        return TipoUsuario;
+    }
+
+    /**
+     * @param TipoUsuario the TipoUsuario to set
+     */
+    public void setTipoUsuario(char TipoUsuario) {
+        this.TipoUsuario = TipoUsuario;
+    }
+
+    /**
      * @return the genero
      */
-    public abstract String emitirReporte();
-    public abstract String imprimirDatos();
-    @Override
-    public boolean iniciarSesion(String correo, String dni){
-        return this.primerApellido.equals(primerApellido);
-    }
-    @Override
-    public void cerrarSesion(){
-        
-    }
+//    public abstract String emitirReporte();
+//    public abstract String imprimirDatos();
+//    @Override
+//    public boolean iniciarSesion(String correo, String dni){
+//        return this.primerApellido.equals(primerApellido);
+//    }
+//    @Override
+//    public void cerrarSesion(){
+//        
+//    }
 }

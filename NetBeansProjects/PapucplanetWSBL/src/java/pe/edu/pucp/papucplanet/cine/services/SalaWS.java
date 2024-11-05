@@ -73,4 +73,16 @@ public class SalaWS {
         return sala;
     }
     
+    @WebMethod(operationName = "salasXIdsede")
+    public ArrayList<Sala> salasXIdsede(@WebParam(name="idSede") int idSede) {
+        ArrayList<Sala> salas = null;
+        try{
+            daoSala = new SalaMySQL();
+            salas = daoSala.listarSalasxIdSede(idSede);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return salas;
+    }
+    
 }

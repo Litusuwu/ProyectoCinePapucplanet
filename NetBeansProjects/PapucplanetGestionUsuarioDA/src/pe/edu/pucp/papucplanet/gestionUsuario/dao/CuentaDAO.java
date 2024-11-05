@@ -6,6 +6,7 @@ package pe.edu.pucp.papucplanet.gestionUsuario.dao;
 
 import java.util.ArrayList;
 import pe.edu.pucp.papucplanet.gestionUsuario.model.Cuenta;
+import pe.edu.pucp.papucplanet.gestionUsuario.model.Usuario;
 
 /**
  *
@@ -27,5 +28,5 @@ public interface CuentaDAO {
     // Método para listar todos los administradores
     ArrayList<Cuenta> listar();
     
-    int verificar(Cuenta usuario);
+    Usuario verificar(Cuenta usuario);
 }

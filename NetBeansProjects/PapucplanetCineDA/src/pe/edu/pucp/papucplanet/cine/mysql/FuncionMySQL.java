@@ -17,6 +17,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.sql.SQLException;
+import pe.edu.pucp.papucplanet.cine.model.Genero;
+import pe.edu.pucp.papucplanet.cine.model.Sede;
 
 
 public class FuncionMySQL implements FuncionDAO{
@@ -32,8 +34,8 @@ public class FuncionMySQL implements FuncionDAO{
             cs = con.prepareCall("{call INSERTAR_FUNCION(?,?,?,?,?,?)}");
             cs.registerOutParameter("_id_funcion", java.sql.Types.INTEGER);
             
-            cs.setTime("_horaInicio",Time.valueOf(funcion.getHorarioInicio()));
-            cs.setTime("_horaFin",Time.valueOf(funcion.getHorarioFin()));
+            cs.setTime("_horaInicio", new java.sql.Time(funcion.getHorarioInicio().getTime()));
+            cs.setTime("_horaFin", new java.sql.Time(funcion.getHorarioFin().getTime()));
             
             cs.setDate("_dia",new java.sql.Date(funcion.getDia().getTime()));
             cs.setInt("_fid_sala",funcion.getSala().getIdSala());
@@ -60,8 +62,8 @@ public class FuncionMySQL implements FuncionDAO{
             cs = con.prepareCall("{call MODIFICAR_FUNCION(?,?,?,?,?,?)}");
             cs.setInt("id_funcion",funcion.getIdFuncion());
             
-            cs.setTime("_horaInicio",Time.valueOf(funcion.getHorarioInicio()));
-            cs.setTime("_horaFin",Time.valueOf(funcion.getHorarioFin()));
+            cs.setTime("_horaInicio", new java.sql.Time(funcion.getHorarioInicio().getTime()));
+            cs.setTime("_horaFin", new java.sql.Time(funcion.getHorarioFin().getTime()));
             
             cs.setDate("_dia",new java.sql.Date(funcion.getDia().getTime()));
             cs.setInt("_fid_sala",funcion.getSala().getIdSala());
@@ -120,8 +122,8 @@ public class FuncionMySQL implements FuncionDAO{
             while(rs.next()){
                 funcion = new Funcion();
                 funcion.setIdFuncion(rs.getInt("id_funcion"));
-                funcion.setHorarioInicio(rs.getTime("horaInicio").toLocalTime());
-                funcion.setHorarioFin(rs.getTime("horaFin").toLocalTime());
+                funcion.setHorarioInicio(new java.sql.Time(rs.getTime("horaInicio").getTime()));
+                funcion.setHorarioFin(new java.sql.Time(rs.getTime("horaFin").getTime()));
                 funcion.setDia(rs.getDate("dia"));
                 idPelicula = rs.getInt("fid_pelicula");
                 funcion.setPelicula(peliculaDao.obtenerPorId(idPelicula));
@@ -154,8 +156,8 @@ public class FuncionMySQL implements FuncionDAO{
             int idSala;
             if(rs.next()){
                 funcion.setIdFuncion(rs.getInt("id_funcion"));
-                funcion.setHorarioInicio(rs.getTime("horaInicio").toLocalTime());
-                funcion.setHorarioFin(rs.getTime("horaFin").toLocalTime());
+                funcion.setHorarioInicio(new java.sql.Time(rs.getTime("horaInicio").getTime()));
+                funcion.setHorarioFin(new java.sql.Time(rs.getTime("horaFin").getTime()));
                 funcion.setDia(rs.getDate("dia"));
                 idPelicula = rs.getInt("fid_pelicula");
                 funcion.setPelicula(peliculaDao.obtenerPorId(idPelicula));
@@ -193,8 +195,8 @@ public class FuncionMySQL implements FuncionDAO{
             while (rs.next()) {
                 funcion = new Funcion();
                 funcion.setIdFuncion(rs.getInt("id_funcion"));
-                funcion.setHorarioInicio(rs.getTime("horaInicio").toLocalTime());
-                funcion.setHorarioFin(rs.getTime("horaFin").toLocalTime());       
+                funcion.setHorarioInicio(new java.sql.Time(rs.getTime("horaInicio").getTime()));
+                funcion.setHorarioFin(new java.sql.Time(rs.getTime("horaFin").getTime()));       
                 funcion.setDia(rs.getDate("dia"));          
 
                 // Asignación de la película y la sala a través de DAOs
@@ -218,5 +220,61 @@ public class FuncionMySQL implements FuncionDAO{
         return funciones;
     }
     
+    @Override
+    public ArrayList<Funcion> listarPeliculasConFuncionesActivas() {
+        ArrayList<Funcion> funciones = new ArrayList<>();
+
+        try {
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call ListarPeliculasConFuncionesActivas()}");
+            rs = cs.executeQuery();
+
+            while (rs.next()) {
+                Funcion funcion = new Funcion();
+                funcion.setIdFuncion(rs.getInt("id_funcion"));
+                funcion.setHorarioInicio(rs.getTime("horaInicio"));
+                funcion.setHorarioFin(rs.getTime("horaFin"));
+                funcion.setDia(rs.getDate("dia"));
+
+                // Obtener y asignar la película asociada a la función
+                Pelicula pelicula = new Pelicula();
+                pelicula.setIdPelicula(rs.getInt("id_pelicula"));
+                pelicula.setTitulo(rs.getString("titulo"));
+                pelicula.setDuracion(rs.getDouble("duracion"));
+                pelicula.setGenero(Genero.valueOf(rs.getString("genero")));
+                pelicula.setSinopsis(rs.getString("sinopsis"));
+                pelicula.setImagenPromocional(rs.getString("imagen_link"));
+                funcion.setPelicula(pelicula);
+
+                // Obtener y asignar la sala asociada a la función
+                Sala sala = new Sala();
+                sala.setIdSala(rs.getInt("fid_sala"));
+                
+                //Obtener y asignar la sede asociada a la sala
+                Sede sede = new Sede();
+                sede.setIdSede(rs.getInt("id_sede"));
+                sede.setUniversidad(rs.getString("nombre"));
+                sala.setSede(sede); // Establece la sede en la sala
+                
+                // Puedes agregar más campos de `Sala` aquí si el procedimiento almacenado los devuelve
+                funcion.setSala(sala);
+                // Añadir la función a la lista de funciones
+                funciones.add(funcion);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error al listar funciones con películas activas: " + ex.getMessage());
+        } finally {
+            // Cerrar recursos en el bloque finally
+            try {
+                if (rs != null) rs.close();
+                if (cs != null) cs.close();
+                if (con != null) con.close();
+            } catch (SQLException ex) {
+                System.out.println("Error al cerrar recursos: " + ex.getMessage());
+            }
+        }
+
+        return funciones;
+    }
     
 }

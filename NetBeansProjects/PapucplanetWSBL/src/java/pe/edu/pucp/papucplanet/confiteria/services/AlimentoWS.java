@@ -28,6 +28,18 @@ public class AlimentoWS {
         }
         return alimentos;
     }
+    @WebMethod(operationName = "listarAlimentosPorNombre")
+    public ArrayList<Alimento> listarAlimentosPorNombre(@WebParam(name = "nombreAlimento")
+            String nombreAlimento) {
+        ArrayList<Alimento> alimentos = null;
+        try {
+            daoAlimento = new AlimentoMySQL();
+            alimentos = daoAlimento.listarPorNombre(nombreAlimento);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return alimentos;
+    }
 
     @WebMethod(operationName = "insertarAlimento")
     public int insertarAlimento(@WebParam(name = "alimento") Alimento alimento) {
