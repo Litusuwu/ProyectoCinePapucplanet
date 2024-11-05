@@ -5,6 +5,12 @@
       <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/SalaWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
     </xsd:schema>
   </types>
+  <message name="salasXIdsede">
+    <part name="parameters" element="tns:salasXIdsede" />
+  </message>
+  <message name="salasXIdsedeResponse">
+    <part name="parameters" element="tns:salasXIdsedeResponse" />
+  </message>
   <message name="eliminarSala">
     <part name="parameters" element="tns:eliminarSala" />
   </message>
@@ -42,6 +48,10 @@
     <part name="parameters" element="tns:listarTodosSalaResponse" />
   </message>
   <portType name="SalaWS">
+    <operation name="salasXIdsede">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/salasXIdsedeRequest" message="tns:salasXIdsede" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/salasXIdsedeResponse" message="tns:salasXIdsedeResponse" />
+    </operation>
     <operation name="eliminarSala">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/eliminarSalaRequest" message="tns:eliminarSala" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/eliminarSalaResponse" message="tns:eliminarSalaResponse" />
@@ -69,6 +79,15 @@
   </portType>
   <binding name="SalaWSPortBinding" type="tns:SalaWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="salasXIdsede">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="eliminarSala">
       <soap:operation soapAction="" />
       <input>

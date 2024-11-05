@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PapucplanetWA.Servicio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,19 @@ namespace PapucplanetWA
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            usuario usuarioDatos = (usuario)Session["Usuario"];
+            if (usuarioDatos == null || !usuarioDatos.tipoUsuario.Equals("A"))
+            {
+                if (usuarioDatos == null)
+                {
+                    Session["Redireccion"] = "Login.aspx";
+                }
+                else if (usuarioDatos.tipoUsuario.Equals("C"))
+                {
+                    Session["Redireccion"] = "PeliculasUsuario.aspx";
+                }
+                Response.Redirect("AccesoDenegado.aspx");
+            }
         }
     }
 }

@@ -17,6 +17,7 @@ namespace PapucplanetWA
         BindingList<sede>listaSedes = new BindingList<sede>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
                 listaPeliculas = new BindingList<pelicula>(daoPelicula.listarTodosPelicula());

@@ -63,6 +63,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AccesoDenegado.aspx" />
     <Content Include="AgregarNuevaPelicula.aspx" />
     <Content Include="AgregarNuevoConsumible.aspx" />
     <Content Include="Boletas.aspx" />
@@ -465,6 +466,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoDenegado.aspx.cs">
+      <DependentUpon>AccesoDenegado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccesoDenegado.aspx.designer.cs">
+      <DependentUpon>AccesoDenegado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AgregarNuevaPelicula.aspx.cs">
       <DependentUpon>AgregarNuevaPelicula.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
