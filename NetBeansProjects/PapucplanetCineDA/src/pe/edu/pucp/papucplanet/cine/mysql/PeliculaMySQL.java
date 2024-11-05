@@ -10,6 +10,10 @@ import java.sql.Connection;
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.util.HashSet;
+import pe.edu.pucp.papucplanet.cine.model.Funcion;
+import pe.edu.pucp.papucplanet.cine.model.Sala;
+import pe.edu.pucp.papucplanet.cine.model.Sede;
 
 
 public class PeliculaMySQL implements PeliculaDAO{
@@ -88,29 +92,69 @@ public class PeliculaMySQL implements PeliculaDAO{
     @Override
     public ArrayList<Pelicula> listarTodos() {
         ArrayList<Pelicula> peliculas = new ArrayList<>();
-        try{
+        try {
             con = DBManager.getInstance().getConnection();
-            con.setAutoCommit(false);
             cs = con.prepareCall("{call LISTAR_PELICULAS_TODAS()}");
             rs = cs.executeQuery();
-            Pelicula pelicula;
-            
-            while(rs.next()){
-                pelicula = new Pelicula();
-                pelicula.setIdPelicula(rs.getInt("id_pelicula"));
-                pelicula.setTitulo(rs.getString("titulo"));
-                pelicula.setGenero(Genero.valueOf(rs.getString("genero")));
-                pelicula.setDuracion(rs.getDouble("duracion"));
-                pelicula.setSinopsis(rs.getString("sinopsis"));
-                pelicula.setImagenPromocional(rs.getString("imagen_link"));
-                peliculas.add(pelicula);
+
+            Pelicula pelicula = null;
+            Funcion func;
+            Sala sala;
+            Sede sede;
+            int index = -1;
+            HashSet<Integer> peliculaIds = new HashSet<>(); // Para evitar duplicados de películas
+
+            while (rs.next()) {
+                int peliculaId = rs.getInt("id_pelicula");
+
+                // Solo crea una nueva instancia de Pelicula si no ha sido agregada previamente
+                if (!peliculaIds.contains(peliculaId)) {
+                    pelicula = new Pelicula();
+                    pelicula.setIdPelicula(peliculaId);
+                    pelicula.setTitulo(rs.getString("titulo"));
+                    pelicula.setGenero(Genero.valueOf(rs.getString("genero")));
+                    pelicula.setDuracion(rs.getDouble("duracion"));
+                    pelicula.setSinopsis(rs.getString("sinopsis"));
+                    pelicula.setImagenPromocional(rs.getString("imagen_link"));
+
+                    peliculas.add(pelicula);
+                    peliculaIds.add(peliculaId); // Agrega el id de la película al HashSet
+                }
+
+                // Crear la función, sala y sede
+                func = new Funcion();
+                sala = new Sala();
+                sede = new Sede();
+
+                func.setIdFuncion(rs.getInt("id_funcion"));
+                func.setHorarioInicio(rs.getTime("horaInicio"));
+                func.setHorarioFin(rs.getTime("horaFin"));
+                func.setDia(rs.getDate("dia"));
+
+                sala.setIdSala(rs.getInt("id_sala"));
+                sala.setCapacidad(rs.getInt("capacidad"));
+                sala.setNumeroSala(rs.getInt("numero_sala"));
+
+                sede.setIdSede(rs.getInt("id_sede"));
+                sede.setUbicacion(rs.getString("ubicacion"));
+                sede.setUniversidad(rs.getString("nombre"));
+
+                sala.setSede(sede);
+                func.setSala(sala);
+
+                // Agregar la función a la película
+                pelicula.agregarFuncion(func);
             }
-            con.commit();
-        }catch(SQLException ex){
-            System.out.println(ex.getMessage());
-            try{con.rollback();}catch(SQLException ex1){ex1.getMessage(); }
-        }finally{
-            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
+        } catch (SQLException ex) {
+            System.out.println("Error en listarTodos(): " + ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (cs != null) cs.close();
+                if (con != null) con.close();
+            } catch (SQLException ex) {
+                System.out.println("Error al cerrar recursos: " + ex.getMessage());
+            }
         }
         return peliculas;
     }

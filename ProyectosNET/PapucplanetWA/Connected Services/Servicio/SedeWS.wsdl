@@ -5,12 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/SedeWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
     </xsd:schema>
   </types>
-  <message name="insertarSede">
-    <part name="parameters" element="tns:insertarSede" />
-  </message>
-  <message name="insertarSedeResponse">
-    <part name="parameters" element="tns:insertarSedeResponse" />
-  </message>
   <message name="eliminarSede">
     <part name="parameters" element="tns:eliminarSede" />
   </message>
@@ -35,11 +29,13 @@
   <message name="listarTodosSedeResponse">
     <part name="parameters" element="tns:listarTodosSedeResponse" />
   </message>
+  <message name="insertarSede">
+    <part name="parameters" element="tns:insertarSede" />
+  </message>
+  <message name="insertarSedeResponse">
+    <part name="parameters" element="tns:insertarSedeResponse" />
+  </message>
   <portType name="SedeWS">
-    <operation name="insertarSede">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/insertarSedeRequest" message="tns:insertarSede" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/insertarSedeResponse" message="tns:insertarSedeResponse" />
-    </operation>
     <operation name="eliminarSede">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/eliminarSedeRequest" message="tns:eliminarSede" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/eliminarSedeResponse" message="tns:eliminarSedeResponse" />
@@ -56,18 +52,13 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/listarTodosSedeRequest" message="tns:listarTodosSede" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/listarTodosSedeResponse" message="tns:listarTodosSedeResponse" />
     </operation>
+    <operation name="insertarSede">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/insertarSedeRequest" message="tns:insertarSede" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/insertarSedeResponse" message="tns:insertarSedeResponse" />
+    </operation>
   </portType>
   <binding name="SedeWSPortBinding" type="tns:SedeWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="insertarSede">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="eliminarSede">
       <soap:operation soapAction="" />
       <input>
@@ -96,6 +87,15 @@
       </output>
     </operation>
     <operation name="listarTodosSede">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarSede">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -38,15 +38,12 @@
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
       <xs:element minOccurs="0" name="dia" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="horarioFin" type="tns:localTime" />
-      <xs:element minOccurs="0" name="horarioInicio" type="tns:localTime" />
+      <xs:element minOccurs="0" name="horarioFin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="horarioInicio" type="xs:dateTime" />
       <xs:element name="idFuncion" type="xs:int" />
       <xs:element minOccurs="0" name="pelicula" type="tns:pelicula" />
       <xs:element minOccurs="0" name="sala" type="tns:sala" />
     </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="localTime" final="extension restriction">
-    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="sala">
     <xs:sequence>
@@ -65,6 +62,16 @@
       <xs:element minOccurs="0" name="universidad" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="insertarPelicula">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="pelicula" type="tns:pelicula" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarPeliculaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="listarGeneros">
     <xs:sequence />
   </xs:complexType>
@@ -73,12 +80,12 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:genero" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="insertarPelicula">
+  <xs:complexType name="eliminarPelicula">
     <xs:sequence>
-      <xs:element minOccurs="0" name="pelicula" type="tns:pelicula" />
+      <xs:element name="idPelicula" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="insertarPeliculaResponse">
+  <xs:complexType name="eliminarPeliculaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
@@ -91,16 +98,6 @@
   <xs:complexType name="obtenerPorIdPeliculaResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:pelicula" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="eliminarPelicula">
-    <xs:sequence>
-      <xs:element name="idPelicula" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="eliminarPeliculaResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarPorNombrePelicula">

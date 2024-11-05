@@ -14,6 +14,7 @@ public class Pelicula {
     private ArrayList<Funcion> funciones;
     
     public Pelicula(){
+        funciones = new ArrayList<>();
     }
 
     public Pelicula(String titulo, double duracion, Genero genero, String sinopsis, String imagenPromocional) {
@@ -84,6 +85,10 @@ public class Pelicula {
 
     public void setImagenPromocional(String imagenPromocional) {
         this.imagenPromocional = imagenPromocional;
+    }
+    
+    public void agregarFuncion(Funcion func){
+        funciones.add(func);
     }
     
     public String imprimirDatos(){
