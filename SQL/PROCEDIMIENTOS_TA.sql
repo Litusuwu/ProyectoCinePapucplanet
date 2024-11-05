@@ -68,7 +68,7 @@ DROP PROCEDURE IF EXISTS ELIMINAR_PELICULA_X_ID;
 
 DROP PROCEDURE IF EXISTS LISTAR_PELICULA_X_NOMBRE;
 DROP PROCEDURE IF EXISTS LISTAR_GENEROS_ENUM;
-
+DROP PROCEDURE IF EXISTS ListarPeliculasConFuncionesActivas;
 -- Drops de Butaca
 DROP PROCEDURE IF EXISTS INSERTAR_BUTACA;
 DROP PROCEDURE IF EXISTS LISTAR_BUTACAS_TODAS;
@@ -542,10 +542,17 @@ END$
 
 CREATE PROCEDURE LISTAR_PELICULAS_TODAS()
 BEGIN
-    SELECT p.id_pelicula, p.titulo, p.duracion, p.genero, p.sinopsis, p.imagen_link, p.activo 
+    SELECT 
+        p.id_pelicula, p.titulo,p.duracion,p.genero,p.sinopsis,p.imagen_link,
+        f.id_funcion,f.horaInicio,f.horaFin,f.dia,
+        s.id_sala,s.capacidad,s.numero_sala,
+        sd.id_sede,sd.ubicacion,sd.nombre
     FROM Pelicula p
-    WHERE p.activo = 1;
-END$
+    LEFT JOIN Funcion f ON p.id_pelicula = f.fid_pelicula
+    LEFT JOIN Sala s ON f.fid_sala = s.id_sala
+    LEFT JOIN Sede sd ON s.fid_sede = sd.id_sede
+    WHERE p.activo = 1 AND f.activo = 1 AND s.activo = 1 AND sd.activo = 1;
+END;
 
 CREATE PROCEDURE MODIFICAR_PELICULA(
     IN _id_pelicula INT,
@@ -584,6 +591,21 @@ BEGIN
 	SELECT p.id_pelicula, p.titulo, p.duracion, p.genero, p.imagen_link 
     FROM Pelicula p 
     WHERE p.activo = 1 AND p.titulo LIKE CONCAT('%',_nombre,'%');
+END$
+
+-- NEW PROCEDURE:
+CREATE PROCEDURE ListarPeliculasConFuncionesActivas()
+BEGIN
+    SELECT 
+        p.id_pelicula,p.titulo,p.duracion,p.genero,p.sinopsis,p.imagen_link,
+        f.id_funcion,f.horaInicio,f.horaFin,f.dia,f.fid_sala,
+		sd.id_sede,sd.nombre
+    FROM 
+        Pelicula p
+    LEFT JOIN Funcion f ON p.id_pelicula = f.fid_pelicula
+    LEFT JOIN Sala s ON f.fid_sala = s.id_sala
+    LEFT JOIN Sede sd ON s.fid_sede = sd.id_sede
+    WHERE p.activo = 1 AND f.activo = 1 AND s.activo = 1 AND sd.activo = 1;
 END$
 
 -- Procedimientos de Sala
