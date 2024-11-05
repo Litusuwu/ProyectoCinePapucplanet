@@ -45,27 +45,31 @@
     <!-- Contenedor de la Tabla con Barra de Búsqueda -->
 </div>
     <!-- Tabla de Salas -->
-    <asp:GridView ID="gvSalas" runat="server" AllowPaging="true" PageSize="5" AutoGenerateColumns="false"
-        CssClass="table table-hover table-responsive table-striped text-center gridview-pagination" ShowHeaderWhenEmpty="true"
-        PagerStyle-CssClass="pagination-container" OnPageIndexChanging="gvSalas_PageIndexChanging" OnRowDataBound="gvSalas_RowDataBound">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-        <Columns>
-            <asp:BoundField DataField="numeroSala" HeaderText="Sala" ItemStyle-CssClass="text-center py-4" />
-            <asp:BoundField DataField="numCol" HeaderText="Numero de columnas" ItemStyle-CssClass="text-center py-4" />
-            <asp:BoundField DataField="numFila" HeaderText="Número de filas" ItemStyle-CssClass="text-center py-4" />
-            <asp:BoundField DataField="capacidad" HeaderText="Capacidad" ItemStyle-CssClass="text-center py-4" />
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <asp:GridView ID="gvSalas" runat="server" AllowPaging="true" PageSize="5" AutoGenerateColumns="false"
+                CssClass="table table-hover table-responsive table-striped text-center gridview-pagination" ShowHeaderWhenEmpty="true"
+                PagerStyle-CssClass="pagination-container" OnPageIndexChanging="gvSalas_PageIndexChanging" OnRowDataBound="gvSalas_RowDataBound">
+            
+                <Columns>
+                    <asp:BoundField DataField="numeroSala" HeaderText="Sala" ItemStyle-CssClass="text-center py-4" />
+                    <asp:BoundField DataField="numCol" HeaderText="Numero de columnas" ItemStyle-CssClass="text-center py-4" />
+                    <asp:BoundField DataField="numFila" HeaderText="Número de filas" ItemStyle-CssClass="text-center py-4" />
+                    <asp:BoundField DataField="capacidad" HeaderText="Capacidad" ItemStyle-CssClass="text-center py-4" />
 
-            <asp:TemplateField HeaderText="Acciones" ItemStyle-CssClass="text-center py-4">
-                <ItemTemplate>
-                    <!-- Botón para Eliminar -->
-                    <asp:LinkButton runat="server"  CommandArgument='<%# Eval("idSala") %>'
-                        CssClass="text-decoration-none text-danger" ToolTip="Eliminar" OnClick="btnDeleteSala_Click">
-                            <i class="fas fa-trash"></i>
-                        </asp:LinkButton>
-                </ItemTemplate>
-            </asp:TemplateField>
-        </Columns>
-    </asp:GridView>
+                    <asp:TemplateField HeaderText="Acciones" ItemStyle-CssClass="text-center py-4">
+                        <ItemTemplate>
+                            <!-- Botón para Eliminar -->
+                            <asp:LinkButton runat="server" CommandArgument='<%# Eval("idSala") %>'
+                                CssClass="text-decoration-none text-danger" ToolTip="Eliminar" OnClick="btnDeleteSala_Click">
+                                    <i class="fas fa-trash"></i>
+                            </asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
     <!--POP UP de Añadir-->
     <div class="modal" id="form-modal-sala-add">
         <div class="modal-dialog modal-sm">
@@ -90,7 +94,25 @@
             </div>
         </div>
     </div>
-    <div class="modal" id="form-modal-sala-butacas">
-    
+    <!--POP UP de Error-->
+    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="errorModalLabel">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>Mensaje de Error
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <asp:Label ID="lblMensajeError" runat="server" Text="Mensaje de ejemplo..." CssClass="form-text text-danger"></asp:Label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
     </div>
+    </ContentTemplate>
+</asp:UpdatePanel>
 </asp:Content>

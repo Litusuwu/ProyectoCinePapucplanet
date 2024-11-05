@@ -1,9 +1,15 @@
-﻿function showModalFormSalaAdd() {
-    var modalFormSedeAdd = new bootstrap.Modal(document.getElementById('form-modal-sala-add'));
-    modalFormSedeAdd.toggle();
+﻿let modalFormSedeAdd;
+let modalFormError;
+function showModalFormSalaAdd() {
+    modalFormSedeAdd = new bootstrap.Modal(document.getElementById('form-modal-sala-add'));
+    modalFormSedeAdd.show();
 }
 
-function showModalFormSalaMod() {
-    var modalFormSedeMod = new bootstrap.Modal(document.getElementById('form-modal-sala-mod'));
-    modalFormSedeMod.toggle();
+function showModalFormError() {
+    modalFormError = new bootstrap.Modal(document.getElementById('errorModal'));
+    modalFormError.show();
+}
+
+function hideModalFormSedeAdd() {
+    modalFormSedeAdd.hide();
 }

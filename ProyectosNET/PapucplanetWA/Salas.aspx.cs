@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -38,12 +39,49 @@ namespace PapucplanetWA
 
         protected void btnAddSala_Click(object sender, EventArgs e)
         {
-            string script = "window.onload = function() " + "{showModalFormSalaAdd()};";
-            ClientScript.RegisterStartupScript(GetType(), "", script, true);
+            string script = "showModalFormSalaAdd();";
+            ScriptManager.RegisterStartupScript(this,GetType(),"showModalFormSalaAdd", script, true);
         }
 
         protected void lbGuardar_ClickAdd(object sender, EventArgs e)
         {
+            string script = "hideModalFormSedeAdd();";
+            ScriptManager.RegisterStartupScript(this, GetType(), "hideModalFormSedeAdd", script, true);
+            if (txtNumSala.Text == "" && txtNumCol.Text == "" && txtNumSala.Text=="" && txtCapacidad.Text=="")
+            {
+                lblMensajeError.Text = "Todos los campos estan vacios";
+                script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
+            if (!Regex.IsMatch(txtNumSala.Text, @"^\d+$"))
+            {
+                lblMensajeError.Text = "El numero de sala no contiene caracteres numericos";
+                script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
+            if (!Regex.IsMatch(txtNumCol.Text, @"^\d+$"))
+            {
+                lblMensajeError.Text = "El numero de columnas no contiene caracteres numericos";
+                script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
+            if (!Regex.IsMatch(txtNumFilas.Text, @"^\d+$"))
+            {
+                lblMensajeError.Text = "El numero de filas no contiene caracteres numericos";
+                script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
+            if (!Regex.IsMatch(txtCapacidad.Text, @"^\d+$"))
+            {
+                lblMensajeError.Text = "La capacidad no contiene caracteres numericos";
+                script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
             sala sala = new sala();
             sala.numeroSala = Int32.Parse(txtNumSala.Text);
             sala.capacidad = Int32.Parse(txtCapacidad.Text);
