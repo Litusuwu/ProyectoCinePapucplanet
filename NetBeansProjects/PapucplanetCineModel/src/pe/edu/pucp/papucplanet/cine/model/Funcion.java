@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class Funcion {
     private int idFuncion;
-    private LocalTime horarioInicio;
-    private LocalTime horarioFin;
+    private Date horarioInicio;
+    private Date horarioFin;
     private Date dia;
     private Pelicula pelicula;
     private Sala sala;
@@ -14,7 +14,7 @@ public class Funcion {
     private boolean activo;
     public Funcion(){
     }
-    public Funcion(LocalTime horarioInicio, LocalTime horarioFin, Date dia, Pelicula pelicula, Sala sala) {
+    public Funcion(Date horarioInicio, Date horarioFin, Date dia, Pelicula pelicula, Sala sala) {
         this.horarioInicio = horarioInicio;
         this.horarioFin = horarioFin;
         this.dia = dia;
@@ -35,20 +35,20 @@ public class Funcion {
     
     
     // Getter y Setter para horarioInicio
-    public void setHorarioInicio(LocalTime horarioInicio) {
+    public void setHorarioInicio(Date horarioInicio) {
         this.horarioInicio = horarioInicio;
     }
 
-    public LocalTime getHorarioInicio() {
+    public Date getHorarioInicio() {
         return horarioInicio;
     }
 
     // Getter y Setter para horarioFin
-    public void setHorarioFin(LocalTime horarioFin) {
+    public void setHorarioFin(Date horarioFin) {
         this.horarioFin = horarioFin;
     }
 
-    public LocalTime getHorarioFin() {
+    public Date getHorarioFin() {
         return horarioFin;
     }
 

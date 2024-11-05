@@ -51,13 +51,13 @@ namespace PapucplanetWA
         protected global::System.Web.UI.WebControls.LinkButton lnkPerfil;
 
         /// <summary>
-        /// Control ddlPelicula.
+        /// Control ddlMovie.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPelicula;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMovie;
 
         /// <summary>
         /// Control ddlCine.
