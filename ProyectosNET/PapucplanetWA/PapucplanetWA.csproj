@@ -63,7 +63,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AccesoDenegado.aspx" />
     <Content Include="AgregarNuevaPelicula.aspx" />
     <Content Include="AgregarNuevoConsumible.aspx" />
     <Content Include="Boletas.aspx" />
@@ -357,19 +356,13 @@
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.obtenerPorIdSedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.usuario.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.verificarCuentaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.salasXIdsedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarAlimentosPorNombreResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarBebidasPorNombreResponse.datasource">
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.usuario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarPeliculasConFuncionesActivasFuncionResponse1.datasource">
@@ -421,7 +414,6 @@
     <Content Include="Content\Fonts\css\v5-font-face.css" />
     <Content Include="Content\Fonts\css\v5-font-face.min.css" />
     <Content Include="Content\styles.css" />
-    <Content Include="Scripts\Papucplanet\Consumibles.js" />
     <Content Include="Styles\Butacas.css" />
     <Content Include="Styles\DetallePelicula.css" />
     <Content Include="DetallePelicula.aspx" />
@@ -469,13 +461,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccesoDenegado.aspx.cs">
-      <DependentUpon>AccesoDenegado.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AccesoDenegado.aspx.designer.cs">
-      <DependentUpon>AccesoDenegado.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AgregarNuevaPelicula.aspx.cs">
       <DependentUpon>AgregarNuevaPelicula.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

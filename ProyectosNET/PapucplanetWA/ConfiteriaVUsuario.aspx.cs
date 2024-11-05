@@ -12,6 +12,7 @@ namespace PapucplanetWA
     {
         private AlimentoWSClient alimentoDAO = new AlimentoWSClient();
         private BebidaWSClient bebidaDAO = new BebidaWSClient();
+        private boleta bol;
         protected void Page_Init(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -76,6 +77,7 @@ namespace PapucplanetWA
             }
             List<alimento> alimentos;
             var resultadoAlimentos = alimentoDAO.listarTodosAlimentos();
+            
             if (resultadoAlimentos != null)
             {
                 alimentos = new List<alimento>(resultadoAlimentos);
@@ -114,9 +116,12 @@ namespace PapucplanetWA
                 bebid.Add(prod);
                 todosLosProductos.Add(prod);
             }
+            Session["Alimentos"] = alimentos; //las que tienen todos los datos
+            Session["Bebidas"] = bebidas;
             Session["TodosLosProductos"] = todosLosProductos;
             Session["ProductosAlimentos"] = aliment;
             Session["ProductosBebidas"] = bebid;
+            
             if (Session["CantidadProductos"] == null)
             {
                 Session["CantidadProductos"] = new Dictionary<int, int>();
@@ -179,25 +184,78 @@ namespace PapucplanetWA
 
         private void IncrementarCantidad(int productoId)
         {
+            bol = (boleta)Session["Boleta"];
+            List<alimento> listaA=(List<alimento>)Session["Alimentos"];
+            List<bebida>listaB=(List<bebida>)Session["Bebidas"];
+            List<lineaBoleta>lineasBoleta=new List<lineaBoleta> (bol.lineasBoleta);
             var cantidades = (Dictionary<int, int>)Session["CantidadProductos"];
+            // Verifica si la línea de boleta ya contiene el producto
+            var lineaExistente = lineasBoleta.FirstOrDefault(lb => lb.consumible.id == productoId);
+            consumible cons;
+            cons = listaA.FirstOrDefault(consumible => consumible.id == productoId);
+            if(cons==null) cons = listaB.FirstOrDefault(consumible => consumible.id == productoId);
+
             if (cantidades.ContainsKey(productoId))
             {
                 cantidades[productoId]++;
+                if (lineaExistente != null)
+                {
+                    // Si el producto ya está en la línea de boleta, incrementa su cantidad
+                    lineaExistente.cantidad += 1;
+                    lineaExistente.subtotal += cons.precio;
+                }
+                else
+                {
+                    // si no está en la línea de boleta, agrega una nueva línea con cantidad 1
+                    lineaBoleta lin=new lineaBoleta();
+                    lin.cantidad = 1;
+                    //busco el consumble y lleno los datos
+                    lin.consumible = cons;
+                    lin.subtotal = cons.precio;
+                    lineasBoleta.Add(lin);
+                }
             }
             else
             {
                 cantidades[productoId] = 1;
+                lineaBoleta lin = new lineaBoleta();
+                lin.cantidad = 1;
+                lin.consumible = cons;
+                lin.subtotal = cons.precio;
+                lineasBoleta.Add(lin);
             }
+            bol.total += cons.precio;
             Session["CantidadProductos"] = cantidades;
         }
 
         private void DecrementarCantidad(int productoId)
         {
+            bol= (boleta)Session["Boleta"];
             var cantidades = (Dictionary<int, int>)Session["CantidadProductos"];
+            List<alimento> listaA = (List<alimento>)Session["Alimentos"];
+            List<bebida> listaB = (List<bebida>)Session["Bebidas"];
+            List<lineaBoleta> lineasBoleta = new List<lineaBoleta>(bol.lineasBoleta);
+            consumible cons;
+            cons = listaA.FirstOrDefault(consumible => consumible.id == productoId);
+            if (cons == null) cons = listaB.FirstOrDefault(consumible => consumible.id == productoId);
+            var lineaExistente = lineasBoleta.FirstOrDefault(lb => lb.consumible.id == productoId);
             if (cantidades.ContainsKey(productoId) && cantidades[productoId] > 0)
             {
                 cantidades[productoId]--;
+                if (cantidades[productoId] == 0)
+                {
+                    lineasBoleta.Remove(lineaExistente);
+                }
+                else
+                {
+                    lineaExistente.cantidad -= 1;
+                    lineaExistente.subtotal -= cons.precio;
+                    
+                }
+                bol.total -= cons.precio;
             }
+            bol.lineasBoleta = lineasBoleta.ToArray();
+            Session["Boleta"] = bol;
             Session["CantidadProductos"] = cantidades;
         }
 
