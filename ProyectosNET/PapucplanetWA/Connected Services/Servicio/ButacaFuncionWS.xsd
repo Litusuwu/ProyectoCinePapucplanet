@@ -47,16 +47,14 @@
   <xs:complexType name="funcion">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="butacasFuncion" nillable="true" type="tns:butacaFuncion" />
       <xs:element minOccurs="0" name="dia" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="horarioFin" type="tns:localTime" />
-      <xs:element minOccurs="0" name="horarioInicio" type="tns:localTime" />
+      <xs:element minOccurs="0" name="horarioFin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="horarioInicio" type="xs:dateTime" />
       <xs:element name="idFuncion" type="xs:int" />
       <xs:element minOccurs="0" name="pelicula" type="tns:pelicula" />
       <xs:element minOccurs="0" name="sala" type="tns:sala" />
     </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="localTime" final="extension restriction">
-    <xs:sequence />
   </xs:complexType>
   <xs:complexType name="pelicula">
     <xs:sequence>
@@ -75,6 +73,8 @@
       <xs:element name="activo" type="xs:boolean" />
       <xs:element name="capacidad" type="xs:int" />
       <xs:element name="idSala" type="xs:int" />
+      <xs:element name="numCol" type="xs:int" />
+      <xs:element name="numFila" type="xs:int" />
       <xs:element name="numeroSala" type="xs:int" />
       <xs:element minOccurs="0" name="sede" type="tns:sede" />
     </xs:sequence>

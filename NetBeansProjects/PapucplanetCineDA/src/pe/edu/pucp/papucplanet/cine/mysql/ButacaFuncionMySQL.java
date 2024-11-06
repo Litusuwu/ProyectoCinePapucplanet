@@ -34,13 +34,6 @@ public class ButacaFuncionMySQL implements ButacaFuncionDAO{
             cs.setString("_estado_butaca",butacaFuncion.getEstado().toString());
             cs.setDouble("_precio",butacaFuncion.getPrecio());
             cs.executeUpdate();
-            /*
-            ButacaFuncionDAO bufuDao = new ButacaFuncionMySQL();
-            for(ButacaFuncion bufu: funcion.getButacasFuncion()){
-                bufu.setFuncion(funcion);
-                bufuDao.insertar(bufu);
-            }
-            //pelicula.setIdPelicula(cs.getInt("_id_pelicula"));*/
             
             result = butacaFuncion.getIdButacaFuncion();
             con.commit();
@@ -215,6 +208,4 @@ public class ButacaFuncionMySQL implements ButacaFuncionDAO{
         return butacasFuncion; // Devolver la lista
     }
     
-    
-
 }

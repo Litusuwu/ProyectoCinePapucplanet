@@ -4,37 +4,75 @@
   <xs:element name="eliminarFuncionResponse" type="tns:eliminarFuncionResponse" />
   <xs:element name="insertarFuncion" type="tns:insertarFuncion" />
   <xs:element name="insertarFuncionResponse" type="tns:insertarFuncionResponse" />
+  <xs:element name="listarFuncionesPorFecha" type="tns:listarFuncionesPorFecha" />
+  <xs:element name="listarFuncionesPorFechaResponse" type="tns:listarFuncionesPorFechaResponse" />
   <xs:element name="listarTodosFuncion" type="tns:listarTodosFuncion" />
   <xs:element name="listarTodosFuncionResponse" type="tns:listarTodosFuncionResponse" />
   <xs:element name="modificarFuncion" type="tns:modificarFuncion" />
+  <xs:element name="modificarFuncionConButacasFuncion" type="tns:modificarFuncionConButacasFuncion" />
+  <xs:element name="modificarFuncionConButacasFuncionResponse" type="tns:modificarFuncionConButacasFuncionResponse" />
   <xs:element name="modificarFuncionResponse" type="tns:modificarFuncionResponse" />
   <xs:element name="obtenerFuncionesPorPeliculaFuncion" type="tns:obtenerFuncionesPorPeliculaFuncion" />
   <xs:element name="obtenerFuncionesPorPeliculaFuncionResponse" type="tns:obtenerFuncionesPorPeliculaFuncionResponse" />
   <xs:element name="obtenerPorIdFuncion" type="tns:obtenerPorIdFuncion" />
   <xs:element name="obtenerPorIdFuncionResponse" type="tns:obtenerPorIdFuncionResponse" />
-  <xs:complexType name="obtenerPorIdFuncion">
+  <xs:complexType name="modificarFuncionConButacasFuncion">
     <xs:sequence>
-      <xs:element name="idFuncion" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="obtenerPorIdFuncionResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:funcion" />
+      <xs:element minOccurs="0" name="funcion" type="tns:funcion" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="funcion">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="butacasFuncion" nillable="true" type="tns:butacaFuncion" />
       <xs:element minOccurs="0" name="dia" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="horarioFin" type="tns:localTime" />
-      <xs:element minOccurs="0" name="horarioInicio" type="tns:localTime" />
+      <xs:element minOccurs="0" name="horarioFin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="horarioInicio" type="xs:dateTime" />
       <xs:element name="idFuncion" type="xs:int" />
       <xs:element minOccurs="0" name="pelicula" type="tns:pelicula" />
       <xs:element minOccurs="0" name="sala" type="tns:sala" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="localTime" final="extension restriction">
-    <xs:sequence />
+  <xs:complexType name="butacaFuncion">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:butaca">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="estado" type="tns:estadoButaca" />
+          <xs:element minOccurs="0" name="funcion" type="tns:funcion" />
+          <xs:element name="idButacaFuncion" type="xs:int" />
+          <xs:element name="precio" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="butaca">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="columna" type="xs:int" />
+      <xs:element name="discapacitado" type="xs:boolean" />
+      <xs:element name="fila" type="xs:unsignedShort" />
+      <xs:element name="idButaca" type="xs:int" />
+      <xs:element minOccurs="0" name="sala" type="tns:sala" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sala">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="capacidad" type="xs:int" />
+      <xs:element name="idSala" type="xs:int" />
+      <xs:element name="numCol" type="xs:int" />
+      <xs:element name="numFila" type="xs:int" />
+      <xs:element name="numeroSala" type="xs:int" />
+      <xs:element minOccurs="0" name="sede" type="tns:sede" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sede">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="idSede" type="xs:int" />
+      <xs:element minOccurs="0" name="ubicacion" type="xs:string" />
+      <xs:element minOccurs="0" name="universidad" type="xs:string" />
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="pelicula">
     <xs:sequence>
@@ -48,21 +86,9 @@
       <xs:element minOccurs="0" name="titulo" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="sala">
+  <xs:complexType name="modificarFuncionConButacasFuncionResponse">
     <xs:sequence>
-      <xs:element name="activo" type="xs:boolean" />
-      <xs:element name="capacidad" type="xs:int" />
-      <xs:element name="idSala" type="xs:int" />
-      <xs:element name="numeroSala" type="xs:int" />
-      <xs:element minOccurs="0" name="sede" type="tns:sede" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="sede">
-    <xs:sequence>
-      <xs:element name="activo" type="xs:boolean" />
-      <xs:element name="idSede" type="xs:int" />
-      <xs:element minOccurs="0" name="ubicacion" type="xs:string" />
-      <xs:element minOccurs="0" name="universidad" type="xs:string" />
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="modificarFuncion">
@@ -73,6 +99,16 @@
   <xs:complexType name="modificarFuncionResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdFuncion">
+    <xs:sequence>
+      <xs:element name="idFuncion" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdFuncionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:funcion" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarTodosFuncion">
@@ -89,6 +125,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="obtenerFuncionesPorPeliculaFuncionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:funcion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarFuncionesPorFecha">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fecha" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarFuncionesPorFechaResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:funcion" />
     </xs:sequence>
@@ -113,6 +159,14 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
+  <xs:simpleType name="estadoButaca">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DISPONIBLE" />
+      <xs:enumeration value="OCUPADA" />
+      <xs:enumeration value="RESERVADA" />
+      <xs:enumeration value="MANTENIMIENTO" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="genero">
     <xs:restriction base="xs:string">
       <xs:enumeration value="ACCION" />

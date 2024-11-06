@@ -22,7 +22,7 @@ CALL INSERTAR_ALIMENTO(@id_bebida, "Papas Lays", 8.80, 240, "SNACK", "~/Uploads/
 CALL INSERTAR_ALIMENTO(@id_bebida, "Porción Torta", 5.80, 400, "POSTRE", "~/Uploads/torta.jpg", 'A');
 CALL INSERTAR_ALIMENTO(@id_bebida, "Helado", 6.80, 400, "POSTRE", "~/Uploads/helado.jpg", 'A');
 
-
+#Inserts BUTACAS
 INSERT INTO Butaca (fila, columna, discapacitado, fid_sala, activo) VALUES
 ('A', 1, FALSE, 1, 1),
 ('A', 2, FALSE, 1, 1),
@@ -33,6 +33,12 @@ INSERT INTO Butaca (fila, columna, discapacitado, fid_sala, activo) VALUES
 ('B', 7, FALSE, 1, 1),
 ('B', 8, FALSE, 1, 1);
 
+CALL INSERTAR_BUTACA(@id_butaca, 'A', 1, FALSE, 28);
+CALL INSERTAR_BUTACA(@id_butaca, 'A', 2, FALSE, 28);
+CALL INSERTAR_BUTACA(@id_butaca, 'B', 1, FALSE, 28);
+CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, FALSE, 28);
+
+#Inserts BUTACASFUNCIONES
 INSERT INTO ButacaFuncion (fid_butaca, fid_funcion, estado_butaca, precio, activo) VALUES
 (1, 2, 'DISPONIBLE', 15.00, 1),
 (2, 2, 'DISPONIBLE', 15.00, 1),
@@ -42,3 +48,19 @@ INSERT INTO ButacaFuncion (fid_butaca, fid_funcion, estado_butaca, precio, activ
 (6, 2, 'DISPONIBLE', 15.00, 1),
 (7, 2, 'DISPONIBLE', 15.00, 1),
 (8, 2, 'DISPONIBLE', 15.00, 1);
+
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 34, 19, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 35, 19, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 36, 19, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 37, 19, 'DISPONIBLE', 15.00);
+
+#Inserts de SALAS
+CALL INSERTAR_SALA(@id_sala, 1, 3, 50);
+CALL INSERTAR_SALA(@id_sala, 2, 3, 50);
+CALL INSERTAR_SALA(@id_sala, 3, 3, 50);
+CALL INSERTAR_SALA(@id_sala, 4, 3, 50);
+CALL INSERTAR_SALA(@id_sala, 1, 4, 50);
+CALL INSERTAR_SALA(@id_sala, 2, 4, 50);
+CALL INSERTAR_SALA(@id_sala, 3, 4, 50);
+CALL INSERTAR_SALA(@id_sala, 4, 4, 50);
+CALL INSERTAR_SALA(@id_sala, 5, 4, 50);

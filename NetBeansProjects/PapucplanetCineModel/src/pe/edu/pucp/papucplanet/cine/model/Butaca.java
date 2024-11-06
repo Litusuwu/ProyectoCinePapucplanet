@@ -3,7 +3,6 @@ public class Butaca {
     private int idButaca;
     private char fila;
     private int columna;
-    
     private boolean discapacitado;
     private Sala sala;
     private boolean activo;

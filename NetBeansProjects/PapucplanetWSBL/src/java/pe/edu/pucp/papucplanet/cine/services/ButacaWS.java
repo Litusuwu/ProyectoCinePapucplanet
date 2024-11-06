@@ -72,4 +72,16 @@ public class ButacaWS {
         }
         return butaca;
     }
+    
+    @WebMethod(operationName = "listarButacasXSala")
+    public ArrayList<Butaca> listarButacasXSala(@WebParam(name = "idSala") int idSala) {
+        ArrayList<Butaca> butacas = null;
+        try {
+            daoButaca = new ButacaMySQL();
+            butacas = daoButaca.listarButacasXSala(idSala);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return butacas;
+    }
 }

@@ -5,11 +5,17 @@
       <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/AlimentoWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
     </xsd:schema>
   </types>
-  <message name="eliminarAlimento">
-    <part name="parameters" element="tns:eliminarAlimento" />
+  <message name="obtenerPorIdAlimento">
+    <part name="parameters" element="tns:obtenerPorIdAlimento" />
   </message>
-  <message name="eliminarAlimentoResponse">
-    <part name="parameters" element="tns:eliminarAlimentoResponse" />
+  <message name="obtenerPorIdAlimentoResponse">
+    <part name="parameters" element="tns:obtenerPorIdAlimentoResponse" />
+  </message>
+  <message name="listarTodosAlimentos">
+    <part name="parameters" element="tns:listarTodosAlimentos" />
+  </message>
+  <message name="listarTodosAlimentosResponse">
+    <part name="parameters" element="tns:listarTodosAlimentosResponse" />
   </message>
   <message name="insertarAlimento">
     <part name="parameters" element="tns:insertarAlimento" />
@@ -23,22 +29,20 @@
   <message name="actualizarAlimentoResponse">
     <part name="parameters" element="tns:actualizarAlimentoResponse" />
   </message>
-  <message name="listarTodosAlimentos">
-    <part name="parameters" element="tns:listarTodosAlimentos" />
+  <message name="eliminarAlimento">
+    <part name="parameters" element="tns:eliminarAlimento" />
   </message>
-  <message name="listarTodosAlimentosResponse">
-    <part name="parameters" element="tns:listarTodosAlimentosResponse" />
-  </message>
-  <message name="obtenerPorIdAlimento">
-    <part name="parameters" element="tns:obtenerPorIdAlimento" />
-  </message>
-  <message name="obtenerPorIdAlimentoResponse">
-    <part name="parameters" element="tns:obtenerPorIdAlimentoResponse" />
+  <message name="eliminarAlimentoResponse">
+    <part name="parameters" element="tns:eliminarAlimentoResponse" />
   </message>
   <portType name="AlimentoWS">
-    <operation name="eliminarAlimento">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/eliminarAlimentoRequest" message="tns:eliminarAlimento" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/eliminarAlimentoResponse" message="tns:eliminarAlimentoResponse" />
+    <operation name="obtenerPorIdAlimento">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/obtenerPorIdAlimentoRequest" message="tns:obtenerPorIdAlimento" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/obtenerPorIdAlimentoResponse" message="tns:obtenerPorIdAlimentoResponse" />
+    </operation>
+    <operation name="listarTodosAlimentos">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/listarTodosAlimentosRequest" message="tns:listarTodosAlimentos" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/listarTodosAlimentosResponse" message="tns:listarTodosAlimentosResponse" />
     </operation>
     <operation name="insertarAlimento">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/insertarAlimentoRequest" message="tns:insertarAlimento" />
@@ -48,18 +52,23 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/actualizarAlimentoRequest" message="tns:actualizarAlimento" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/actualizarAlimentoResponse" message="tns:actualizarAlimentoResponse" />
     </operation>
-    <operation name="listarTodosAlimentos">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/listarTodosAlimentosRequest" message="tns:listarTodosAlimentos" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/listarTodosAlimentosResponse" message="tns:listarTodosAlimentosResponse" />
-    </operation>
-    <operation name="obtenerPorIdAlimento">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/obtenerPorIdAlimentoRequest" message="tns:obtenerPorIdAlimento" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/obtenerPorIdAlimentoResponse" message="tns:obtenerPorIdAlimentoResponse" />
+    <operation name="eliminarAlimento">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/eliminarAlimentoRequest" message="tns:eliminarAlimento" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/eliminarAlimentoResponse" message="tns:eliminarAlimentoResponse" />
     </operation>
   </portType>
   <binding name="AlimentoWSPortBinding" type="tns:AlimentoWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="eliminarAlimento">
+    <operation name="obtenerPorIdAlimento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarTodosAlimentos">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -86,16 +95,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarTodosAlimentos">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerPorIdAlimento">
+    <operation name="eliminarAlimento">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

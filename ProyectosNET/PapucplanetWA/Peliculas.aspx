@@ -5,7 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
-    
     <div class="container">
         <div class="container row">
             <div class="row align-items-center">
@@ -40,7 +39,7 @@
 
                     <asp:TemplateField HeaderText="Funciones" ItemStyle-CssClass="text-center">
                         <ItemTemplate>
-                            <asp:LinkButton runat="server" Text="Ver funciones" OnClick="lbFunciones_Click" CommandArgument='<%# Eval("idPelicula") %>' CssClass="text-purple" />
+                            <asp:LinkButton runat="server" Text="Ver funciones" OnClick="lbFunciones_Click" CommandArgument='<%# Eval("idPelicula") %>' CssClass="text-red" />
                         </ItemTemplate>
                     </asp:TemplateField>
 
@@ -49,7 +48,7 @@
                             <!-- Botón para Modificar -->
                             <asp:LinkButton runat="server" Text="<i class='fa-solid fa-pencil'></i>"
                                 OnClick="lbModificar_Click" CommandArgument='<%# Eval("idPelicula") %>'
-                                CssClass="btn btn-purple btn-sm" ToolTip="Modificar" />
+                                CssClass="btn btn-warning btn-sm" ToolTip="Modificar" />
                             <!-- Botón para Eliminar -->
                             <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash'></i>"
                                 OnClick="lbEliminar_Click" CommandArgument='<%# Eval("idPelicula") %>'
@@ -60,5 +59,4 @@
             </asp:GridView>
         </div>
     </div>
-
 </asp:Content>

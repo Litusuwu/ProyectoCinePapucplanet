@@ -81,6 +81,7 @@ DROP PROCEDURE IF EXISTS MODIFICAR_FUNCION;
 DROP PROCEDURE IF EXISTS LISTAR_FUNCION_X_ID;
 DROP PROCEDURE IF EXISTS ELIMINAR_FUNCION_X_ID;
 DROP PROCEDURE IF EXISTS OBTENER_FUNCIONES_POR_PELICULA;
+DROP PROCEDURE IF EXISTS LISTAR_FUNCIONES_POR_FECHA;
 
 -- Drops de ButacaFuncion
 DROP PROCEDURE IF EXISTS INSERTAR_BUTACA_FUNCION;
@@ -89,6 +90,7 @@ DROP PROCEDURE IF EXISTS MODIFICAR_BUTACA_FUNCION;
 DROP PROCEDURE IF EXISTS LISTAR_BUTACA_FUNCION_X_ID;
 DROP PROCEDURE IF EXISTS ELIMINAR_BUTACA_FUNCION_X_ID;
 DROP PROCEDURE IF EXISTS OBTENER_BUTACAS_X_FUNCION;
+DROP PROCEDURE IF EXISTS ELIMINAR_BUTACAS_FUNCION_X_ID_FUNCION;
 -- Drops de LineaBoleta
 DROP PROCEDURE IF EXISTS INSERTAR_LINEA_BOLETA;
 DROP PROCEDURE IF EXISTS LISTAR_LINEAS_BOLETAS_TODAS;
@@ -509,7 +511,7 @@ CREATE PROCEDURE INSERTAR_PELICULA(
     IN _titulo VARCHAR(60),
     IN _duracion DOUBLE,
     IN _genero ENUM('ACCION', 'DRAMA', 'COMEDIA', 'DOCUMENTAL'),
-    IN _sinopsis VARCHAR(200),
+    IN _sinopsis VARCHAR(1000),
     IN _imagen_link VARCHAR(255)
 )
 BEGIN
@@ -530,7 +532,7 @@ CREATE PROCEDURE MODIFICAR_PELICULA(
     IN _titulo VARCHAR(60),
     IN _duracion DOUBLE,
     IN _genero ENUM('ACCION', 'DRAMA', 'COMEDIA', 'DOCUMENTAL'),
-    IN _sinopsis VARCHAR(200),
+    IN _sinopsis VARCHAR(1000),
     IN _imagen_link VARCHAR(255)
 )
 BEGIN
@@ -611,16 +613,7 @@ BEGIN
 	SET activo = 0 
 	WHERE id_sala = _id_sala;
 END$
-
-CREATE PROCEDURE OBTENER_SALAS_POR_SEDE(
-    IN _id_sede INT
-)
-BEGIN
-    SELECT s.id_sala, s.numero_sala, s.capacidad, s.activo 
-    FROM Sala s
-    WHERE s.fid_sede = _id_sede AND s.activo = 1;
-END$
-
+	
 -- Procedimientos de Butaca
 CREATE PROCEDURE INSERTAR_BUTACA(
     OUT _id_butaca INT,
@@ -671,7 +664,17 @@ BEGIN
     WHERE id_butaca = _id_butaca;
 END$
 
+CREATE PROCEDURE LISTAR_BUTACAS_X_SALA(
+	IN _id_sala INT
+)
+BEGIN
+    SELECT b.id_butaca, b.fila, b.columna, b.discapacitado, b.fid_sala
+    FROM Butaca b
+    WHERE b.fid_sala = _id_sala AND b.activo = 1;
+END$
+
 -- Procedimientos de Funcion
+DELIMITER $
 CREATE PROCEDURE INSERTAR_FUNCION(
     OUT _id_funcion INT,
     IN _horaInicio TIME,
@@ -686,10 +689,12 @@ BEGIN
     SET _id_funcion = @@last_insert_id;
 END$
 
+DELIMITER $
 CREATE PROCEDURE LISTAR_FUNCIONES_TODAS()
 BEGIN
-    SELECT f.id_funcion, f.horaInicio, f.horaFin, f.dia, f.fid_sala, f.fid_pelicula, f.activo 
-    FROM Funcion f
+    SELECT f.id_funcion, f.horaInicio, f.horaFin, f.dia, f.fid_sala, f.fid_pelicula, p.titulo, p.genero, p.duracion, 
+    p.sinopsis, p.imagen_link, sa.numero_sala, se.id_sede, se.nombre as nombre_sede
+    FROM Funcion f INNER JOIN Pelicula p ON f.fid_pelicula = p.id_pelicula INNER JOIN Sala sa ON f.fid_sala = sa.id_sala INNER JOIN Sede se ON se.id_sede = sa.fid_sede
     WHERE f.activo = 1;
 END$
 
@@ -711,8 +716,9 @@ CREATE PROCEDURE LISTAR_FUNCION_X_ID(
     IN _id_funcion INT
 )
 BEGIN
-    SELECT f.id_funcion, f.horaInicio, f.horaFin, f.dia, f.fid_sala, f.fid_pelicula, f.activo 
-    FROM Funcion f 
+    SELECT f.id_funcion, f.horaInicio, f.horaFin, f.dia, f.fid_sala, f.fid_pelicula, p.titulo, p.genero, p.duracion, 
+    p.sinopsis, p.imagen_link, sa.numero_sala, se.id_sede, se.nombre as nombre_sede
+    FROM Funcion f INNER JOIN Pelicula p ON f.fid_pelicula = p.id_pelicula INNER JOIN Sala sa ON f.fid_sala = sa.id_sala INNER JOIN Sede se ON se.id_sede = sa.fid_sede
     WHERE f.id_funcion = _id_funcion AND f.activo = 1;
 END$
 
@@ -727,9 +733,20 @@ CREATE PROCEDURE OBTENER_FUNCIONES_POR_PELICULA(
     IN _id_pelicula INT
 )
 BEGIN
-    SELECT id_funcion, horaInicio, horaFin, dia, fid_sala, fid_pelicula
-    FROM Funcion
+    SELECT f.id_funcion, f.horaInicio, f.horaFin, f.dia, f.fid_sala, f.fid_pelicula, p.titulo, p.genero, p.duracion, 
+    p.sinopsis, p.imagen_link, sa.numero_sala, se.id_sede, se.nombre as nombre_sede
+    FROM Funcion f INNER JOIN Pelicula p ON f.fid_pelicula = p.id_pelicula INNER JOIN Sala sa ON f.fid_sala = sa.id_sala INNER JOIN Sede se ON se.id_sede = sa.fid_sede
     WHERE fid_pelicula = _id_pelicula AND activo = 1;
+END$
+
+CREATE PROCEDURE LISTAR_FUNCIONES_POR_FECHA(
+	IN _fecha DATE
+)
+BEGIN
+	SELECT f.id_funcion, f.horaInicio, f.horaFin, f.dia, f.fid_sala, f.fid_pelicula, p.titulo, p.genero, p.duracion, 
+    p.sinopsis, p.imagen_link, sa.numero_sala, se.id_sede, se.nombre as nombre_sede
+    FROM Funcion f INNER JOIN Pelicula p ON f.fid_pelicula = p.id_pelicula INNER JOIN Sala sa ON f.fid_sala = sa.id_sala INNER JOIN Sede se ON se.id_sede = sa.fid_sede
+    WHERE f.dia = _fecha AND f.activo = 1;
 END$
 
 -- Procedimientos de ButacaFuncion
@@ -783,6 +800,15 @@ BEGIN
     UPDATE ButacaFuncion 
     SET activo = 0 
     WHERE id_butaca_funcion = _id_butaca_funcion;
+END$
+
+CREATE PROCEDURE ELIMINAR_BUTACAS_FUNCION_X_ID_FUNCION (
+	IN _id_funcion INT
+)
+BEGIN
+    UPDATE ButacaFuncion
+    SET activo = 0 
+    WHERE fid_funcion = _id_funcion;
 END$
 
 -- Procedimientos de LineaBoleta

@@ -15,15 +15,15 @@ namespace PapucplanetWA
     {
         private PeliculaWSClient daoPelicula;
         private pelicula pelicula;
+        BindingList<genero> generos;
         private Estado estado;
         protected void Page_Init(object sender, EventArgs e)
         {
-            lblTitulo.Text = "Datos de la Película";
             string idPelicula = Request.QueryString["idPelicula"];
             string accion = Request.QueryString["accion"];
 
             daoPelicula = new PeliculaWSClient();
-            BindingList<genero> generos;
+
             if (!IsPostBack)
             {   
                 generos = new BindingList<genero>(daoPelicula.listarGeneros());

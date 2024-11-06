@@ -6,8 +6,6 @@ import pe.edu.pucp.papucplanet.cine.dao.SalaDAO;
 import pe.edu.pucp.papucplanet.cine.model.Sala;
 import pe.edu.pucp.papucplanet.dbmanager.model.DBManager;
 import pe.edu.pucp.papucplanet.cine.dao.SedeDAO;
-import pe.edu.pucp.papucplanet.cine.mysql.SedeMySQL;
-
 //import pe.edu.pucp.papucplanet.cine.model.Butaca;
 //import pe.edu.pucp.papucplanet.cine.model.Funcion;
 import java.sql.Connection;
@@ -155,13 +153,16 @@ public class SalaMySQL implements SalaDAO{
             cs.setInt("_id_sede",idSede);
             rs = cs.executeQuery();
             Sala sala;
-            SedeDAO sedeDao = new SedeMySQL();
             while(rs.next()){
                 sala = new Sala();
                 sala.setIdSala(rs.getInt("id_sala"));
                 sala.setNumeroSala(rs.getInt("numero_sala"));
-                sala.setSede(sedeDao.obtenerPorId(idSede));
                 sala.setCapacidad(rs.getInt("capacidad"));
+                sala.setNumCol(rs.getInt("numcol"));
+                sala.setNumFila(rs.getInt("numfilas"));
+                sala.setSede(new Sede());
+                sala.getSede().setIdSede(idSede);
+                sala.getSede().setUniversidad("nombre_sede");
                 salas.add(sala);
             }
             con.commit();

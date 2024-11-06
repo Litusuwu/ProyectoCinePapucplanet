@@ -5,11 +5,11 @@
       <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/AdministradorWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
     </xsd:schema>
   </types>
-  <message name="obtenerAdministradorPorId">
-    <part name="parameters" element="tns:obtenerAdministradorPorId" />
+  <message name="listarTodosAdministradores">
+    <part name="parameters" element="tns:listarTodosAdministradores" />
   </message>
-  <message name="obtenerAdministradorPorIdResponse">
-    <part name="parameters" element="tns:obtenerAdministradorPorIdResponse" />
+  <message name="listarTodosAdministradoresResponse">
+    <part name="parameters" element="tns:listarTodosAdministradoresResponse" />
   </message>
   <message name="modificarAdministrador">
     <part name="parameters" element="tns:modificarAdministrador" />
@@ -17,11 +17,11 @@
   <message name="modificarAdministradorResponse">
     <part name="parameters" element="tns:modificarAdministradorResponse" />
   </message>
-  <message name="listarTodosAdministradores">
-    <part name="parameters" element="tns:listarTodosAdministradores" />
+  <message name="obtenerAdministradorPorId">
+    <part name="parameters" element="tns:obtenerAdministradorPorId" />
   </message>
-  <message name="listarTodosAdministradoresResponse">
-    <part name="parameters" element="tns:listarTodosAdministradoresResponse" />
+  <message name="obtenerAdministradorPorIdResponse">
+    <part name="parameters" element="tns:obtenerAdministradorPorIdResponse" />
   </message>
   <message name="insertarAdministrador">
     <part name="parameters" element="tns:insertarAdministrador" />
@@ -36,17 +36,17 @@
     <part name="parameters" element="tns:eliminarAdministradorResponse" />
   </message>
   <portType name="AdministradorWS">
-    <operation name="obtenerAdministradorPorId">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/obtenerAdministradorPorIdRequest" message="tns:obtenerAdministradorPorId" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/obtenerAdministradorPorIdResponse" message="tns:obtenerAdministradorPorIdResponse" />
+    <operation name="listarTodosAdministradores">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/listarTodosAdministradoresRequest" message="tns:listarTodosAdministradores" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/listarTodosAdministradoresResponse" message="tns:listarTodosAdministradoresResponse" />
     </operation>
     <operation name="modificarAdministrador">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/modificarAdministradorRequest" message="tns:modificarAdministrador" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/modificarAdministradorResponse" message="tns:modificarAdministradorResponse" />
     </operation>
-    <operation name="listarTodosAdministradores">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/listarTodosAdministradoresRequest" message="tns:listarTodosAdministradores" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/listarTodosAdministradoresResponse" message="tns:listarTodosAdministradoresResponse" />
+    <operation name="obtenerAdministradorPorId">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/obtenerAdministradorPorIdRequest" message="tns:obtenerAdministradorPorId" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/obtenerAdministradorPorIdResponse" message="tns:obtenerAdministradorPorIdResponse" />
     </operation>
     <operation name="insertarAdministrador">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/insertarAdministradorRequest" message="tns:insertarAdministrador" />
@@ -59,7 +59,7 @@
   </portType>
   <binding name="AdministradorWSPortBinding" type="tns:AdministradorWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="obtenerAdministradorPorId">
+    <operation name="listarTodosAdministradores">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -77,7 +77,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarTodosAdministradores">
+    <operation name="obtenerAdministradorPorId">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

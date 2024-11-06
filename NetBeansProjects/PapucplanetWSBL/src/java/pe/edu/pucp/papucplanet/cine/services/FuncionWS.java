@@ -4,6 +4,7 @@ import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import java.util.ArrayList;
+import java.util.Date;
 import pe.edu.pucp.papucplanet.cine.dao.FuncionDAO;
 import pe.edu.pucp.papucplanet.cine.model.Funcion;
 import pe.edu.pucp.papucplanet.cine.mysql.FuncionMySQL;
@@ -85,5 +86,28 @@ public class FuncionWS {
         return funciones;
     }
     
+    @WebMethod(operationName = "listarFuncionesPorFecha")
+    public ArrayList<Funcion> listarFuncionesPorFecha(@WebParam(name = "fecha") Date fecha) {
+        ArrayList<Funcion> funciones = null;
+        try {
+            daoFuncion = new FuncionMySQL();
+            funciones = daoFuncion.listarFuncionesPorFecha(fecha);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return funciones;
+    }
+    
+    @WebMethod(operationName = "modificarFuncionConButacasFuncion")
+    public int modificarFuncionConButacasFuncion(@WebParam(name = "funcion") Funcion funcion) {
+        int resultado = 0;
+        try {
+            daoFuncion = new FuncionMySQL();
+            resultado = daoFuncion.modificarConButacasFuncion(funcion);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return resultado;
+    }
     
 }

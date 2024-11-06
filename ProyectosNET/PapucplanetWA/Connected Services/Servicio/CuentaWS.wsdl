@@ -11,6 +11,12 @@
   <message name="eliminarCuentaResponse">
     <part name="parameters" element="tns:eliminarCuentaResponse" />
   </message>
+  <message name="listarTodasCuentas">
+    <part name="parameters" element="tns:listarTodasCuentas" />
+  </message>
+  <message name="listarTodasCuentasResponse">
+    <part name="parameters" element="tns:listarTodasCuentasResponse" />
+  </message>
   <message name="insertarCuenta">
     <part name="parameters" element="tns:insertarCuenta" />
   </message>
@@ -22,12 +28,6 @@
   </message>
   <message name="modificarCuentaResponse">
     <part name="parameters" element="tns:modificarCuentaResponse" />
-  </message>
-  <message name="listarTodasCuentas">
-    <part name="parameters" element="tns:listarTodasCuentas" />
-  </message>
-  <message name="listarTodasCuentasResponse">
-    <part name="parameters" element="tns:listarTodasCuentasResponse" />
   </message>
   <message name="obtenerCuentaPorId">
     <part name="parameters" element="tns:obtenerCuentaPorId" />
@@ -46,6 +46,10 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/eliminarCuentaRequest" message="tns:eliminarCuenta" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/eliminarCuentaResponse" message="tns:eliminarCuentaResponse" />
     </operation>
+    <operation name="listarTodasCuentas">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/listarTodasCuentasRequest" message="tns:listarTodasCuentas" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/listarTodasCuentasResponse" message="tns:listarTodasCuentasResponse" />
+    </operation>
     <operation name="insertarCuenta">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/insertarCuentaRequest" message="tns:insertarCuenta" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/insertarCuentaResponse" message="tns:insertarCuentaResponse" />
@@ -53,10 +57,6 @@
     <operation name="modificarCuenta">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/modificarCuentaRequest" message="tns:modificarCuenta" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/modificarCuentaResponse" message="tns:modificarCuentaResponse" />
-    </operation>
-    <operation name="listarTodasCuentas">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/listarTodasCuentasRequest" message="tns:listarTodasCuentas" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/listarTodasCuentasResponse" message="tns:listarTodasCuentasResponse" />
     </operation>
     <operation name="obtenerCuentaPorId">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/obtenerCuentaPorIdRequest" message="tns:obtenerCuentaPorId" />
@@ -78,6 +78,15 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="listarTodasCuentas">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="insertarCuenta">
       <soap:operation soapAction="" />
       <input>
@@ -88,15 +97,6 @@
       </output>
     </operation>
     <operation name="modificarCuenta">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarTodasCuentas">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

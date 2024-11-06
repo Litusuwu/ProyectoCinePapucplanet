@@ -361,6 +361,15 @@
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.salasXIdsedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarFuncionesPorFechaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarButacasXSalaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.modificarFuncionConButacasFuncionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\Servicio\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -444,6 +453,7 @@
     <Content Include="Scripts\jquery-3.7.1.min.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="Scripts\Papucplanet\Funciones.js" />
     <Content Include="Scripts\Papucplanet\Sedes.js" />
     <Content Include="Sedes.aspx" />
     <Content Include="Styles\Login.css" />
