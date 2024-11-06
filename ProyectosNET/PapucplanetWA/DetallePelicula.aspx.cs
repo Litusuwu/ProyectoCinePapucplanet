@@ -56,7 +56,6 @@ namespace PapucplanetWA
         protected void CargarDiasYHorarios(int idPelicula)
         {
             BindingList<funcion> funciones = new BindingList<funcion>(daoFuncion.obtenerFuncionesPorPeliculaFuncion(idPelicula));
-                
 
             // Filtrar días únicos
             var diasUnicos = funciones.Select(f => f.dia.Date).Distinct();
@@ -72,16 +71,15 @@ namespace PapucplanetWA
                 dayContainer.Controls.Add(diaButton);
             }
 
-            // Filtrar horarios únicos
-            var horariosUnicos = funciones.Select(f => f.horarioInicio).Distinct();
-            foreach (var horario in horariosUnicos)
+            // Filtrar horarios únicos y agregar idFuncion
+            foreach (var funcion in funciones)
             {
                 Button horarioButton = new Button
                 {
                     CssClass = "btn btn-outline-secondary",
-                    Text = horario.ToString("HH:mm"), // Mostrar solo la hora y minutos
-                    CommandArgument = horario.ToString("HH:mm"),
-                    OnClientClick = $"selectTime(this, '{horario.ToString("HH:mm")}'); return false;" // Agregar llamada a JavaScript
+                    Text = funcion.horarioInicio.ToString("HH:mm"), // Mostrar solo la hora y minutos
+                    CommandArgument = funcion.idFuncion.ToString(), // Guardar idFuncion en CommandArgument
+                    OnClientClick = $"selectTime(this, '{funcion.horarioInicio:HH:mm}', '{funcion.idFuncion}'); return false;" // Agregar llamada a JavaScript con idFuncion
                 };
                 timeContainer.Controls.Add(horarioButton);
             }
@@ -101,7 +99,6 @@ namespace PapucplanetWA
 
             VerificarRedireccion();
         }
-
         private void VerificarRedireccion()
         {
             if (ViewState["diaSeleccionado"] != null)

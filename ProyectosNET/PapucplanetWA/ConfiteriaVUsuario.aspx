@@ -114,7 +114,7 @@
                 </asp:Repeater>
             </asp:Panel>
             <asp:Panel ID="panelBebidas" runat="server" CssClass="row" Visible="false">
-                <asp:Repeater ID="rptBebidas" runat="server">
+                <asp:Repeater ID="rptBebidas" runat="server" OnItemDataBound="rptAllItems_ItemDataBound">
                     <ItemTemplate>
                         <div class="col-md-4 mb-3">
                             <div class="card">

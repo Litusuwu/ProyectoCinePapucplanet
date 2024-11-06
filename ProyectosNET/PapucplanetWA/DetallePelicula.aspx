@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>PAPUCPLANET - Detalles</title>
     <!-- Ruta local del archivo CSS de Bootstrap -->
-    <link href="Content/bootstrap.min.css" rel="stylesheet">
+    <link href="Content/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
     <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet"/>
     <!-- Estilos personalizados -->
     <link href="Styles/DetallePelicula.css" rel="stylesheet" />
@@ -108,19 +108,26 @@
             sessionStorage.setItem("selectedDay", day);
             checkSelectionAndRedirect();
         }
-
         function selectTime(button, time) {
             document.querySelectorAll("#timeContainer .btn").forEach(btn => btn.classList.remove("selected"));
             button.classList.add("selected");
             sessionStorage.setItem("selectedTime", time);
             checkSelectionAndRedirect();
         }
-
+        function selectTime(button, time, idFuncion) {
+            document.querySelectorAll("#timeContainer .btn").forEach(btn => btn.classList.remove("selected"));
+            button.classList.add("selected");
+            sessionStorage.setItem("selectedTime", time);
+            sessionStorage.setItem("selectedFuncion", idFuncion); // Guarda el idFuncion seleccionado
+            checkSelectionAndRedirect();
+        }
         function checkSelectionAndRedirect() {
             const selectedDay = sessionStorage.getItem("selectedDay");
             const selectedTime = sessionStorage.getItem("selectedTime");
-            if (selectedDay && selectedTime) {
-                window.location.href = `Butacas.aspx?dia=${selectedDay}&horario=${selectedTime}`;
+            const selectedFuncion = sessionStorage.getItem("selectedFuncion"); // Obtiene el idFuncion seleccionado
+            if (selectedDay && selectedTime && selectedFuncion) {
+                console.log("Day:", selectedDay, "Time:", selectedTime, "Funcion:", selectedFuncion);
+                window.location.href = `Butacas.aspx?dia=${selectedDay}&horario=${selectedTime}&idFuncion=${selectedFuncion}`;
             }
         }
 

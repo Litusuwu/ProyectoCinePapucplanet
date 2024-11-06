@@ -226,6 +226,7 @@ namespace PapucplanetWA
             }
             bol.total += cons.precio;
             Session["CantidadProductos"] = cantidades;
+
         }
 
         private void DecrementarCantidad(int productoId)

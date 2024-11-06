@@ -800,7 +800,8 @@ BEGIN
     SELECT f.id_funcion, f.horaInicio, f.horaFin, f.dia, f.fid_sala, f.fid_pelicula, p.titulo, p.genero, p.duracion, 
     p.sinopsis, p.imagen_link, sa.numero_sala, se.id_sede, se.nombre as nombre_sede
     FROM Funcion f INNER JOIN Pelicula p ON f.fid_pelicula = p.id_pelicula INNER JOIN Sala sa ON f.fid_sala = sa.id_sala INNER JOIN Sede se ON se.id_sede = sa.fid_sede
-    WHERE fid_pelicula = _id_pelicula AND activo = 1;
+    WHERE fid_pelicula = _id_pelicula 
+    AND p.activo = 1 AND sa.activo = 1 AND se.activo = 1;
 END$
 
 DELIMITER $
