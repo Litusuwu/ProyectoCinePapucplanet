@@ -274,7 +274,16 @@ namespace PapucplanetWAS
 
         protected void LbtnSiguiente_OnClick(object sender, EventArgs e)
         {
-            Response.Redirect("ConfiteriaVUsuario.aspx");
+            int cantBut = (Int32)Session["ContDisc"] + (Int32)Session["ContEst"];
+            if (cantBut > 0)
+            {
+                Response.Redirect("ConfiteriaVUsuario.aspx");
+            }
+            else
+            {
+                Response.Write("<script>alert('Debe seleccionar por lo menos una butaca');</script>");
+            }
+            
         }
 
     }

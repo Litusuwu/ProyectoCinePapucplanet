@@ -108,19 +108,25 @@
             sessionStorage.setItem("selectedDay", day);
             checkSelectionAndRedirect();
         }
-
         function selectTime(button, time) {
             document.querySelectorAll("#timeContainer .btn").forEach(btn => btn.classList.remove("selected"));
             button.classList.add("selected");
             sessionStorage.setItem("selectedTime", time);
             checkSelectionAndRedirect();
         }
-
+        function selectTime(button, time, idFuncion) {
+            document.querySelectorAll("#timeContainer .btn").forEach(btn => btn.classList.remove("selected"));
+            button.classList.add("selected");
+            sessionStorage.setItem("selectedTime", time);
+            sessionStorage.setItem("selectedFuncion", idFuncion); // Guarda el idFuncion seleccionado
+            checkSelectionAndRedirect();
+        }
         function checkSelectionAndRedirect() {
             const selectedDay = sessionStorage.getItem("selectedDay");
             const selectedTime = sessionStorage.getItem("selectedTime");
-            if (selectedDay && selectedTime) {
-                window.location.href = `Butacas.aspx?dia=${selectedDay}&horario=${selectedTime}`;
+            const selectedFuncion = sessionStorage.getItem("selectedFuncion"); // Obtiene el idFuncion seleccionado
+            if (selectedDay && selectedTime && selectedFuncion) {
+                window.location.href = `Butacas.aspx?dia=${selectedDay}&horario=${selectedTime}&idFuncion=${selectedFuncion}`;
             }
         }
 
