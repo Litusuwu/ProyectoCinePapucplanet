@@ -135,7 +135,6 @@ namespace PapucplanetWA
 
             funcion.dia = DateTime.Parse(dtpFecha.Value);
             funcion.diaSpecified = true;
-            // Crear una instancia de `DateTime` para `horarioInicio` y `horarioFin` usando solo la hora
             if (TimeSpan.TryParse(tmHoraInicio.Text, out TimeSpan horaInicio))
             {
                 funcion.horarioInicio = funcion.dia.Date.Add(horaInicio);

@@ -38,6 +38,11 @@ CALL INSERTAR_BUTACA(@id_butaca, 'A', 2, FALSE, 28);
 CALL INSERTAR_BUTACA(@id_butaca, 'B', 1, FALSE, 28);
 CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, FALSE, 28);
 
+CALL INSERTAR_BUTACA(@id_butaca, 'A', 1, FALSE, 34);
+CALL INSERTAR_BUTACA(@id_butaca, 'A', 2, FALSE, 34);
+CALL INSERTAR_BUTACA(@id_butaca, 'B', 1, FALSE, 34);
+CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, FALSE, 34);
+
 #Inserts BUTACASFUNCIONES
 INSERT INTO ButacaFuncion (fid_butaca, fid_funcion, estado_butaca, precio, activo) VALUES
 (1, 2, 'DISPONIBLE', 15.00, 1),

@@ -73,9 +73,8 @@ public class FuncionMySQL implements FuncionDAO{
             cs.setDate("_dia",new java.sql.Date(funcion.getDia().getTime()));
             cs.setInt("_fid_sala",funcion.getSala().getIdSala());
             cs.setInt("_fid_pelicula",funcion.getPelicula().getIdPelicula());
-            cs.executeUpdate();
-            funcion.setIdFuncion(cs.getInt("_id_funcion"));
-            result = funcion.getIdFuncion();
+            result = cs.executeUpdate();
+
             con.commit();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
