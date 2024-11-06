@@ -11,6 +11,9 @@ import pe.edu.pucp.papucplanet.gestionUsuario.dao.CuentaDAO;
 import pe.edu.pucp.papucplanet.gestionUsuario.mysql.CuentaMySQL;
 import pe.edu.pucp.papucplanet.gestionUsuario.model.Cuenta;
 import java.util.ArrayList;
+import pe.edu.pucp.papucplanet.gestionUsuario.model.Administrador;
+import pe.edu.pucp.papucplanet.gestionUsuario.model.Cliente;
+import pe.edu.pucp.papucplanet.gestionUsuario.model.Usuario;
 /**
  *
  * @author ISA
@@ -81,11 +84,13 @@ public class CuentaWS {
         return cuenta;
     }
     @WebMethod(operationName = "verificarCuenta")
-    public int verificarCuenta(@WebParam(name = "usuario") Cuenta usuario) {
-        int resultado = 0;
+    public Usuario verificarCuenta(@WebParam(name = "usuario") Cuenta usuario) {
+        Usuario resultado = null;
         try{
+            System.out.println("Verificando cuenta para " + usuario.getCorreo());
             daoCuenta = new CuentaMySQL();
             resultado = daoCuenta.verificar(usuario);
+            
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }

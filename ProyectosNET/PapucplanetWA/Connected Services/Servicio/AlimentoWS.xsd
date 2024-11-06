@@ -6,6 +6,8 @@
   <xs:element name="eliminarAlimentoResponse" type="tns:eliminarAlimentoResponse" />
   <xs:element name="insertarAlimento" type="tns:insertarAlimento" />
   <xs:element name="insertarAlimentoResponse" type="tns:insertarAlimentoResponse" />
+  <xs:element name="listarAlimentosPorNombre" type="tns:listarAlimentosPorNombre" />
+  <xs:element name="listarAlimentosPorNombreResponse" type="tns:listarAlimentosPorNombreResponse" />
   <xs:element name="listarTodosAlimentos" type="tns:listarTodosAlimentos" />
   <xs:element name="listarTodosAlimentosResponse" type="tns:listarTodosAlimentosResponse" />
   <xs:element name="obtenerPorIdAlimento" type="tns:obtenerPorIdAlimento" />
@@ -32,8 +34,10 @@
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
       <xs:element name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="imagenURL" type="xs:string" />
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
       <xs:element name="precio" type="xs:double" />
+      <xs:element name="tipo" type="xs:unsignedShort" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarAlimento">
@@ -66,6 +70,16 @@
       <xs:element minOccurs="0" name="return" type="tns:alimento" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="listarAlimentosPorNombre">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombreAlimento" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarAlimentosPorNombreResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:alimento" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="actualizarAlimento">
     <xs:sequence>
       <xs:element minOccurs="0" name="alimento" type="tns:alimento" />
@@ -79,7 +93,7 @@
   <xs:simpleType name="tipoAlimento">
     <xs:restriction base="xs:string">
       <xs:enumeration value="SNACK" />
-      <xs:enumeration value="CANCHITA" />
+      <xs:enumeration value="CANCHA" />
       <xs:enumeration value="POSTRE" />
     </xs:restriction>
   </xs:simpleType>

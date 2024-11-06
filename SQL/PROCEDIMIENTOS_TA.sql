@@ -13,7 +13,7 @@ DROP PROCEDURE IF EXISTS MODIFICAR_CUENTA;
 DROP PROCEDURE IF EXISTS LISTAR_CUENTA_X_ID;
 DROP PROCEDURE IF EXISTS ELIMINAR_CUENTA_X_ID;
 DROP PROCEDURE IF EXISTS VERIFICAR_CUENTA;
-
+DROP PROCEDURE IF exists VERIFICAR_CUENTA_FINAL;
 -- Drops de Administrador
 DROP PROCEDURE IF EXISTS INSERTAR_ADMINISTRADOR;
 DROP PROCEDURE IF EXISTS LISTAR_ADMINISTRADORES_TODOS;
@@ -40,6 +40,7 @@ DROP PROCEDURE IF EXISTS INSERTAR_BEBIDA;
 DROP PROCEDURE IF EXISTS LISTAR_BEBIDAS_TODAS;
 DROP PROCEDURE IF EXISTS MODIFICAR_BEBIDA;
 DROP PROCEDURE IF EXISTS LISTAR_BEBIDA_X_ID;
+DROP PROCEDURE IF EXISTS LISTAR_BEBIDA_X_NOMBRE;
 DROP PROCEDURE IF EXISTS ELIMINAR_BEBIDA_X_ID;
 
 -- Drops de Alimento
@@ -47,6 +48,7 @@ DROP PROCEDURE IF EXISTS INSERTAR_ALIMENTO;
 DROP PROCEDURE IF EXISTS LISTAR_ALIMENTOS_TODOS;
 DROP PROCEDURE IF EXISTS MODIFICAR_ALIMENTO;
 DROP PROCEDURE IF EXISTS LISTAR_ALIMENTO_X_ID;
+DROP PROCEDURE IF EXISTS LISTAR_ALIMENTO_X_NOMBRE;
 DROP PROCEDURE IF EXISTS ELIMINAR_ALIMENTO_X_ID;
 
 -- Drops de Sala
@@ -66,7 +68,7 @@ DROP PROCEDURE IF EXISTS ELIMINAR_PELICULA_X_ID;
 
 DROP PROCEDURE IF EXISTS LISTAR_PELICULA_X_NOMBRE;
 DROP PROCEDURE IF EXISTS LISTAR_GENEROS_ENUM;
-
+DROP PROCEDURE IF EXISTS ListarPeliculasConFuncionesActivas;
 -- Drops de Butaca
 DROP PROCEDURE IF EXISTS INSERTAR_BUTACA;
 DROP PROCEDURE IF EXISTS LISTAR_BUTACAS_TODAS;
@@ -88,7 +90,7 @@ DROP PROCEDURE IF EXISTS LISTAR_BUTACAS_FUNCIONES_TODAS;
 DROP PROCEDURE IF EXISTS MODIFICAR_BUTACA_FUNCION;
 DROP PROCEDURE IF EXISTS LISTAR_BUTACA_FUNCION_X_ID;
 DROP PROCEDURE IF EXISTS ELIMINAR_BUTACA_FUNCION_X_ID;
-
+DROP PROCEDURE IF EXISTS OBTENER_BUTACAS_X_FUNCION;
 -- Drops de LineaBoleta
 DROP PROCEDURE IF EXISTS INSERTAR_LINEA_BOLETA;
 DROP PROCEDURE IF EXISTS LISTAR_LINEAS_BOLETAS_TODAS;
@@ -210,10 +212,10 @@ BEGIN
 END$
 
 CREATE PROCEDURE VERIFICAR_CUENTA(
-	IN _correo VARCHAR(100),
-    IN _contrasena VARCHAR(100))
+	IN _correo VARCHAR(150),
+    IN _contrasena VARCHAR(150))
 BEGIN
-    SELECT * FROM Usuario WHERE correo = _correo AND contrasena = _contrasena
+    SELECT * FROM Usuario WHERE correo = _correo AND contrasena = MD5(_contrasena)
     AND activo = 1;
 END$
 
@@ -386,11 +388,13 @@ CREATE PROCEDURE INSERTAR_BEBIDA(
     IN _nombre VARCHAR(100),
     IN _precio DOUBLE,
     IN _onzas INT,
-    IN _tieneHielo BOOLEAN
+    IN _tieneHielo BOOLEAN,
+	IN _imagen_link VARCHAR(255),
+	IN _tipo CHAR
 )
 BEGIN
-    INSERT INTO Consumible(nombre, precio) 
-    VALUES(_nombre, _precio);
+    INSERT INTO Consumible(nombre, precio, imagen_link, tipo) 
+    VALUES(_nombre, _precio, _imagen_link, _tipo);
     SET _id_bebida = @@last_insert_id;
     INSERT INTO Bebida(id_bebida, onzas, tieneHielo) 
     VALUES(_id_bebida, _onzas, _tieneHielo);
@@ -398,7 +402,7 @@ END$
 
 CREATE PROCEDURE LISTAR_BEBIDAS_TODAS()
 BEGIN
-    SELECT b.id_bebida, c.nombre, c.precio, b.onzas, b.tieneHielo, c.activo 
+    SELECT b.id_bebida, c.nombre, c.precio, b.onzas, b.tieneHielo, c.activo, c.imagen_link, c.tipo
     FROM Consumible c 
     INNER JOIN Bebida b ON c.id_consumible = b.id_bebida
     WHERE c.activo = 1;
@@ -409,11 +413,12 @@ CREATE PROCEDURE MODIFICAR_BEBIDA(
     IN _nombre VARCHAR(100),
     IN _precio DOUBLE,
     IN _onzas INT,
-    IN _tieneHielo BOOLEAN
+    IN _tieneHielo BOOLEAN,
+	IN _imagen_link VARCHAR(255)
 )
 BEGIN
     UPDATE Consumible 
-    SET nombre = _nombre, precio = _precio
+    SET nombre = _nombre, precio = _precio, imagen_link = _imagen_link
     WHERE id_consumible = _id_bebida;
     
     UPDATE Bebida 
@@ -425,10 +430,20 @@ CREATE PROCEDURE LISTAR_BEBIDA_X_ID(
     IN _id_bebida INT
 )
 BEGIN
-    SELECT b.id_bebida, c.nombre, c.precio, b.onzas, b.tieneHielo, c.activo 
+    SELECT b.id_bebida, c.nombre, c.precio, b.onzas, b.tieneHielo, c.activo, c.imagen_link, c.tipo 
     FROM Consumible c 
     INNER JOIN Bebida b ON c.id_consumible = b.id_bebida 
     WHERE b.id_bebida = _id_bebida AND c.activo = 1;
+END$
+
+CREATE PROCEDURE LISTAR_BEBIDA_X_NOMBRE(
+    IN _nombre_bebida VARCHAR(150)
+)
+BEGIN
+    SELECT b.id_bebida, c.nombre, c.precio, b.onzas, b.tieneHielo, c.activo, c.imagen_link, c.tipo 
+    FROM Consumible c 
+    INNER JOIN Bebida b ON c.id_consumible = b.id_bebida 
+    WHERE c.activo = 1 AND c.nombre LIKE CONCAT('%',_nombre_bebida,'%');
 END$
 
 CREATE PROCEDURE ELIMINAR_BEBIDA_X_ID(IN _id_bebida INT)
@@ -444,11 +459,13 @@ CREATE PROCEDURE INSERTAR_ALIMENTO(
     IN _nombre VARCHAR(100),
     IN _precio DOUBLE,
     IN _pesoPromedio DOUBLE,
-    IN _tipo_alimento ENUM('SNACK', 'CANCHA', 'POSTRE')
+    IN _tipo_alimento ENUM('SNACK', 'CANCHA', 'POSTRE'),
+	IN _imagen_link VARCHAR(255),
+	IN _tipo CHAR
 )
 BEGIN
-    INSERT INTO Consumible(nombre, precio) 
-    VALUES(_nombre, _precio);
+    INSERT INTO Consumible(nombre, precio, imagen_link, tipo) 
+    VALUES(_nombre, _precio, _imagen_link, _tipo);
     SET _id_alimento = @@last_insert_id;
     INSERT INTO Alimento(id_alimento, pesoPromedio, tipo_alimento) 
     VALUES(_id_alimento, _pesoPromedio, _tipo_alimento);
@@ -456,7 +473,7 @@ END$
 
 CREATE PROCEDURE LISTAR_ALIMENTOS_TODOS()
 BEGIN
-    SELECT a.id_alimento, c.nombre, c.precio, a.pesoPromedio, a.tipo_alimento, c.activo 
+    SELECT a.id_alimento, c.nombre, c.precio, a.pesoPromedio, a.tipo_alimento, c.activo, c.imagen_link, c.tipo 
     FROM Consumible c 
     INNER JOIN Alimento a ON c.id_consumible = a.id_alimento
     WHERE c.activo = 1;
@@ -467,11 +484,13 @@ CREATE PROCEDURE MODIFICAR_ALIMENTO(
     IN _nombre VARCHAR(100),
     IN _precio DOUBLE,
     IN _pesoPromedio DOUBLE,
-    IN _tipo_alimento ENUM('SNACK', 'CANCHA', 'POSTRE')
+    IN _tipo_alimento ENUM('SNACK', 'CANCHA', 'POSTRE'),
+	IN _tipo CHAR,
+	IN _imagen_link VARCHAR(255)
 )
 BEGIN
     UPDATE Consumible 
-    SET nombre = _nombre, precio = _precio
+    SET nombre = _nombre, precio = _precio, tipo = _tipo, imagen_link = _imagen_link
     WHERE id_consumible = _id_alimento;
     
     UPDATE Alimento 
@@ -483,10 +502,20 @@ CREATE PROCEDURE LISTAR_ALIMENTO_X_ID(
     IN _id_alimento INT
 )
 BEGIN
-    SELECT a.id_alimento, c.nombre, c.precio, a.pesoPromedio, a.tipo_alimento, c.activo 
+    SELECT a.id_alimento, c.nombre, c.precio, a.pesoPromedio, a.tipo_alimento, c.activo, c.tipo, c.imagen_link 
     FROM Consumible c 
     INNER JOIN Alimento a ON c.id_consumible = a.id_alimento 
     WHERE a.id_alimento = _id_alimento AND c.activo = 1;
+END$
+
+CREATE PROCEDURE LISTAR_ALIMENTO_X_NOMBRE(
+    IN _nombre_alimento VARCHAR(150)
+)
+BEGIN
+    SELECT a.id_alimento, c.nombre, c.precio, a.pesoPromedio, a.tipo_alimento, c.activo, c.tipo, c.imagen_link 
+    FROM Consumible c 
+    INNER JOIN Alimento a ON c.id_consumible = a.id_alimento 
+    WHERE c.activo = 1 AND c.nombre LIKE CONCAT('%',_nombre_alimento,'%');
 END$
 
 CREATE PROCEDURE ELIMINAR_ALIMENTO_X_ID (IN _id_alimento INT)
@@ -513,10 +542,17 @@ END$
 
 CREATE PROCEDURE LISTAR_PELICULAS_TODAS()
 BEGIN
-    SELECT p.id_pelicula, p.titulo, p.duracion, p.genero, p.sinopsis, p.imagen_link, p.activo 
+    SELECT 
+        p.id_pelicula, p.titulo,p.duracion,p.genero,p.sinopsis,p.imagen_link,
+        f.id_funcion,f.horaInicio,f.horaFin,f.dia,
+        s.id_sala,s.capacidad,s.numero_sala,
+        sd.id_sede,sd.ubicacion,sd.nombre
     FROM Pelicula p
-    WHERE p.activo = 1;
-END$
+    LEFT JOIN Funcion f ON p.id_pelicula = f.fid_pelicula
+    LEFT JOIN Sala s ON f.fid_sala = s.id_sala
+    LEFT JOIN Sede sd ON s.fid_sede = sd.id_sede
+    WHERE p.activo = 1 AND f.activo = 1 AND s.activo = 1 AND sd.activo = 1;
+END;
 
 CREATE PROCEDURE MODIFICAR_PELICULA(
     IN _id_pelicula INT,
@@ -555,6 +591,21 @@ BEGIN
 	SELECT p.id_pelicula, p.titulo, p.duracion, p.genero, p.imagen_link 
     FROM Pelicula p 
     WHERE p.activo = 1 AND p.titulo LIKE CONCAT('%',_nombre,'%');
+END$
+
+-- NEW PROCEDURE:
+CREATE PROCEDURE ListarPeliculasConFuncionesActivas()
+BEGIN
+    SELECT 
+        p.id_pelicula,p.titulo,p.duracion,p.genero,p.sinopsis,p.imagen_link,
+        f.id_funcion,f.horaInicio,f.horaFin,f.dia,f.fid_sala,
+		sd.id_sede,sd.nombre
+    FROM 
+        Pelicula p
+    LEFT JOIN Funcion f ON p.id_pelicula = f.fid_pelicula
+    LEFT JOIN Sala s ON f.fid_sala = s.id_sala
+    LEFT JOIN Sede sd ON s.fid_sede = sd.id_sede
+    WHERE p.activo = 1 AND f.activo = 1 AND s.activo = 1 AND sd.activo = 1;
 END$
 
 -- Procedimientos de Sala
@@ -871,4 +922,27 @@ BEGIN
       AND COLUMN_NAME = 'genero'
       AND TABLE_SCHEMA = DATABASE();
 END $
+
+CREATE PROCEDURE OBTENER_BUTACAS_X_FUNCION(IN _id_funcion INT)
+BEGIN
+    SELECT 
+        b.id_butaca, b.fila,b.columna,b.discapacitado,bf.id_butaca_funcion,bf.precio,bf.estado_butaca
+    FROM Butaca b
+    INNER JOIN ButacaFuncion bf ON b.id_butaca = bf.fid_butaca
+    WHERE bf.fid_funcion = _id_funcion
+    AND bf.activo = 1  AND b.activo = 1 
+    ORDER BY b.fila, b.columna;
+END $
+
+CREATE PROCEDURE VERIFICAR_CUENTA_FINAL(
+	IN _correo VARCHAR(150),
+    IN _contrasena VARCHAR(150))
+BEGIN
+    SELECT * FROM Usuario u
+    LEFT JOIN Administrador a ON a.id_administrador = u.id_usuario
+    LEFT JOIN Cliente c ON c.id_cliente = u.id_usuario
+    WHERE correo = _correo AND contrasena = MD5(_contrasena)
+    AND activo = 1;
+END
 DELIMITER ;
+

@@ -79,9 +79,9 @@ namespace PapucplanetWA
                 Button horarioButton = new Button
                 {
                     CssClass = "btn btn-outline-secondary",
-                    Text = horario.ToString(), // Esto usará el formato predeterminado de LocalTime
-                    CommandArgument = horario.ToString(),
-                    OnClientClick = $"selectTime(this, '{horario.ToString()}'); return false;" // Agregar llamada a JavaScript
+                    Text = horario.ToString("HH:mm"), // Mostrar solo la hora y minutos
+                    CommandArgument = horario.ToString("HH:mm"),
+                    OnClientClick = $"selectTime(this, '{horario.ToString("HH:mm")}'); return false;" // Agregar llamada a JavaScript
                 };
                 timeContainer.Controls.Add(horarioButton);
             }

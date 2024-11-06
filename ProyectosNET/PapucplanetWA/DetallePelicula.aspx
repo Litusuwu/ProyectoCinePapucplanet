@@ -1,14 +1,18 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DetallePelicula.aspx.cs" Inherits="PapucplanetWA.DetallePelicula" %>
 
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAPUCPLANET - Detalles</title>
     <!-- Ruta local del archivo CSS de Bootstrap -->
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet"/>
     <!-- Estilos personalizados -->
-    <link href="Content/Styles/DetallePelicula.css" rel="stylesheet" />
+    <link href="Styles/DetallePelicula.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -16,32 +20,43 @@
         <!--En el caso de seleccionar hora y fecha se debe recargar solo esa parte y no toda la pagina-->
         <asp:ScriptManager runat="server"/> 
         <!--Para realizar la barra de navegación responsive-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">   
-            <div class =" container">   
-                <a class ="navbar-brand" href="#">
-                    <asp:Image ID="Image1" runat="server" ImageUrl="https://i.pinimg.com/enabled/236x/3c/3c/ef/3c3cef1af2ff7a3fdeef606fcaa63ce7.jpg" alt="Logo" Width="30" CssClass="d-inline-block align-text-top" />
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm fixed-top navBar-Peliculas">
+            <div class="container position-relative">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <i class="fa fa-film me-2" style="font-size: 24px; color: white;"></i>
                     <strong>PAPUCPLANET</strong>
                 </a>
-
-                <!--Boton de colapso?!?!?-->
-
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <!--Agrego lista no ordenada-->
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="Peliculas.aspx">Peliculas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Confiteria.aspx">Confiteria</a></li>
-                        <li class="nav-item">
-                            <div class="user-icon bg-secondary rounded-circle text-white d-flex justify-content-center align-items-center" style="width: 30px; height: 30px;">
-                                H
-                            </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars" style="color: white; font-size: 24px;"></i>
+                </button>
+                <div class="collapse navbar-collapse navBar-Expandido" id="navbarNav">
+                    <ul class="navbar-nav ms-auto navBar-Expandido">
+                        <li class="nav-item me-3">
+                            <asp:LinkButton ID="lnkPeliculas" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/PeliculasUsuario.aspx">Películas</asp:LinkButton>
+                        </li>
+                        <li class="nav-item me-3">
+                            <asp:LinkButton ID="lnkConfiteria" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/ConfiteriaVUsuario.aspx">Confitería</asp:LinkButton>
+                        </li>
+                        <li class="nav-item me-3">
+                            <asp:LinkButton ID="lnkCines" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/Cines.aspx">Cines</asp:LinkButton>
+                        </li>
+                        <li class="nav-item me-3">
+                            <asp:LinkButton ID="lnkPerfil" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/MiPerfil.aspx">
+                        <span class="d-inline d-lg-none">Mi Perfil</span>
+                        <i class="fas fa-user d-none d-lg-inline"></i>
+                            </asp:LinkButton>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+
+        <div style="margin-bottom: 100px;"></div>
+
         <!--Le agrego margen al contenedor para separarlo de arriba-->
         <div class="container mt-4">
-            <h2 class="mb-4 text-center">Detalles de la Película</h2>
+            <h2 class="mb-4 text-center" style="font-size: 40px; color: black;">DETALLES DE LA PELICULA</h2>
             <div class="movie-details text-center">
                 <h3 id="movieTitle" runat="server" class="mb-3">Titulo de la Película</h3>
 
@@ -66,14 +81,14 @@
                 <ContentTemplate>
                     <!--define un contenedor con estilos específicos-->
                     <div class="showtime-section my-4">
-                        <h3 class="text-center py-2" style="background-color: #6f42c1; color: white;">Seleccionar Día</h3>
+                        <h3 class="text-center py-2" style="background-color: darkred; color: white;">Seleccionar Día</h3>
                         <div id="dayContainer" class="d-flex flex-wrap justify-content-center gap-2 py-3" runat="server">
                             <!-- Botones de día generados dinámicamente aparecerán aquí -->
                         </div>
                     </div>
 
                     <div class="showtime-section my-4">
-                        <h3 class="text-center py-2" style="background-color: #6f42c1; color: white;">Seleccionar Horario</h3>
+                        <h3 class="text-center py-2" style="background-color: darkred; color: white;">Seleccionar Horario</h3>
                         <div id="timeContainer" class="d-flex flex-wrap justify-content-center gap-2 py-3" runat="server">
                             <!-- Botones de horario generados dinámicamente aparecerán aquí -->
                         </div>
@@ -132,4 +147,4 @@
     </script>
 
 </body>
-
+</html>

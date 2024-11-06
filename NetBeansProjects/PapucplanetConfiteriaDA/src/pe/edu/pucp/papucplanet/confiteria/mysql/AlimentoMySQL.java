@@ -22,7 +22,7 @@ public class AlimentoMySQL implements AlimentoDAO{
              con = DBManager.getInstance().getConnection();
 
             // Preparamos la llamada al procedimiento
-            String sql = "{CALL INSERTAR_ALIMENTO(?, ?, ?, ?, ?)}";
+            String sql = "{CALL INSERTAR_ALIMENTO(?, ?, ?, ?, ?, ?, ?)}";
             cs = con.prepareCall(sql);
 
             // Establecer los parámetros de entrada
@@ -31,6 +31,8 @@ public class AlimentoMySQL implements AlimentoDAO{
             cs.setDouble(3, alimento.getPrecio());
             cs.setDouble(4, alimento.getPesoPromedio());
             cs.setString(5, alimento.getTipoAlimento().toString()); 
+            cs.setString(6, alimento.getImagenURL());
+            cs.setString(7, String.valueOf(alimento.getTipo()));
             // Ejecutar el procedimiento
             cs.executeUpdate();
 
@@ -58,7 +60,7 @@ public class AlimentoMySQL implements AlimentoDAO{
              con = DBManager.getInstance().getConnection();
 
             // Preparamos la llamada al procedimiento
-            String sql = "{CALL MODIFICAR_ALIMENTO(?,?,?,?,?)}";
+            String sql = "{CALL MODIFICAR_ALIMENTO(?,?,?,?,?, ?, ?)}";
             cs = con.prepareCall(sql);
 
             // Establecer los parámetros de entrada
@@ -67,6 +69,8 @@ public class AlimentoMySQL implements AlimentoDAO{
             cs.setDouble(3, alimento.getPrecio());
             cs.setDouble(4, alimento.getPesoPromedio());
             cs.setString(5, alimento.getTipoAlimento().toString()); 
+            cs.setString(6, alimento.getImagenURL());
+            cs.setString(7, String.valueOf(alimento.getTipo()));
             // Ejecutar el procedimiento
             cs.executeUpdate();
             resultado = alimento.getId();
@@ -114,6 +118,8 @@ public class AlimentoMySQL implements AlimentoDAO{
                alimento.setPesoPromedio(rs.getDouble("pesoPromedio"));
                alimento.setTipoAlimento(TipoAlimento.valueOf(rs.getString("tipo_alimento")));
                alimento.setActivo(rs.getBoolean("activo"));
+               alimento.setImagenURL(rs.getString("imagen_link"));
+               alimento.setTipo(rs.getString("tipo").charAt(0));
             }
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -137,6 +143,8 @@ public class AlimentoMySQL implements AlimentoDAO{
                 producto.setPrecio(rs.getDouble("precio"));
                 producto.setPesoPromedio(rs.getDouble("pesoPromedio"));
                 producto.setTipoAlimento(TipoAlimento.valueOf(rs.getString("tipo_alimento")));
+                producto.setImagenURL(rs.getString("imagen_link"));
+                producto.setTipo(rs.getString("tipo").charAt(0));
                 productos.add(producto);
             }
         }catch(SQLException ex){
@@ -146,5 +154,30 @@ public class AlimentoMySQL implements AlimentoDAO{
         }
         return productos;
     }
-    
+    @Override
+    public ArrayList<Alimento> listarPorNombre(String nombre){
+        ArrayList<Alimento> productos = new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_ALIMENTO_X_NOMBRE(?)}");
+            cs.setString("_nombre_alimento", nombre);
+            rs = cs.executeQuery();
+            while(rs.next()){
+                Alimento producto = new Alimento();
+                producto.setId(rs.getInt("id_alimento"));
+                producto.setNombre(rs.getString("nombre"));
+                producto.setPrecio(rs.getDouble("precio"));
+                producto.setPesoPromedio(rs.getDouble("pesoPromedio"));
+                producto.setTipoAlimento(TipoAlimento.valueOf(rs.getString("tipo_alimento")));
+                producto.setImagenURL(rs.getString("imagen_link"));
+                producto.setTipo(rs.getString("tipo").charAt(0));
+                productos.add(producto);
+            }
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
+        }
+        return productos;
+    }
 }

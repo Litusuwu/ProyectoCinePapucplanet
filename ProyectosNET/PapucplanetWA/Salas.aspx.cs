@@ -17,6 +17,7 @@ namespace PapucplanetWA
         private int idSede;
         protected void Page_Init(object sender, EventArgs e)
         {
+
             string id= Request.QueryString["IdSele"];
             idSede = Int32.Parse(id);
             if(id!= null)
@@ -30,11 +31,6 @@ namespace PapucplanetWA
                 gvSalas.DataSource = daoSala.salasXIdsede(idSede);
                 gvSalas.DataBind();
             }
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
         }
 
         protected void btnAddSala_Click(object sender, EventArgs e)
@@ -124,6 +120,22 @@ namespace PapucplanetWA
                 Response.Redirect("Salas.aspx?IdSele=" + idSede.ToString());
             }
             
+        }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            usuario usuarioDatos = (usuario)Session["Usuario"];
+            if (usuarioDatos == null || usuarioDatos.tipoUsuario == 'C')
+            {
+                if (usuarioDatos == null)
+                {
+                    Session["Redireccion"] = "Login.aspx";
+                }
+                else if (usuarioDatos.tipoUsuario.Equals("C"))
+                {
+                    Session["Redireccion"] = "PeliculasUsuario.aspx";
+                }
+                Response.Redirect("AccesoDenegado.aspx");
+            }
         }
     }
 }

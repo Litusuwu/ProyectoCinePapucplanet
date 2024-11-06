@@ -17,5 +17,7 @@ public interface AlimentoDAO {
     Alimento obtenerPorId(int id);
     
     // Método para listar todos los alimentos
-    ArrayList<Alimento> listar();        
+    ArrayList<Alimento> listar();   
+    // Método para listar todos los alimentos por nombre
+    ArrayList<Alimento> listarPorNombre(String nombre);   
 }

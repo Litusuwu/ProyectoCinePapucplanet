@@ -35,6 +35,12 @@
   <message name="eliminarButacaResponse">
     <part name="parameters" element="tns:eliminarButacaResponse" />
   </message>
+  <message name="obtenerPorIdButaca">
+    <part name="parameters" element="tns:obtenerPorIdButaca" />
+  </message>
+  <message name="obtenerPorIdButacaResponse">
+    <part name="parameters" element="tns:obtenerPorIdButacaResponse" />
+  </message>
   <portType name="ButacaWS">
     <operation name="listarTodosButaca">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/listarTodosButacaRequest" message="tns:listarTodosButaca" />
@@ -56,6 +62,10 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/eliminarButacaRequest" message="tns:eliminarButaca" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/eliminarButacaResponse" message="tns:eliminarButacaResponse" />
     </operation>
+    <operation name="obtenerPorIdButaca">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/obtenerPorIdButacaRequest" message="tns:obtenerPorIdButaca" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/obtenerPorIdButacaResponse" message="tns:obtenerPorIdButacaResponse" />
+    </operation>
   </portType>
   <binding name="ButacaWSPortBinding" type="tns:ButacaWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -68,7 +78,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="modificarButaca">
+    <operation name="insertarButaca">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,7 +105,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarButaca">
+    <operation name="obtenerPorIdButaca">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

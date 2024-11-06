@@ -27,6 +27,18 @@ public class BebidaWS {
         }
         return bebidas;
     }
+    @WebMethod(operationName = "listarBebidasPorNombre")
+    public ArrayList<Bebida> listarBebidasPorNombre(@WebParam(name = "nombreBebida")
+            String nombreBebida) {
+        ArrayList<Bebida> bebidas = null;
+        try {
+            daoBebida = new BebidaMySQL();
+            bebidas = daoBebida.listarPorNombre(nombreBebida);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return bebidas;
+    }
 
     @WebMethod(operationName = "insertarBebida")
     public int insertarBebida(@WebParam(name = "bebida") Bebida bebida) {
