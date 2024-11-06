@@ -6,6 +6,8 @@
   <xs:element name="insertarFuncionResponse" type="tns:insertarFuncionResponse" />
   <xs:element name="listarFuncionesPorFecha" type="tns:listarFuncionesPorFecha" />
   <xs:element name="listarFuncionesPorFechaResponse" type="tns:listarFuncionesPorFechaResponse" />
+  <xs:element name="listarPeliculasConFuncionesActivasFuncion" type="tns:listarPeliculasConFuncionesActivasFuncion" />
+  <xs:element name="listarPeliculasConFuncionesActivasFuncionResponse" type="tns:listarPeliculasConFuncionesActivasFuncionResponse" />
   <xs:element name="listarTodosFuncion" type="tns:listarTodosFuncion" />
   <xs:element name="listarTodosFuncionResponse" type="tns:listarTodosFuncionResponse" />
   <xs:element name="modificarFuncion" type="tns:modificarFuncion" />
@@ -109,6 +111,14 @@
   <xs:complexType name="obtenerPorIdFuncionResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:funcion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarPeliculasConFuncionesActivasFuncion">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarPeliculasConFuncionesActivasFuncionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:funcion" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarTodosFuncion">
