@@ -69,8 +69,9 @@ public class AlimentoMySQL implements AlimentoDAO{
             cs.setDouble(3, alimento.getPrecio());
             cs.setDouble(4, alimento.getPesoPromedio());
             cs.setString(5, alimento.getTipoAlimento().toString()); 
-            cs.setString(6, alimento.getImagenURL());
-            cs.setString(7, String.valueOf(alimento.getTipo()));
+            cs.setString(6, String.valueOf(alimento.getTipo()));
+            cs.setString(7, alimento.getImagenURL());
+            
             // Ejecutar el procedimiento
             cs.executeUpdate();
             resultado = alimento.getId();

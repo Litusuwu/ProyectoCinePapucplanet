@@ -63,6 +63,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AccesoDenegado.aspx" />
     <Content Include="AgregarNuevaPelicula.aspx" />
     <Content Include="AgregarNuevoConsumible.aspx" />
     <Content Include="Boletas.aspx" />
@@ -432,6 +433,7 @@
     <Content Include="Content\Fonts\css\v5-font-face.css" />
     <Content Include="Content\Fonts\css\v5-font-face.min.css" />
     <Content Include="Content\styles.css" />
+    <Content Include="Scripts\Papucplanet\Consumible.js" />
     <Content Include="Scripts\Papucplanet\Pelicula.js" />
     <Content Include="Styles\Butacas.css" />
     <Content Include="Styles\DetallePelicula.css" />
@@ -481,6 +483,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoDenegado.aspx.cs">
+      <DependentUpon>AccesoDenegado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccesoDenegado.aspx.designer.cs">
+      <DependentUpon>AccesoDenegado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AgregarNuevaPelicula.aspx.cs">
       <DependentUpon>AgregarNuevaPelicula.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

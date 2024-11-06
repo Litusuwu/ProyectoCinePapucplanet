@@ -46,6 +46,7 @@ namespace PapucplanetWA
                 c = daoAlimento.obtenerPorIdAlimento(Int32.Parse(idConsumible));
                 if(c.id == 0)
                     c = daoBebida.obtenerPorIdBebida(Int32.Parse(idConsumible));
+                Session["idConsumible"] = c.id;
                 string imageUrl = c.imagenURL;
                 imgImagenConsumible.ImageUrl = imageUrl;
                 txtNombreConsumible.Text = c.nombre;
@@ -97,10 +98,38 @@ namespace PapucplanetWA
         }
         protected void lbGuardar_Click(object sender, EventArgs e)
         {
+            string script;
+            bool letras;
+            int tamanio;
             if (rbAlimento.Checked)
             {
                 c = new alimento();
                 c.tipo = 'A';
+                if (txtPesoPromedio.Text.Trim().Equals("")) //Validaciones Peso Promedio
+                {
+                    lblMensajeError.Text = "Debe ingresar Peso Promedio.";
+                    script = "showModalFromError();";
+                    ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                    return;
+                }
+                letras = false;
+                tamanio = txtPesoPromedio.Text.Length;
+                for (int i = 0; i < tamanio; i++)
+                {
+                    char car = txtPesoPromedio.Text[i];
+                    if ((car >= 'a' && car <= 'z') || (car >= 'A' && car <= 'Z'))
+                    {
+                        letras = true;
+                        break;
+                    }
+                }
+                if (letras)
+                {
+                    lblMensajeError.Text = "Debe ingresar solo numeros en Peso Promedio.";
+                    script = "showModalFromError();";
+                    ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                    return;
+                }
                 ((alimento)c).pesoPromedio = Double.Parse(txtPesoPromedio.Text);
                 ((alimento)c).tipoAlimento = (tipoAlimento)Enum.Parse(typeof(tipoAlimento),ddlTipoAlimento.SelectedValue.ToString());
                 ((alimento)c).tipoAlimentoSpecified = true;
@@ -109,12 +138,81 @@ namespace PapucplanetWA
             {
                 c = new bebida();
                 c.tipo = 'B';
+                if (txtOnzas.Text.Trim().Equals("")) //Validaciones Onzas
+                {
+                    lblMensajeError.Text = "Debe ingresar Onzas.";
+                    script = "showModalFromError();";
+                    ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                    return;
+                }
+                letras = false;
+                tamanio = txtOnzas.Text.Length;
+                for (int i = 0; i < tamanio; i++)
+                {
+                    char car = txtOnzas.Text[i];
+                    if ((car >= 'a' && car <= 'z') || (car >= 'A' && car <= 'Z'))
+                    {
+                        letras = true;
+                        break;
+                    }
+                }
+                if (letras)
+                {
+                    lblMensajeError.Text = "Debe ingresar solo numeros en Onzas.";
+                    script = "showModalFromError();";
+                    ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                    return;
+                }
                 ((bebida)c).onzas = Int32.Parse(txtOnzas.Text);
                 ((bebida)c).tieneHielo = rbTieneHielo.Checked;
             }
             //Session["c"] = c;
+            if (Session["idConsumible"] != null)
+            {
+                c.id = Int32.Parse(Session["idConsumible"].ToString());
+            }
+            if (imgImagenConsumible.ImageUrl.Trim().Equals("")) //Validacion Imagen
+            {
+                lblMensajeError.Text = "Debe ingresar una imagen.";
+                script = "showModalFromError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                return;
+            }
             c.imagenURL = imgImagenConsumible.ImageUrl;
+            if (txtNombreConsumible.Text.Trim().Equals("")) //Validacion Nombre
+            {
+                lblMensajeError.Text = "Debe ingresar un nombre de consumible.";
+                script = "showModalFromError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                return;
+            }
             c.nombre = txtNombreConsumible.Text;
+            //Validaciones Precio
+            if (txtPrecio.Text.Trim().Equals(""))
+            {
+                lblMensajeError.Text = "Debe ingresar Onzas.";
+                script = "showModalFromError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                return;
+            }
+            letras = false;
+            tamanio = txtPrecio.Text.Length;
+            for (int i = 0; i < tamanio; i++)
+            {
+                char car = txtPrecio.Text[i];
+                if ((car >= 'a' && car <= 'z') || (car >= 'A' && car <= 'Z'))
+                {
+                    letras = true;
+                    break;
+                }
+            }
+            if (letras)
+            {
+                lblMensajeError.Text = "Debe ingresar solo numeros en Onzas.";
+                script = "showModalFromError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                return;
+            }
             c.precio = Double.Parse(txtPrecio.Text);
             c.activo = true;
 
