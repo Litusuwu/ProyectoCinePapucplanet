@@ -112,6 +112,8 @@ CREATE TABLE Sala (
     id_sala INT PRIMARY KEY AUTO_INCREMENT,
     numero_sala INT,
     fid_sede INT,
+    numcol INT,
+    numfilas INT,
     capacidad INT NOT NULL,
     activo TINYINT DEFAULT 1,
     FOREIGN KEY (fid_sede) REFERENCES Sede(id_sede)

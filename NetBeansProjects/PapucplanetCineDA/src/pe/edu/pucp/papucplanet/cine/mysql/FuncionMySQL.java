@@ -325,4 +325,60 @@ public class FuncionMySQL implements FuncionDAO{
         }
         return result;
     }
+    public ArrayList<Funcion> listarPeliculasConFuncionesActivas() {
+        ArrayList<Funcion> funciones = new ArrayList<>();
+
+        try {
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call ListarPeliculasConFuncionesActivas()}");
+            rs = cs.executeQuery();
+
+            while (rs.next()) {
+                Funcion funcion = new Funcion();
+                funcion.setIdFuncion(rs.getInt("id_funcion"));
+                funcion.setHorarioInicio(rs.getTime("horaInicio"));
+                funcion.setHorarioFin(rs.getTime("horaFin"));
+                funcion.setDia(rs.getDate("dia"));
+
+                // Obtener y asignar la película asociada a la función
+                Pelicula pelicula = new Pelicula();
+                pelicula.setIdPelicula(rs.getInt("id_pelicula"));
+                pelicula.setTitulo(rs.getString("titulo"));
+                pelicula.setDuracion(rs.getDouble("duracion"));
+                pelicula.setGenero(Genero.valueOf(rs.getString("genero")));
+                pelicula.setSinopsis(rs.getString("sinopsis"));
+                pelicula.setImagenPromocional(rs.getString("imagen_link"));
+                funcion.setPelicula(pelicula);
+
+                // Obtener y asignar la sala asociada a la función
+                Sala sala = new Sala();
+                sala.setIdSala(rs.getInt("fid_sala"));
+                
+                //Obtener y asignar la sede asociada a la sala
+                Sede sede = new Sede();
+                sede.setIdSede(rs.getInt("id_sede"));
+                sede.setUniversidad(rs.getString("nombre"));
+                sala.setSede(sede); // Establece la sede en la sala
+                
+                // Puedes agregar más campos de `Sala` aquí si el procedimiento almacenado los devuelve
+                funcion.setSala(sala);
+                // Añadir la función a la lista de funciones
+                funciones.add(funcion);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error al listar funciones con películas activas: " + ex.getMessage());
+        } finally {
+            // Cerrar recursos en el bloque finally
+            try {
+                if (rs != null) rs.close();
+                if (cs != null) cs.close();
+                if (con != null) con.close();
+            } catch (SQLException ex) {
+                System.out.println("Error al cerrar recursos: " + ex.getMessage());
+            }
+        }
+
+        return funciones;
+    }
+    
 }

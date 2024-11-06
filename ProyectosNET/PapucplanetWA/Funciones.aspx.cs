@@ -21,6 +21,19 @@ namespace PapucplanetWA
         private Estado estado;
         protected void Page_Load(object sender, EventArgs e)
         {
+            usuario usuarioDatos = (usuario)Session["Usuario"];
+            if (usuarioDatos == null || usuarioDatos.tipoUsuario == 'C')
+            {
+                if (usuarioDatos == null)
+                {
+                    Session["Redireccion"] = "Login.aspx";
+                }
+                else if (usuarioDatos.tipoUsuario.Equals("C"))
+                {
+                    Session["Redireccion"] = "PeliculasUsuario.aspx";
+                }
+                Response.Redirect("AccesoDenegado.aspx");
+            }
             string idPelicula = Request.QueryString["idPelicula"];
             daoPelicula = new PeliculaWSClient();
             daoSala = new SalaWSClient();

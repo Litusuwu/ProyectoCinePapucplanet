@@ -66,7 +66,7 @@ public class SalaWS {
         Sala sala = null;
         try {
             daoSala = new SalaMySQL();
-            sala = daoSala.obtenerPorId(idSala);
+            sala = daoSala.obtenerPorId(idSala);    
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }

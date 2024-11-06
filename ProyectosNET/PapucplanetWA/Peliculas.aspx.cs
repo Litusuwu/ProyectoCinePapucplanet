@@ -13,6 +13,19 @@ namespace PapucplanetWA
         private PeliculaWSClient daoPelicula;
         protected void Page_Load(object sender, EventArgs e)
         {
+            usuario usuarioDatos = (usuario)Session["Usuario"];
+            if (usuarioDatos == null || usuarioDatos.tipoUsuario == 'C')
+            {
+                if (usuarioDatos == null)
+                {
+                    Session["Redireccion"] = "Login.aspx";
+                }
+                else if (usuarioDatos.tipoUsuario.Equals("C"))
+                {
+                    Session["Redireccion"] = "PeliculasUsuario.aspx";
+                }
+                Response.Redirect("AccesoDenegado.aspx");
+            }
             daoPelicula = new PeliculaWSClient();
             gvPeliculas.DataSource = daoPelicula.listarPorNombrePelicula(txtNombre.Text);
             gvPeliculas.DataBind();

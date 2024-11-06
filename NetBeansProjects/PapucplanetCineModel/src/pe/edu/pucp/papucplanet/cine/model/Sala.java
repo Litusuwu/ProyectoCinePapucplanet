@@ -35,6 +35,7 @@ public class Sala {
     public void setNumFila(int numFila) {
         this.numFila = numFila;
     }
+    
     // Getter y Setter para numero_sala
     public void setNumeroSala(int numeroSala) {
         this.numeroSala = numeroSala;

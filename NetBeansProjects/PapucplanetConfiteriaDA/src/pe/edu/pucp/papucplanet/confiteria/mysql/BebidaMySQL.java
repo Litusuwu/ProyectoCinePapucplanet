@@ -156,5 +156,30 @@ public class BebidaMySQL implements BebidaDAO{
         }
         return bebidas;
     }
-    
+    public ArrayList<Bebida> listarPorNombre(String nombre){
+        ArrayList<Bebida> bebidas = new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_BEBIDA_X_NOMBRE(?)}");
+            cs.setString("_nombre_bebida", nombre);
+            rs = cs.executeQuery();
+            while(rs.next()){
+                Bebida bebida = new Bebida();
+                bebida.setId(rs.getInt("id_bebida"));
+                bebida.setNombre(rs.getString("nombre"));
+                bebida.setPrecio(rs.getDouble("precio"));
+                bebida.setOnzas(rs.getInt("onzas"));
+                bebida.setTieneHielo(rs.getBoolean("tieneHielo"));
+                bebida.setActivo(rs.getBoolean("activo"));
+                bebida.setImagenURL(rs.getString("imagen_link"));
+                bebida.setTipo(rs.getString("tipo").charAt(0));
+                bebidas.add(bebida);
+            }
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
+        }
+        return bebidas;
+    }
 }

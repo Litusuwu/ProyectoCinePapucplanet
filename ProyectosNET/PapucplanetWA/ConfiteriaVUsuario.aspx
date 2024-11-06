@@ -23,16 +23,35 @@
         <div class="container-fluid">
             <a class="navBar-login d-flex align-items-center gap-2" href="PeliculasUsuario.aspx"
                 style="text-decoration: none; font-size: 1.25rem;">
-                <i class="fa fa-film icon d-inline-block align-text-top" alt="Logo" width="20" height="44"/></i>
+                <i class="fa fa-film icon d-inline-block align-text-top" alt="Logo" width="20" height="44"></i>
                 PAPUCPLANET
             </a>
+
+            <div class="mx-auto text-center flex-grow-2">
+                <span class="navbar-text text-white">2. Confiteria</span>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars" style="color: white; font-size: 24px;"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav2">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item me-3">
+                        <asp:LinkButton ID="lnkPerfil" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/MiPerfil.aspx">
+                        <span class="d-inline d-lg-none">Mi Perfil</span>
+                        <i class="fas fa-user d-none d-lg-inline"></i>
+                        </asp:LinkButton>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
-    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm navBar-Confiteria">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <i class="mdi mdi-popcorn cinema-icon" style="font-size: 24px; color:white;"></i>
-            </a>
+        <nav class="navbar navbar-expand-lg navbar-dark shadow-sm navBar-Confiteria">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <i class="mdi mdi-popcorn cinema-icon" style="font-size: 24px; color: white;"></i>
+                </a>
             <button class="navbar-toggler navBar-Expandido" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars" style="color: white; font-size: 24px;"></i>
             </button>

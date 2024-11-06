@@ -3,14 +3,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>PAPUCPLANET - Películas</title>
-    <link href="Content/bootstrap.min.css" rel="stylesheet">
+    <link href="Content/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
     <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet"/>
-    <link href="Styles/Peliculas.css" rel="stylesheet">
+    <link href="Styles/Peliculas.css" rel="stylesheet"/>
 </head>
 <body>
     <form runat="server">
@@ -53,23 +53,20 @@
                         <div class="col-6 col-md-2 p-1 ">
                             <div class="p-3 border rounded contenedor-Filtro">
                                 <strong>Película</strong>
-                                <asp:DropDownList ID="ddlPelicula" runat="server" CssClass="form-select mt-2">
-                                </asp:DropDownList>
+                                <asp:DropDownList ID="ddlMovie" runat="server" CssClass="form-select mt-2" AutoPostBack="true" OnSelectedIndexChanged="FiltrarPeliculas"></asp:DropDownList>
                             </div>
                         </div>
                         <div class="col-6 col-md-2 p-1">
                             <div class="p-3 border rounded contenedor-Filtro">
                                 <strong>Sede</strong>
-                                <asp:DropDownList ID="ddlCine" runat="server" CssClass="form-select mt-2">
-                                </asp:DropDownList>
+                                <asp:DropDownList ID="ddlCine" runat="server" CssClass="form-select mt-2" AutoPostBack="true" OnSelectedIndexChanged="FiltrarPeliculas"></asp:DropDownList>
                             </div>
                         </div>
 
                         <div class="col-6 col-md-2 p-1">
                             <div class="p-3 border rounded contenedor-Filtro">
                                 <strong>Fecha</strong>
-                                <asp:DropDownList ID="ddlFecha" runat="server" CssClass="form-select mt-2">
-                                </asp:DropDownList>
+                                <asp:DropDownList ID="ddlFecha" runat="server" CssClass="form-select mt-2" AutoPostBack="true" OnSelectedIndexChanged="FiltrarPeliculas"></asp:DropDownList>
                             </div>
                         </div>
 
@@ -91,7 +88,7 @@
                         <div class="col">
                             <div class="card h-100 contenedor-Peliculas">
                                 <a href='<%# "DetallePelicula.aspx?id_pelicula=" + Eval("idPelicula") %>'>
-                                    <div class="card-img full-image image-container img-fluid" style='background-image: url("<%# Eval("imagenPromocional").ToString().Substring(1) %>");'></div>
+                                    <div class="card-img full-image image-container img-fluid" style='background-image: url("<%# Eval("imagenPromocional").ToString().Substring(1)%>");'></div>
                                 </a>
                                 <div class="card-body text-center label-Peliculas">
                                     <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("titulo") %>' CssClass="card-title"></asp:Label>

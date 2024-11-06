@@ -20,7 +20,7 @@ namespace PapucplanetWAS
             if (!IsPostBack)
             {
                 ButacaFuncionWSClient daoButacaFuncion = new ButacaFuncionWSClient();
-
+                showDate();
                 BindingList<butacaFuncion> listaButacas = new BindingList<butacaFuncion>(daoButacaFuncion.obtenerButacasPorFuncionButacaFuncion(2));
                 matrizButacas = ConvertirListaEnMatriz(listaButacas);
                 Session["MatrizButacas"] = matrizButacas;
@@ -60,28 +60,17 @@ namespace PapucplanetWAS
             GridViewSummary.DataBind();
             Session["Summary"] = summaryData;
         }
-        /*
-        protected BindingList<ButacaFuncion> ObtenerButacasDesdeBaseDeDatos()
+
+        protected void showDate()
         {
-            return new BindingList<ButacaFuncion>
-            {
-                new ButacaFuncion { IdButacaFuncion=1, Fila= 'A', Columna = 1, Estado = EstadoButaca.DISPONIBLE, Discapacitado = false , Precio=15},
-                new ButacaFuncion { IdButacaFuncion=2, Fila = 'A', Columna = 2, Estado = EstadoButaca.DISPONIBLE, Discapacitado = false, Precio=15},
-                new ButacaFuncion { IdButacaFuncion=3, Fila = 'A', Columna = 3, Estado = EstadoButaca.OCUPADA, Discapacitado = false, Precio=15 },
-                new ButacaFuncion { IdButacaFuncion=4, Fila = 'A', Columna = 4, Estado = EstadoButaca.DISPONIBLE, Discapacitado = false,Precio=15 },
-                new ButacaFuncion { IdButacaFuncion=5, Fila = 'B', Columna = 1, Estado = EstadoButaca.DISPONIBLE, Discapacitado = false,Precio=15 },
-                new ButacaFuncion { IdButacaFuncion=6, Fila = 'B', Columna = 2, Estado = EstadoButaca.DISPONIBLE, Discapacitado = true,Precio=10 }, // Ejemplo de asiento discapacitado
-                new ButacaFuncion { IdButacaFuncion=7, Fila = 'B', Columna = 3, Estado = EstadoButaca.OCUPADA, Discapacitado = false , Precio = 15},
-                new ButacaFuncion { IdButacaFuncion=8, Fila = 'B', Columna = 4, Estado = EstadoButaca.DISPONIBLE, Discapacitado = false ,Precio=15},
-                new ButacaFuncion { IdButacaFuncion=9, Fila = 'C', Columna = 1, Estado = EstadoButaca.MANTENIMIENTO, Discapacitado = false , Precio = 15},
-                new ButacaFuncion { IdButacaFuncion=10, Fila = 'C', Columna = 2, Estado = EstadoButaca.DISPONIBLE, Discapacitado = true, Precio=10 }, // Ejemplo de asiento discapacitado
-                new ButacaFuncion { IdButacaFuncion=11, Fila = 'C', Columna = 3, Estado = EstadoButaca.DISPONIBLE, Discapacitado = false,Precio=15  },
-                new ButacaFuncion { IdButacaFuncion=12, Fila = 'C', Columna = 4, Estado = EstadoButaca.DISPONIBLE, Discapacitado = false, Precio=15 }
-
-            };
-        }
-        */
-
+            FuncionWSClient daoFuncion = new FuncionWSClient();
+            funcion fun=daoFuncion.obtenerPorIdFuncion(2);
+            DateTime date = fun.dia;
+            DateTime horaInicio = fun.horarioInicio;  // Suponiendo que puedes convertirlo
+            DateTime horaFin = fun.horarioFin;
+            lblDate.Text = "Fecha de la función: " + date.ToString("dd/MM/yyyy") +
+                           "<br>Hora de la función:  " + horaInicio.ToString("HH:mm") + " - "  +  horaFin.ToString("HH:mm");
+        } 
         private BindingList<BindingList<butacaFuncion>> ConvertirListaEnMatriz(BindingList<butacaFuncion> lista)
         {
             var agrupadasPorFila = new Dictionary<char, BindingList<butacaFuncion>>();
@@ -185,16 +174,7 @@ namespace PapucplanetWAS
                 //se añade a la boleta
                 lineaBoleta linea=new lineaBoleta();
                 linea.butacaFuncion= but;
-                /*
-                BindingList<lineaBoleta> listaLineas = new BindingList<lineaBoleta>(bol.lineasBoleta);
-                listaLineas.Add(linea);
                 
-                
-
-                // Convertir de nuevo a arreglo y actualizar bol.lineasBoleta
-                bol.lineasBoleta = listaLineas.ToArray();
-                */
-
                 bol.lineasBoleta.Append(linea);
                 if (!but.discapacitado)
                 {
@@ -292,6 +272,10 @@ namespace PapucplanetWAS
             }
         }
 
-      
+        protected void LbtnSiguiente_OnClick(object sender, EventArgs e)
+        {
+            Response.Redirect("ConfiteriaVUsuario.aspx");
+        }
+
     }
 }

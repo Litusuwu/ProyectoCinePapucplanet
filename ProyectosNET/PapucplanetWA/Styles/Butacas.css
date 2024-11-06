@@ -1,6 +1,5 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
-.body {
+﻿.body {
     font-family: "Space Grotesk", serif;
 }
 
@@ -23,14 +22,37 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /*    aspect-ratio: 3 / 4;*/
     width: 100%;
     height: calc(100%+0px);
     display: block;
     padding-bottom: 133%;
 }
 
-.navBar-Peliculas {
+.navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.flex-grow-2 {
+    flex-grow: 7; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin: 0 20px;
+}
+.position-relative {
+    flex: 1; 
+    display: flex; 
+    justify-content: center; 
+}
+
+.navbar-text {
+    color: white; /* Color del texto */
+    margin: 0;
+}
+
+.navBar-Butacas {
     background-color: black !important;
     color: white;
 }
@@ -129,3 +151,169 @@
     background-repeat: no-repeat;
     cursor: pointer;
 }
+.pantalla-container {
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pantalla {
+    background-color: #d3d3d3;
+    color: black;
+    width: 500px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.main-content {
+    padding-top: 30px;
+}
+
+.seat.available-est {
+    border-color: darkred;
+    color: darkred;
+    background-color: #ffffff;
+}
+
+.seat.occupied {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+.seat.reserved-est {
+    background-color: darkred;
+    color: #ffffff;
+}
+
+.seat.disabled-seat {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.seat.available-est:hover {
+    background-color: darkred;
+    color: #ffffff;
+}
+
+.seat.available-disc {
+    border-color: black; 
+    color: black;
+    background-color: #ffffff;
+}
+
+.seat.reserved-disc {
+    background-color: black; 
+    color: #ffffff;
+}
+
+.seat.available-disc:hover {
+    background-color: black; 
+    color: #ffffff;
+}
+
+
+.seat.maintenance-seat {
+    background-color: gray; 
+    color: #ffffff;
+}
+
+.seat.disabled-seat {
+    background-color: #000000; 
+    color: #ffffff;
+}
+
+.summary-container {
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.summary-title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: darkred; /* Color principal */
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.summary-label {
+    font-weight: bold;
+    width: 30%;
+    text-align: left;
+}
+
+.summary-textbox {
+    width: 65%;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.summary-grid {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #d9534f; 
+    color: #ffffff;
+    margin-top: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+    .summary-grid th, .summary-grid td {
+        padding: 10px;
+        text-align: left;
+        border: none;
+    }
+
+    .summary-grid th {
+        background-color: darkred; 
+        color: #ffffff;
+    }
+
+    .summary-grid tr:nth-child(even) {
+        background-color: #c9302c; 
+    }
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: darkred; 
+    color: #ffffff; 
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+    .summary-total div {
+        width: 30%;
+    }
+
+    .summary-total .total-label {
+        text-align: left;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .summary-total .total-value {
+        text-align: right;
+        font-size: 1.5rem;
+    }

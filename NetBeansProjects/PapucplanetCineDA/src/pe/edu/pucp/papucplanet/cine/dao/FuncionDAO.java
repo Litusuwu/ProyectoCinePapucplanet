@@ -15,4 +15,5 @@ public interface FuncionDAO {
     ArrayList<Funcion> obtenerFuncionesPorPelicula(int idPelicula);
     ArrayList<Funcion> listarFuncionesPorFecha(Date fecha);
     int modificarConButacasFuncion(Funcion funcion);
+    ArrayList<Funcion> listarPeliculasConFuncionesActivas();
 }
