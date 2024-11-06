@@ -8,6 +8,7 @@ import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import pe.edu.pucp.papucplanet.cine.dao.SalaDAO;
+import pe.edu.pucp.papucplanet.cine.model.Sala;
 
 public class ButacaMySQL implements ButacaDAO{
     private Connection con;
@@ -139,6 +140,37 @@ public class ButacaMySQL implements ButacaDAO{
             try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());};
         }
         return butaca;
+    }
+    
+    @Override
+    public ArrayList<Butaca> listarButacasXSala(int idSala) {
+        ArrayList<Butaca> butacas = new ArrayList<>();
+        Butaca butaca;
+        try{
+            con = DBManager.getInstance().getConnection();
+            con.setAutoCommit(false);
+            cs = con.prepareCall("{call LISTAR_BUTACAS_X_SALA(?)}");
+            cs.setInt("_id_sala",idSala);
+            rs = cs.executeQuery();
+            
+            while(rs.next()){
+                butaca = new Butaca();
+                butaca.setIdButaca(rs.getInt("id_butaca"));
+                butaca.setFila(rs.getString("fila").charAt(0));
+                butaca.setColumna(rs.getInt("columna"));
+                butaca.setDiscapacitado(rs.getBoolean("discapacitado"));
+                butaca.setSala(new Sala());
+                butaca.getSala().setIdSala(rs.getInt("fid_sala"));
+                butacas.add(butaca);
+            }
+            con.commit();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+            try{con.rollback();}catch(SQLException ex1){ex1.getMessage(); }
+        }finally{
+            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
+        }
+        return butacas;
     }
     
 }

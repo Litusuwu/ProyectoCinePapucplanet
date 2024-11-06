@@ -1,22 +1,22 @@
 package pe.edu.pucp.papucplanet.cine.model;
 
 public class Sala {
-    private int idSala;
+     private int idSala;
     private int capacidad;
     private int numeroSala;
     private int numCol;
     private int numFila;
     private Sede sede;
     private boolean activo;
-    
+
     public Sala(){
     }
-    
+
     public Sala( int capacidad,int numeroSala,Sede sede) {
         //this.idSala = idSala;
         this.numeroSala = numeroSala;
         this.capacidad = capacidad;
-	this.sede=sede;
+    this.sede=sede;
         this.activo = true;
     }
 

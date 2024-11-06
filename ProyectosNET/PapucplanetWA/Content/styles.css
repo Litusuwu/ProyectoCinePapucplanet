@@ -62,9 +62,7 @@ a, i {
     }
 
 .card-header-colored {
-    border-bottom: 3px solid #7153f2; /* Cambia el color a tu preferencia */
-    color: #7153f2; /* Cambia el color del texto a juego */
-    font-weight: bold;
+    border-bottom: 3px solid #8B0000; /* Cambia el color a tu preferencia */
     background-color: #ffffff; /* Fondo blanco */
 }
 
@@ -73,15 +71,15 @@ a, i {
     box-shadow: none; /* Opcional: quita la sombra de la tarjeta si la tiene */
 }
 
-.text-purple {
+.text-red {
     text-decoration: none;
-    color: #8a2be2; /* Personaliza el color */
+    color: #8B0000; /* Personaliza el color */
 }
 
-    .text-purple:hover {
-        text-decoration: underline; /* Opcional: subrayado al pasar el mouse */
-        color: #6a1bb3; /* Color al pasar el mouse */
-    }
+.text-red:hover {
+    text-decoration: underline; /* Opcional: subrayado al pasar el mouse */
+    color: #6A0000; /* Color al pasar el mouse */
+}
 
 .btn-sede {
     background-color: #8B0000 !important; /* Color de fondo */
@@ -103,23 +101,23 @@ a, i {
     display: inline-block;
     margin: 0 5px;
     padding: 8px 12px;
-    color: #6c757d; /* Color para los enlaces */
-    background-color: #f8f9fa; /* Fondo para los botones */
+    color: #8B0000; /* Color rojo para los enlaces */
+    background-color: #f8f9fa; /* Fondo claro para los botones */
     border: 1px solid #dee2e6;
     border-radius: 4px;
     text-decoration: none;
 }
 
     .pagination-container a:hover {
-        background-color: #7153f2;
-        color: white;
+        background-color: #6A0000; /* Fondo rojo oscuro al pasar el mouse */
+        color: white; /* Color blanco para el texto en hover */
     }
 
 .pagination-container .selected {
-    background-color: #7153f2;
-    color: white;
+    background-color: #6A0000; /* Fondo rojo oscuro para el botón seleccionado */
+    color: white; /* Color blanco para el texto */
     font-weight: bold;
-    border-color: #7153f2;
+    border-color: #6A0000; /* Borde rojo oscuro */
 }
 
 .centered-row td {

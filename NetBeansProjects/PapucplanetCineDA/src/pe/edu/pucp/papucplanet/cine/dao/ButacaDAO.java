@@ -8,5 +8,6 @@ public interface ButacaDAO {
     int modificar(Butaca butaca);
     int eliminar(int idButaca);
     ArrayList<Butaca> listarTodos();
+    ArrayList<Butaca> listarButacasXSala(int idSala);
     Butaca obtenerPorId(int idButaca);
 }

@@ -1,17 +1,18 @@
 package pe.edu.pucp.papucplanet.cine.model;
-import java.time.LocalTime;
 import java.util.Date;
 import java.util.ArrayList;
 
 public class Funcion {
+
     private int idFuncion;
     private Date horarioInicio;
     private Date horarioFin;
     private Date dia;
     private Pelicula pelicula;
     private Sala sala;
-    //private ArrayList<ButacaFuncion> butacasFuncion;
+    private ArrayList<ButacaFuncion> butacasFuncion;
     private boolean activo;
+    
     public Funcion(){
     }
     public Funcion(Date horarioInicio, Date horarioFin, Date dia, Pelicula pelicula, Sala sala) {
@@ -31,8 +32,6 @@ public class Funcion {
     public void setIdFuncion(int idFuncion) {
         this.idFuncion = idFuncion;
     }
-    
-    
     
     // Getter y Setter para horarioInicio
     public void setHorarioInicio(Date horarioInicio) {
@@ -78,6 +77,13 @@ public class Funcion {
     public Sala getSala() {
         return sala;
     }
+    public ArrayList<ButacaFuncion> getButacasFuncion() {
+        return butacasFuncion;
+    }
+    public void setButacasFuncion(ArrayList<ButacaFuncion> butacasFuncion) {
+        this.butacasFuncion = butacasFuncion;
+    }
+
 	
 /*
     public ArrayList<ButacaFuncion> getButacasFuncion(){

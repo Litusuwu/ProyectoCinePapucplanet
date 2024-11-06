@@ -6,8 +6,6 @@ import pe.edu.pucp.papucplanet.cine.dao.SalaDAO;
 import pe.edu.pucp.papucplanet.cine.model.Sala;
 import pe.edu.pucp.papucplanet.dbmanager.model.DBManager;
 import pe.edu.pucp.papucplanet.cine.dao.SedeDAO;
-import pe.edu.pucp.papucplanet.cine.mysql.SedeMySQL;
-
 //import pe.edu.pucp.papucplanet.cine.model.Butaca;
 //import pe.edu.pucp.papucplanet.cine.model.Funcion;
 import java.sql.Connection;

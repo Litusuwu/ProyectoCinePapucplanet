@@ -50,6 +50,7 @@
   <xs:complexType name="funcion">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="butacasFuncion" nillable="true" type="tns:butacaFuncion" />
       <xs:element minOccurs="0" name="dia" type="xs:dateTime" />
       <xs:element minOccurs="0" name="horarioFin" type="xs:dateTime" />
       <xs:element minOccurs="0" name="horarioInicio" type="xs:dateTime" />
