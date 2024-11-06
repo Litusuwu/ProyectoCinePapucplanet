@@ -2,6 +2,8 @@
 <xs:schema xmlns:tns="http://services.papucplanet.pucp.edu.pe" targetNamespace="http://services.papucplanet.pucp.edu.pe" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="eliminarFuncion" type="tns:eliminarFuncion" />
   <xs:element name="eliminarFuncionResponse" type="tns:eliminarFuncionResponse" />
+  <xs:element name="estaDisponibleElHorario" type="tns:estaDisponibleElHorario" />
+  <xs:element name="estaDisponibleElHorarioResponse" type="tns:estaDisponibleElHorarioResponse" />
   <xs:element name="insertarFuncion" type="tns:insertarFuncion" />
   <xs:element name="insertarFuncionResponse" type="tns:insertarFuncionResponse" />
   <xs:element name="listarFuncionesPorFecha" type="tns:listarFuncionesPorFecha" />
@@ -129,6 +131,16 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:funcion" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="estaDisponibleElHorario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="funcion" type="tns:funcion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="estaDisponibleElHorarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="obtenerFuncionesPorPeliculaFuncion">
     <xs:sequence>
       <xs:element name="idPelicula" type="xs:int" />
@@ -141,7 +153,7 @@
   </xs:complexType>
   <xs:complexType name="listarFuncionesPorFecha">
     <xs:sequence>
-      <xs:element minOccurs="0" name="fecha" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Funcion" type="tns:funcion" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarFuncionesPorFechaResponse">

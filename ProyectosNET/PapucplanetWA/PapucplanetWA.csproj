@@ -383,6 +383,9 @@
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.modificarFuncionConButacasFuncionResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.estaDisponibleElHorarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\Servicio\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -429,6 +432,8 @@
     <Content Include="Content\Fonts\css\v5-font-face.css" />
     <Content Include="Content\Fonts\css\v5-font-face.min.css" />
     <Content Include="Content\styles.css" />
+    <Content Include="Scripts\Papucplanet\Consumibles.js" />
+    <Content Include="Scripts\Papucplanet\Funciones.js" />
     <Content Include="Styles\Butacas.css" />
     <Content Include="Styles\DetallePelicula.css" />
     <Content Include="DetallePelicula.aspx" />

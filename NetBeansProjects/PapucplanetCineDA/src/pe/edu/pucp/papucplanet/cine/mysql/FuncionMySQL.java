@@ -94,6 +94,11 @@ public class FuncionMySQL implements FuncionDAO{
             cs = con.prepareCall("{call ELIMINAR_FUNCION_X_ID(?)}");
             cs.setInt("_id_funcion",idFuncion);
             result = cs.executeUpdate();
+            
+            cs = con.prepareCall("{call ELIMINAR_BUTACAS_FUNCION_X_ID_FUNCION(?)}");
+            cs.setInt("_id_funcion",idFuncion);
+            cs.executeUpdate();
+            
             con.commit();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -236,43 +241,44 @@ public class FuncionMySQL implements FuncionDAO{
     }
     
     @Override
-    public ArrayList<Funcion> listarFuncionesPorFecha(Date fecha) {
+    public ArrayList<Funcion> listarFuncionesPorFecha(Funcion funcion) {
         ArrayList<Funcion> funciones = new ArrayList<>();
         try {
             con = DBManager.getInstance().getConnection();
             con.setAutoCommit(false);
 
             // Llamada al procedimiento almacenado con el parámetro idPelicula
-            cs = con.prepareCall("{call LISTAR_FUNCIONES_POR_FECHA(?)}");
-            java.sql.Date sqlFecha = new java.sql.Date(fecha.getTime());
-            cs.setDate("_fecha", sqlFecha);
+            cs = con.prepareCall("{call LISTAR_FUNCIONES_POR_FECHA(?,?)}");
+
+            cs.setDate("_dia",new java.sql.Date(funcion.getDia().getTime()));
+            cs.setInt("_fid_pelicula", funcion.getPelicula().getIdPelicula());
             rs = cs.executeQuery();
 
-            Funcion funcion;
+            Funcion func;
 
             while (rs.next()) {
-                funcion = new Funcion();
-                funcion.setIdFuncion(rs.getInt("id_funcion"));
-                funcion.setHorarioInicio(new java.sql.Time(rs.getTime("horaInicio").getTime()));
-                funcion.setHorarioFin(new java.sql.Time(rs.getTime("horaFin").getTime()));
-                funcion.setDia(rs.getDate("dia"));
-                funcion.setPelicula(new Pelicula());
-                funcion.getPelicula().setIdPelicula(rs.getInt("fid_pelicula"));
-                funcion.getPelicula().setTitulo(rs.getString("titulo"));
-                funcion.getPelicula().setGenero(Genero.valueOf(rs.getString("genero")));
-                funcion.getPelicula().setDuracion(rs.getDouble("duracion"));
-                funcion.getPelicula().setSinopsis(rs.getString("sinopsis"));
-                funcion.getPelicula().setImagenPromocional(rs.getString("imagen_link"));
+                func = new Funcion();
+                func.setIdFuncion(rs.getInt("id_funcion"));
+                func.setHorarioInicio(new java.sql.Time(rs.getTime("horaInicio").getTime()));
+                func.setHorarioFin(new java.sql.Time(rs.getTime("horaFin").getTime()));
+                func.setDia(rs.getDate("dia"));
+                func.setPelicula(new Pelicula());
+                func.getPelicula().setIdPelicula(rs.getInt("fid_pelicula"));
+                func.getPelicula().setTitulo(rs.getString("titulo"));
+                func.getPelicula().setGenero(Genero.valueOf(rs.getString("genero")));
+                func.getPelicula().setDuracion(rs.getDouble("duracion"));
+                func.getPelicula().setSinopsis(rs.getString("sinopsis"));
+                func.getPelicula().setImagenPromocional(rs.getString("imagen_link"));
                 
                 //funcion.setPelicula(peliculaDao.obtenerPorId(idPelicula));
-                funcion.setSala(new Sala());
-                funcion.getSala().setIdSala(rs.getInt("fid_sala"));
-                funcion.getSala().setNumeroSala(rs.getInt("numero_sala"));
-                funcion.getSala().setSede(new Sede());
-                funcion.getSala().getSede().setUniversidad(rs.getString("nombre_sede"));
+                func.setSala(new Sala());
+                func.getSala().setIdSala(rs.getInt("fid_sala"));
+                func.getSala().setNumeroSala(rs.getInt("numero_sala"));
+                func.getSala().setSede(new Sede());
+                func.getSala().getSede().setUniversidad(rs.getString("nombre_sede"));
 
                 // Agregar la función a la lista
-                funciones.add(funcion);
+                funciones.add(func);
             }
 
             con.commit();
@@ -325,6 +331,8 @@ public class FuncionMySQL implements FuncionDAO{
         }
         return result;
     }
+    
+    @Override
     public ArrayList<Funcion> listarPeliculasConFuncionesActivas() {
         ArrayList<Funcion> funciones = new ArrayList<>();
 
@@ -381,4 +389,36 @@ public class FuncionMySQL implements FuncionDAO{
         return funciones;
     }
     
+    @Override
+    public int verificarDisponibilidadHorario(Funcion funcion){
+        int result = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            con.setAutoCommit(false);
+            cs = con.prepareCall("{call VERIFICAR_DISPONIBILIDAD_HORARIO_DE_FUNCIONES(?, ?, ?, ?)}");
+            
+            java.sql.Date sqlDia = new java.sql.Date(funcion.getDia().getTime());
+            java.sql.Time sqlHoraInicio = new java.sql.Time(funcion.getHorarioInicio().getTime());
+            java.sql.Time sqlHoraFin = new java.sql.Time(funcion.getHorarioFin().getTime());
+
+            // Establece los parámetros para la llamada al procedimiento
+            cs.setDate("_dia", sqlDia);
+            cs.setTime("_horaInicio", sqlHoraInicio);
+            cs.setTime("_horaFin", sqlHoraFin);
+            cs.setInt("_fid_sala", funcion.getSala().getIdSala());
+
+            // Ejecuta la consulta y obtiene el resultado
+            rs = cs.executeQuery();
+            if (rs.next()) {
+                result = rs.getInt(1); // Suponiendo que el resultado sea un número entero en la primera columna del resultado
+            }
+            con.commit();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+            try{con.rollback();}catch(SQLException ex1){ex1.getMessage(); }
+        }finally{
+            try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
+        }
+        return result;
+    }
 }

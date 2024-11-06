@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -54,7 +55,12 @@ namespace PapucplanetWA
                 lblSinopsis.Text = pelicula.sinopsis;
                 lblTituloPelicula.Text = pelicula.titulo;
 
-                gvFunciones.DataSource = daoFuncion.listarFuncionesPorFecha(DateTime.Parse(dtpFiltrarFecha.Value));
+                funcion funcionFiltro = new funcion();
+                funcionFiltro.dia = DateTime.Parse(dtpFiltrarFecha.Value);
+                funcionFiltro.pelicula = new pelicula();
+                funcionFiltro.diaSpecified = true;
+                funcionFiltro.pelicula.idPelicula = Int32.Parse(idPelicula);
+                gvFunciones.DataSource = daoFuncion.listarFuncionesPorFecha(funcionFiltro);
                 gvFunciones.DataBind();
             }
         }
@@ -145,6 +151,34 @@ namespace PapucplanetWA
             funcion funcion = new funcion();
             funcion funcionSession = new funcion();
             int resultado = 0;
+            string script;
+
+            if (string.IsNullOrEmpty(dtpFecha.Value))
+            {
+                cerrarFormAgregar();
+                lblMensajeError.Text = "Debe ingresar una fecha";
+                script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(tmHoraInicio.Text))
+            {
+                cerrarFormAgregar();
+                lblMensajeError.Text = "Debe ingresar una hora de inicio";
+                script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
+
+            if (DateTime.Parse(dtpFecha.Value) < DateTime.Now.Date)
+            {
+                cerrarFormAgregar();
+                lblMensajeError.Text = "Debe ingresar fecha para hoy o los próximos días";
+                script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
 
             funcion.dia = DateTime.Parse(dtpFecha.Value);
             funcion.diaSpecified = true;
@@ -162,6 +196,14 @@ namespace PapucplanetWA
 
             funcion.sala = new sala();
             funcion.sala.idSala = Int32.Parse(ddlSala.SelectedValue);
+            if (daoFuncion.estaDisponibleElHorario(funcion) == 1){
+                cerrarFormAgregar();
+                lblMensajeError.Text = "El horario de la funcion no está disponible, inserte otro";
+                script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
+
             funcion.pelicula = new pelicula();
             funcion.pelicula.idPelicula = pelicula.idPelicula;
 
@@ -204,15 +246,26 @@ namespace PapucplanetWA
                 }
             }
 
-            // Limpiar los valores del formulario
-            ddlSede.SelectedIndex = 0;
-            dtpFecha.Value = string.Empty;
-            tmHoraInicio.Text = string.Empty;
-            txtHoraFin.Text = string.Empty;
+            if (resultado > 0)
+            {
+                // Recarga los datos de la tabla al finalizar la operación
+                lbBuscar_Click(sender, e); // Esto actualizará el GridView con las funciones actualizadas
 
+                // Limpia los valores del formulario y cierra el modal
+                ddlSede.SelectedIndex = 0;
+                dtpFecha.Value = string.Empty;
+                tmHoraInicio.Text = string.Empty;
+                txtHoraFin.Text = string.Empty;
+
+                cerrarFormAgregar(); // Cierra el modal de agregar/modificar
+            }
+        }
+
+        private void cerrarFormAgregar()
+        {
             upAgregarFuncion.Update();
-            string script = "hideModalFormAgregarNuevaFuncion();";
-            ScriptManager.RegisterStartupScript(this, GetType(), "HideModalFormAgregarNuevaFuncion", script, true);
+            string scriptCerrar = "hideModalFormAgregarNuevaFuncion();";
+            ScriptManager.RegisterStartupScript(this, GetType(), "HideModalFormAgregarNuevaFuncion", scriptCerrar, true);
         }
 
         protected void gvFunciones_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -236,7 +289,13 @@ namespace PapucplanetWA
 
         protected void lbBuscar_Click(object sender, EventArgs e)
         {
-            gvFunciones.DataSource = daoFuncion.listarFuncionesPorFecha(DateTime.Parse(dtpFiltrarFecha.Value));
+            string idPelicula = Request.QueryString["idPelicula"];
+            funcion funcionFiltro = new funcion();
+            funcionFiltro.dia = DateTime.Parse(dtpFiltrarFecha.Value);
+            funcionFiltro.diaSpecified = true;
+            funcionFiltro.pelicula = new pelicula();
+            funcionFiltro.pelicula.idPelicula = Int32.Parse(idPelicula);
+            gvFunciones.DataSource = daoFuncion.listarFuncionesPorFecha(funcionFiltro);
             gvFunciones.DataBind();
         }
     }

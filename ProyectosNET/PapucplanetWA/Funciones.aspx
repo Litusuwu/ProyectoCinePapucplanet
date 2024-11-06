@@ -91,32 +91,32 @@
                             </div>
                             <div class="modal-body">
                                 <asp:UpdatePanel ID="upAgregarFuncion" runat="server" UpdateMode="Conditional">
-                                <ContentTemplate>
-                                <div class="row pb-1 pt-1">
-                                    <div class="col-md-12 pb-md-2">
-                                        <asp:Label ID="lblSede" CssClass="col-form-label fw-bold" runat="server" Text="Sede:"></asp:Label>
-                                        <asp:DropDownList ID="ddlSede" runat="server" AutoPostBack="true" CssClass="form-select"
-                                            OnSelectedIndexChanged="ddlSede_SelectedIndexChanged">
-                                        </asp:DropDownList>
-                                    </div>
-                                    <div class="col-md-12 pb-md-2">
-                                        <asp:Label ID="lblSala" CssClass="col-form-label fw-bold" runat="server" Text="Sala:"></asp:Label>
-                                        <asp:DropDownList ID="ddlSala" runat="server" CssClass="form-select"></asp:DropDownList>
-                                    </div>
-                                    <div class="col-md-12 pb-md-2">
-                                        <asp:Label ID="lblFecha" CssClass="col-form-label fw-bold" runat="server" Text="Fecha:"></asp:Label>
-                                        <input id="dtpFecha" runat="server" type="date" class="form-control" />
-                                    </div>
-                                    <div class="col-md-6">
-                                        <asp:Label ID="lblHoraInicio" CssClass="col-form-label fw-bold" runat="server" Text="Hora Inicio:"></asp:Label>
-                                        <asp:TextBox ID="tmHoraInicio" runat="server" type="time" CssClass="form-control" AutoPostBack="true" OnTextChanged="tmHoraInicio_TextChanged"></asp:TextBox>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <asp:Label ID="lblHoraFin" CssClass="col-form-label fw-bold" runat="server" Text="Hora Fin:"></asp:Label>
-                                        <asp:TextBox ID="txtHoraFin" runat="server" CssClass="form-control" placeholder="Ingrese la hora de inicio" ReadOnly="true"></asp:TextBox>
-                                    </div>
-                                </div>
-                                </ContentTemplate>
+                                    <ContentTemplate>
+                                        <div class="row pb-1 pt-1">
+                                            <div class="col-md-12 pb-md-2">
+                                                <asp:Label ID="lblSede" CssClass="col-form-label fw-bold" runat="server" Text="Sede:"></asp:Label>
+                                                <asp:DropDownList ID="ddlSede" runat="server" AutoPostBack="true" CssClass="form-select"
+                                                    OnSelectedIndexChanged="ddlSede_SelectedIndexChanged">
+                                                </asp:DropDownList>
+                                            </div>
+                                            <div class="col-md-12 pb-md-2">
+                                                <asp:Label ID="lblSala" CssClass="col-form-label fw-bold" runat="server" Text="Sala:"></asp:Label>
+                                                <asp:DropDownList ID="ddlSala" runat="server" CssClass="form-select"></asp:DropDownList>
+                                            </div>
+                                            <div class="col-md-12 pb-md-2">
+                                                <asp:Label ID="lblFecha" CssClass="col-form-label fw-bold" runat="server" Text="Fecha:"></asp:Label>
+                                                <input id="dtpFecha" runat="server" type="date" class="form-control" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <asp:Label ID="lblHoraInicio" CssClass="col-form-label fw-bold" runat="server" Text="Hora Inicio:"></asp:Label>
+                                                <asp:TextBox ID="tmHoraInicio" runat="server" type="time" CssClass="form-control" AutoPostBack="true" OnTextChanged="tmHoraInicio_TextChanged"></asp:TextBox>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <asp:Label ID="lblHoraFin" CssClass="col-form-label fw-bold" runat="server" Text="Hora Fin:"></asp:Label>
+                                                <asp:TextBox ID="txtHoraFin" runat="server" CssClass="form-control" placeholder="Ingrese la hora de inicio" ReadOnly="true"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </ContentTemplate>
                                 </asp:UpdatePanel>
                             </div>
                             <div class="modal-footer">
@@ -125,6 +125,24 @@
                         </div>
                     </div>
                 </contenttemplate>
+            </div>
+            <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger text-white">
+                            <h5 class="modal-title" id="errorModalLabel">
+                                <i class="bi bi-exclamation-triangle-fill me-2"></i>Mensaje de Error
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <asp:Label ID="lblMensajeError" runat="server" Text="Mensaje de ejemplo..." CssClass="form-text text-danger"></asp:Label>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>

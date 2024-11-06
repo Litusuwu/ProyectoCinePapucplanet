@@ -84,6 +84,7 @@ DROP PROCEDURE IF EXISTS LISTAR_FUNCION_X_ID;
 DROP PROCEDURE IF EXISTS ELIMINAR_FUNCION_X_ID;
 DROP PROCEDURE IF EXISTS OBTENER_FUNCIONES_POR_PELICULA;
 DROP PROCEDURE IF EXISTS LISTAR_FUNCIONES_POR_FECHA;
+DROP PROCEDURE IF EXISTS VERIFICAR_DISPONIBILIDAD_HORARIO_DE_FUNCIONES;
 
 -- Drops de ButacaFuncion
 DROP PROCEDURE IF EXISTS INSERTAR_BUTACA_FUNCION;
@@ -802,14 +803,40 @@ BEGIN
     WHERE fid_pelicula = _id_pelicula AND activo = 1;
 END$
 
+DELIMITER $
 CREATE PROCEDURE LISTAR_FUNCIONES_POR_FECHA(
-	IN _fecha DATE
+	IN _dia DATE, 
+    IN _fid_pelicula INT
 )
 BEGIN
 	SELECT f.id_funcion, f.horaInicio, f.horaFin, f.dia, f.fid_sala, f.fid_pelicula, p.titulo, p.genero, p.duracion, 
     p.sinopsis, p.imagen_link, sa.numero_sala, se.id_sede, se.nombre as nombre_sede
     FROM Funcion f INNER JOIN Pelicula p ON f.fid_pelicula = p.id_pelicula INNER JOIN Sala sa ON f.fid_sala = sa.id_sala INNER JOIN Sede se ON se.id_sede = sa.fid_sede
-    WHERE f.dia = _fecha AND f.activo = 1;
+    WHERE f.dia = _dia AND f.fid_pelicula = _fid_pelicula AND f.activo = 1;
+END$
+
+CREATE PROCEDURE VERIFICAR_DISPONIBILIDAD_HORARIO_DE_FUNCIONES(
+    IN _dia DATE,
+    IN _horaInicio TIME,
+    IN _horaFin TIME,
+    IN _fid_sala INT
+)
+BEGIN
+    DECLARE overlap_count INT;
+
+    -- Verificar si hay funciones que se crucen en el mismo día y sala
+    SELECT COUNT(*)
+    INTO overlap_count
+    FROM Funcion
+    WHERE dia = _dia AND fid_sala = _fid_sala AND activo = 1
+      AND ((_horaInicio < horaFin AND _horaFin > horaInicio));
+
+    -- Devolver 1 si hay cruce de horarios, 0 si no hay cruce
+    IF overlap_count > 0 THEN
+        SELECT 1 AS disponibilidad;
+    ELSE
+        SELECT 0 AS disponibilidad;
+    END IF;
 END$
 
 -- Procedimientos de ButacaFuncion

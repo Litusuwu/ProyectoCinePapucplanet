@@ -66,7 +66,7 @@ namespace PapucplanetWA
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 e.Row.Cells[1].Text = DataBinder.Eval(e.Row.DataItem, "titulo").ToString();
-                e.Row.Cells[2].Text = DataBinder.Eval(e.Row.DataItem, "duracion").ToString();
+                e.Row.Cells[2].Text = DataBinder.Eval(e.Row.DataItem, "duracion").ToString() + " minutos";
                 e.Row.Cells[3].Text = DataBinder.Eval(e.Row.DataItem, "genero").ToString();
             }
         }

@@ -5151,6 +5151,17 @@ namespace PapucplanetWA.Servicio {
         System.Threading.Tasks.Task<PapucplanetWA.Servicio.insertarFuncionResponse> insertarFuncionAsync(PapucplanetWA.Servicio.insertarFuncionRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/estaDisponibleElHorarioRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/FuncionWS/estaDisponibleElHorarioResponse" +
+            "")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        PapucplanetWA.Servicio.estaDisponibleElHorarioResponse estaDisponibleElHorario(PapucplanetWA.Servicio.estaDisponibleElHorarioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/estaDisponibleElHorarioRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/FuncionWS/estaDisponibleElHorarioResponse" +
+            "")]
+        System.Threading.Tasks.Task<PapucplanetWA.Servicio.estaDisponibleElHorarioResponse> estaDisponibleElHorarioAsync(PapucplanetWA.Servicio.estaDisponibleElHorarioRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.papucplanet.pucp.edu.pe/FuncionWS/obtenerFuncionesPorPeliculaFunc" +
             "ionRequest", ReplyAction="http://services.papucplanet.pucp.edu.pe/FuncionWS/obtenerFuncionesPorPeliculaFunc" +
             "ionResponse")]
@@ -5349,6 +5360,42 @@ namespace PapucplanetWA.Servicio {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="estaDisponibleElHorario", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
+    public partial class estaDisponibleElHorarioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.papucplanet.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public PapucplanetWA.Servicio.funcion funcion;
+        
+        public estaDisponibleElHorarioRequest() {
+        }
+        
+        public estaDisponibleElHorarioRequest(PapucplanetWA.Servicio.funcion funcion) {
+            this.funcion = funcion;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="estaDisponibleElHorarioResponse", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
+    public partial class estaDisponibleElHorarioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.papucplanet.pucp.edu.pe", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public estaDisponibleElHorarioResponse() {
+        }
+        
+        public estaDisponibleElHorarioResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerFuncionesPorPeliculaFuncion", WrapperNamespace="http://services.papucplanet.pucp.edu.pe", IsWrapped=true)]
     public partial class obtenerFuncionesPorPeliculaFuncionRequest {
         
@@ -5426,13 +5473,13 @@ namespace PapucplanetWA.Servicio {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.papucplanet.pucp.edu.pe", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public System.DateTime fecha;
+        public PapucplanetWA.Servicio.funcion Funcion;
         
         public listarFuncionesPorFechaRequest() {
         }
         
-        public listarFuncionesPorFechaRequest(System.DateTime fecha) {
-            this.fecha = fecha;
+        public listarFuncionesPorFechaRequest(PapucplanetWA.Servicio.funcion Funcion) {
+            this.Funcion = Funcion;
         }
     }
     
@@ -5636,6 +5683,29 @@ namespace PapucplanetWA.Servicio {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        PapucplanetWA.Servicio.estaDisponibleElHorarioResponse PapucplanetWA.Servicio.FuncionWS.estaDisponibleElHorario(PapucplanetWA.Servicio.estaDisponibleElHorarioRequest request) {
+            return base.Channel.estaDisponibleElHorario(request);
+        }
+        
+        public int estaDisponibleElHorario(PapucplanetWA.Servicio.funcion funcion) {
+            PapucplanetWA.Servicio.estaDisponibleElHorarioRequest inValue = new PapucplanetWA.Servicio.estaDisponibleElHorarioRequest();
+            inValue.funcion = funcion;
+            PapucplanetWA.Servicio.estaDisponibleElHorarioResponse retVal = ((PapucplanetWA.Servicio.FuncionWS)(this)).estaDisponibleElHorario(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<PapucplanetWA.Servicio.estaDisponibleElHorarioResponse> PapucplanetWA.Servicio.FuncionWS.estaDisponibleElHorarioAsync(PapucplanetWA.Servicio.estaDisponibleElHorarioRequest request) {
+            return base.Channel.estaDisponibleElHorarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<PapucplanetWA.Servicio.estaDisponibleElHorarioResponse> estaDisponibleElHorarioAsync(PapucplanetWA.Servicio.funcion funcion) {
+            PapucplanetWA.Servicio.estaDisponibleElHorarioRequest inValue = new PapucplanetWA.Servicio.estaDisponibleElHorarioRequest();
+            inValue.funcion = funcion;
+            return ((PapucplanetWA.Servicio.FuncionWS)(this)).estaDisponibleElHorarioAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         PapucplanetWA.Servicio.obtenerFuncionesPorPeliculaFuncionResponse PapucplanetWA.Servicio.FuncionWS.obtenerFuncionesPorPeliculaFuncion(PapucplanetWA.Servicio.obtenerFuncionesPorPeliculaFuncionRequest request) {
             return base.Channel.obtenerFuncionesPorPeliculaFuncion(request);
         }
@@ -5686,9 +5756,9 @@ namespace PapucplanetWA.Servicio {
             return base.Channel.listarFuncionesPorFecha(request);
         }
         
-        public PapucplanetWA.Servicio.funcion[] listarFuncionesPorFecha(System.DateTime fecha) {
+        public PapucplanetWA.Servicio.funcion[] listarFuncionesPorFecha(PapucplanetWA.Servicio.funcion Funcion) {
             PapucplanetWA.Servicio.listarFuncionesPorFechaRequest inValue = new PapucplanetWA.Servicio.listarFuncionesPorFechaRequest();
-            inValue.fecha = fecha;
+            inValue.Funcion = Funcion;
             PapucplanetWA.Servicio.listarFuncionesPorFechaResponse retVal = ((PapucplanetWA.Servicio.FuncionWS)(this)).listarFuncionesPorFecha(inValue);
             return retVal.@return;
         }
@@ -5698,9 +5768,9 @@ namespace PapucplanetWA.Servicio {
             return base.Channel.listarFuncionesPorFechaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<PapucplanetWA.Servicio.listarFuncionesPorFechaResponse> listarFuncionesPorFechaAsync(System.DateTime fecha) {
+        public System.Threading.Tasks.Task<PapucplanetWA.Servicio.listarFuncionesPorFechaResponse> listarFuncionesPorFechaAsync(PapucplanetWA.Servicio.funcion Funcion) {
             PapucplanetWA.Servicio.listarFuncionesPorFechaRequest inValue = new PapucplanetWA.Servicio.listarFuncionesPorFechaRequest();
-            inValue.fecha = fecha;
+            inValue.Funcion = Funcion;
             return ((PapucplanetWA.Servicio.FuncionWS)(this)).listarFuncionesPorFechaAsync(inValue);
         }
         
