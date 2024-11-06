@@ -429,6 +429,7 @@
     <Content Include="Content\Fonts\css\v5-font-face.css" />
     <Content Include="Content\Fonts\css\v5-font-face.min.css" />
     <Content Include="Content\styles.css" />
+    <Content Include="Scripts\Papucplanet\Pelicula.js" />
     <Content Include="Styles\Butacas.css" />
     <Content Include="Styles\DetallePelicula.css" />
     <Content Include="DetallePelicula.aspx" />
