@@ -99,7 +99,6 @@ namespace PapucplanetWA
 
             VerificarRedireccion();
         }
-
         private void VerificarRedireccion()
         {
             if (ViewState["diaSeleccionado"] != null)

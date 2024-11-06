@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -21,12 +22,14 @@ namespace PapucplanetWAS
             {
                 ButacaFuncionWSClient daoButacaFuncion = new ButacaFuncionWSClient();
                 showDate();
-                BindingList<butacaFuncion> listaButacas = new BindingList<butacaFuncion>(daoButacaFuncion.obtenerButacasPorFuncionButacaFuncion(2));
+                string valor=Request.QueryString["idFuncion"];
+                int val=Int32.Parse(valor);
+                BindingList<butacaFuncion> listaButacas = new BindingList<butacaFuncion>(daoButacaFuncion.obtenerButacasPorFuncionButacaFuncion(val));
                 matrizButacas = ConvertirListaEnMatriz(listaButacas);
                 Session["MatrizButacas"] = matrizButacas;
                 SeatRepeater.DataSource = matrizButacas;
                 SeatRepeater.DataBind();
-                BindSummaryGrid();
+                BindSummaryGrid(listaButacas);
                 bol=new boleta();
                 bol.lineasBoleta=new BindingList<lineaBoleta>().ToArray();
                 Session["Boleta"] = bol;
@@ -44,17 +47,31 @@ namespace PapucplanetWAS
         }
 
 
-        private void BindSummaryGrid()
+        private void BindSummaryGrid(BindingList<butacaFuncion> listaButacas)
         {
             DataTable summaryData = new DataTable();
             summaryData.Columns.Add("Tipo");
             summaryData.Columns.Add("Precio");
             summaryData.Columns.Add("Cantidad");
+            butacaFuncion butEst = listaButacas.FirstOrDefault(lb=>(lb.discapacitado==false && lb.estado==estadoButaca.DISPONIBLE));
+            butacaFuncion butDis = listaButacas.FirstOrDefault(lb=>(lb.discapacitado==true && lb.estado==estadoButaca.DISPONIBLE));
+            if (butEst != null)
+            {
+                summaryData.Rows.Add("Estandar", "S/. " + butEst.precio.ToString(), "0");
+            }
+            else
+            {
+                summaryData.Rows.Add("Estandar", "S/. - ", "0");
+            }
 
-            // Agregar filas al DataTable
-            summaryData.Rows.Add("Estandar", "S/. 15", "0");
-            summaryData.Rows.Add("Discapacitado", "S/. 10", "0");
-
+            if (butDis != null)
+            {
+                summaryData.Rows.Add("Discapacitado", "S/. "+ butDis.precio.ToString(), "0");
+            }
+            else
+            {
+                summaryData.Rows.Add("Discapacitado", "S/. - ", "0");
+            }
             // Enlazar el DataTable al GridView
             GridViewSummary.DataSource = summaryData;
             GridViewSummary.DataBind();

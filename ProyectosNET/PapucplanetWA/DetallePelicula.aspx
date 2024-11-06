@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>PAPUCPLANET - Detalles</title>
     <!-- Ruta local del archivo CSS de Bootstrap -->
-    <link href="Content/bootstrap.min.css" rel="stylesheet">
+    <link href="Content/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
     <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet"/>
     <!-- Estilos personalizados -->
     <link href="Styles/DetallePelicula.css" rel="stylesheet" />
@@ -126,6 +126,7 @@
             const selectedTime = sessionStorage.getItem("selectedTime");
             const selectedFuncion = sessionStorage.getItem("selectedFuncion"); // Obtiene el idFuncion seleccionado
             if (selectedDay && selectedTime && selectedFuncion) {
+                console.log("Day:", selectedDay, "Time:", selectedTime, "Funcion:", selectedFuncion);
                 window.location.href = `Butacas.aspx?dia=${selectedDay}&horario=${selectedTime}&idFuncion=${selectedFuncion}`;
             }
         }
