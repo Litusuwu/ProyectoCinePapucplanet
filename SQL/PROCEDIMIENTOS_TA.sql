@@ -75,6 +75,8 @@ DROP PROCEDURE IF EXISTS LISTAR_BUTACAS_TODAS;
 DROP PROCEDURE IF EXISTS MODIFICAR_BUTACA;
 DROP PROCEDURE IF EXISTS LISTAR_BUTACA_X_ID;
 DROP PROCEDURE IF EXISTS ELIMINAR_BUTACA_X_ID;
+DROP PROCEDURE IF EXISTS LISTAR_BUTACAS_X_SALA;
+DROP PROCEDURE IF EXISTS ELIMINAR_BUTACAS_X_SALA_ID;
 
 -- Drops de Funcion
 DROP PROCEDURE IF EXISTS INSERTAR_FUNCION;
@@ -738,7 +740,7 @@ BEGIN
     WHERE fid_sala = _id_sala;
 END$
 -- Procedimientos de Funcion
-DELIMITER $
+
 CREATE PROCEDURE INSERTAR_FUNCION(
     OUT _id_funcion INT,
     IN _horaInicio TIME,
@@ -753,7 +755,6 @@ BEGIN
     SET _id_funcion = @@last_insert_id;
 END$
 
-DELIMITER $
 CREATE PROCEDURE LISTAR_FUNCIONES_TODAS()
 BEGIN
     SELECT f.id_funcion, f.horaInicio, f.horaFin, f.dia, f.fid_sala, f.fid_pelicula, p.titulo, p.genero, p.duracion, 
@@ -804,7 +805,6 @@ BEGIN
     AND p.activo = 1 AND sa.activo = 1 AND se.activo = 1;
 END$
 
-DELIMITER $
 CREATE PROCEDURE LISTAR_FUNCIONES_POR_FECHA(
 	IN _dia DATE, 
     IN _fid_pelicula INT
@@ -1006,6 +1006,5 @@ BEGIN
     LEFT JOIN Cliente c ON c.id_cliente = u.id_usuario
     WHERE correo = _correo AND contrasena = MD5(_contrasena)
     AND activo = 1;
-END
-DELIMITER ;
+END $
 
