@@ -435,6 +435,7 @@
     <Content Include="Content\styles.css" />
     <Content Include="Scripts\Papucplanet\Consumible.js" />
     <Content Include="Scripts\Papucplanet\Pelicula.js" />
+    <Content Include="Scripts\Papucplanet\Reporte.js" />
     <Content Include="Styles\Butacas.css" />
     <Content Include="Styles\DetallePelicula.css" />
     <Content Include="DetallePelicula.aspx" />

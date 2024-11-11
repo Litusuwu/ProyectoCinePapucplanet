@@ -26,5 +26,35 @@ namespace PapucplanetWA
                 Response.Redirect("AccesoDenegado.aspx");
             }
         }
+        protected void lbRegresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx");
+        }
+        protected void lbGenerarReporte_Click(object sender, EventArgs e)
+        {
+            string script = "";
+            if( !rbPelicula.Checked && !rbSede.Checked)
+            {
+                lblMensajeError.Text = "Debe seleccionar uno de los 2 filtros.";
+                script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                return;
+            }
+            if( !cbIngresos.Checked && !cbConsumibles.Checked && !cbButacas.Checked)
+            {
+                lblMensajeError.Text = "Debe seleccionar por lo menos un contenido";
+                script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                return;
+            }
+            if ()
+            {
+
+            }
+            string a = "";
+            a = lblFechaFin.Text;
+            a = lblFechaInicio.Text;
+            
+        }
     }
 }
