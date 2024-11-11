@@ -252,10 +252,10 @@ namespace PapucplanetWA
                 if (extension.ToLower() == ".jpg" || extension.ToLower() == ".jpeg" || extension.ToLower() == ".png" || extension.ToLower() == ".gif")
                 {
                     string filename = Guid.NewGuid().ToString() + extension;
-                    string filePath = Server.MapPath("~/Uploads/") + filename;
-                    fileUploadImagenConsumible.SaveAs(Server.MapPath("~/Uploads/") + filename);
+                    string filePath = Server.MapPath("~/Images/Confiteria/") + filename;
+                    fileUploadImagenConsumible.SaveAs(Server.MapPath("~/Images/Confiteria/") + filename);
 
-                    imgImagenConsumible.ImageUrl = "~/Uploads/" + filename;
+                    imgImagenConsumible.ImageUrl = "~/Images/Confiteria/" + filename;
                     imgImagenConsumible.Visible = true;
                     FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
                     BinaryReader br = new BinaryReader(fs);

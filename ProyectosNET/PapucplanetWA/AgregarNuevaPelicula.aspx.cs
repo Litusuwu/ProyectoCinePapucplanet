@@ -149,10 +149,10 @@ namespace PapucplanetWA
                 if (extension.ToLower() == ".jpg" || extension.ToLower() == ".jpeg" || extension.ToLower() == ".png" || extension.ToLower() == ".gif")
                 {
                     string filename = Guid.NewGuid().ToString() + extension;
-                    string filePath = Server.MapPath("~/Uploads/") + filename;
-                    fileUploadImagenPromocional.SaveAs(Server.MapPath("~/Uploads/") + filename);
+                    string filePath = Server.MapPath("~/Images/Peliculas/") + filename;
+                    fileUploadImagenPromocional.SaveAs(Server.MapPath("~/Images/Peliculas/") + filename);
 
-                    imgImagenPromocional.ImageUrl = "~/Uploads/" + filename;
+                    imgImagenPromocional.ImageUrl = "~/Images/Peliculas/" + filename;
                     imgImagenPromocional.Visible = true;
                     FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
                     BinaryReader br = new BinaryReader(fs);

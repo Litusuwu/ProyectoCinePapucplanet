@@ -10,7 +10,7 @@
             <div class="card-header card-header-colored">
                 <h5>
                     <!-- Cambiar el titulo dependiendo de si se registran o muestran datos -->
-                    <asp:Label ID="lblTitulo" runat="server" Text="Datos de la película"></asp:Label>
+                    <asp:Label ID="lblTitulo" runat="server" Text="Datos de la película" CssClass="text-red"></asp:Label>
                 </h5>
             </div>
             <div class="card-body pb-2">
@@ -20,7 +20,7 @@
                         <asp:Image ID="imgImagenPromocional" runat="server" CssClass="img-fluid img-thumbnail" ImageUrl="/Images/placeholder.jpg" Height="450" Width="350" />
                         <asp:FileUpload ID="fileUploadImagenPromocional" CssClass="form-control mb-2" runat="server" onchange="this.form.submit()" ClientIDMode="Static" style="width: 350px;"/>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <div class="col-md-12 pb-md-3">
                             <asp:Label ID="lblNombrePelicula" runat="server" Text="Título de la película:" CssClass="col-form-label fw-bold"></asp:Label>
                             <asp:TextBox ID="txtNombrePelicula" runat="server" CssClass="form-control" placeholder="Ingrese el título de la película"></asp:TextBox>
@@ -42,7 +42,7 @@
             </div>
             <div class="card-footer clearfix">
                 <asp:LinkButton ID="lbRegresar" runat="server" Text="<i class='fa-solid fa-rotate-left'></i> Regresar" CssClass="float-start btn btn-secondary" OnClick="lbRegresar_Click" />
-                <asp:LinkButton ID="lbGuardar" runat="server" Text="<i class='fa-regular fa-floppy-disk'></i> Guardar" CssClass="float-end btn btn-primary" OnClick="lbGuardar_Click" />
+                <asp:LinkButton ID="lbGuardar" runat="server" Text="<i class='fa-regular fa-floppy-disk'></i> Guardar" CssClass="float-end btn btn-purple" OnClick="lbGuardar_Click" />
             </div>
         </div>
     </div>
