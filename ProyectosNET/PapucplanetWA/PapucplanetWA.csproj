@@ -433,7 +433,9 @@
     <Content Include="Content\Fonts\css\v5-font-face.css" />
     <Content Include="Content\Fonts\css\v5-font-face.min.css" />
     <Content Include="Content\styles.css" />
+    <Content Include="Scripts\Papucplanet\Butacas.js" />
     <Content Include="Scripts\Papucplanet\Consumible.js" />
+    <Content Include="Scripts\Papucplanet\Funciones.js" />
     <Content Include="Scripts\Papucplanet\Pelicula.js" />
     <Content Include="Scripts\Papucplanet\Reporte.js" />
     <Content Include="Styles\Butacas.css" />
@@ -476,7 +478,6 @@
     <Content Include="Scripts\Papucplanet\Sala.js" />
     <Content Include="Scripts\Papucplanet\Sedes.js" />
     <Content Include="Sedes.aspx" />
-    <Content Include="Styles\Butacas.css" />
     <Content Include="Styles\Login.css" />
     <Content Include="Styles\Confiteria.css" />
     <Content Include="Styles\Peliculas.css" />
