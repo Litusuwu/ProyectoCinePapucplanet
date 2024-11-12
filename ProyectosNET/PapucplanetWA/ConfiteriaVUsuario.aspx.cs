@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.Adapters;
 
 namespace PapucplanetWA
 {
@@ -16,8 +17,11 @@ namespace PapucplanetWA
         private BindingList<lineaBoleta> lineas;
         protected void Page_Init(object sender, EventArgs e)
         {
+
+
             if (!IsPostBack)
             {
+                string valor = Request.QueryString["visible"];
                 
                 if (Session["CantidadProductos"] != null)
                 {
@@ -25,6 +29,9 @@ namespace PapucplanetWA
                 }
                 CargarProductos();
                 ActualizarContadorCarrito();
+                if (valor != null) Visibility(true);
+                else Visibility(false);
+               
             }
             if (Session["CantidadProductos"] == null)
             {
@@ -40,6 +47,45 @@ namespace PapucplanetWA
         //        ActualizarContadorCarrito();
         //    }
         //}
+
+        protected void Visibility(bool visible)
+        {
+            cart.Visible = visible;
+            panelConfiteria.Visible = visible;
+            panelPeliculas.Visible = !visible;
+            foreach (RepeaterItem item in rptAllItems.Items)
+            {
+                Button btnIncrease = (Button)item.FindControl("btnIncrease");
+                Button btnDecrease = (Button)item.FindControl("btnDecrease");
+                Label lblQuantity = (Label)item.FindControl("lblQuantity");
+
+                if (btnIncrease != null) btnIncrease.Visible = visible;
+                if (btnDecrease != null) btnDecrease.Visible = visible;
+                if (lblQuantity != null) lblQuantity.Visible = visible;
+            }
+
+            foreach (RepeaterItem item in rptAlimentos.Items)
+            {
+                Button btnIncrease = (Button)item.FindControl("btnIncrease");
+                Button btnDecrease = (Button)item.FindControl("btnDecrease");
+                Label lblQuantity = (Label)item.FindControl("lblQuantity");
+
+                if (btnIncrease != null) btnIncrease.Visible = visible;
+                if (btnDecrease != null) btnDecrease.Visible = visible;
+                if (lblQuantity != null) lblQuantity.Visible = visible;
+            }
+
+            foreach (RepeaterItem item in rptBebidas.Items)
+            {
+                Button btnIncrease = (Button)item.FindControl("btnIncrease");
+                Button btnDecrease = (Button)item.FindControl("btnDecrease");
+                Label lblQuantity = (Label)item.FindControl("lblQuantity");
+
+                if (btnIncrease != null) btnIncrease.Visible = visible;
+                if (btnDecrease != null) btnDecrease.Visible = visible;
+                if (lblQuantity != null) lblQuantity.Visible = visible;
+            }
+        }
         private void ActualizarContadorCarrito()
         {
             var cantidades = (Dictionary<int, int>)Session["CantidadProductos"];
@@ -268,5 +314,6 @@ namespace PapucplanetWA
             public double Precio { get; set; }
             public string UrlImagen { get; set; }
         }
+
     }
 }

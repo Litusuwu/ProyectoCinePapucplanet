@@ -297,7 +297,7 @@ namespace PapucplanetWAS
             int cantBut = (Int32)Session["ContDisc"] + (Int32)Session["ContEst"];
             if (cantBut > 0)
             {
-                Response.Redirect("ConfiteriaVUsuario.aspx");
+                Response.Redirect("ConfiteriaVUsuario.aspx?visible=1");
             }
             else
             {
