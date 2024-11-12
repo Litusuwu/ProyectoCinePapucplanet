@@ -30,7 +30,7 @@
                         <strong>PAPUCPLANET</strong>
                     </a>
                     <div class="mx-auto text-center flex-grow-2">
-                        <span class="navbar-text text-white">2. Confiteria</span>
+                        <span class="navbar-text text-white">2. Confitería</span>
                     </div>
 
                     <div class="collapse navbar-collapse" id="navbarNav2">

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Web;
@@ -58,11 +59,11 @@ namespace PapucplanetWAS
             butacaFuncion butDis = listaButacas.FirstOrDefault(lb=>(lb.discapacitado==true && lb.estado==estadoButaca.DISPONIBLE));
             if (butEst != null)
             {
-                summaryData.Rows.Add("Estandar", "S/. " + butEst.precio.ToString(), "0");
+                summaryData.Rows.Add("Estándar", "S/. " + butEst.precio.ToString(), "0");
             }
             else
             {
-                summaryData.Rows.Add("Estandar", "S/. - ", "0");
+                summaryData.Rows.Add("Estándar", "S/. - ", "0");
             }
 
             if (butDis != null)
@@ -86,7 +87,7 @@ namespace PapucplanetWAS
             DateTime date = fun.dia;
             DateTime horaInicio = fun.horarioInicio;  // Suponiendo que puedes convertirlo
             DateTime horaFin = fun.horarioFin;
-            lblDate.Text = "Fecha de la función: " + date.ToString("dd/MM/yyyy") +
+            lblDate.Text = "Fecha de la función: " + date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture) +
                            "<br>Hora de la función:  " + horaInicio.ToString("HH:mm") + " - "  +  horaFin.ToString("HH:mm");
         } 
         private BindingList<BindingList<butacaFuncion>> ConvertirListaEnMatriz(BindingList<butacaFuncion> lista)
@@ -201,7 +202,7 @@ namespace PapucplanetWAS
                     foreach (DataRow row in summaryData.Rows)
                     {
                         
-                        if (row["Tipo"].ToString() == "Estandar")
+                        if (row["Tipo"].ToString() == "Estándar")
                         {
                             contadorEst++;
                             row["Cantidad"] = contadorEst.ToString(); // Cambiar la cantidad a 5
@@ -245,7 +246,7 @@ namespace PapucplanetWAS
                     foreach (DataRow row in summaryData.Rows)
                     {
 
-                        if (row["Tipo"].ToString() == "Estandar")
+                        if (row["Tipo"].ToString() == "Estándar")
                         {
                             contadorEst--;
                             row["Cantidad"] = contadorEst.ToString(); // Cambiar la cantidad a 5

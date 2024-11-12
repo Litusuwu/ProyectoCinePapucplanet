@@ -1,5 +1,5 @@
 
-﻿.body {
+﻿body {
     font-family: "Space Grotesk", serif;
 }
 
@@ -316,4 +316,5 @@
     .summary-total .total-value {
         text-align: right;
         font-size: 1.5rem;
+
     }
