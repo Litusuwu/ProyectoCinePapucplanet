@@ -19,25 +19,37 @@ namespace PapucplanetWA
             string idPeliculaStr = Request.QueryString["id_pelicula"];
             if (!IsPostBack)
             {
-                // Verificar que idPeliculaStr no sea null o vacío
                 if (!string.IsNullOrEmpty(idPeliculaStr) && int.TryParse(idPeliculaStr, out int idPelicula))
                 {
                     CargarDetallesPelicula(idPelicula);
                 }
                 else
                 {
-                    // Muestra un mensaje de error o redirige a otra página si el id_pelicula es inválido
                     Response.Write("Error: Parámetro 'id_pelicula' no proporcionado o no válido.");
                     return;
                 }
             }
 
-            // Cargar los botones de días y horarios en cada carga de página
+            // Cargar siempre los botones para manejar eventos dinámicos
             if (!string.IsNullOrEmpty(idPeliculaStr) && int.TryParse(idPeliculaStr, out int idPeliculaParsed))
             {
                 CargarDiasYHorarios(idPeliculaParsed);
+
+                // Aplica la clase `selected-button` al botón seleccionado usando el ViewState
+                if (ViewState["diaSeleccionado"] != null)
+                {
+                    string diaSeleccionado = ViewState["diaSeleccionado"].ToString();
+                    foreach (Control control in dayContainer.Controls)
+                    {
+                        if (control is LinkButton button && button.CommandArgument == diaSeleccionado)
+                        {
+                            button.CssClass += " selected-button";
+                        }
+                    }
+                }
             }
         }
+
 
         private void CargarDetallesPelicula(int idPelicula)
         {
@@ -61,36 +73,94 @@ namespace PapucplanetWA
             var diasUnicos = funciones.Select(f => f.dia.Date).Distinct();
             foreach (var dia in diasUnicos)
             {
-                Button diaButton = new Button
+                LinkButton diaButton = new LinkButton
                 {
                     CssClass = "btn btn-outline-secondary",
                     Text = dia.ToString("dd MMM"),
-                    CommandArgument = dia.ToString("yyyy-MM-dd"),
-                    OnClientClick = $"selectDay(this, '{dia.ToString("yyyy-MM-dd")}'); return false;" // Agregar llamada a JavaScript
+                    CommandArgument = dia.ToString("yyyy-MM-dd")
                 };
+                diaButton.Click += DiaButton_Click; // Solo manejamos el evento del servidor
                 dayContainer.Controls.Add(diaButton);
             }
-
-            // Filtrar horarios únicos y agregar idFuncion
-            foreach (var funcion in funciones)
-            {
-                Button horarioButton = new Button
-                {
-                    CssClass = "btn btn-outline-secondary",
-                    Text = funcion.horarioInicio.ToString("HH:mm"), // Mostrar solo la hora y minutos
-                    CommandArgument = funcion.idFuncion.ToString(), // Guardar idFuncion en CommandArgument
-                    OnClientClick = $"selectTime(this, '{funcion.horarioInicio:HH:mm}', '{funcion.idFuncion}'); return false;" // Agregar llamada a JavaScript con idFuncion
-                };
-                timeContainer.Controls.Add(horarioButton);
-            }
         }
+
+
         private void DiaButton_Click(object sender, EventArgs e)
         {
-            Button diaButton = (Button)sender;
-            ViewState["diaSeleccionado"] = diaButton.CommandArgument;
+            LinkButton diaButton = (LinkButton)sender; // Cambiado a LinkButton
+            string diaSeleccionado = diaButton.CommandArgument;
 
-            VerificarRedireccion();
+            // Almacena el día seleccionado en ViewState
+            ViewState["diaSeleccionado"] = diaSeleccionado;
+
+            // Llama al método para cargar los horarios correspondientes
+            CargarHorariosPorDiaSeleccionado(diaSeleccionado);
+
+            // Cambia el estilo del botón seleccionado
+            foreach (Control control in dayContainer.Controls)
+            {
+                if (control is LinkButton button)
+                {
+                    // Remueve la clase seleccionada de todos los botones
+                    button.CssClass = button.CssClass.Replace(" selected-button", "").Trim();
+
+                    // Si este botón es el que se seleccionó, agrégale la clase
+                    if (button == diaButton)
+                    {
+                        button.CssClass += " selected-button";
+                    }
+                }
+            }
         }
+
+
+        private void CargarHorariosPorDiaSeleccionado(string diaSeleccionado)
+        {
+            string idPeliculaStr = Request.QueryString["id_pelicula"];
+            if (int.TryParse(idPeliculaStr, out int idPelicula))
+            {
+                BindingList<funcion> funciones = new BindingList<funcion>(daoFuncion.obtenerFuncionesPorPeliculaFuncion(idPelicula));
+
+                // Convierte la cadena de día seleccionada a DateTime para comparación
+                if (DateTime.TryParse(diaSeleccionado, out DateTime fechaSeleccionada))
+                {
+                    // Filtra las funciones para el día seleccionado
+                    var funcionesFiltradas = funciones.Where(f => f.dia.Date == fechaSeleccionada.Date).ToList();
+                    timeContainer.Controls.Clear(); // Limpia cualquier horario previo
+
+                    if (funcionesFiltradas.Count > 0)
+                    {
+                        foreach (var funcion in funcionesFiltradas)
+                        {
+                            Button horarioButton = new Button
+                            {
+                                CssClass = "btn btn-outline-secondary",
+                                Text = funcion.horarioInicio.ToString("HH:mm"),
+                                CommandArgument = funcion.idFuncion.ToString()
+                            };
+                            horarioButton.Click += HorarioButton_Click;
+                            timeContainer.Controls.Add(horarioButton);
+                        }
+                    }
+                    else
+                    {
+                        // Mostrar mensaje si no hay horarios disponibles
+                        Label noHorariosLabel = new Label
+                        {
+                            Text = "No hay horarios disponibles para el día seleccionado.",
+                            CssClass = "text-center text-danger"
+                        };
+                        timeContainer.Controls.Add(noHorariosLabel);
+                    }
+                }
+                else
+                {
+                    // Mensaje de depuración si la conversión de fecha falla
+                    System.Diagnostics.Debug.WriteLine($"La conversión de la fecha '{diaSeleccionado}' falló.");
+                }
+            }
+        }
+
 
         private void HorarioButton_Click(object sender, EventArgs e)
         {
