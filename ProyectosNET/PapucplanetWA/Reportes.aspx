@@ -8,37 +8,46 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
         <div class="container row">
-            <div class="form-check form-check-inline">
-                <input type="radio" runat="server" autopostback="true" id="rbPelicula" class="form-check-input" name ="FiltroInformacion" />
-                <label class="form-check-label" runat="server" for="cphContenido_rbPelicula">Por Pelicula:</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="radio" runat="server" autopostback="true" id="rbSede" class="form-check-input"  name ="FiltroInformacion"/>
-                <label class="form-check-label" runat="server" for="cphContenido_rbSede">Por Sede:</label>
-            </div>
-        </div>
-        <div class="container row">
-            <div class="form-check form-check-inline">
-                <input type="checkbox" runat="server" autopostback="true" id="cbIngresos" class="form-check-input" name ="Contenido" />
-                <label class="form-check-label" runat="server" for="cphContenido_cbIngresos">Ingresos Obtenidos</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" runat="server" autopostback="true" id="cbConsumibles" class="form-check-input" name ="Contenido" />
-                <label class="form-check-label" runat="server" for="cphContenido_cbConsumibles">Cantidad Consumibles Vendidos</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" runat="server" autopostback="true" id="cbButacas" class="form-check-input" name="Contenido" />
-                <label class="form-check-label" runat="server" for="cphContenido_cbButacas">Cantidad Butacas Vendidas</label>
+           <asp:Label ID="Filtros" CssClass="col-form-label fw-bold" runat="server" Text="Filtros:"></asp:Label>
+            <div class="row align-items-center">
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" runat="server" for="cphContenido_rbPelicula">Por Pelicula:</label>
+                    <input type="radio" runat="server" autopostback="true" id="rbPelicula" class="form-check-input" name="FiltroInformacion" />
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" runat="server" for="cphContenido_rbSede">Por Sede:</label>
+                    <input type="radio" runat="server" autopostback="true" id="rbSede" class="form-check-input" name="FiltroInformacion" />
+                </div>
             </div>
         </div>
         <div class="container row">
-            <div class="col-md-12 pb-md-2">
-                <asp:Label ID="lblFechaInicio" CssClass="col-form-label fw-bold" runat="server" Text="Desde:"></asp:Label>
-                <input id="dtpFechaInicio" runat="server" type="date" class="form-control" />
+            <asp:Label ID="Contenidos" CssClass="col-form-label fw-bold" runat="server" Text="Contenidos:"></asp:Label>
+            <div class="row align-items-center">
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" runat="server" autopostback="true" id="cbIngresos" class="form-check-input" name="Contenido" />
+                    <label class="form-check-label" runat="server" for="cphContenido_cbIngresos">Ingresos Obtenidos</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" runat="server" autopostback="true" id="cbConsumibles" class="form-check-input" name="Contenido" />
+                    <label class="form-check-label" runat="server" for="cphContenido_cbConsumibles">Cantidad Consumibles Vendidos</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" runat="server" autopostback="true" id="cbButacas" class="form-check-input" name="Contenido" />
+                    <label class="form-check-label" runat="server" for="cphContenido_cbButacas">Cantidad Butacas Vendidas</label>
+                </div>
             </div>
-            <div class="col-md-12 pb-md-2">
-                <asp:Label ID="lblFechaFin" CssClass="col-form-label fw-bold" runat="server" Text="Hasta:"></asp:Label>
-                <input id="dtpFechaFin" runat="server" type="date" class="form-control" />
+        </div>
+        <div class="container row">
+            <asp:Label ID="Tiempos" CssClass="col-form-label fw-bold" runat="server" Text="Tiempos:"></asp:Label>
+            <div class="row align-items-center">
+                <div class="col-md-6 pb-md-2">
+                    <asp:Label ID="lblFechaInicio" CssClass="col-form-label fw-bold" runat="server" Text="Desde:"></asp:Label>
+                    <input id="dtpFechaInicio" runat="server" type="date" class="form-control" />
+                </div>
+                <div class="col-md-6 pb-md-2">
+                    <asp:Label ID="lblFechaFin" CssClass="col-form-label fw-bold" runat="server" Text="Hasta:"></asp:Label>
+                    <input id="dtpFechaFin" runat="server" type="date" class="form-control" />
+                </div>
             </div>
         </div>
         <div class="card-footer clearfix">
@@ -56,8 +65,8 @@
                 </div>
                 <div class="modal-body">
                     <asp:Label ID="lbExcepcionMsg" CssClass="form-label mb-2" runat="server" Text="Desea realizar la siguiente excepcion?" ></asp:Label>
-                    <asp:TextBox ID="txtExcepcionMsg" CssClass="form-control mb-3" runat="server" Enabled ="false"></asp:TextBox>
-                    <!--<textarea id="txtExcepcion" runat="server" class="form-control" cols="20" rows="4" Enabled ="false"></textarea>-->
+                    <!--<asp:TextBox ID="txtExcepcion" CssClass="form-control mb-3" runat="server" Enabled ="false"></asp:TextBox>-->
+                    <textarea id="txtExcepcionMsg" runat="server" class="form-control" cols="20" rows="4" Enabled ="false"></textarea>
                 </div>
                 <div class="modal-footer">
                     <asp:LinkButton ID="lbAceptar" runat="server" Text="<i class='fa-regular fa-floppy-disk'></i> Acepto" CssClass="float-end btn btn-primary" OnClick="lbAceptar_Click" />

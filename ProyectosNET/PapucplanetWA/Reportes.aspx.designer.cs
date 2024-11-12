@@ -15,6 +15,15 @@ namespace PapucplanetWA
     {
 
         /// <summary>
+        /// Control Filtros.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Filtros;
+
+        /// <summary>
         /// Control rbPelicula.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace PapucplanetWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbSede;
+
+        /// <summary>
+        /// Control Contenidos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Contenidos;
 
         /// <summary>
         /// Control cbIngresos.
@@ -58,6 +76,15 @@ namespace PapucplanetWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox cbButacas;
+
+        /// <summary>
+        /// Control Tiempos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Tiempos;
 
         /// <summary>
         /// Control lblFechaInicio.
@@ -123,22 +150,22 @@ namespace PapucplanetWA
         protected global::System.Web.UI.WebControls.Label lbExcepcionMsg;
 
         /// <summary>
-        /// Control txtExcepcionMsg.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtExcepcionMsg;
-
-        /// <summary>
         /// Control txtExcepcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtExcepcion;
+        protected global::System.Web.UI.WebControls.TextBox txtExcepcion;
+
+        /// <summary>
+        /// Control txtExcepcionMsg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtExcepcionMsg;
 
         /// <summary>
         /// Control lbAceptar.

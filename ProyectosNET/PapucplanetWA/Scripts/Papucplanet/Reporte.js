@@ -4,7 +4,7 @@
 }
 
 let modalFormError;
-function showModalFromError() {
+function showModalFormError() {
     modalFormReporte = new bootstrap.Modal(document.getElementById('errorModal'));
     modalFormReporte.show();
 }
