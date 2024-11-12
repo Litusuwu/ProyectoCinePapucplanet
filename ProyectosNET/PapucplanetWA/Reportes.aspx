@@ -52,7 +52,7 @@
         </div>
         <div class="card-footer clearfix">
             <asp:LinkButton ID="lbRegresar" runat="server" Text="<i class='fa-solid fa-rotate-left'></i> Regresar" CssClass="float-start btn btn-secondary" OnClick="lbRegresar_Click" />
-            <asp:LinkButton ID="lbGenerarReporte" runat="server" Text="<i class='fa-regular fa-floppy-disk'></i> Generar Reporte" CssClass="float-end btn btn-primary" OnClick="lbGenerarReporte_Click" />
+            <asp:LinkButton ID="lbGenerarReporte" runat="server" Text="<i class='fa-solid fa-print'></i> Generar Reporte" CssClass="float-end btn btn-primary" OnClick="lbGenerarReporte_Click" />
         </div>
     </div>
     <!--Convencion para campos vacios-->
@@ -66,10 +66,10 @@
                 <div class="modal-body">
                     <asp:Label ID="lbExcepcionMsg" CssClass="form-label mb-2" runat="server" Text="Desea realizar la siguiente excepcion?" ></asp:Label>
                     <!--<asp:TextBox ID="txtExcepcion" CssClass="form-control mb-3" runat="server" Enabled ="false"></asp:TextBox>-->
-                    <textarea id="txtExcepcionMsg" runat="server" class="form-control" cols="20" rows="4" Enabled ="false"></textarea>
+                    <textarea id="txtExcepcionMsg" runat="server" class="form-control" cols="20" rows="4" Enabled ="false" readonly="readonly" disabled="disabled"></textarea>
                 </div>
                 <div class="modal-footer">
-                    <asp:LinkButton ID="lbAceptar" runat="server" Text="<i class='fa-regular fa-floppy-disk'></i> Acepto" CssClass="float-end btn btn-primary" OnClick="lbAceptar_Click" />
+                    <asp:LinkButton ID="lbAceptar" runat="server" Text="<i class='fa-solid fa-print'></i> Acepto" CssClass="float-end btn btn-primary" OnClick="lbAceptar_Click" />
                 </div>
             </div>
         </div>

@@ -25,6 +25,17 @@ namespace PapucplanetWA
                 }
                 Response.Redirect("AccesoDenegado.aspx");
             }
+            if (!IsPostBack)
+            {
+                if (string.IsNullOrEmpty(dtpFechaFin.Value))
+                {
+                    dtpFechaFin.Value = DateTime.Now.ToString("yyyy-MM-dd");
+                }
+                if (string.IsNullOrEmpty(dtpFechaInicio.Value))
+                {
+                    dtpFechaInicio.Value = DateTime.Now.ToString("yyyy-MM-dd");
+                }
+            }
             Session["Excepcion"] = "No"; //No
         }
         protected void lbRegresar_Click(object sender, EventArgs e)
@@ -51,59 +62,71 @@ namespace PapucplanetWA
                     ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                     return;
                 }
-
-                if ((string.IsNullOrEmpty(dtpFechaInicio.Value)) || string.IsNullOrEmpty(dtpFechaFin.Value))
-                {
-                    if (string.IsNullOrEmpty(dtpFechaInicio.Value) && string.IsNullOrEmpty(dtpFechaFin.Value))
-                    {
-                        txtExcepcionMsg.Value = "Se utilizara la fecha actual [" + DateTime.Now.Date.ToString() + "] como unico dia para su reporte";
-                        script = "showModalFormConvencion();"; //Reemplazar en futuros paramtros fin e inicio
-                        ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormConvencion", script, true);
-                        return;
-                    }
-                    else if (string.IsNullOrEmpty(dtpFechaFin.Value))
-                    {
-                        if (DateTime.Parse(dtpFechaInicio.Value) > DateTime.Now.Date)
-                        {
-                            txtExcepcionMsg.Value = "La fecha de inicio debe ser previa a la fecha actual " + DateTime.Now.Date.ToString();
-                            script = "showModalFormError();";
-                            ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
-                            return;
-                        }
-                        else
-                        {
-                            txtExcepcionMsg.Value = "Se utilizara la fecha inicio [" + DateTime.Parse(dtpFechaInicio.Value).ToString() + "] como unico dia para su reporte";
-                            script = "showModalFormConvencion();"; //Reemplazar en futuro paramtro fin
-                            ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormConvencion", script, true);
-                            return;
-                        }
-                    }
-                    else //Inicio esta vacio
-                    {
-                        if (DateTime.Parse(dtpFechaFin.Value) > DateTime.Now.Date)
-                        {
-                            txtExcepcionMsg.Value = "La fecha de fin debe ser previa a la fecha actual " + DateTime.Now.Date.ToString();
-                            script = "showModalFormError();";
-                            ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
-                            return;
-                        }
-                        else
-                        {
-                            txtExcepcionMsg.Value = "Se utilizara la fecha fin [" + DateTime.Parse(dtpFechaFin.Value).ToString() + "] como unico dia para su reporte";
-                            script = "showModalFormConvencion();"; //Reemplazar en futuro paramtro inicio
-                            ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormConvencion", script, true);
-                            return;
-                        }
-                    }
-                }
-                if (DateTime.Parse(dtpFechaInicio.Value) > DateTime.Now.Date || DateTime.Parse(dtpFechaInicio.Value) > DateTime.Now.Date)
-                {
-                    lblMensajeError.Text = "Las fechas ingresadas deben ser previas a la fecha actual " + DateTime.Now.Date.ToString();
+                if (string.IsNullOrEmpty(dtpFechaInicio.Value)){
+                    lblMensajeError.Text = "No debe dejar la fecha de inicio vacia";
                     script = "showModalFormError();";
                     ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                     return;
                 }
-                if (DateTime.Parse(dtpFechaInicio.Value) > DateTime.Parse(dtpFechaInicio.Value))
+                if (string.IsNullOrEmpty(dtpFechaFin.Value))
+                {
+                    lblMensajeError.Text = "No debe dejar la fecha de fin vacia";
+                    script = "showModalFormError();";
+                    ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                    return;
+                }
+                //if ((string.IsNullOrEmpty(dtpFechaInicio.Value)) || (string.IsNullOrEmpty(dtpFechaFin.Value))
+                //{
+                //    if (string.IsNullOrEmpty(dtpFechaInicio.Value) && string.IsNullOrEmpty(dtpFechaFin.Value))
+                //    {
+                //        txtExcepcionMsg.Value = "Se utilizara la fecha actual [" + DateTime.Now.Date.ToString() + "] como unico dia para su reporte";
+                //        script = "showModalFormConvencion();"; //Reemplazar en futuros paramtros fin e inicio
+                //        ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormConvencion", script, true);
+                //        return;
+                //    }
+                //    else if (string.IsNullOrEmpty(dtpFechaFin.Value))
+                //    {
+                //        if (DateTime.Parse(dtpFechaInicio.Value) > DateTime.Now.Date)
+                //        {
+                //            txtExcepcionMsg.Value = "La fecha de inicio debe ser previa a la fecha actual " + DateTime.Now.Date.ToString();
+                //            script = "showModalFormError();";
+                //            ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                //            return;
+                //        }
+                //        else
+                //        {
+                //            txtExcepcionMsg.Value = "Se utilizara la fecha inicio [" + DateTime.Parse(dtpFechaInicio.Value).ToString() + "] como unico dia para su reporte";
+                //            script = "showModalFormConvencion();"; //Reemplazar en futuro paramtro fin
+                //            ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormConvencion", script, true);
+                //            return;
+                //        }
+                //    }
+                //    else //Inicio esta vacio
+                //    {
+                //        if (DateTime.Parse(dtpFechaFin.Value) > DateTime.Now.Date)
+                //        {
+                //            txtExcepcionMsg.Value = "La fecha de fin debe ser previa a la fecha actual " + DateTime.Now.Date.ToString();
+                //            script = "showModalFormError();";
+                //            ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                //            return;
+                //        }
+                //        else
+                //        {
+                //            txtExcepcionMsg.Value = "Se utilizara la fecha fin [" + DateTime.Parse(dtpFechaFin.Value).ToString() + "] como unico dia para su reporte";
+                //            script = "showModalFormConvencion();"; //Reemplazar en futuro paramtro inicio
+                //            ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormConvencion", script, true);
+                //            return;
+                //        }
+                //    }
+                //}
+                if (DateTime.Parse(dtpFechaInicio.Value) > DateTime.Now.Date || DateTime.Parse(dtpFechaInicio.Value) > DateTime.Now.Date)
+                {
+                    lblMensajeError.Text = "Las fechas ingresadas deben ser previas a la fecha actual " + DateTime.Now.Date.ToString("yyyy-MM-dd");
+                    script = "showModalFormError();";
+                    ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                    return;
+                }
+                if (DateTime.Parse(dtpFechaInicio.Value) > DateTime.Parse(dtpFechaFin.Value))
                 {
                     lblMensajeError.Text = "Las fecha de inicio debe ser menor a la fecha fin";
                     script = "showModalFormError();";

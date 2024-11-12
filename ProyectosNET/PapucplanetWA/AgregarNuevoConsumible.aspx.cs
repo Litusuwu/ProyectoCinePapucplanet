@@ -23,6 +23,7 @@ namespace PapucplanetWA
             string accion = Request.QueryString["accion"];
             daoAlimento = new AlimentoWSClient();
             daoBebida = new BebidaWSClient();
+            Session["tipo"] = "Nuevo";
             BindingList<tipoAlimento> tiposAlimientos = new BindingList<tipoAlimento>();
             if (!IsPostBack)
             {
@@ -47,6 +48,7 @@ namespace PapucplanetWA
                 if(c.id == 0)
                     c = daoBebida.obtenerPorIdBebida(Int32.Parse(idConsumible));
                 Session["idConsumible"] = c.id;
+                Session["tipo"] = c.tipo.Equals('A')?"Alimento":"Bebida";
                 string imageUrl = c.imagenURL;
                 imgImagenConsumible.ImageUrl = imageUrl;
                 txtNombreConsumible.Text = c.nombre;
@@ -100,11 +102,17 @@ namespace PapucplanetWA
         {
             string script;
             bool letras;
-            int tamanio;
             if (rbAlimento.Checked)
             {
                 c = new alimento();
                 c.tipo = 'A';
+                if (Session["tipo"].ToString() != "Alimento" && Session["tipo"].ToString() != "Nuevo")
+                {
+                    lblMensajeError.Text = "No debe cambiar el tipo de consumible Alimento";
+                    script = "showModalFormError();";
+                    ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                    return;
+                }
                 if (txtPesoPromedio.Text.Trim().Equals("")) //Validaciones Peso Promedio
                 {
                     lblMensajeError.Text = "Debe ingresar Peso Promedio.";
@@ -112,17 +120,7 @@ namespace PapucplanetWA
                     ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                     return;
                 }
-                letras = false;
-                tamanio = txtPesoPromedio.Text.Length;
-                for (int i = 0; i < tamanio; i++)
-                {
-                    char car = txtPesoPromedio.Text[i];
-                    if ((car >= 'a' && car <= 'z') || (car >= 'A' && car <= 'Z'))
-                    {
-                        letras = true;
-                        break;
-                    }
-                }
+                letras = poseeCaracteresAlfabeticos(txtPesoPromedio.Text);
                 if (letras)
                 {
                     lblMensajeError.Text = "Debe ingresar solo numeros en Peso Promedio.";
@@ -138,6 +136,13 @@ namespace PapucplanetWA
             {
                 c = new bebida();
                 c.tipo = 'B';
+                if (Session["tipo"].ToString() != "Bebida" && Session["tipo"].ToString() != "Nuevo")
+                {
+                    lblMensajeError.Text = "No debe cambiar el tipo de consumible Bebida";
+                    script = "showModalFormError();";
+                    ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                    return;
+                }
                 if (txtOnzas.Text.Trim().Equals("")) //Validaciones Onzas
                 {
                     lblMensajeError.Text = "Debe ingresar Onzas.";
@@ -145,17 +150,8 @@ namespace PapucplanetWA
                     ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                     return;
                 }
-                letras = false;
-                tamanio = txtOnzas.Text.Length;
-                for (int i = 0; i < tamanio; i++)
-                {
-                    char car = txtOnzas.Text[i];
-                    if ((car >= 'a' && car <= 'z') || (car >= 'A' && car <= 'Z'))
-                    {
-                        letras = true;
-                        break;
-                    }
-                }
+                
+                letras = poseeCaracteresAlfabeticos(txtOnzas.Text);
                 if (letras)
                 {
                     lblMensajeError.Text = "Debe ingresar solo numeros en Onzas.";
@@ -171,9 +167,9 @@ namespace PapucplanetWA
             {
                 c.id = Int32.Parse(Session["idConsumible"].ToString());
             }
-            if (imgImagenConsumible.ImageUrl.Trim().Equals("")) //Validacion Imagen
+            if (imgImagenConsumible.ImageUrl.Trim().Equals("/Images/placeholder.jpg")) //Validacion Imagen
             {
-                lblMensajeError.Text = "Debe ingresar una imagen.";
+                lblMensajeError.Text = "Debe ingresar una imagen de su consumible.";
                 script = "showModalFormError();";
                 ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                 return;
@@ -195,17 +191,7 @@ namespace PapucplanetWA
                 ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                 return;
             }
-            letras = false;
-            tamanio = txtPrecio.Text.Length;
-            for (int i = 0; i < tamanio; i++)
-            {
-                char car = txtPrecio.Text[i];
-                if ((car >= 'a' && car <= 'z') || (car >= 'A' && car <= 'Z'))
-                {
-                    letras = true;
-                    break;
-                }
-            }
+            letras = poseeCaracteresAlfabeticos(txtPrecio.Text);
             if (letras)
             {
                 lblMensajeError.Text = "Debe ingresar solo numeros en Onzas.";
@@ -268,19 +254,34 @@ namespace PapucplanetWA
                 }
             }
         }
+        private bool poseeCaracteresAlfabeticos(string palabra)
+        {
+            bool verificar = false;
+            int tamanio = palabra.Length;
+            for (int i = 0; i < tamanio; i++)
+            {
+                char car = txtPrecio.Text[i];
+                if ((car >= 'a' && car <= 'z') || (car >= 'A' && car <= 'Z'))
+                {
+                    verificar = true;
+                    break;
+                }
+            }
+            return verificar;
+        }
         protected void rbHabilitarAlimentoNoBebida()
         {
-            txtPesoPromedio.Enabled = true;
-            ddlTipoAlimento.Enabled = true;
-            txtOnzas.Enabled = false;
-            rbTieneHielo.Disabled = true;
+            txtPesoPromedio.ReadOnly = false;
+            ddlTipoAlimento.EnableViewState = false;
+            txtOnzas.ReadOnly = true;
+            rbTieneHielo.EnableViewState = true;
         }
         protected void rbHabilitarBebidaNoAlimento()
         {
-            txtPesoPromedio.Enabled = false;
-            ddlTipoAlimento.Enabled = false;
-            txtOnzas.Enabled = true;
-            rbTieneHielo.Disabled = false;
+            txtPesoPromedio.ReadOnly = true;
+            ddlTipoAlimento.EnableViewState = true;
+            txtOnzas.ReadOnly = false;
+            rbTieneHielo.EnableViewState = false;
         }
 
     }

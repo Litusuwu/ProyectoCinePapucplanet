@@ -10,6 +10,6 @@ function showModalFormAlimentoDetalle() {
 
 let modalFormError;
 function showModalFormError() {
-    modalFormConsumible = new bootstrap.Modal(document.getElementById('errorModal'));
-    modalFormConsumible.show();
+    modalFormError = new bootstrap.Modal(document.getElementById('errorModal'));
+    modalFormError.show();
 }
