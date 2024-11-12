@@ -1,10 +1,12 @@
 ﻿using PapucplanetWA.Servicio;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.Adapters;
 
 namespace PapucplanetWA
 {
@@ -12,11 +14,14 @@ namespace PapucplanetWA
     {
         private AlimentoWSClient alimentoDAO = new AlimentoWSClient();
         private BebidaWSClient bebidaDAO = new BebidaWSClient();
-        private boleta bol;
+        private BindingList<lineaBoleta> lineas;
         protected void Page_Init(object sender, EventArgs e)
         {
+
+
             if (!IsPostBack)
             {
+                string valor = Request.QueryString["visible"];
                 
                 if (Session["CantidadProductos"] != null)
                 {
@@ -24,6 +29,9 @@ namespace PapucplanetWA
                 }
                 CargarProductos();
                 ActualizarContadorCarrito();
+                if (valor != null) Visibility(true);
+                else Visibility(false);
+               
             }
             if (Session["CantidadProductos"] == null)
             {
@@ -39,6 +47,45 @@ namespace PapucplanetWA
         //        ActualizarContadorCarrito();
         //    }
         //}
+
+        protected void Visibility(bool visible)
+        {
+            cart.Visible = visible;
+            panelConfiteria.Visible = visible;
+            panelPeliculas.Visible = !visible;
+            foreach (RepeaterItem item in rptAllItems.Items)
+            {
+                Button btnIncrease = (Button)item.FindControl("btnIncrease");
+                Button btnDecrease = (Button)item.FindControl("btnDecrease");
+                Label lblQuantity = (Label)item.FindControl("lblQuantity");
+
+                if (btnIncrease != null) btnIncrease.Visible = visible;
+                if (btnDecrease != null) btnDecrease.Visible = visible;
+                if (lblQuantity != null) lblQuantity.Visible = visible;
+            }
+
+            foreach (RepeaterItem item in rptAlimentos.Items)
+            {
+                Button btnIncrease = (Button)item.FindControl("btnIncrease");
+                Button btnDecrease = (Button)item.FindControl("btnDecrease");
+                Label lblQuantity = (Label)item.FindControl("lblQuantity");
+
+                if (btnIncrease != null) btnIncrease.Visible = visible;
+                if (btnDecrease != null) btnDecrease.Visible = visible;
+                if (lblQuantity != null) lblQuantity.Visible = visible;
+            }
+
+            foreach (RepeaterItem item in rptBebidas.Items)
+            {
+                Button btnIncrease = (Button)item.FindControl("btnIncrease");
+                Button btnDecrease = (Button)item.FindControl("btnDecrease");
+                Label lblQuantity = (Label)item.FindControl("lblQuantity");
+
+                if (btnIncrease != null) btnIncrease.Visible = visible;
+                if (btnDecrease != null) btnDecrease.Visible = visible;
+                if (lblQuantity != null) lblQuantity.Visible = visible;
+            }
+        }
         private void ActualizarContadorCarrito()
         {
             var cantidades = (Dictionary<int, int>)Session["CantidadProductos"];
@@ -184,13 +231,13 @@ namespace PapucplanetWA
 
         private void IncrementarCantidad(int productoId)
         {
-            bol = (boleta)Session["Boleta"];
+            lineas = (BindingList<lineaBoleta>)Session["LineasBoleta"];
             List<alimento> listaA=(List<alimento>)Session["Alimentos"];
             List<bebida>listaB=(List<bebida>)Session["Bebidas"];
-            List<lineaBoleta>lineasBoleta=new List<lineaBoleta> (bol.lineasBoleta);
+            
             var cantidades = (Dictionary<int, int>)Session["CantidadProductos"];
             // Verifica si la línea de boleta ya contiene el producto
-            var lineaExistente = lineasBoleta.FirstOrDefault(lb => lb.consumible.id == productoId);
+            lineaBoleta lineaExistente = lineas.FirstOrDefault(lb => lb.consumible.id == productoId);
             consumible cons;
             cons = listaA.FirstOrDefault(consumible => consumible.id == productoId);
             if(cons==null) cons = listaB.FirstOrDefault(consumible => consumible.id == productoId);
@@ -211,8 +258,9 @@ namespace PapucplanetWA
                     lin.cantidad = 1;
                     //busco el consumble y lleno los datos
                     lin.consumible = cons;
+                    lin.activo = true;
                     lin.subtotal = cons.precio;
-                    lineasBoleta.Add(lin);
+                    lineas.Add(lin);
                 }
             }
             else
@@ -221,42 +269,40 @@ namespace PapucplanetWA
                 lineaBoleta lin = new lineaBoleta();
                 lin.cantidad = 1;
                 lin.consumible = cons;
+                lin.activo = true;
                 lin.subtotal = cons.precio;
-                lineasBoleta.Add(lin);
+                lineas.Add(lin);
             }
-            bol.total += cons.precio;
             Session["CantidadProductos"] = cantidades;
 
         }
 
         private void DecrementarCantidad(int productoId)
         {
-            bol= (boleta)Session["Boleta"];
+            lineas = (BindingList<lineaBoleta>)Session["LineasBoleta"];
             var cantidades = (Dictionary<int, int>)Session["CantidadProductos"];
             List<alimento> listaA = (List<alimento>)Session["Alimentos"];
             List<bebida> listaB = (List<bebida>)Session["Bebidas"];
-            List<lineaBoleta> lineasBoleta = new List<lineaBoleta>(bol.lineasBoleta);
             consumible cons;
             cons = listaA.FirstOrDefault(consumible => consumible.id == productoId);
             if (cons == null) cons = listaB.FirstOrDefault(consumible => consumible.id == productoId);
-            var lineaExistente = lineasBoleta.FirstOrDefault(lb => lb.consumible.id == productoId);
-            if (cantidades.ContainsKey(productoId) && cantidades[productoId] > 0)
+            lineaBoleta lineaExistente = lineas.FirstOrDefault(lb => lb.consumible.id == productoId);
+            if (cantidades.ContainsKey(productoId) && cantidades[productoId] > 0 && lineaExistente!=null)
             {
                 cantidades[productoId]--;
-                if (cantidades[productoId] == 0)
-                {
-                    lineasBoleta.Remove(lineaExistente);
-                }
-                else
-                {
-                    lineaExistente.cantidad -= 1;
-                    lineaExistente.subtotal -= cons.precio;
-                    
-                }
-                bol.total -= cons.precio;
+
+               if (cantidades[productoId]==0)
+               {
+                    lineas.Remove(lineaExistente);
+               }
+               else
+               {
+                   lineaExistente.cantidad -= 1;
+                   lineaExistente.subtotal -= cons.precio;
+               }
             }
-            bol.lineasBoleta = lineasBoleta.ToArray();
-            Session["Boleta"] = bol;
+            
+            Session["LineasBoleta"] = lineas;
             Session["CantidadProductos"] = cantidades;
         }
 
@@ -268,5 +314,6 @@ namespace PapucplanetWA
             public double Precio { get; set; }
             public string UrlImagen { get; set; }
         }
+
     }
 }
