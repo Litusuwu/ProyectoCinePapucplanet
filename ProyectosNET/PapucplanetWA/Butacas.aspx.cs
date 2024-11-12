@@ -302,7 +302,10 @@ namespace PapucplanetWAS
             }
             else
             {
-                Response.Write("<script>alert('Debe seleccionar por lo menos una butaca');</script>");
+                string script;
+                lblMensajeError.Text = "Debe seleccionar una butaca por lo menos.";
+                script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
             }
             
         }

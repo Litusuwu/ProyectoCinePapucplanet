@@ -109,15 +109,14 @@
                     <ItemTemplate>
                         <div class="col-md-4 mb-3">
                             <div class="card">
-                                <img src='<%# Eval("UrlImagen").ToString().Substring(1) %>' class="card-img-top carta" alt='<%# Eval("Nombre") %>'>
+                                <img src='<%# Eval("imagenURL").ToString().Substring(1) %>' class="card-img-top carta" alt='<%# Eval("nombre") %>'>
                                 <div class="card-body text-center">
-                                    <h5 class="card-title"><%# Eval("Nombre") %></h5>
-                                    <p class="card-text"><%# Eval("Descripcion") %></p>
-                                    <p class="card-text"><strong>S/. <%# Eval("Precio") %></strong></p>
+                                    <h5 class="card-title"><%# Eval("nombre") %></h5>
+                                    <p class="card-text"><strong>S/. <%# Eval("precio") %></strong></p>
                                     <div class="d-flex justify-content-center align-items-center">
-                                        <asp:Button ID="btnDecrease" runat="server" Text="-" CssClass="btn btn-outline-dark btn-sm me-2" CommandArgument='<%# Eval("Id") %>' OnClick="DecrementarCantidad_Click" />
+                                        <asp:Button ID="btnDecrease" runat="server" Text="-" CssClass="btn btn-outline-dark btn-sm me-2" CommandArgument='<%# Eval("id") + "," + Eval("tipo") %>' OnClick="DecrementarCantidad_Click" />
                                         <asp:Label ID="lblQuantity" runat="server" CssClass="quantity-label" Text="0" />
-                                        <asp:Button ID="btnIncrease" runat="server" Text="+" CssClass="btn btn-outline-dark btn-sm ms-2" CommandArgument='<%# Eval("Id") %>' OnClick="IncrementarCantidad_Click" />
+                                        <asp:Button ID="btnIncrease" runat="server" Text="+" CssClass="btn btn-outline-dark btn-sm ms-2" CommandArgument='<%# Eval("id") + "," + Eval("tipo") %>' OnClick="IncrementarCantidad_Click" />
                                     </div>
                                 </div>
                             </div>
@@ -130,15 +129,14 @@
                     <ItemTemplate>
                         <div class="col-md-4 mb-3">
                             <div class="card">
-                                <img src='<%# Eval("UrlImagen").ToString().Substring(1) %>' class="card-img-top carta" alt='<%# Eval("Nombre") %>'>
+                                <img src='<%# Eval("imagenURL").ToString().Substring(1) %>' class="card-img-top carta" alt='<%# Eval("nombre") %>'>
                                 <div class="card-body text-center">
-                                    <h5 class="card-title"><%# Eval("Nombre") %></h5>
-                                    <p class="card-text"><%# Eval("Descripcion") %></p>
-                                    <p class="card-text"><strong>S/. <%# Eval("Precio") %></strong></p>
+                                    <h5 class="card-title"><%# Eval("nombre") %></h5>
+                                    <p class="card-text"><strong>S/. <%# Eval("precio") %></strong></p>
                                     <div class="d-flex justify-content-center align-items-center">
-                                        <asp:Button ID="btnDecrease" runat="server" Text="-" CssClass="btn btn-outline-dark btn-sm me-2" CommandArgument='<%# Eval("Id") %>' OnClick="DecrementarCantidad_Click" />
+                                        <asp:Button ID="btnDecrease" runat="server" Text="-" CssClass="btn btn-outline-dark btn-sm me-2" CommandArgument='<%# Eval("id") + "," + Eval("tipo") %>' OnClick="DecrementarCantidad_Click" />
                                         <asp:Label ID="lblQuantity" runat="server" CssClass="quantity-label" Text="0" />
-                                        <asp:Button ID="btnIncrease" runat="server" Text="+" CssClass="btn btn-outline-dark btn-sm ms-2" CommandArgument='<%# Eval("Id") %>' OnClick="IncrementarCantidad_Click" />
+                                        <asp:Button ID="btnIncrease" runat="server" Text="+" CssClass="btn btn-outline-dark btn-sm ms-2" CommandArgument='<%# Eval("id") + "," + Eval("tipo") %>' OnClick="IncrementarCantidad_Click" />
                                     </div>
                                 </div>
                             </div>
@@ -151,15 +149,14 @@
                     <ItemTemplate>
                         <div class="col-md-4 mb-3">
                             <div class="card">
-                                <img src='<%# Eval("UrlImagen").ToString().Substring(1) %>' class="card-img-top carta" alt='<%# Eval("Nombre") %>'>
+                                <img src='<%# Eval("imagenURL").ToString().Substring(1) %>' class="card-img-top carta" alt='<%# Eval("nombre") %>'>
                                 <div class="card-body text-center">
-                                    <h5 class="card-title"><%# Eval("Nombre") %></h5>
-                                    <p class="card-text"><%# Eval("Descripcion") %></p>
-                                    <p class="card-text"><strong>S/. <%# Eval("Precio") %></strong></p>
+                                    <h5 class="card-title"><%# Eval("nombre") %></h5>
+                                    <p class="card-text"><strong>S/. <%# Eval("precio") %></strong></p>
                                     <div class="d-flex justify-content-center align-items-center">
-                                        <asp:Button ID="btnDecrease" runat="server" Text="-" CssClass="btn btn-outline-dark btn-sm me-2" CommandArgument='<%# Eval("Id") %>' OnClick="DecrementarCantidad_Click" />
+                                        <asp:Button ID="btnDecrease" runat="server" Text="-" CssClass="btn btn-outline-dark btn-sm me-2" CommandArgument='<%# Eval("id") + "," + Eval("tipo") %>' OnClick="DecrementarCantidad_Click" />
                                         <asp:Label ID="lblQuantity" runat="server" CssClass="quantity-label" Text="0" />
-                                        <asp:Button ID="btnIncrease" runat="server" Text="+" CssClass="btn btn-outline-dark btn-sm ms-2" CommandArgument='<%# Eval("Id") %>' OnClick="IncrementarCantidad_Click" />
+                                        <asp:Button ID="btnIncrease" runat="server" Text="+" CssClass="btn btn-outline-dark btn-sm ms-2" CommandArgument='<%# Eval("id") + "," + Eval("tipo") %>' OnClick="IncrementarCantidad_Click" />
                                     </div>
                                 </div>
                             </div>

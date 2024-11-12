@@ -39,20 +39,12 @@ namespace PapucplanetWA
             }
         }
 
-        //protected void Page_Load(object sender, EventArgs e)
-        //{
-        //    if (!IsPostBack)
-        //    {
-        //        CargarProductos();
-        //        ActualizarContadorCarrito();
-        //    }
-        //}
-
         protected void Visibility(bool visible)
         {
             cart.Visible = visible;
             panelConfiteria.Visible = visible;
             panelPeliculas.Visible = !visible;
+
             foreach (RepeaterItem item in rptAllItems.Items)
             {
                 Button btnIncrease = (Button)item.FindControl("btnIncrease");
@@ -96,8 +88,10 @@ namespace PapucplanetWA
         protected void IncrementarCantidad_Click(object sender, EventArgs e)
         {
             var boton = (Button)sender;
-            var productoId = int.Parse(boton.CommandArgument);
-            IncrementarCantidad(productoId);
+            var args = boton.CommandArgument.ToString().Split(',');
+            int id = int.Parse(args[0]);
+            char tipo = (char)int.Parse(args[1]);
+            IncrementarCantidad(id, tipo);
             EnlazarDatos();
             ActualizarContadorCarrito();
         }
@@ -105,70 +99,39 @@ namespace PapucplanetWA
         protected void DecrementarCantidad_Click(object sender, EventArgs e)
         {
             var boton = (Button)sender;
-            var productoId = int.Parse(boton.CommandArgument);
-            DecrementarCantidad(productoId);
+            var args = boton.CommandArgument.ToString().Split(',');
+            int id = int.Parse(args[0]);
+            char tipo = (char)int.Parse(args[1]);
+            DecrementarCantidad(id, tipo);
             EnlazarDatos();
             ActualizarContadorCarrito();
         }
         private void CargarProductos()
         {
-            List<bebida> bebidas;
+            BindingList<consumible> bebidas;
             var resultadoBebidas = bebidaDAO.listarTodasBebidas();
             if (resultadoBebidas != null)
             {
-                bebidas = new List<bebida>(resultadoBebidas);
+                bebidas = new BindingList<consumible>(resultadoBebidas);
             }
             else
             {
-                bebidas = new List<bebida>();
+                bebidas = new BindingList<consumible>();
             }
-            List<alimento> alimentos;
+            BindingList<consumible> alimentos;
             var resultadoAlimentos = alimentoDAO.listarTodosAlimentos();
             
             if (resultadoAlimentos != null)
             {
-                alimentos = new List<alimento>(resultadoAlimentos);
+                alimentos = new BindingList<consumible>(resultadoAlimentos);
             }
             else
             {
-                alimentos = new List<alimento>();
+                alimentos = new BindingList<consumible>();
             }
-            var todosLosProductos = new List<Producto>();
-            var aliment = new List<Producto>();
-            var bebid = new List<Producto>();
 
-            foreach (alimento ali in alimentos)
-            {
-                Producto prod = new Producto
-                {
-                    Id = ali.id,
-                    Nombre = ali.nombre,
-                    Precio = ali.precio,
-                    UrlImagen = ali.imagenURL,
-                    Descripcion = ali.tipoAlimento.ToString() + " - " + ali.pesoPromedio.ToString() +" gr.",
-                };
-                aliment.Add( prod );
-                todosLosProductos.Add(prod);
-            }
-            foreach (bebida be in bebidas)
-            {
-                Producto prod = new Producto
-                {
-                    Id = be.id,
-                    Nombre = be.nombre,
-                    Precio = be.precio,
-                    UrlImagen = be.imagenURL,
-                    Descripcion = be.onzas.ToString() + "oz."
-                };
-                bebid.Add(prod);
-                todosLosProductos.Add(prod);
-            }
             Session["Alimentos"] = alimentos; //las que tienen todos los datos
             Session["Bebidas"] = bebidas;
-            Session["TodosLosProductos"] = todosLosProductos;
-            Session["ProductosAlimentos"] = aliment;
-            Session["ProductosBebidas"] = bebid;
-            
             if (Session["CantidadProductos"] == null)
             {
                 Session["CantidadProductos"] = new Dictionary<int, int>();
@@ -178,9 +141,10 @@ namespace PapucplanetWA
 
         private void EnlazarDatos()
         {
-            var todosLosProductos = (List<Producto>)Session["TodosLosProductos"];
-            var aliment = (List<Producto>)Session["ProductosAlimentos"];
-            var bebid = (List<Producto>)Session["ProductosBebidas"];
+            
+            var aliment = (BindingList<consumible>)Session["Alimentos"];
+            var bebid = (BindingList<consumible>)Session["Bebidas"];
+            var todosLosProductos = new BindingList<consumible>(aliment.Concat(bebid).ToList());
             rptAllItems.DataSource = todosLosProductos;
             rptAllItems.DataBind();
             rptAlimentos.DataSource = aliment;
@@ -229,18 +193,18 @@ namespace PapucplanetWA
 
 
 
-        private void IncrementarCantidad(int productoId)
+        private void IncrementarCantidad(int productoId, char tipo)
         {
             lineas = (BindingList<lineaBoleta>)Session["LineasBoleta"];
-            List<alimento> listaA=(List<alimento>)Session["Alimentos"];
-            List<bebida>listaB=(List<bebida>)Session["Bebidas"];
+            BindingList<consumible> listaA=(BindingList<consumible>)Session["Alimentos"];
+            BindingList<consumible> listaB=(BindingList<consumible>)Session["Bebidas"];
             
             var cantidades = (Dictionary<int, int>)Session["CantidadProductos"];
             // Verifica si la línea de boleta ya contiene el producto
             lineaBoleta lineaExistente = lineas.FirstOrDefault(lb => lb.consumible.id == productoId);
             consumible cons;
-            cons = listaA.FirstOrDefault(consumible => consumible.id == productoId);
-            if(cons==null) cons = listaB.FirstOrDefault(consumible => consumible.id == productoId);
+            if (tipo == 'B') cons = listaB.FirstOrDefault(consumible => consumible.id == productoId);
+            else cons = listaA.FirstOrDefault(consumible => consumible.id == productoId);
 
             if (cantidades.ContainsKey(productoId))
             {
@@ -277,15 +241,15 @@ namespace PapucplanetWA
 
         }
 
-        private void DecrementarCantidad(int productoId)
+        private void DecrementarCantidad(int productoId, char tipo)
         {
             lineas = (BindingList<lineaBoleta>)Session["LineasBoleta"];
             var cantidades = (Dictionary<int, int>)Session["CantidadProductos"];
-            List<alimento> listaA = (List<alimento>)Session["Alimentos"];
-            List<bebida> listaB = (List<bebida>)Session["Bebidas"];
+            BindingList<consumible> listaA = (BindingList<consumible>)Session["Alimentos"];
+            BindingList<consumible> listaB = (BindingList<consumible>)Session["Bebidas"];
             consumible cons;
-            cons = listaA.FirstOrDefault(consumible => consumible.id == productoId);
-            if (cons == null) cons = listaB.FirstOrDefault(consumible => consumible.id == productoId);
+            if (tipo == 'B') cons = listaB.FirstOrDefault(consumible => consumible.id == productoId);
+            else cons = listaA.FirstOrDefault(consumible => consumible.id == productoId);
             lineaBoleta lineaExistente = lineas.FirstOrDefault(lb => lb.consumible.id == productoId);
             if (cantidades.ContainsKey(productoId) && cantidades[productoId] > 0 && lineaExistente!=null)
             {
@@ -305,15 +269,5 @@ namespace PapucplanetWA
             Session["LineasBoleta"] = lineas;
             Session["CantidadProductos"] = cantidades;
         }
-
-        public class Producto
-        {
-            public int Id { get; set; }
-            public string Nombre { get; set; }
-            public string Descripcion { get; set; }
-            public double Precio { get; set; }
-            public string UrlImagen { get; set; }
-        }
-
     }
 }
