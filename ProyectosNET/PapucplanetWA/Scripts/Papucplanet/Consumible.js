@@ -9,7 +9,7 @@ function showModalFormAlimentoDetalle() {
 }
 
 let modalFormError;
-function showModalFromError() {
-    modalFromConsumible = new bootstrap.Modal(document.getElementById('errorModal'));
-    modalFromConsumible.show();
+function showModalFormError() {
+    modalFormConsumible = new bootstrap.Modal(document.getElementById('errorModal'));
+    modalFormConsumible.show();
 }

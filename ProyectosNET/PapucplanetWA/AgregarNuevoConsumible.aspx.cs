@@ -108,7 +108,7 @@ namespace PapucplanetWA
                 if (txtPesoPromedio.Text.Trim().Equals("")) //Validaciones Peso Promedio
                 {
                     lblMensajeError.Text = "Debe ingresar Peso Promedio.";
-                    script = "showModalFromError();";
+                    script = "showModalFormError();";
                     ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                     return;
                 }
@@ -126,7 +126,7 @@ namespace PapucplanetWA
                 if (letras)
                 {
                     lblMensajeError.Text = "Debe ingresar solo numeros en Peso Promedio.";
-                    script = "showModalFromError();";
+                    script = "showModalFormError();";
                     ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                     return;
                 }
@@ -141,7 +141,7 @@ namespace PapucplanetWA
                 if (txtOnzas.Text.Trim().Equals("")) //Validaciones Onzas
                 {
                     lblMensajeError.Text = "Debe ingresar Onzas.";
-                    script = "showModalFromError();";
+                    script = "showModalFormError();";
                     ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                     return;
                 }
@@ -159,7 +159,7 @@ namespace PapucplanetWA
                 if (letras)
                 {
                     lblMensajeError.Text = "Debe ingresar solo numeros en Onzas.";
-                    script = "showModalFromError();";
+                    script = "showModalFormError();";
                     ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                     return;
                 }
@@ -174,7 +174,7 @@ namespace PapucplanetWA
             if (imgImagenConsumible.ImageUrl.Trim().Equals("")) //Validacion Imagen
             {
                 lblMensajeError.Text = "Debe ingresar una imagen.";
-                script = "showModalFromError();";
+                script = "showModalFormError();";
                 ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                 return;
             }
@@ -182,7 +182,7 @@ namespace PapucplanetWA
             if (txtNombreConsumible.Text.Trim().Equals("")) //Validacion Nombre
             {
                 lblMensajeError.Text = "Debe ingresar un nombre de consumible.";
-                script = "showModalFromError();";
+                script = "showModalFormError();";
                 ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                 return;
             }
@@ -191,7 +191,7 @@ namespace PapucplanetWA
             if (txtPrecio.Text.Trim().Equals(""))
             {
                 lblMensajeError.Text = "Debe ingresar Onzas.";
-                script = "showModalFromError();";
+                script = "showModalFormError();";
                 ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                 return;
             }
@@ -209,7 +209,7 @@ namespace PapucplanetWA
             if (letras)
             {
                 lblMensajeError.Text = "Debe ingresar solo numeros en Onzas.";
-                script = "showModalFromError();";
+                script = "showModalFormError();";
                 ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                 return;
             }
