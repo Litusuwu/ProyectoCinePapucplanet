@@ -5,6 +5,12 @@
       <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/ButacaFuncionWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
     </xsd:schema>
   </types>
+  <message name="obtenerButacasPorFuncionButacaFuncion">
+    <part name="parameters" element="tns:obtenerButacasPorFuncionButacaFuncion" />
+  </message>
+  <message name="obtenerButacasPorFuncionButacaFuncionResponse">
+    <part name="parameters" element="tns:obtenerButacasPorFuncionButacaFuncionResponse" />
+  </message>
   <message name="listarTodosButacaFuncion">
     <part name="parameters" element="tns:listarTodosButacaFuncion" />
   </message>
@@ -35,13 +41,11 @@
   <message name="obtenerPorIdButacaFuncionResponse">
     <part name="parameters" element="tns:obtenerPorIdButacaFuncionResponse" />
   </message>
-  <message name="obtenerButacasPorFuncionButacaFuncion">
-    <part name="parameters" element="tns:obtenerButacasPorFuncionButacaFuncion" />
-  </message>
-  <message name="obtenerButacasPorFuncionButacaFuncionResponse">
-    <part name="parameters" element="tns:obtenerButacasPorFuncionButacaFuncionResponse" />
-  </message>
   <portType name="ButacaFuncionWS">
+    <operation name="obtenerButacasPorFuncionButacaFuncion">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/obtenerButacasPorFuncionButacaFuncionRequest" message="tns:obtenerButacasPorFuncionButacaFuncion" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/obtenerButacasPorFuncionButacaFuncionResponse" message="tns:obtenerButacasPorFuncionButacaFuncionResponse" />
+    </operation>
     <operation name="listarTodosButacaFuncion">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/listarTodosButacaFuncionRequest" message="tns:listarTodosButacaFuncion" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/listarTodosButacaFuncionResponse" message="tns:listarTodosButacaFuncionResponse" />
@@ -62,13 +66,18 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/obtenerPorIdButacaFuncionRequest" message="tns:obtenerPorIdButacaFuncion" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/obtenerPorIdButacaFuncionResponse" message="tns:obtenerPorIdButacaFuncionResponse" />
     </operation>
-    <operation name="obtenerButacasPorFuncionButacaFuncion">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/obtenerButacasPorFuncionButacaFuncionRequest" message="tns:obtenerButacasPorFuncionButacaFuncion" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaFuncionWS/obtenerButacasPorFuncionButacaFuncionResponse" message="tns:obtenerButacasPorFuncionButacaFuncionResponse" />
-    </operation>
   </portType>
   <binding name="ButacaFuncionWSPortBinding" type="tns:ButacaFuncionWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="obtenerButacasPorFuncionButacaFuncion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="listarTodosButacaFuncion">
       <soap:operation soapAction="" />
       <input>
@@ -106,15 +115,6 @@
       </output>
     </operation>
     <operation name="obtenerPorIdButacaFuncion">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerButacasPorFuncionButacaFuncion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

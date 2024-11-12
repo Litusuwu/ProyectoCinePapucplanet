@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -72,7 +73,55 @@ namespace PapucplanetWA
 
         protected void lbGuardar_Click(object sender, EventArgs e)
         {
-
+            if (txtNombrePelicula.Text == "")
+            {
+                lblMensajeError.Text = "No tiene titulo la pelicula";
+                string script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
+            if (!Regex.IsMatch(txtNombrePelicula.Text, @"^(?=.*[A-Za-z])[A-Za-z0-9\s.]+$"))
+            {
+                lblMensajeError.Text = "Nombre de la pelicula contiene caracteres especiales no permitdos.";
+                string script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
+            if (txtDuracion.Text == "")
+            {
+                lblMensajeError.Text = "La duración de la película es obligatoria";
+                string script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
+            if (!Regex.IsMatch(txtDuracion.Text, @"^\d+$"))
+            {
+                lblMensajeError.Text = "La duracion de la pelicula no contiene caracteres numericos";
+                string script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
+            if (txtSinopsis.Value == "")
+            {
+                lblMensajeError.Text = "La sinopsis de la película es obligatoria";
+                string script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
+            if (!Regex.IsMatch(txtSinopsis.Value, @"^[A-Za-z0-9\s.,;]+$"))
+            {
+                lblMensajeError.Text = "La sinopsis solo puede contener caracteres alfanuméricos, espacios, '.' , ',' y ';'";
+                string script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
+            if (!fileUploadImagenPromocional.HasFile)
+            {
+                lblMensajeError.Text = "Debe subir una imagen promocional";
+                string script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
             pelicula.titulo = txtNombrePelicula.Text;
             pelicula.duracion = Double.Parse(txtDuracion.Text);
             pelicula.sinopsis = txtSinopsis.Value;
@@ -100,10 +149,10 @@ namespace PapucplanetWA
                 if (extension.ToLower() == ".jpg" || extension.ToLower() == ".jpeg" || extension.ToLower() == ".png" || extension.ToLower() == ".gif")
                 {
                     string filename = Guid.NewGuid().ToString() + extension;
-                    string filePath = Server.MapPath("~/Uploads/") + filename;
-                    fileUploadImagenPromocional.SaveAs(Server.MapPath("~/Uploads/") + filename);
+                    string filePath = Server.MapPath("~/Images/Peliculas/") + filename;
+                    fileUploadImagenPromocional.SaveAs(Server.MapPath("~/Images/Peliculas/") + filename);
 
-                    imgImagenPromocional.ImageUrl = "~/Uploads/" + filename;
+                    imgImagenPromocional.ImageUrl = "~/Images/Peliculas/" + filename;
                     imgImagenPromocional.Visible = true;
                     FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
                     BinaryReader br = new BinaryReader(fs);

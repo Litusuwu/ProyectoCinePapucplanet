@@ -22,7 +22,7 @@ public class BebidaMySQL implements BebidaDAO{
              con = DBManager.getInstance().getConnection();
 
             // Preparamos la llamada al procedimiento
-            String sql = "{CALL INSERTAR_BEBIDA(?,?, ?, ?, ?, ?, ?)}";
+            String sql = "{CALL INSERTAR_BEBIDA(?,?, ?, ?, ?, ?,?)}";
             cs = con.prepareCall(sql);
 
             // Establecer los parámetros de entrada
@@ -61,7 +61,7 @@ public class BebidaMySQL implements BebidaDAO{
              con = DBManager.getInstance().getConnection();
 
             // Preparamos la llamada al procedimiento
-            String sql = "{CALL MODIFICAR_BEBIDA(?,?,?,?,?,?,?)}";
+            String sql = "{CALL MODIFICAR_BEBIDA(?,?,?,?,?,?)}";
             cs = con.prepareCall(sql);
 
             // Establecer los parámetros de entrada
@@ -71,7 +71,7 @@ public class BebidaMySQL implements BebidaDAO{
             cs.setInt(4,bebida.getOnzas());
             cs.setBoolean(5,bebida.isTieneHielo());
             cs.setString(6, bebida.getImagenURL());
-            cs.setString(7, String.valueOf(bebida.getTipo()));
+            //cs.setString(7, String.valueOf(bebida.getTipo()));
             // Ejecutar el procedimiento
             cs.executeUpdate();
             resultado = bebida.getId();

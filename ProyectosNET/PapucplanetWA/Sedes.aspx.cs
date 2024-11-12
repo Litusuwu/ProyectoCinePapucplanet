@@ -85,16 +85,16 @@ namespace PapucplanetWA
                 ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
                 return;
             }
-            if (txtUbicacionSede.Text == "")
+            if (!Regex.IsMatch(txtNombreSede.Text, @"^[A-Za-z\s]+$"))
             {
-                lblMensajeError.Text = "Ubicacion de sede vacio";
+                lblMensajeError.Text = "Nombre de la sede contiene números o caracteres especiales.";
                 script = "showModalFormError();";
                 ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
                 return;
             }
-            if (!Regex.IsMatch(txtNombreSede.Text, @"^[A-Za-z\s]+$"))
+            if (txtUbicacionSede.Text == "")
             {
-                lblMensajeError.Text = "Nombre de la sede contiene números o caracteres especiales.";
+                lblMensajeError.Text = "Ubicacion de sede vacio";
                 script = "showModalFormError();";
                 ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
                 return;

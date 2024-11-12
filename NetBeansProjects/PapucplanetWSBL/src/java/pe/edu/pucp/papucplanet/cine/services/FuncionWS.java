@@ -87,11 +87,11 @@ public class FuncionWS {
     }
     
     @WebMethod(operationName = "listarFuncionesPorFecha")
-    public ArrayList<Funcion> listarFuncionesPorFecha(@WebParam(name = "fecha") Date fecha) {
+    public ArrayList<Funcion> listarFuncionesPorFecha(@WebParam(name = "Funcion") Funcion funcion) {
         ArrayList<Funcion> funciones = null;
         try {
             daoFuncion = new FuncionMySQL();
-            funciones = daoFuncion.listarFuncionesPorFecha(fecha);
+            funciones = daoFuncion.listarFuncionesPorFecha(funcion);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -121,4 +121,15 @@ public class FuncionWS {
         return resultado;
     }
     
+    @WebMethod(operationName = "estaDisponibleElHorario")
+    public int estaDisponibleElHorario(@WebParam(name = "funcion") Funcion funcion) {
+        int resultado = 0;
+        try {
+            daoFuncion = new FuncionMySQL();
+            resultado = daoFuncion.verificarDisponibilidadHorario(funcion);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return resultado;
+    }
 }

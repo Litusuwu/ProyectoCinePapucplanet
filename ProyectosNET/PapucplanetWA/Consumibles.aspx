@@ -3,7 +3,7 @@
     Consumibles
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
-    <script src="Scripts/Papucplanet/Consumibles.js"></script>
+    <script src="Scripts/Papucplanet/Consumible.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContenido" runat="server">
     <div class="container">
