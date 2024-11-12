@@ -25,6 +25,7 @@ namespace PapucplanetWA
                 }
                 Response.Redirect("AccesoDenegado.aspx");
             }
+            Session["Excepcion"] = "No"; //No
         }
         protected void lbRegresar_Click(object sender, EventArgs e)
         {
@@ -32,6 +33,7 @@ namespace PapucplanetWA
         }
         protected void lbGenerarReporte_Click(object sender, EventArgs e)
         {
+            Session["Excepcion"] = "No"; //No
             string script = "";
             if( !rbPelicula.Checked && !rbSede.Checked)
             {
@@ -47,14 +49,65 @@ namespace PapucplanetWA
                 ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                 return;
             }
-            if ()
-            {
 
+            if (string.IsNullOrEmpty(dtpFechaInicio.Value) || string.IsNullOrEmpty(dtpFechaInicio.Value))
+            {
+                if (string.IsNullOrEmpty(dtpFechaInicio.Value) && string.IsNullOrEmpty(dtpFechaInicio.Value))
+                {
+                    txtExcepcionMsg.Text = "Se utilizara la fecha actual [" + DateTime.Now.Date.ToString() + "] como unico dia para su reporte";
+                    script = "showModalFormConvencion();"; //Reemplazar en futuros paramtros fin e inicio
+                    ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormConvencion", script, true);
+                    if (Session["Excepcion"].ToString() == "No")
+                        return;
+                }else if (string.IsNullOrEmpty(dtpFechaFin.Value))
+                {
+                    if(DateTime.Parse(dtpFechaInicio.Value) > DateTime.Now.Date)
+                    {
+                        txtExcepcionMsg.Text = "La fecha de inicio debe ser previa a la fecha actual " + DateTime.Now.Date.ToString();
+                        script = "showModalFormError();";
+                        ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                        return;
+                    }
+                    else
+                    {
+                        txtExcepcionMsg.Text = "Se utilizara la fecha inicio [" + DateTime.Parse(dtpFechaInicio.Value).ToString()  + "] como unico dia para su reporte";
+                        script = "showModalFormConvencion();"; //Reemplazar en futuro paramtro fin
+                        ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormConvencion", script, true);
+                        if (Session["Excepcion"].ToString() == "No")
+                            return;
+                    }
+                }
+                else //Inicio esta vacio
+                {
+                    if (DateTime.Parse(dtpFechaFin.Value) > DateTime.Now.Date)
+                    {
+                        txtExcepcionMsg.Text = "La fecha de fin debe ser previa a la fecha actual " + DateTime.Now.Date.ToString();
+                        script = "showModalFormError();";
+                        ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                        return;
+                    }
+                    else
+                    {
+                        txtExcepcionMsg.Text = "Se utilizara la fecha fin [" + DateTime.Parse(dtpFechaFin.Value).ToString() + "] como unico dia para su reporte";
+                        script = "showModalFormConvencion();"; //Reemplazar en futuro paramtro inicio
+                        ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormConvencion", script, true);
+                        if (Session["Excepcion"].ToString() == "No")
+                            return;
+                    }
+                }
             }
-            string a = "";
-            a = lblFechaFin.Text;
-            a = lblFechaInicio.Text;
+            if (DateTime.Parse(dtpFechaInicio.Value) > DateTime.Now.Date || DateTime.Parse(dtpFechaInicio.Value) > DateTime.Now.Date)
+            {
+                lblMensajeError.Text = "Las fechas ingresadas deben ser previas a la fecha actual " + DateTime.Now.Date.ToString();
+                script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                return;
+            }
             
+        }
+        protected void lbAceptar_Click(object sender, EventArgs e)
+        {
+            Session["Excepcion"] = "Si"; //Si
         }
     }
 }

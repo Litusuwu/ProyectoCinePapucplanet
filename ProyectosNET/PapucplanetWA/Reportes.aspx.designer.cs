@@ -114,22 +114,22 @@ namespace PapucplanetWA
         protected global::System.Web.UI.WebControls.LinkButton lbGenerarReporte;
 
         /// <summary>
-        /// Control lbExcepcion.
+        /// Control lbExcepcionMsg.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbExcepcion;
+        protected global::System.Web.UI.WebControls.Label lbExcepcionMsg;
 
         /// <summary>
-        /// Control txtExcepcion.
+        /// Control txtExcepcionMsg.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtExcepcion;
+        protected global::System.Web.UI.WebControls.TextBox txtExcepcionMsg;
 
         /// <summary>
         /// Control txtExcepcion.

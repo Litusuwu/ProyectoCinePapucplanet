@@ -55,9 +55,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <asp:Label ID="lbExcepcion" CssClass="form-label mb-2" runat="server" Text="Desea realizar la siguiente excepcion?" ></asp:Label>
-                    <!--<asp:TextBox ID="txtExcepcion" CssClass="form-control mb-3" runat="server" Enabled ="false"></asp:TextBox>-->
-                    <textarea id="txtExcepcion" runat="server" class="form-control" cols="20" rows="4" Enabled ="false"></textarea>
+                    <asp:Label ID="lbExcepcionMsg" CssClass="form-label mb-2" runat="server" Text="Desea realizar la siguiente excepcion?" ></asp:Label>
+                    <asp:TextBox ID="txtExcepcionMsg" CssClass="form-control mb-3" runat="server" Enabled ="false"></asp:TextBox>
+                    <!--<textarea id="txtExcepcion" runat="server" class="form-control" cols="20" rows="4" Enabled ="false"></textarea>-->
                 </div>
                 <div class="modal-footer">
                     <asp:LinkButton ID="lbAceptar" runat="server" Text="<i class='fa-regular fa-floppy-disk'></i> Acepto" CssClass="float-end btn btn-primary" OnClick="lbAceptar_Click" />
