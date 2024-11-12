@@ -26,13 +26,6 @@ h2.mb-4 {
     font-weight: bold;
 }
 
-/* Estilo para los botones seleccionados */
-.btn.selected {
-    background-color: darkred !important; /* Color de fondo morado oscuro */
-    border-color: darkred !important; /* Color del borde morado oscuro */
-    color: #ffffff !important; /* Texto en color blanco */
-}
-
 /* Espaciado inferior para separar las tarjetas al final de la página */
 .container .row.g-4 {
     margin-bottom: 100px;
@@ -153,4 +146,10 @@ h2.mb-4 {
     background-size: 0.5em 0.5em, 0.5em 0.5em, 1em 1em;
     background-repeat: no-repeat;
     cursor: pointer;
+}
+
+.selected-button {
+    background-color: darkred !important;
+    color: white !important;
+    border-color: darkred !important;
 }
