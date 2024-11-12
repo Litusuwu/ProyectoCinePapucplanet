@@ -88,7 +88,8 @@
                         <div class="col">
                             <div class="card h-100 contenedor-Peliculas">
                                 <a href='<%# "DetallePelicula.aspx?id_pelicula=" + Eval("idPelicula") %>'>
-                                    <div class="card-img full-image image-container img-fluid" style='background-image: url("<%# Eval("imagenPromocional").ToString().Substring(1)%>");'></div>
+                                    <div class='card-img full-image image-container img-fluid' style="background-image: url('<%# Eval("imagenPromocional").ToString().Substring(1) %>');"></div>
+
                                 </a>
                                 <div class="card-body text-center label-Peliculas">
                                     <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("titulo") %>' CssClass="card-title"></asp:Label>

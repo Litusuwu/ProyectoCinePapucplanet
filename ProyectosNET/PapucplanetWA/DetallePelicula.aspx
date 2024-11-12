@@ -77,9 +77,9 @@
             </div>
 
             <!--Agregar UpdatePanel para actualizar los botones de dia y hora sin recargar toda la pagina-->
-            <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <!--define un contenedor con estilos específicos-->
+                    <!-- Contenedor para seleccionar día -->
                     <div class="showtime-section my-4">
                         <h3 class="text-center py-2" style="background-color: darkred; color: white;">Seleccionar Día</h3>
                         <div id="dayContainer" class="d-flex flex-wrap justify-content-center gap-2 py-3" runat="server">
@@ -87,6 +87,7 @@
                         </div>
                     </div>
 
+                    <!-- Contenedor para seleccionar horario -->
                     <div class="showtime-section my-4">
                         <h3 class="text-center py-2" style="background-color: darkred; color: white;">Seleccionar Horario</h3>
                         <div id="timeContainer" class="d-flex flex-wrap justify-content-center gap-2 py-3" runat="server">
@@ -103,17 +104,21 @@
     <script>
         // JavaScript para gestionar el estado sin recargar la página
         function selectDay(button, day) {
+            // Resalta el botón seleccionado
             document.querySelectorAll("#dayContainer .btn").forEach(btn => btn.classList.remove("selected"));
             button.classList.add("selected");
+
+            // Guarda el día seleccionado
             sessionStorage.setItem("selectedDay", day);
-            checkSelectionAndRedirect();
         }
+
         function selectTime(button, time) {
             document.querySelectorAll("#timeContainer .btn").forEach(btn => btn.classList.remove("selected"));
             button.classList.add("selected");
             sessionStorage.setItem("selectedTime", time);
             checkSelectionAndRedirect();
         }
+
         function selectTime(button, time, idFuncion) {
             document.querySelectorAll("#timeContainer .btn").forEach(btn => btn.classList.remove("selected"));
             button.classList.add("selected");
@@ -121,6 +126,7 @@
             sessionStorage.setItem("selectedFuncion", idFuncion); // Guarda el idFuncion seleccionado
             checkSelectionAndRedirect();
         }
+
         function checkSelectionAndRedirect() {
             const selectedDay = sessionStorage.getItem("selectedDay");
             const selectedTime = sessionStorage.getItem("selectedTime");
