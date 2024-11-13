@@ -40,11 +40,11 @@
                     <ItemTemplate>
                         <!-- Botón para ver lineas boleta -->
                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-circle-info'></i>"
-                            OnClick="lbLineasBoleta_Click" CommandArgument='<%# Eval("id") %>'
+                            OnClick="lbLineasBoleta_Click" CommandArgument='<%# Eval("idBoleta") %>'
                             CssClass="btn btn-danger btn-sm" ToolTip="LineasBoleta" />
                         <!-- Botón para imprimir pdf -->
                         <asp:LinkButton runat="server" Text="<i class='fa-solid fa-print'></i>"
-                            OnClick="lbImprimirBoleta_Click" CommandArgument='<%# Eval("id") %>'
+                            OnClick="lbImprimirBoleta_Click" CommandArgument='<%# Eval("idBoleta") %>'
                             CssClass="btn btn-danger btn-sm" ToolTip="ImprimirBoleta" />
                     </ItemTemplate>
                 </asp:TemplateField>

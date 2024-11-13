@@ -18,13 +18,17 @@ namespace PapucplanetWA
             daoBoleta = new BoletaWSClient();
             listadoBoletas = new BindingList<boleta>();
             boleta[] arreglob = daoBoleta.listarTodasBoletas();
-            if(arreglob != null)
+            arreglob = null;
+            if (arreglob != null)
             {
                 foreach (boleta b in arreglob)
                 {
+                    //b.idBoleta;
                     listadoBoletas.Add(b);
                 }
             }
+            //gvBoletas.DataSource = listadoBoletas;
+            //gvBoletas.DataBind();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
