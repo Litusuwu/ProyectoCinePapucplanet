@@ -96,3 +96,17 @@
 .btn-outline-dark.boton-login {
     transition: background-color 0.3s ease;
 }
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+    display: none; /* Oculto por defecto */
+}

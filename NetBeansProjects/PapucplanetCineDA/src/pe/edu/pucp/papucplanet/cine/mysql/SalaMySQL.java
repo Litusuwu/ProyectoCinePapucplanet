@@ -51,13 +51,16 @@ public int insertar(Sala sala) {
         // Preparar el procedimiento almacenado para insertar butacas
         cs = con.prepareCall("{call INSERTAR_BUTACA(?,?,?,?,?)}");
         cs.registerOutParameter("_id_butaca", java.sql.Types.INTEGER);
-
+        
+        int numFila=sala.getNumFila();
+        int numCol=sala.getNumCol();
         // Insertar las butacas asociadas
-        for (int i = 'A'; i < 'A' + sala.getNumFila(); i++) {
-            for (int j = 1; j <= sala.getNumCol(); j++) {
+        for (int i = 'A'; i < 'A' + numFila; i++) {
+            for (int j = 1; j <= numCol; j++) {
                 cs.setString("_fila", String.valueOf((char) i));
                 cs.setInt("_columna", j);
-                cs.setBoolean("_discapacitado", false);
+                boolean esUltimoAsiento = (i == 'A' + numFila - 1) && (j == numCol);
+                cs.setBoolean("_discapacitado", esUltimoAsiento);
                 cs.setInt("_fid_sala", sala.getIdSala());
                 cs.executeUpdate();
             }

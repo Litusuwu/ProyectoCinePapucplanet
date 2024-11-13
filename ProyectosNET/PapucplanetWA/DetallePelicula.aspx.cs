@@ -17,38 +17,29 @@ namespace PapucplanetWA
         protected void Page_Load(object sender, EventArgs e)
         {
             string idPeliculaStr = Request.QueryString["id_pelicula"];
-            if (!IsPostBack)
-            {
-                if (!string.IsNullOrEmpty(idPeliculaStr) && int.TryParse(idPeliculaStr, out int idPelicula))
-                {
-                    CargarDetallesPelicula(idPelicula);
-                }
-                else
-                {
-                    Response.Write("Error: Parámetro 'id_pelicula' no proporcionado o no válido.");
-                    return;
-                }
-            }
-
-            // Cargar siempre los botones para manejar eventos dinámicos
             if (!string.IsNullOrEmpty(idPeliculaStr) && int.TryParse(idPeliculaStr, out int idPeliculaParsed))
             {
                 CargarDiasYHorarios(idPeliculaParsed);
-
-                // Aplica la clase `selected-button` al botón seleccionado usando el ViewState
                 if (ViewState["diaSeleccionado"] != null)
                 {
-                    string diaSeleccionado = ViewState["diaSeleccionado"].ToString();
-                    foreach (Control control in dayContainer.Controls)
+                    CargarHorariosPorDiaSeleccionado(ViewState["diaSeleccionado"].ToString());
+                }
+
+                if (!IsPostBack)
+                {
+                    if (!string.IsNullOrEmpty(idPeliculaStr) && int.TryParse(idPeliculaStr, out int idPelicula))
                     {
-                        if (control is LinkButton button && button.CommandArgument == diaSeleccionado)
-                        {
-                            button.CssClass += " selected-button";
-                        }
+                        CargarDetallesPelicula(idPelicula);
+                    }
+                    else
+                    {
+                        Response.Write("Error: Parámetro 'id_pelicula' no proporcionado o no válido.");
+                        return;
                     }
                 }
             }
         }
+
 
 
         private void CargarDetallesPelicula(int idPelicula)
@@ -111,11 +102,15 @@ namespace PapucplanetWA
                     }
                 }
             }
+
+            System.Diagnostics.Debug.WriteLine($"Entro a dia button click.");
         }
 
 
         private void CargarHorariosPorDiaSeleccionado(string diaSeleccionado)
         {
+            ClientScript.RegisterStartupScript(this.GetType(), "ConsoleLog", "console.log('Mensaje desde el servidor');", true);
+
             string idPeliculaStr = Request.QueryString["id_pelicula"];
             if (int.TryParse(idPeliculaStr, out int idPelicula))
             {
@@ -132,7 +127,7 @@ namespace PapucplanetWA
                     {
                         foreach (var funcion in funcionesFiltradas)
                         {
-                            Button horarioButton = new Button
+                            LinkButton horarioButton = new LinkButton
                             {
                                 CssClass = "btn btn-outline-secondary",
                                 Text = funcion.horarioInicio.ToString("HH:mm"),
@@ -164,23 +159,26 @@ namespace PapucplanetWA
 
         private void HorarioButton_Click(object sender, EventArgs e)
         {
-            Button horarioButton = (Button)sender;
+
+            System.Diagnostics.Debug.WriteLine($"Entró a Horario Click.");
+            LinkButton horarioButton = (LinkButton)sender;
             ViewState["horarioSeleccionado"] = horarioButton.CommandArgument;
+            ViewState["idFuncionSeleccionada"] = horarioButton.CommandArgument;
+
 
             VerificarRedireccion();
         }
         private void VerificarRedireccion()
         {
-            if (ViewState["diaSeleccionado"] != null)
+            System.Diagnostics.Debug.WriteLine($"Entró a verificar.");
+
+            if (ViewState["diaSeleccionado"] != null && ViewState["horarioSeleccionado"] != null)
             {
                 string diaSeleccionado = ViewState["diaSeleccionado"].ToString();
-                if (ViewState["horarioSeleccionado"] != null)
-                {
-                    string horarioSeleccionado = ViewState["horarioSeleccionado"].ToString();
-                    // Redirigir a Butacas.aspx con los parámetros seleccionados
-                    Response.Redirect("Butacas.aspx?dia=" + diaSeleccionado + "&horario=" + horarioSeleccionado);
-                }
+                string horarioSeleccionado = ViewState["horarioSeleccionado"].ToString();
 
+                string idFuncion = ViewState["idFuncionSeleccionada"].ToString();
+                Response.Redirect($"Butacas.aspx?dia={diaSeleccionado}&horario={horarioSeleccionado}&idFuncion={idFuncion}");
             }
         }
     }

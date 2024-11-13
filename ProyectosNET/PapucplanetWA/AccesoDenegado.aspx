@@ -40,9 +40,13 @@
 <body>
     <form id="form1" runat="server">
         <div class="container text-center my-5">
-            <h1>PAPUCPLANET</h1>
+            <div class="page-title">
+                <i class="mdi mdi-popcorn" style="font-size: 3.25rem; color: white;" ></i>
+                <strong style="text-decoration: none; font-size: 3.25rem; color: white;font-family: 'Mukta', sans-serif;">PAPUCPLANET</strong>
+            </div>
             <p>No tienes permisos para acceder a esta página.</p>
         </div>
+        
         
         <!-- Modal -->
         <div class="modal fade" id="accessDeniedModal" tabindex="-1" aria-labelledby="accessDeniedModalLabel" aria-hidden="true">
@@ -58,7 +62,7 @@
                         <p>Por favor, regresa a la página principal.</p>
                     </div>
                     <div class="modal-footer">
-                        <a id="btnRedirect" runat="server" class="btn btn-dark-red w-100">Volver</a>
+                        <a id="btnRedirect" runat="server" class="btn bg-dark btn-dark-red w-100">Volver</a>
                     </div>
                 </div>
             </div>

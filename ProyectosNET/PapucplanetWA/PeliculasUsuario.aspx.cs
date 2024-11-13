@@ -81,7 +81,7 @@ namespace PapucplanetWA
 
         protected void FiltrarPeliculas(object sender, EventArgs e)
         {
-            // Obtén los valores seleccionados
+            ScriptManager.RegisterStartupScript(this, GetType(), "ShowMovieLoader", "showMovieLoader();", true);
             string peliculaSeleccionada = ddlMovie.SelectedValue;
             string sedeSeleccionada = ddlCine.SelectedValue;
             string fechaSeleccionada = ddlFecha.SelectedValue;
@@ -150,6 +150,7 @@ namespace PapucplanetWA
 
             // Actualiza el Repeater con las películas que cumplen los filtros
             rptMovies.DataBind();
+            ScriptManager.RegisterStartupScript(this, GetType(), "HideMovieLoader", "hideMovieLoader();", true);
         }
     }
 }

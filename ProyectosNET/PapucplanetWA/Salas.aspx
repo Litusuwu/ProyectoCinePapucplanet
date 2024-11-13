@@ -71,29 +71,39 @@
                 </Columns>
             </asp:GridView>
     <!--POP UP de Añadir-->
-    <div class="modal" id="form-modal-sala-add">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content ">
-                <div class="modal-header">
-                    <h5 class="modal-title">Sede</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <asp:Label ID="lblNumSala" CssClass="form-label mb-2" runat="server" Text="Numero Sala:"></asp:Label>
-                    <asp:TextBox ID="txtNumSala" CssClass="form-control mb-3" runat="server"></asp:TextBox>
-                    <asp:Label ID="lblNumCol" CssClass="form-label mb-2" runat="server" Text="Numero de columnas:"></asp:Label>
-                    <asp:TextBox ID="txtNumCol" CssClass="form-control mb-3" runat="server"></asp:TextBox>
-                    <asp:Label ID="lblNumFilas" CssClass="form-label mb-2" runat="server" Text="Numero de filas:"></asp:Label>
-                    <asp:TextBox ID="txtNumFilas" CssClass="form-control mb-3" runat="server"></asp:TextBox>
-                    <asp:Label ID="lblCapacidad" CssClass="form-label mb-2" runat="server" Text="Capacidad:"></asp:Label>
-                    <asp:TextBox ID="txtCapacidad" CssClass="form-control mb-3" runat="server"></asp:TextBox>
-                </div>
-                <div class="modal-footer">
-                    <asp:LinkButton ID="lbGuardarAdd" runat="server" CssClass="btn-sede" OnClick="lbGuardar_ClickAdd">Confirmar</asp:LinkButton>
+        <div class="modal" id="form-modal-sala-add">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <!-- Inicia segundo UpdatePanel para el contenido del modal -->
+                    <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+                        <ContentTemplate>
+                            <div class="modal-header">
+                                <h5 class="modal-title">Sede</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <asp:Label ID="lblNumSala" CssClass="form-label mb-2" runat="server" Text="Numero Sala:"></asp:Label>
+                                <asp:TextBox ID="txtNumSala" CssClass="form-control mb-3" runat="server"></asp:TextBox>
+                                <asp:Label ID="lblNumCol" CssClass="form-label mb-2" runat="server" Text="Numero de columnas:"></asp:Label>
+                                <asp:TextBox ID="txtNumCol" CssClass="form-control mb-3" runat="server" OnTextChanged="txtNumCol_TextChanged" AutoPostBack="true"></asp:TextBox>
+                                <asp:Label ID="lblNumFilas" CssClass="form-label mb-2" runat="server" Text="Numero de filas:"></asp:Label>
+                                <asp:TextBox ID="txtNumFilas" CssClass="form-control mb-3" runat="server" OnTextChanged="txtNumFilas_TextChanged" AutoPostBack="true"></asp:TextBox>
+                                <asp:Label ID="lblCapacidad" CssClass="form-label mb-2" runat="server" Text="Capacidad:"></asp:Label>
+                                <asp:TextBox ID="txtCapacidad" CssClass="form-control mb-3" runat="server" ReadOnly="true"></asp:TextBox>
+                            </div>
+                            <div class="modal-footer">
+                                <asp:LinkButton ID="lbGuardarAdd" runat="server" CssClass="btn-sede" OnClick="lbGuardar_ClickAdd">Confirmar</asp:LinkButton>
+                            </div>
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="txtNumCol" EventName="TextChanged" />
+                            <asp:AsyncPostBackTrigger ControlID="txtNumFilas" EventName="TextChanged" />
+                        </Triggers>
+                    </asp:UpdatePanel>
+                    <!-- Fin segundo UpdatePanel -->
                 </div>
             </div>
         </div>
-    </div>
     <!--POP UP de Error-->
     <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
