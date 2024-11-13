@@ -24,9 +24,10 @@ namespace PapucplanetWA
             string accion = Request.QueryString["accion"];
 
             daoPelicula = new PeliculaWSClient();
+            Papucplanet masterPage = (Papucplanet)Master;
 
             if (!IsPostBack)
-            {   
+            {
                 generos = new BindingList<genero>(daoPelicula.listarGeneros());
                 ddlGenero.DataSource = generos;
                 ddlGenero.DataBind();
@@ -37,17 +38,25 @@ namespace PapucplanetWA
                 pelicula = daoPelicula.obtenerPorIdPelicula(Int32.Parse(idPelicula));
                 string imageUrl = pelicula.imagenPromocional;
                 imgImagenPromocional.ImageUrl = imageUrl;
-                txtDuracion.Text = pelicula.duracion.ToString("N2");
+                txtDuracion.Text = pelicula.duracion.ToString();
                 txtNombrePelicula.Text = pelicula.titulo;
                 txtSinopsis.Value = pelicula.sinopsis;
                 ddlGenero.SelectedValue = pelicula.genero.ToString();
                 estado = Estado.Modificar;
+                if (masterPage != null)
+                {
+                    masterPage.SetTituloPagina("Todas las películas / Modificar Película");
+                }
             }
             else if(accion == null)
             {
                 pelicula = new pelicula();
                 estado = Estado.Nuevo;
                 Cargar_Foto(sender, e);
+                if (masterPage != null)
+                {
+                    masterPage.SetTituloPagina("Todas las películas / Agregar Nueva Película");
+                }
             }
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -80,9 +89,9 @@ namespace PapucplanetWA
                 ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
                 return;
             }
-            if (!Regex.IsMatch(txtNombrePelicula.Text, @"^(?=.*[A-Za-z])[A-Za-z0-9\s.]+$"))
+            if (!Regex.IsMatch(txtNombrePelicula.Text, @"^(?=.*[A-Za-zÁÉÍÓÚáéíóúÑñ])[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s.,;]+$"))
             {
-                lblMensajeError.Text = "Nombre de la pelicula contiene caracteres especiales no permitdos.";
+                lblMensajeError.Text = "Nombre de la película contiene caracteres especiales no permitidos.";
                 string script = "showModalFormError();";
                 ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
                 return;
@@ -96,7 +105,7 @@ namespace PapucplanetWA
             }
             if (!Regex.IsMatch(txtDuracion.Text, @"^\d+$"))
             {
-                lblMensajeError.Text = "La duracion de la pelicula no contiene caracteres numericos";
+                lblMensajeError.Text = "La duracion de la pelicula debe ser un número entero";
                 string script = "showModalFormError();";
                 ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
                 return;
@@ -108,14 +117,14 @@ namespace PapucplanetWA
                 ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
                 return;
             }
-            if (!Regex.IsMatch(txtSinopsis.Value, @"^[A-Za-z0-9\s.,;]+$"))
+            if (!Regex.IsMatch(txtSinopsis.Value, @"^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s.,;]+$"))
             {
-                lblMensajeError.Text = "La sinopsis solo puede contener caracteres alfanuméricos, espacios, '.' , ',' y ';'";
+                lblMensajeError.Text = "La sinopsis solo puede contener caracteres alfanuméricos, espacios, '.', ',' y ';'";
                 string script = "showModalFormError();";
                 ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
                 return;
             }
-            if (!fileUploadImagenPromocional.HasFile)
+            if (imgImagenPromocional.ImageUrl.Equals("/Images/placeholder.jpg"))
             {
                 lblMensajeError.Text = "Debe subir una imagen promocional";
                 string script = "showModalFormError();";
@@ -123,7 +132,7 @@ namespace PapucplanetWA
                 return;
             }
             pelicula.titulo = txtNombrePelicula.Text;
-            pelicula.duracion = Double.Parse(txtDuracion.Text);
+            pelicula.duracion = Int32.Parse(txtDuracion.Text);
             pelicula.sinopsis = txtSinopsis.Value;
             pelicula.genero = (genero)Enum.Parse(typeof(genero), ddlGenero.SelectedValue.ToString());
             pelicula.generoSpecified = true;

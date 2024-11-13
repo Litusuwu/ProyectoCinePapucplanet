@@ -42,14 +42,19 @@ namespace PapucplanetWA
 
             if (idPelicula != null)
             {
+                pelicula = daoPelicula.obtenerPorIdPelicula(Int32.Parse(idPelicula));
                 if (!IsPostBack)
                 {
+                    Papucplanet masterPage = (Papucplanet)Master;
                     if (string.IsNullOrEmpty(dtpFiltrarFecha.Value))
                     {
                         dtpFiltrarFecha.Value = DateTime.Now.ToString("yyyy-MM-dd");
                     }
+                    if (masterPage != null)
+                    {
+                        masterPage.SetTituloPagina("Todas las películas / " + pelicula.titulo);
+                    }
                 }
-                pelicula = daoPelicula.obtenerPorIdPelicula(Int32.Parse(idPelicula));
                 string imageUrl = pelicula.imagenPromocional;
                 imgPosterPromocional.ImageUrl = imageUrl;
                 lblSinopsis.Text = pelicula.sinopsis;

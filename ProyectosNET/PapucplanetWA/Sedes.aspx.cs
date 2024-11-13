@@ -32,7 +32,12 @@ namespace PapucplanetWA
 
             if (!IsPostBack)
             {
+                Papucplanet masterPage = (Papucplanet)Master;
                 CargarSedes();
+                if (masterPage != null)
+                {
+                    masterPage.SetTituloPagina("Todas las sedes");
+                }
             }
         }
 

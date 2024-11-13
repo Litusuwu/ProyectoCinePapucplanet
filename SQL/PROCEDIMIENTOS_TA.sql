@@ -534,7 +534,7 @@ END$
 CREATE PROCEDURE INSERTAR_PELICULA(
     OUT _id_pelicula INT,
     IN _titulo VARCHAR(60),
-    IN _duracion DOUBLE,
+    IN _duracion INT,
     IN _genero ENUM('ACCION', 'DRAMA', 'COMEDIA', 'DOCUMENTAL'),
     IN _sinopsis VARCHAR(1000),
     IN _imagen_link VARCHAR(255)
@@ -562,7 +562,7 @@ END;
 CREATE PROCEDURE MODIFICAR_PELICULA(
     IN _id_pelicula INT,
     IN _titulo VARCHAR(60),
-    IN _duracion DOUBLE,
+    IN _duracion INT,
     IN _genero ENUM('ACCION', 'DRAMA', 'COMEDIA', 'DOCUMENTAL'),
     IN _sinopsis VARCHAR(1000),
     IN _imagen_link VARCHAR(255)

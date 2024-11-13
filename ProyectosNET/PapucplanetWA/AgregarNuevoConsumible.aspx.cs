@@ -24,6 +24,8 @@ namespace PapucplanetWA
             daoAlimento = new AlimentoWSClient();
             daoBebida = new BebidaWSClient();
             BindingList<tipoAlimento> tiposAlimientos = new BindingList<tipoAlimento>();
+            Papucplanet masterPage = (Papucplanet)Master;
+
             if (!IsPostBack)
             {
                 tiposAlimientos.Add(tipoAlimento.SNACK);
@@ -34,7 +36,11 @@ namespace PapucplanetWA
             }
             if (accion == null)
             {
-                lblTitulo.Text = "Ingrese datos del Consumible";
+                if (masterPage != null)
+                {
+                    masterPage.SetTituloPagina("Todos los consumibles / Agregar Nuevo Consumible");
+                }
+                lblTitulo.Text = "Datos del Consumible";
                 c = null;
                 estado = Estado.Nuevo;
                 //if (!IsPostBack) Session["c"] = null;
@@ -42,7 +48,11 @@ namespace PapucplanetWA
             }
             else if (accion == "modificar" && idConsumible != null)
             {
-                lblTitulo.Text = "Modifique datos del Consumible";
+                if (masterPage != null)
+                {
+                    masterPage.SetTituloPagina("Todos los consumibles / Modificar Consumible");
+                }
+                lblTitulo.Text = "Datos del Consumible";
                 c = daoAlimento.obtenerPorIdAlimento(Int32.Parse(idConsumible));
                 if(c.id == 0)
                     c = daoBebida.obtenerPorIdBebida(Int32.Parse(idConsumible));
@@ -74,7 +84,6 @@ namespace PapucplanetWA
                 }
                 estado = Estado.Modificar;
             }
-            
         }
         protected void Page_Load(object sender, EventArgs e)
         {

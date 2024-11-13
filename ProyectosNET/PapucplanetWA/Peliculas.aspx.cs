@@ -26,6 +26,16 @@ namespace PapucplanetWA
                 }
                 Response.Redirect("AccesoDenegado.aspx");
             }
+
+            if (!IsPostBack)
+            {
+                Papucplanet masterPage = (Papucplanet)Master;
+                if (masterPage != null)
+                {
+                    masterPage.SetTituloPagina("Todas las películas");
+                }
+            }
+
             daoPelicula = new PeliculaWSClient();
             gvPeliculas.DataSource = daoPelicula.listarPorNombrePelicula(txtNombre.Text);
             gvPeliculas.DataBind();

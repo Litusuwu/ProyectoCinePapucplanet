@@ -10,7 +10,7 @@
         <div class="card-header card-header-colored">
             <h5>
                 <!-- Cambiar el titulo dependiendo de si se registran o muestran datos -->
-                <asp:Label ID="lblTitulo" runat="server" Text="lblTitulo"></asp:Label>
+                <asp:Label ID="lblTitulo" runat="server" Text="lblTitulo" CssClass="text-red"></asp:Label>
             </h5>
         </div>
         <div class="card-body pb-2">

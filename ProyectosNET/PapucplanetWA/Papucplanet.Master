@@ -4,8 +4,8 @@
 
 <html lang="es">
 <head runat="server">
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/styles.css" rel="stylesheet" />
     <link href="Content/Fonts/css/all.css" rel="stylesheet" />
@@ -13,21 +13,21 @@
     <script src="Scripts/bootstrap.bundle.js"></script>
     <script src="Scripts/jquery-3.7.1.js"></script>
     <title>
-    <asp:ContentPlaceHolder ID="cphTitulo" runat="server"></asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="cphTitulo" runat="server"></asp:ContentPlaceHolder>
     </title>
     <asp:ContentPlaceHolder ID="cphScripts" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-       <div class="container-fluid d-flex p-0 h-100">
+    <div class="container-fluid d-flex p-0 h-100">
         <!--Menu Lateral-->
         <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 text-white offcanvas-md offcanvas-start">
             <div class="d-flex align-items-center">
                 <a href="Home.aspx" class="navbar-brand">
-                    <img src="Images/logo.jpg" width="55" />
+                    <i class="fa fa-film fa-2x icon text-dark"></i>
                 </a>
-                <a href="Home.aspx" class="navbar-brand">
-                    <h3>PAPUCPLANET</h3>
+                <a href="Home.aspx" class="navbar-brand ms-3">
+                    <h3 class="mb-1">PAPUCPLANET</h3>
                 </a>
             </div>
             <hr />
@@ -46,7 +46,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                     <!--Cambiar href-->
+                    <!--Cambiar href-->
                     <a href="Consumibles.aspx" class="enlace-hover text-decoration-none text-black fs-5">
                         <i class="fa-regular fa-popcorn pe-2"></i>
                         Consumibles
@@ -91,12 +91,16 @@
             <!-- Barra de Usuario -->
             <nav class="navbar ">
                 <div class="container-fluid justify-content-between">
-                    <h3 class="ms-5">Inicio</h3>
+                    <div class="card-title ms-4">
+                        <h4 class="mb-1">
+                            <asp:Label ID="lblPagina" runat="server"></asp:Label>
+                        </h4>
+                    </div>
                     <!-- Barra de usuario alineada a la derecha -->
                     <div class="d-flex align-items-center ms-auto">
                         <!-- Imagen del usuario -->
                         <img src="Images/user.jpg" alt="Profile Picture" class="rounded-circle" width="60" height="60">
-            
+
                         <!-- Información del usuario -->
                         <div class="ms-2">
                             <h6 class="mb-0 fw-bold">Kim Chaewon</h6>
@@ -119,6 +123,6 @@
                 </form>
             </div>
         </div>
-    </div>   
+    </div>
 </body>
 </html>

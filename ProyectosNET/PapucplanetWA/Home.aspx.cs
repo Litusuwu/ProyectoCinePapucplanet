@@ -25,6 +25,11 @@ namespace PapucplanetWA
                 }
                 Response.Redirect("AccesoDenegado.aspx");
             }
+            Papucplanet masterPage = (Papucplanet)Master;
+            if (masterPage != null)
+            {
+                masterPage.SetTituloPagina("Inicio");
+            }
         }
     }
 }

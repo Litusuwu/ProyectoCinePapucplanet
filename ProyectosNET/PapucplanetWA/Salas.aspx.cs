@@ -27,9 +27,17 @@ namespace PapucplanetWA
                 lblSedeNombre.Text = sede.universidad;
                 lblUbicacion.Text = sede.ubicacion;
 
-
                 gvSalas.DataSource = daoSala.salasXIdsede(idSede);
                 gvSalas.DataBind();
+
+                if (!IsPostBack)
+                {
+                    Papucplanet masterPage = (Papucplanet)Master;
+                    if (masterPage != null)
+                    {
+                        masterPage.SetTituloPagina("Todas las sedes / Sede " + sede.universidad);
+                    }
+                }
             }
         }
 

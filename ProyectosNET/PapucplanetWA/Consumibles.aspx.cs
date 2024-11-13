@@ -51,10 +51,12 @@ namespace PapucplanetWA
                     ListadoConsumibles.Add(b);
                 }
             }
-            
-            //consumible c = new consumible();
-            //c.
-  
+            Papucplanet masterPage = (Papucplanet)Master;
+            if (masterPage != null)
+            {
+                masterPage.SetTituloPagina("Todos los consumibles");
+            }
+
             gvConsumibles.DataSource = ListadoConsumibles;
             gvConsumibles.DataBind();
         }

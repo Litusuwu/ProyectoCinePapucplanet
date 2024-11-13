@@ -100,7 +100,7 @@ CREATE TABLE Alimento (
 CREATE TABLE Pelicula (
 	id_pelicula INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(60),
-    duracion DOUBLE NOT NULL,
+    duracion INT NOT NULL,
     genero ENUM ('ACCION', 'DRAMA', 'COMEDIA', 'DOCUMENTAL'),
     sinopsis VARCHAR(1000),
     imagen_link VARCHAR(255),

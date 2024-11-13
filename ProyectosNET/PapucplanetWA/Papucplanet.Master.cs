@@ -11,7 +11,12 @@ namespace PapucplanetWA
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Cualquier código de inicialización necesario para la barra
+        }
 
+        public void SetTituloPagina(string titulo)
+        {
+            lblPagina.Text = titulo;
         }
     }
 }
