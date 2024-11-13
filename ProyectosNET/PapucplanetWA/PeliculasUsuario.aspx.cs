@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
@@ -72,14 +73,15 @@ namespace PapucplanetWA
         }
         private void BindFechas()
         {
-            List<string> fechas = new List<string> { "Elegir", "Hoy", "Mañana", "Pasado Mañana" };
+            List<string> fechas = new List<string> { "Elegir", "Hoy - " + DateTime.Today.ToString("dd/MM/yyyy",CultureInfo.InvariantCulture) , 
+                "Mañana - " + DateTime.Today.AddDays(1).ToString("dd/MM/yyyy",CultureInfo.InvariantCulture), "Pasado Mañana - " + DateTime.Today.AddDays(2).ToString("dd/MM/yyyy",CultureInfo.InvariantCulture) };
             ddlFecha.DataSource = fechas;
             ddlFecha.DataBind();
         }
 
         protected void FiltrarPeliculas(object sender, EventArgs e)
         {
-            // Obtén los valores seleccionados
+            ScriptManager.RegisterStartupScript(this, GetType(), "ShowMovieLoader", "showMovieLoader();", true);
             string peliculaSeleccionada = ddlMovie.SelectedValue;
             string sedeSeleccionada = ddlCine.SelectedValue;
             string fechaSeleccionada = ddlFecha.SelectedValue;
@@ -94,15 +96,15 @@ namespace PapucplanetWA
 
             // Determina la fecha de filtro según la selección
             DateTime? fechaFiltro = null;
-            if (fechaSeleccionada == "Hoy")
+            if (fechaSeleccionada == "Hoy - " + DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture))
             {
                 fechaFiltro = DateTime.Today;
             }
-            else if (fechaSeleccionada == "Mañana")
+            else if (fechaSeleccionada == "Mañana - " + DateTime.Today.AddDays(1).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture))
             {
                 fechaFiltro = DateTime.Today.AddDays(1);
             }
-            else if (fechaSeleccionada == "Pasado Mañana")
+            else if (fechaSeleccionada == "Pasado Mañana - " + DateTime.Today.AddDays(2).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture))
             {
                 fechaFiltro = DateTime.Today.AddDays(2);
             }
@@ -148,6 +150,7 @@ namespace PapucplanetWA
 
             // Actualiza el Repeater con las películas que cumplen los filtros
             rptMovies.DataBind();
+            ScriptManager.RegisterStartupScript(this, GetType(), "HideMovieLoader", "hideMovieLoader();", true);
         }
     }
 }

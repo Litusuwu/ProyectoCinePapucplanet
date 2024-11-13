@@ -22,6 +22,7 @@ namespace PapucplanetWA
             idSede = Int32.Parse(id);
             if(id!= null)
             {
+                txtCapacidad.Enabled = false;
                 sede sede= new sede();
                 sede=daoSede.obtenerPorIdSede(idSede);
                 lblSedeNombre.Text = sede.universidad;
@@ -56,6 +57,7 @@ namespace PapucplanetWA
                 lblMensajeError.Text = "Todos los campos estan vacios";
                 script = "showModalFormError();";
                 ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                UpdatePanel1.Update();
                 return;
             }
             if (!Regex.IsMatch(txtNumSala.Text, @"^\d+$"))
@@ -63,6 +65,7 @@ namespace PapucplanetWA
                 lblMensajeError.Text = "El numero de sala no contiene caracteres numericos";
                 script = "showModalFormError();";
                 ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                UpdatePanel1.Update();
                 return;
             }
             if (!Regex.IsMatch(txtNumCol.Text, @"^\d+$"))
@@ -70,6 +73,7 @@ namespace PapucplanetWA
                 lblMensajeError.Text = "El numero de columnas no contiene caracteres numericos";
                 script = "showModalFormError();";
                 ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                UpdatePanel1.Update();
                 return;
             }
             if (!Regex.IsMatch(txtNumFilas.Text, @"^\d+$"))
@@ -77,13 +81,7 @@ namespace PapucplanetWA
                 lblMensajeError.Text = "El numero de filas no contiene caracteres numericos";
                 script = "showModalFormError();";
                 ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
-                return;
-            }
-            if (!Regex.IsMatch(txtCapacidad.Text, @"^\d+$"))
-            {
-                lblMensajeError.Text = "La capacidad no contiene caracteres numericos";
-                script = "showModalFormError();";
-                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                UpdatePanel1.Update();
                 return;
             }
             sala sala = new sala();
@@ -144,6 +142,25 @@ namespace PapucplanetWA
                 }
                 Response.Redirect("AccesoDenegado.aspx");
             }
+        }
+        private void CalcularCapacidad()
+        {
+            // Verificar si los TextBox tienen valores numéricos válidos
+            if (int.TryParse(txtNumCol.Text, out int numCol) && int.TryParse(txtNumFilas.Text, out int numFilas))
+            {
+                // Calcular la capacidad y asignarla al TextBox
+                int capacidad = numCol * numFilas;
+                txtCapacidad.Text = capacidad.ToString();
+            }
+        }
+        protected void txtNumCol_TextChanged(object sender, EventArgs e)
+        {
+            CalcularCapacidad();
+        }
+
+        protected void txtNumFilas_TextChanged(object sender, EventArgs e)
+        {
+            CalcularCapacidad();
         }
     }
 }

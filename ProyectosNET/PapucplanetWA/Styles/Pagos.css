@@ -1,0 +1,133 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Mukta:wght@200;300;400;500;600;700;800&family=Racing+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Mukta:wght@200;300;400;500;600;700;800&family=Racing+Sans+One&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+    font-family: 'Mukta', sans-serif;
+}
+
+.btn-payment-option {
+    width: 100%;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    background-color: darkred;
+    color: white;
+    border: none;
+    padding: 15px;
+    text-align: left;
+}
+
+.btn-payment-option:hover {
+    background-color: #a80000;
+}
+
+.payment-method-card {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+    display: none;
+}
+
+.active-payment {
+    display: block;
+}
+
+.navBar-login {
+    background-color: black;
+    color: white;
+}
+.qr-image {
+    max-width: 200px; /* Ajusta el tamaño máximo de la imagen */
+    width: 100%;
+    height: auto;
+}
+.boton-Filtrar {
+    background-color: darkred;
+    border-color: white;
+    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(255, 99, 71, 0.25);
+    border-radius: 45px;
+    font-size: 17px;
+    font-weight: 300;
+    font-family: "Space Grotesk", serif;
+}
+#custom-inputs .group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+#custom-inputs .form__field {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #757575;
+    outline: none;
+    background: transparent;
+}
+
+#custom-inputs .form__field::placeholder {
+    color: transparent;
+}
+
+#custom-inputs .form__field:focus ~ .bar:before,
+#custom-inputs .form__field:focus ~ .bar:after {
+    width: 50%;
+}
+
+#custom-inputs .form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #8B0000, #B22222);
+    border-image-slice: 1;
+}
+
+#custom-inputs .form__field:focus ~ label,
+#custom-inputs .form__field:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #8B0000;
+}
+
+#custom-inputs .bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+#custom-inputs .bar:before,
+#custom-inputs .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: linear-gradient(to right, #8B0000, #B22222);
+    transition: 0.2s ease all;
+}
+
+#custom-inputs .bar:before {
+    left: 50%;
+}
+
+#custom-inputs .bar:after {
+    right: 50%;
+}
+
+#custom-inputs .highlight {
+        position: absolute;
+        height: 60%;
+        width: 100px;
+        top: 25%;
+        left: 0;
+        pointer-events: none;
+        opacity: 0.5;
+}
+.locura {
+    font-family: "Anton", sans-serif;
+    font-weight: 600;
+}

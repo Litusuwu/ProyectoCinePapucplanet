@@ -11,7 +11,7 @@ namespace PapucplanetWA
 {
 
 
-    public partial class DetallePelicula
+    public partial class Pagos
     {
 
         /// <summary>
@@ -24,111 +24,120 @@ namespace PapucplanetWA
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lnkPeliculas control.
+        /// txtNombreCompleto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkPeliculas;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreCompleto;
 
         /// <summary>
-        /// lnkConfiteria control.
+        /// txtDni control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkConfiteria;
+        protected global::System.Web.UI.WebControls.TextBox txtDni;
 
         /// <summary>
-        /// lnkCines control.
+        /// txtNumeroTarjeta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCines;
+        protected global::System.Web.UI.WebControls.TextBox txtNumeroTarjeta;
 
         /// <summary>
-        /// lnkPerfil control.
+        /// txtFechaExpiracion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkPerfil;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaExpiracion;
 
         /// <summary>
-        /// movieTitle control.
+        /// txtCvv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl movieTitle;
+        protected global::System.Web.UI.WebControls.TextBox txtCvv;
 
         /// <summary>
-        /// movieImage_Link control.
+        /// txtNombreTarjeta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image movieImage_Link;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreTarjeta;
 
         /// <summary>
-        /// lblMovieDuration control.
+        /// btnPagarTarjeta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMovieDuration;
+        protected global::System.Web.UI.WebControls.Button btnPagarTarjeta;
 
         /// <summary>
-        /// lblMovieGenre control.
+        /// imgQrYape control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMovieGenre;
+        protected global::System.Web.UI.WebControls.Image imgQrYape;
 
         /// <summary>
-        /// lblMovieDescription control.
+        /// btnConfirmarYape control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMovieDescription;
+        protected global::System.Web.UI.WebControls.Button btnConfirmarYape;
 
         /// <summary>
-        /// UpdatePanel1 control.
+        /// imgQrPlin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.Image imgQrPlin;
 
         /// <summary>
-        /// dayContainer control.
+        /// btnConfirmarPlin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dayContainer;
+        protected global::System.Web.UI.WebControls.Button btnConfirmarPlin;
 
         /// <summary>
-        /// timeContainer control.
+        /// txtNumeroOperacion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl timeContainer;
+        protected global::System.Web.UI.WebControls.TextBox txtNumeroOperacion;
+
+        /// <summary>
+        /// btnConfirmarTransferencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConfirmarTransferencia;
     }
 }

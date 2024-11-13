@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Web;
@@ -15,31 +17,31 @@ namespace PapucplanetWAS
     public partial class Butacas : System.Web.UI.Page
     {
         protected BindingList<BindingList<butacaFuncion>> matrizButacas;
-        protected boleta bol;
+        protected BindingList<lineaBoleta> lineas;
         protected void Page_Init(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 ButacaFuncionWSClient daoButacaFuncion = new ButacaFuncionWSClient();
-                showDate();
+                
                 string valor=Request.QueryString["idFuncion"];
                 int val=Int32.Parse(valor);
+                showDate(val);
                 BindingList<butacaFuncion> listaButacas = new BindingList<butacaFuncion>(daoButacaFuncion.obtenerButacasPorFuncionButacaFuncion(val));
                 matrizButacas = ConvertirListaEnMatriz(listaButacas);
                 Session["MatrizButacas"] = matrizButacas;
                 SeatRepeater.DataSource = matrizButacas;
                 SeatRepeater.DataBind();
                 BindSummaryGrid(listaButacas);
-                bol=new boleta();
-                bol.lineasBoleta=new BindingList<lineaBoleta>().ToArray();
-                Session["Boleta"] = bol;
+                lineas = new BindingList<lineaBoleta>();
+                Session["LineasBoleta"] = lineas;
                 Session["ContDisc"]= 0;
                 Session["ContEst"] = 0;
                 Session["Total"] = 0.00;
             }
             else
             {
-                bol = (boleta)Session["Boleta"];
+                lineas = (BindingList<lineaBoleta>)Session["LineasBoleta"];
                 GridViewSummary.DataSource = Session["Summary"];
                 GridViewSummary.DataBind();
             }
@@ -57,11 +59,11 @@ namespace PapucplanetWAS
             butacaFuncion butDis = listaButacas.FirstOrDefault(lb=>(lb.discapacitado==true && lb.estado==estadoButaca.DISPONIBLE));
             if (butEst != null)
             {
-                summaryData.Rows.Add("Estandar", "S/. " + butEst.precio.ToString(), "0");
+                summaryData.Rows.Add("Estándar", "S/. " + butEst.precio.ToString(), "0");
             }
             else
             {
-                summaryData.Rows.Add("Estandar", "S/. - ", "0");
+                summaryData.Rows.Add("Estándar", "S/. - ", "0");
             }
 
             if (butDis != null)
@@ -78,14 +80,14 @@ namespace PapucplanetWAS
             Session["Summary"] = summaryData;
         }
 
-        protected void showDate()
+        protected void showDate( int val)
         {
             FuncionWSClient daoFuncion = new FuncionWSClient();
-            funcion fun=daoFuncion.obtenerPorIdFuncion(2);
+            funcion fun=daoFuncion.obtenerPorIdFuncion(val);
             DateTime date = fun.dia;
             DateTime horaInicio = fun.horarioInicio;  // Suponiendo que puedes convertirlo
             DateTime horaFin = fun.horarioFin;
-            lblDate.Text = "Fecha de la función: " + date.ToString("dd/MM/yyyy") +
+            lblDate.Text = "Fecha de la función: " + date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture) +
                            "<br>Hora de la función:  " + horaInicio.ToString("HH:mm") + " - "  +  horaFin.ToString("HH:mm");
         } 
         private BindingList<BindingList<butacaFuncion>> ConvertirListaEnMatriz(BindingList<butacaFuncion> lista)
@@ -191,14 +193,16 @@ namespace PapucplanetWAS
                 //se añade a la boleta
                 lineaBoleta linea=new lineaBoleta();
                 linea.butacaFuncion= but;
-                
-                bol.lineasBoleta.Append(linea);
+                linea.cantidad = 1;
+                linea.subtotal = but.precio;
+                linea.activo = true;
+                lineas.Append(linea);
                 if (!but.discapacitado)
                 {
                     foreach (DataRow row in summaryData.Rows)
                     {
                         
-                        if (row["Tipo"].ToString() == "Estandar")
+                        if (row["Tipo"].ToString() == "Estándar")
                         {
                             contadorEst++;
                             row["Cantidad"] = contadorEst.ToString(); // Cambiar la cantidad a 5
@@ -226,23 +230,23 @@ namespace PapucplanetWAS
             }
             else{
                 //se elimina de la boleta
-                lineaBoleta linea = new lineaBoleta();
-                linea.butacaFuncion = but;
-
-                List<lineaBoleta> tempList = new List<lineaBoleta>(bol.lineasBoleta);
-
-                // Eliminar el elemento deseado
-                tempList.Remove(linea); // Aquí se elimina la línea
-
-                // Asignar de nuevo a bol.lineasBoleta como un arreglo
-                bol.lineasBoleta = tempList.ToArray(); // Actualizar el arreglo
+                foreach(lineaBoleta lin in lineas)
+                {
+                    if (lin.butacaFuncion.idButacaFuncion == but.idButacaFuncion)
+                    {
+                        lineas.Remove(lin);
+                        break;
+                    }
+                }
+                
+                Session["LineasBoleta"] = lineas;
 
                 if (!but.discapacitado)
                 {
                     foreach (DataRow row in summaryData.Rows)
                     {
 
-                        if (row["Tipo"].ToString() == "Estandar")
+                        if (row["Tipo"].ToString() == "Estándar")
                         {
                             contadorEst--;
                             row["Cantidad"] = contadorEst.ToString(); // Cambiar la cantidad a 5
@@ -273,7 +277,7 @@ namespace PapucplanetWAS
             LabelCantidadTotal.Text = (contadorDisc + contadorEst).ToString();
             LabelTotal.Text = ("S/. " + total.ToString("0.00"));
             Session["Total"] = total;
-            Session["Boleta"] = bol;
+            Session["LineasBoleta"] = lineas;
             GridViewSummary.DataSource = summaryData;
             GridViewSummary.DataBind();
             Session["Summary"] = summaryData;
@@ -294,11 +298,14 @@ namespace PapucplanetWAS
             int cantBut = (Int32)Session["ContDisc"] + (Int32)Session["ContEst"];
             if (cantBut > 0)
             {
-                Response.Redirect("ConfiteriaVUsuario.aspx");
+                Response.Redirect("ConfiteriaVUsuario.aspx?visible=1");
             }
             else
             {
-                Response.Write("<script>alert('Debe seleccionar por lo menos una butaca');</script>");
+                string script;
+                lblMensajeError.Text = "Debe seleccionar una butaca por lo menos.";
+                script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
             }
             
         }

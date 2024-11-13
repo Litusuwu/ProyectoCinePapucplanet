@@ -33,7 +33,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField HeaderText="Nombre" ItemStyle-CssClass="text-center" />
-                    <asp:BoundField HeaderText="Precio" ItemStyle-CssClass="text-center" />
+                    <asp:BoundField HeaderText="Precio (S/.)" ItemStyle-CssClass="text-center" />
                     <asp:TemplateField HeaderText="Detalle" ItemStyle-CssClass="text-center">
                         <ItemTemplate>
                             <asp:LinkButton runat="server" Text="Ver Detalle" OnClick="lbDetalle_Click" CommandArgument='<%# Eval("id") %>' CssClass="text-purple" />
@@ -64,7 +64,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <asp:Label ID="lbPesoPromedio" CssClass="form-label mb-2" runat="server" Text="Peso Promedio:"></asp:Label>
+                    <asp:Label ID="lbPesoPromedio" CssClass="form-label mb-2" runat="server" Text="Peso Promedio(g):"></asp:Label>
                     <asp:TextBox ID="txtPesoPromedio" CssClass="form-control mb-3" runat="server" Enabled ="false"></asp:TextBox>
                     <asp:Label ID="lbTipoAlimento" CssClass="form-label mb-2" runat="server" Text="Tipo Alimento:" ></asp:Label>
                     <asp:TextBox ID="txtTipoAlimento" CssClass="form-control mb-3" runat="server" Enabled ="false"></asp:TextBox>
@@ -83,9 +83,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                   <asp:Label ID="lbOnzas" CssClass="form-label mb-2" runat="server" Text="Onzas:"></asp:Label>
+                   <asp:Label ID="lbOnzas" CssClass="form-label mb-2" runat="server" Text="Onzas(oz):"></asp:Label>
                    <asp:TextBox ID="txtOnzas" CssClass="form-control mb-3" runat="server" Enabled ="false"></asp:TextBox>
-                   <asp:Label ID="lbTieneHielo" CssClass="form-label mb-2" runat="server" Text="Tiene Hielo?:"></asp:Label>
+                   <asp:Label ID="lbTieneHielo" CssClass="form-label mb-2" runat="server" Text="Tiene Hielo?"></asp:Label>
                    <asp:TextBox ID="txtTieneHielo" CssClass="form-control mb-3" runat="server" Enabled ="false"></asp:TextBox>
                 </div>
                 <div class="modal-footer">

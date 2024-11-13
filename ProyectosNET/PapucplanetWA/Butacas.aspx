@@ -11,6 +11,7 @@
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/bootstrap.bundle.js"></script>
     <script src="Scripts/jquery-3.7.1.js"></script>
+    <script src="Scripts/Papucplanet/Butacas.js"></script>
     <link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i" rel="stylesheet" />
     <link href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet">
@@ -22,12 +23,12 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <%--<asp:ScriptManager ID="ScriptManager1" runat="server" /> --%>
+        <asp:ScriptManager ID="ScriptManager1" runat="server" />
         <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm fixed-top navBar-Butacas">
             <div class="container d-flex justify-content-between align-items-center">
                 <a class="navBar-login d-flex align-items-center gap-2" href="PeliculasUsuario.aspx"
                     style="text-decoration: none; font-size: 1.25rem; color: white;">
-                    <i class="fa fa-film icon d-inline-block align-text-top" alt="Logo" width="20" height="44"></i>
+                    <i class="fa fa-film me-2" style="font-size: 24px; color: white;"></i>
                     <strong>PAPUCPLANET</strong>
                 </a>
 
@@ -35,16 +36,12 @@
                     <span class="navbar-text text-white">1. Asientos</span>
                 </div>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-bars" style="color: white; font-size: 24px;"></i>
-                </button>
-
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item me-3">
                             <asp:LinkButton ID="lnkPerfil" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/MiPerfil.aspx">
-                        <span class="d-inline d-lg-none">Mi Perfil</span>
-                        <i class="fas fa-user d-none d-lg-inline"></i>
+                            <span class="d-inline d-lg-none">Mi Perfil</span>
+                            <i class="fas fa-user d-none d-lg-inline"></i>
                             </asp:LinkButton>
                         </li>
                     </ul>
@@ -52,11 +49,10 @@
             </div>
         </nav>
         <div class="pantalla-container">
-             <div class="pantalla">Pantalla</div>
+            <div class="pantalla">Pantalla</div>
         </div>
 
         <div class="container mt-4 main-content">
-         <%--<asp:ScriptManager ID="ScriptManager1" runat="server" /> --%>
             <div class="seat-selection text-center">
                 <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">--%>
                 <contenttemplate>
@@ -147,9 +143,27 @@
                 <asp:LinkButton ID="LabelContinuarConfiteria" CssClass="btn btn-dark" runat="server" Text="Siguiente" OnClick="LbtnSiguiente_OnClick"></asp:LinkButton>
             </div>
         </div>
-
-
+        <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-danger text-white">
+                        <h5 class="modal-title" id="errorModalLabel">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>Error
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <asp:Label ID="lblMensajeError" runat="server" Text="Mensaje de ejemplo..." CssClass="form-text text-danger"></asp:Label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-dark text-white text-center py-3">
+            <p>&copy; 2024 PAPUCPLANET - Butacas de la Función del Cine. Todos los derechos reservados.</p>
+        </footer>
     </form>
-    <script src="Scripts/bootstrap.bundle.min.js"></script>
 </body>
 </html>
