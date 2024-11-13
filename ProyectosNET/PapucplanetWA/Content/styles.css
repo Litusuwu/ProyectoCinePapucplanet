@@ -126,3 +126,9 @@ a, i {
 .text-red {
     color: #8B0000 !important;
 }
+
+.nav-item a.active {
+    background-color: #ba0a0a !important; /* Cambia al color que prefieras */
+    color: white !important; /* Color del texto */
+    font-weight: bold !important; /* Opcional: resaltar el texto */
+}

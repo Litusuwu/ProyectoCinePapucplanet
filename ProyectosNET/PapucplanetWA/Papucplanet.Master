@@ -34,41 +34,41 @@
             <ul class="mynav nav nav-pills flex-column mb-auto">
                 <li class="nav-item ">
                     <!--Cambiar href-->
-                    <a href="Sedes.aspx" class="enlace-hover text-black fs-5 text-decoration-none">
+                    <a href="Sedes.aspx" id="sedesLink" runat="server" class="enlace-hover text-black fs-5 text-decoration-none ">
                         <i class="fa-regular fa-building pe-2"></i>
                         Sedes
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="Peliculas.aspx" class="enlace-hover text-black text-decoration-none fs-5">
+                    <a href="Peliculas.aspx" id="peliculasLink" runat="server" class="enlace-hover text-black text-decoration-none fs-5">
                         <i class="fa-regular fa-film pe-2"></i>
                         Peliculas
                     </a>
                 </li>
                 <li class="nav-item ">
                      <!--Cambiar href-->
-                    <a href="Consumibles.aspx" class="enlace-hover text-decoration-none text-black fs-5">
+                    <a href="Consumibles.aspx" id="consumiblesLink" runat="server" class="enlace-hover text-decoration-none text-black fs-5">
                         <i class="fa-regular fa-popcorn pe-2"></i>
                         Consumibles
                     </a>
                 </li>
                 <li class="nav-item ">
                     <!--Cambiar href-->
-                    <a href="Usuarios.aspx" class="enlace-hover  text-black fs-5 text-decoration-none">
+                    <a href="Usuarios.aspx" id="usuariosLink" runat="server" class="enlace-hover  text-black fs-5 text-decoration-none">
                         <i class="fa-solid fa-user pe-2"></i>
                         Usuarios
                     </a>
                 </li>
                 <li class="nav-item ">
                     <!--Cambiar href-->
-                    <a href="Boletas.aspx" class="enlace-hover sidebar-link collapsed text-black fs-5 text-decoration-none">
+                    <a href="Boletas.aspx" id="boletasLink" runat="server" class="enlace-hover sidebar-link collapsed text-black fs-5 text-decoration-none">
                         <i class="fa-regular fa-receipt pe-2"></i>
                         <span class="topic">Boletas</span>
                     </a>
                 </li>
                 <li class="nav-item ">
                     <!--Cambiar href-->
-                    <a href="Reportes.aspx" class="enlace-hover sidebar-link collapsed text-black fs-5 text-decoration-none">
+                    <a href="Reportes.aspx" id="reportesLink" runat="server" class="enlace-hover sidebar-link collapsed text-black fs-5 text-decoration-none">
                         <i class="fa-light fa-file-alt pe-2"></i>
                         Reportes
                     </a>
@@ -99,7 +99,9 @@
             
                         <!-- Información del usuario -->
                         <div class="ms-2">
-                            <h6 class="mb-0 fw-bold">Kim Chaewon</h6>
+                            <h6 class="mb-0 fw-bold">
+                                 <asp:Label ID="lblUserName" runat="server" Text="Nombre Usuario"></asp:Label>
+                            </h6>
                             <small class="text-muted">Administrador</small>
                         </div>
 
