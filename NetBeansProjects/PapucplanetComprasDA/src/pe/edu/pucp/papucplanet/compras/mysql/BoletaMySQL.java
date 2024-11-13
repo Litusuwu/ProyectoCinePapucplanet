@@ -173,7 +173,7 @@ public class BoletaMySQL implements BoletaDAO{
                         sede.setUniversidad(rs2.getString("nombre"));
 
                         cliente.setSede(sede);
-
+                        boleta.setCliente(cliente);
                     }
                     else{
                         System.out.println("No se encontro la sede");
@@ -183,6 +183,7 @@ public class BoletaMySQL implements BoletaDAO{
                     else{
                         System.out.println("No se encontro la sede");
                     }       
+                
             }
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -221,8 +222,8 @@ public class BoletaMySQL implements BoletaDAO{
                 if(rs2.next()){
                     cliente = new Cliente();
                     cliente.setId(rs2.getInt("id_cliente"));
-                    cliente.setDni(rs2.getString("DNI"));
-                    cliente.setNombre(rs.getString("nombres"));
+                    cliente.setDni(rs2.getString("dni"));
+                    cliente.setNombre(rs2.getString("nombres"));
                     cliente.setPrimerApellido(rs2.getString("primer_apellido"));
                     cliente.setSegundoApellido(rs2.getString("segundo_apellido"));
                     cliente.setGenero(rs2.getString("genero").charAt(0)); // Convertir String a char
@@ -242,7 +243,7 @@ public class BoletaMySQL implements BoletaDAO{
                         sede.setUniversidad(rs2.getString("nombre"));
 
                         cliente.setSede(sede);
-
+                        boleta.setCliente(cliente);
                     }
                     else{
                         System.out.println("No se encontro la sede");
@@ -253,6 +254,7 @@ public class BoletaMySQL implements BoletaDAO{
                         System.out.println("No se encontro la sede");
                         continue;
                     }
+                
 
                 // Añadir el administrador a la lista
                 boletas.add(boleta);        
