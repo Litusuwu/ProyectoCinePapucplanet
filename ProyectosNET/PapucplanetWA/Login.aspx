@@ -19,6 +19,13 @@
 </head>
 <body>
 
+    <div id="loadingScreen" class="loading-screen">
+        <div class="spinner-border text-light" role="status" style="width: 4rem; height: 4rem;">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+        <p class="text-light mt-3">Cargando...</p>
+    </div>
+
     <nav class="navbar fixed-top navBar-login">
         <div class="container-fluid">
             <a class="navBar-login d-flex align-items-center gap-2" href="PeliculasUsuario.aspx"
@@ -58,5 +65,20 @@
         </div>
     </section>
     <script src="Scripts/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var loadingScreen = document.getElementById('loadingScreen');
+            document.querySelectorAll("form").forEach(function (form) {
+                form.addEventListener("submit", function () {
+                    loadingScreen.style.display = "flex";
+                });
+            });
+
+            window.addEventListener("beforeunload", function () {
+                loadingScreen.style.display = "flex";
+            });
+            loadingScreen.style.display = "none";
+        });
+    </script>
 </body>
 </html>
