@@ -48,7 +48,7 @@
         </nav>
         <div class="container mb-4">
             <div class="espacio-PeliculasLabel">
-                <h1 class="mb-4">Películas</h1>
+                <h1 class="mb-4 locura">Películas</h1>
             </div>
             <div class="container my-4">
                 <div class="row text-center align-items-center justify-content-center">

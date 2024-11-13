@@ -3,6 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Space+Grotesk:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Mukta:wght@200;300;400;500;600;700;800&family=Racing+Sans+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Mukta:wght@200;300;400;500;600;700;800&family=Racing+Sans+One&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 body {
     font-family: 'Mukta', sans-serif;
 }
@@ -128,6 +130,6 @@ body {
         opacity: 0.5;
 }
 .locura {
-    font-family: "Anton", sans-serif;
-    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
 }
