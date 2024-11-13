@@ -20,9 +20,14 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="insertarBoleta">
+  <xs:complexType name="obtenerBoletaPorId">
     <xs:sequence>
-      <xs:element minOccurs="0" name="boleta" type="tns:boleta" />
+      <xs:element name="idBoleta" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerBoletaPorIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:boleta" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="boleta">
@@ -113,7 +118,7 @@
   <xs:complexType name="pelicula">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
-      <xs:element name="duracion" type="xs:int" />
+      <xs:element name="duracion" type="xs:double" />
       <xs:element minOccurs="0" maxOccurs="unbounded" name="funciones" nillable="true" type="tns:funcion" />
       <xs:element minOccurs="0" name="genero" type="tns:genero" />
       <xs:element name="idPelicula" type="xs:int" />
@@ -143,19 +148,14 @@
       <xs:element name="tipo" type="xs:unsignedShort" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="insertarBoleta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="boleta" type="tns:boleta" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="insertarBoletaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="obtenerBoletaPorId">
-    <xs:sequence>
-      <xs:element name="idBoleta" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="obtenerBoletaPorIdResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:boleta" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="modificarBoleta">
