@@ -25,6 +25,7 @@ namespace PapucplanetWA
                 }
                 Response.Redirect("AccesoDenegado.aspx");
             }
+            lblUsuario.Text = usuarioDatos.nombre +" "+ usuarioDatos.primerApellido;
             Papucplanet masterPage = (Papucplanet)Master;
             if (masterPage != null)
             {

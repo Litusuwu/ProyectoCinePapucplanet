@@ -3,7 +3,9 @@
     Home
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContenido" runat="server">
-    <h1 class="text-center mb-4 mt-1">Bienvenido/a Kim Chaewon</h1>
+    <h1 class="text-center mb-4 mt-1">Bienvenido/a
+        <asp:Label ID="lblUsuario" runat="server"></asp:Label>
+    </h1>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 g-5">
         <!-- Tarjeta 1: Sedes -->
         <div class="col">

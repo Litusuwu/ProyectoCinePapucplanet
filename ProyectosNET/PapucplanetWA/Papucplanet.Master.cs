@@ -18,7 +18,6 @@ namespace PapucplanetWA
                 usuario usuarioDatos = (usuario)Session["Usuario"];
                 string usuario = usuarioDatos.nombre + " " + usuarioDatos.primerApellido;
                 lblUserName.Text = usuario;
-
                 // Detecta la página actual
                 string currentPage = System.IO.Path.GetFileName(Request.Url.AbsolutePath);
 

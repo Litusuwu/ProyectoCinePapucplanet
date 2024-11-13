@@ -5,24 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/LineaBoletaWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
     </xsd:schema>
   </types>
-  <message name="modificarLineaBoleta">
-    <part name="parameters" element="tns:modificarLineaBoleta" />
-  </message>
-  <message name="modificarLineaBoletaResponse">
-    <part name="parameters" element="tns:modificarLineaBoletaResponse" />
-  </message>
-  <message name="obtenerPorIdLineaBoleta2">
-    <part name="parameters" element="tns:obtenerPorIdLineaBoleta2" />
-  </message>
-  <message name="obtenerPorIdLineaBoleta2Response">
-    <part name="parameters" element="tns:obtenerPorIdLineaBoleta2Response" />
-  </message>
-  <message name="eliminarLineaBoleta">
-    <part name="parameters" element="tns:eliminarLineaBoleta" />
-  </message>
-  <message name="eliminarLineaBoletaResponse">
-    <part name="parameters" element="tns:eliminarLineaBoletaResponse" />
-  </message>
   <message name="listarTodosLineaBoleta">
     <part name="parameters" element="tns:listarTodosLineaBoleta" />
   </message>
@@ -35,19 +17,25 @@
   <message name="insertarLineaBoletaResponse">
     <part name="parameters" element="tns:insertarLineaBoletaResponse" />
   </message>
+  <message name="modificarLineaBoleta">
+    <part name="parameters" element="tns:modificarLineaBoleta" />
+  </message>
+  <message name="modificarLineaBoletaResponse">
+    <part name="parameters" element="tns:modificarLineaBoletaResponse" />
+  </message>
+  <message name="eliminarLineaBoleta">
+    <part name="parameters" element="tns:eliminarLineaBoleta" />
+  </message>
+  <message name="eliminarLineaBoletaResponse">
+    <part name="parameters" element="tns:eliminarLineaBoletaResponse" />
+  </message>
+  <message name="obtenerPorIdLineaBoleta2">
+    <part name="parameters" element="tns:obtenerPorIdLineaBoleta2" />
+  </message>
+  <message name="obtenerPorIdLineaBoleta2Response">
+    <part name="parameters" element="tns:obtenerPorIdLineaBoleta2Response" />
+  </message>
   <portType name="LineaBoletaWS">
-    <operation name="modificarLineaBoleta">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/modificarLineaBoletaRequest" message="tns:modificarLineaBoleta" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/modificarLineaBoletaResponse" message="tns:modificarLineaBoletaResponse" />
-    </operation>
-    <operation name="obtenerPorIdLineaBoleta2">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/obtenerPorIdLineaBoleta2Request" message="tns:obtenerPorIdLineaBoleta2" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/obtenerPorIdLineaBoleta2Response" message="tns:obtenerPorIdLineaBoleta2Response" />
-    </operation>
-    <operation name="eliminarLineaBoleta">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/eliminarLineaBoletaRequest" message="tns:eliminarLineaBoleta" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/eliminarLineaBoletaResponse" message="tns:eliminarLineaBoletaResponse" />
-    </operation>
     <operation name="listarTodosLineaBoleta">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/listarTodosLineaBoletaRequest" message="tns:listarTodosLineaBoleta" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/listarTodosLineaBoletaResponse" message="tns:listarTodosLineaBoletaResponse" />
@@ -56,10 +44,22 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/insertarLineaBoletaRequest" message="tns:insertarLineaBoleta" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/insertarLineaBoletaResponse" message="tns:insertarLineaBoletaResponse" />
     </operation>
+    <operation name="modificarLineaBoleta">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/modificarLineaBoletaRequest" message="tns:modificarLineaBoleta" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/modificarLineaBoletaResponse" message="tns:modificarLineaBoletaResponse" />
+    </operation>
+    <operation name="eliminarLineaBoleta">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/eliminarLineaBoletaRequest" message="tns:eliminarLineaBoleta" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/eliminarLineaBoletaResponse" message="tns:eliminarLineaBoletaResponse" />
+    </operation>
+    <operation name="obtenerPorIdLineaBoleta2">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/obtenerPorIdLineaBoleta2Request" message="tns:obtenerPorIdLineaBoleta2" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/obtenerPorIdLineaBoleta2Response" message="tns:obtenerPorIdLineaBoleta2Response" />
+    </operation>
   </portType>
   <binding name="LineaBoletaWSPortBinding" type="tns:LineaBoletaWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="modificarLineaBoleta">
+    <operation name="listarTodosLineaBoleta">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -68,7 +68,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="obtenerPorIdLineaBoleta2">
+    <operation name="insertarLineaBoleta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificarLineaBoleta">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -86,16 +95,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarTodosLineaBoleta">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertarLineaBoleta">
+    <operation name="obtenerPorIdLineaBoleta2">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

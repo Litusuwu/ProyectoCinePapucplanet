@@ -17,6 +17,12 @@
   <message name="listarTodosButacaResponse">
     <part name="parameters" element="tns:listarTodosButacaResponse" />
   </message>
+  <message name="insertarButaca">
+    <part name="parameters" element="tns:insertarButaca" />
+  </message>
+  <message name="insertarButacaResponse">
+    <part name="parameters" element="tns:insertarButacaResponse" />
+  </message>
   <message name="eliminarButaca">
     <part name="parameters" element="tns:eliminarButaca" />
   </message>
@@ -28,12 +34,6 @@
   </message>
   <message name="obtenerPorIdButacaResponse">
     <part name="parameters" element="tns:obtenerPorIdButacaResponse" />
-  </message>
-  <message name="insertarButaca">
-    <part name="parameters" element="tns:insertarButaca" />
-  </message>
-  <message name="insertarButacaResponse">
-    <part name="parameters" element="tns:insertarButacaResponse" />
   </message>
   <message name="modificarButaca">
     <part name="parameters" element="tns:modificarButaca" />
@@ -50,6 +50,10 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/listarTodosButacaRequest" message="tns:listarTodosButaca" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/listarTodosButacaResponse" message="tns:listarTodosButacaResponse" />
     </operation>
+    <operation name="insertarButaca">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/insertarButacaRequest" message="tns:insertarButaca" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/insertarButacaResponse" message="tns:insertarButacaResponse" />
+    </operation>
     <operation name="eliminarButaca">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/eliminarButacaRequest" message="tns:eliminarButaca" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/eliminarButacaResponse" message="tns:eliminarButacaResponse" />
@@ -57,10 +61,6 @@
     <operation name="obtenerPorIdButaca">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/obtenerPorIdButacaRequest" message="tns:obtenerPorIdButaca" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/obtenerPorIdButacaResponse" message="tns:obtenerPorIdButacaResponse" />
-    </operation>
-    <operation name="insertarButaca">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/insertarButacaRequest" message="tns:insertarButaca" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/insertarButacaResponse" message="tns:insertarButacaResponse" />
     </operation>
     <operation name="modificarButaca">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ButacaWS/modificarButacaRequest" message="tns:modificarButaca" />
@@ -87,6 +87,15 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="insertarButaca">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="eliminarButaca">
       <soap:operation soapAction="" />
       <input>
@@ -97,15 +106,6 @@
       </output>
     </operation>
     <operation name="obtenerPorIdButaca">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertarButaca">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
