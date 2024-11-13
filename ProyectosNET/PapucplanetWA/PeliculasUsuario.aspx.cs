@@ -20,16 +20,18 @@ namespace PapucplanetWA
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (!IsPostBack || Request.QueryString["reload"] == "true")
             {
-                // Inicializar los datos
                 CargarDatos();
                 BindPeliculas();
                 BindSedes();
                 BindFechas();
             }
         }
-
+        protected void ReloadPage(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.Url.AbsolutePath + "?reload=true");
+        }
         private void CargarDatos()
         {
             var daoPelicula = new PeliculaWSClient();
