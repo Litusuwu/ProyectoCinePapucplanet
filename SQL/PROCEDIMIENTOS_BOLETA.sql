@@ -22,9 +22,14 @@ END$
 
 CREATE PROCEDURE LISTAR_BOLETAS_TODAS()
 BEGIN
-    SELECT b.id_boleta, b.fid_cliente, b.fechaCompra, b.metodo_pago, b.total, b.activo 
+    SELECT b.id_boleta, b.fechaCompra, b.metodo_pago, b.total, b.activo as boleta_activa, 
+		c.id_cliente, u.dni, u.nombres, u.primer_apellido, u.segundo_apellido, u.genero,
+        u.fecha_nacimiento, c.fid_sede, u.activo as usuario_activo
     FROM Boleta b
-    WHERE b.activo = 1;
+    JOIN Cliente c ON b.fid_cliente = c.id_cliente
+    JOIN Usuario u ON c.id_cliente = u.id_usuario
+    WHERE b.activo = 1
+    ;
 END$
 
 CREATE PROCEDURE MODIFICAR_BOLETA(
@@ -45,9 +50,14 @@ CREATE PROCEDURE LISTAR_BOLETA_X_ID(
     IN _id_boleta INT
 )
 BEGIN
-    SELECT b.id_boleta, b.fid_cliente, b.fechaCompra, b.metodo_pago, b.total, b.activo 
-    FROM Boleta b 
-    WHERE b.id_boleta = _id_boleta AND b.activo = 1;
+    SELECT b.id_boleta, b.fechaCompra, b.metodo_pago, b.total, b.activo as boleta_activa, 
+		c.id_cliente, u.dni, u.nombres, u.primer_apellido, u.segundo_apellido, u.genero,
+        u.fecha_nacimiento, c.fid_sede, u.activo as usuario_activo
+    FROM Boleta b
+    JOIN Cliente c ON b.fid_cliente = c.id_cliente
+    JOIN Usuario u ON c.id_cliente = u.id_usuario
+    WHERE b.id_boleta = _id_boleta AND b.activo = 1
+    ;
 END$
 
 CREATE PROCEDURE ELIMINAR_BOLETA_X_ID(IN _id_boleta INT)

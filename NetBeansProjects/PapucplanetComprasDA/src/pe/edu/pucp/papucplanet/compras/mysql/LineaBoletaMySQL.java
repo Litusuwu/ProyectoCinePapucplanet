@@ -33,16 +33,16 @@ public class LineaBoletaMySQL implements LineaBoletaDAO{
     private CallableStatement cs;
     
     @Override
-    public int insertar(LineaBoleta lineaBoleta) {
+    public int insertar(LineaBoleta lineaBoleta,int idBoleta) {
         int resultado = 0;
         try{
             // Preparamos la llamada al procedimiento
-            String sql = "{CALL INSERTAR_LINEA_BOLETA(?, ?, ?, ?, ?)}";
+            String sql = "{CALL INSERTAR_LINEA_BOLETA(?, ?, ?, ?, ?, ?)}";
             cs = con.prepareCall(sql);
 
             // Establecer los parámetros de entrada
             cs.registerOutParameter(1, java.sql.Types.INTEGER); // El parámetro de salida _id_lineaBoleta
-            //cs.setInt(2, lineaBoleta.getBoleta().getIdBoleta());
+            cs.setInt(2, idBoleta);
             if(lineaBoleta.getConsumible() == null){
                 cs.setInt(3,0);
             }else{
@@ -53,7 +53,8 @@ public class LineaBoletaMySQL implements LineaBoletaDAO{
             }else{
                 cs.setInt(4, lineaBoleta.getButacaFuncion().getIdButacaFuncion());
             }
-            cs.setInt(5, lineaBoleta.getCantidad()); 
+            cs.setInt(5, lineaBoleta.getCantidad());
+            cs.setDouble(6,lineaBoleta.getSubtotal());
             // Ejecutar el procedimiento
             cs.executeUpdate();
 
@@ -223,5 +224,10 @@ public class LineaBoletaMySQL implements LineaBoletaDAO{
             try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
         }
         return lineasBoletas;
+    }
+
+    @Override
+    public ArrayList<LineaBoleta> listarPorUnaBoleta(int idBoleta) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
