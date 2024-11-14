@@ -166,13 +166,14 @@
                     </asp:Panel>
                     <div class="container my-4 d-flex justify-content-end">
                         <div id="cart" runat="server" class="checkout-section">
-                            <a href="#" class="btn btn-outline-dark w-100 d-flex align-items-center justify-content-center boton-Filtrar">
+                            <asp:LinkButton ID="btnContinue" runat="server" CssClass="btn btn-outline-dark w-100 d-flex align-items-center justify-content-center boton-Filtrar" OnClick="btnContinue_Click">
                                 <i class="fas fa-shopping-cart me-2"></i>
                                 Continuar
-                        <asp:Label ID="cartCount" runat="server" CssClass="badge bg-dark ms-2">0</asp:Label>
-                            </a>
+                                <asp:Label ID="cartCount" runat="server" CssClass="badge bg-dark ms-2">0</asp:Label>
+                            </asp:LinkButton>
                         </div>
                     </div>
+
                 </div>
 
 
