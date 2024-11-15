@@ -145,6 +145,14 @@ a, i {
     vertical-align: middle; /* Centra verticalmente */
 }
 
+.centered-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
 .text-red {
     color: #8B0000 !important;
 }
@@ -153,4 +161,85 @@ a, i {
     background-color: #ba0a0a !important; /* Cambia al color que prefieras */
     color: white !important; /* Color del texto */
     font-weight: bold !important; /* Opcional: resaltar el texto */
+}
+
+/* Contenedor para alinear las tablas de horas y reservas una al lado de la otra */
+.tables-container {
+    display: flex;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos generales para ambas tablas */
+.table {
+    width: 100%;
+    border-collapse: collapse; /* Elimina espacio entre bordes de celdas */
+    border-spacing: 0;
+    margin: 0;
+}
+
+/* Estilos para la tabla de horas y reservas */
+#tablaHoras {
+    flex: 1; /* Ocupa menos espacio */
+    min-width: 150px;
+}
+
+#tablaReservas {
+    flex: 3; /* Ocupa más espacio */
+}
+
+/* Encabezado de ambas tablas */
+.table thead th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 5px;
+    border: 1px solid #dee2e6; /* Contorno para las celdas del encabezado */
+    text-align: center;
+}
+
+/* Celdas de ambas tablas */
+.table td {
+    padding: 0;
+    border: 1px solid #dee2e6; /* Contorno para las celdas */
+    text-align: center;
+}
+
+/* Celdas de la tabla de reservas */
+.reservation-cell {
+    background-color: #ffffff;
+    position: relative;
+}
+
+/* Estilos para bloques de reserva (con reservas) */
+.reservation-bar, .sin-reserva {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    box-sizing: border-box; /* Asegura que el ancho incluya el padding y borde */
+}
+
+.reservation-bar {
+    background-color: #333;
+    color: white;
+}
+
+.sin-reserva {
+    color: #888;
+    background-color: #f2f2f2;
+}
+
+/* Efecto de hover para bloques de reserva */
+.reservation-bar:hover {
+    background-color: #444; /* Cambia a un color un poco más claro al hacer hover */
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Agrega una sombra para resaltar */
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto de hover para bloques sin reservas (opcional) */
+.sin-reserva:hover {
+    cursor: default;
 }

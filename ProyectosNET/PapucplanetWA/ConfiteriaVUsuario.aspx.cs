@@ -201,7 +201,7 @@ namespace PapucplanetWA
             
             var cantidades = (Dictionary<int, int>)Session["CantidadProductos"];
             // Verifica si la línea de boleta ya contiene el producto
-            lineaBoleta lineaExistente = lineas.FirstOrDefault(lb => lb.consumible.id == productoId);
+            lineaBoleta lineaExistente = lineas.FirstOrDefault(lb => lb.consumible != null && lb.consumible.id == productoId);
             consumible cons;
             if (tipo == 'B') cons = listaB.FirstOrDefault(consumible => consumible.id == productoId);
             else cons = listaA.FirstOrDefault(consumible => consumible.id == productoId);

@@ -7,6 +7,8 @@
   <xs:element name="insertarFuncion" type="tns:insertarFuncion" />
   <xs:element name="insertarFuncionResponse" type="tns:insertarFuncionResponse" />
   <xs:element name="listarFuncionesPorFecha" type="tns:listarFuncionesPorFecha" />
+  <xs:element name="listarFuncionesPorFechaPorSala" type="tns:listarFuncionesPorFechaPorSala" />
+  <xs:element name="listarFuncionesPorFechaPorSalaResponse" type="tns:listarFuncionesPorFechaPorSalaResponse" />
   <xs:element name="listarFuncionesPorFechaResponse" type="tns:listarFuncionesPorFechaResponse" />
   <xs:element name="listarPeliculasConFuncionesActivasFuncion" type="tns:listarPeliculasConFuncionesActivasFuncion" />
   <xs:element name="listarPeliculasConFuncionesActivasFuncionResponse" type="tns:listarPeliculasConFuncionesActivasFuncionResponse" />
@@ -81,7 +83,7 @@
   <xs:complexType name="pelicula">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
-      <xs:element name="duracion" type="xs:double" />
+      <xs:element name="duracion" type="xs:int" />
       <xs:element minOccurs="0" maxOccurs="unbounded" name="funciones" nillable="true" type="tns:funcion" />
       <xs:element minOccurs="0" name="genero" type="tns:genero" />
       <xs:element name="idPelicula" type="xs:int" />
@@ -169,6 +171,17 @@
   <xs:complexType name="eliminarFuncionResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarFuncionesPorFechaPorSala">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Fecha" type="xs:dateTime" />
+      <xs:element name="idSala" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarFuncionesPorFechaPorSalaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:funcion" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarFuncion">

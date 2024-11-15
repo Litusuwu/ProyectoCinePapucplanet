@@ -29,6 +29,14 @@ namespace PapucplanetWA
             }
             //gvBoletas.DataSource = listadoBoletas;
             //gvBoletas.DataBind();
+            if (!IsPostBack)
+            {
+                Papucplanet masterPage = (Papucplanet)Master;
+                if (masterPage != null)
+                {
+                    masterPage.SetTituloPagina("Todas las boletas");
+                }
+            }
         }
         protected void Page_Load(object sender, EventArgs e)
         {

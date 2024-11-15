@@ -35,6 +35,11 @@ namespace PapucplanetWA
                 {
                     dtpFechaInicio.Value = DateTime.Now.ToString("yyyy-MM-dd");
                 }
+                Papucplanet masterPage = (Papucplanet)Master;
+                if (masterPage != null)
+                {
+                    masterPage.SetTituloPagina("Seleccionar reporte");
+                }
             }
             Session["Excepcion"] = "No"; //No
         }

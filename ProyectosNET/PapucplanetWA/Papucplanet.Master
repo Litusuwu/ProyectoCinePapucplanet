@@ -54,9 +54,9 @@
                 </li>
                 <li class="nav-item ">
                     <!--Cambiar href-->
-                    <a href="Usuarios.aspx" id="usuariosLink" runat="server" class="enlace-hover  text-black fs-5 text-decoration-none">
-                        <i class="fa-solid fa-user pe-2"></i>
-                        Usuarios
+                    <a href="Funciones.aspx" id="funcionesLink" runat="server" class="enlace-hover  text-black fs-5 text-decoration-none">
+                        <i class="fa-solid fa-clapperboard-play pe-2"></i>
+                        Funciones
                     </a>
                 </li>
                 <li class="nav-item ">
@@ -71,6 +71,13 @@
                     <a href="Reportes.aspx" id="reportesLink" runat="server" class="enlace-hover sidebar-link collapsed text-black fs-5 text-decoration-none">
                         <i class="fa-light fa-file-alt pe-2"></i>
                         Reportes
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <!--Cambiar href-->
+                    <a href="Usuarios.aspx" id="usuariosLink" runat="server" class="enlace-hover  text-black fs-5 text-decoration-none">
+                        <i class="fa-solid fa-user pe-2"></i>
+                        Usuarios
                     </a>
                 </li>
             </ul>

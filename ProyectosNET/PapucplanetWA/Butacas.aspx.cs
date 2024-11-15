@@ -196,7 +196,7 @@ namespace PapucplanetWAS
                 linea.cantidad = 1;
                 linea.subtotal = but.precio;
                 linea.activo = true;
-                lineas.Append(linea);
+                lineas.Add(linea);
                 if (!but.discapacitado)
                 {
                     foreach (DataRow row in summaryData.Rows)

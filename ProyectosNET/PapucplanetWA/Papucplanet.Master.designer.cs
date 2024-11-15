@@ -33,14 +33,12 @@ namespace PapucplanetWA
         protected global::System.Web.UI.WebControls.ContentPlaceHolder cphScripts;
 
         /// <summary>
-        /// Control lblPagina.
         /// Control sedesLink.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPagina;
         protected global::System.Web.UI.HtmlControls.HtmlAnchor sedesLink;
 
         /// <summary>
@@ -62,13 +60,13 @@ namespace PapucplanetWA
         protected global::System.Web.UI.HtmlControls.HtmlAnchor consumiblesLink;
 
         /// <summary>
-        /// Control usuariosLink.
+        /// Control funcionesLink.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor usuariosLink;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor funcionesLink;
 
         /// <summary>
         /// Control boletasLink.
@@ -87,6 +85,24 @@ namespace PapucplanetWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor reportesLink;
+
+        /// <summary>
+        /// Control usuariosLink.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor usuariosLink;
+
+        /// <summary>
+        /// Control lblPagina.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPagina;
 
         /// <summary>
         /// Control lblUserName.

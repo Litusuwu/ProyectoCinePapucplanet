@@ -23,7 +23,8 @@ namespace PapucplanetWA
                 bol.cliente.id = ((usuario)Session["Usuario"]).id;
                 bol.lineasBoleta = ((BindingList<lineaBoleta>)Session["LineasBoleta"]).ToArray();
                 bol.total = sumaBoleta((BindingList<lineaBoleta>)Session["LineasBoleta"]);
-                bol.fechaCompra = DateTime.Today;
+                bol.fechaCompra = DateTime.Now.Date;
+                bol.fechaCompraSpecified = true;
                 bol.activo = true;
                 Session["Boleta"] = bol;
             }
@@ -59,6 +60,7 @@ namespace PapucplanetWA
         {
             // Lógica para confirmar el pago con Yape
             bol.metodoPago = metodoPago.BILLETERA_ELECTRONICA;
+            bol.metodoPagoSpecified = true;
             BoletaWSClient daoBoleta = new BoletaWSClient();
             daoBoleta.insertarBoleta(bol);
             Response.Write("<script>alert('Pago con Yape confirmado');</script>");
@@ -68,6 +70,7 @@ namespace PapucplanetWA
         {
             // Lógica para confirmar el pago con Plin
             bol.metodoPago = metodoPago.BILLETERA_ELECTRONICA;
+            bol.metodoPagoSpecified = true;
             BoletaWSClient daoBoleta = new BoletaWSClient();
             daoBoleta.insertarBoleta(bol);
             Response.Write("<script>alert('Pago con Plin confirmado');</script>");
