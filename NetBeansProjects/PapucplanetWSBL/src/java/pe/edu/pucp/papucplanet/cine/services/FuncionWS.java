@@ -132,4 +132,16 @@ public class FuncionWS {
         }
         return resultado;
     }
+    
+    @WebMethod(operationName = "listarFuncionesPorFechaPorSala")
+    public ArrayList<Funcion> listarFuncionesPorFechaPorSala(@WebParam(name = "Fecha") Date fecha, @WebParam(name = "idSala") int idSala) {
+        ArrayList<Funcion> funciones = null;
+        try {
+            daoFuncion = new FuncionMySQL();
+            funciones = daoFuncion.listarFuncionesPorFechaPorSala(fecha, idSala);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return funciones;
+    }
 }

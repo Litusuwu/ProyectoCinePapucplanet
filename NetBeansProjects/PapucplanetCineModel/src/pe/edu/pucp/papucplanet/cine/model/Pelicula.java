@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Pelicula {
     private int idPelicula;
     private String titulo;
-    private double duracion;
+    private int duracion;
     private Genero genero;
     private String sinopsis;
     private boolean activo;
@@ -17,7 +17,7 @@ public class Pelicula {
         funciones = new ArrayList<>();
     }
 
-    public Pelicula(String titulo, double duracion, Genero genero, String sinopsis, String imagenPromocional) {
+    public Pelicula(String titulo, int duracion, Genero genero, String sinopsis, String imagenPromocional) {
         this.titulo = titulo;
         this.duracion = duracion;
         this.genero = genero;
@@ -43,10 +43,10 @@ public class Pelicula {
         return titulo;
     }
     // Getter y Setter para duracion
-    public void setDuracion(double duracion) {
+    public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
-    public double getDuracion() {
+    public int getDuracion() {
         return duracion;
     }
     // Getter y Setter para genero

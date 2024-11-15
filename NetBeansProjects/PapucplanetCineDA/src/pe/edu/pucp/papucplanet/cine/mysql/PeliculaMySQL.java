@@ -55,7 +55,7 @@ public class PeliculaMySQL implements PeliculaDAO{
             cs = con.prepareCall("{call MODIFICAR_PELICULA(?,?,?,?,?,?)}");
             cs.setInt("_id_pelicula", pelicula.getIdPelicula());
             cs.setString("_titulo",pelicula.getTitulo());
-            cs.setDouble("_duracion",pelicula.getDuracion());
+            cs.setInt("_duracion",pelicula.getDuracion());
             cs.setString("_genero",pelicula.getGenero().toString());
             cs.setString("_sinopsis",pelicula.getSinopsis());
             cs.setString("_imagen_link",pelicula.getImagenPromocional());
@@ -113,7 +113,7 @@ public class PeliculaMySQL implements PeliculaDAO{
                     pelicula.setIdPelicula(peliculaId);
                     pelicula.setTitulo(rs.getString("titulo"));
                     pelicula.setGenero(Genero.valueOf(rs.getString("genero")));
-                    pelicula.setDuracion(rs.getDouble("duracion"));
+                    pelicula.setDuracion(rs.getInt("duracion"));
                     pelicula.setSinopsis(rs.getString("sinopsis"));
                     pelicula.setImagenPromocional(rs.getString("imagen_link"));
 
@@ -173,7 +173,7 @@ public class PeliculaMySQL implements PeliculaDAO{
                 pelicula.setIdPelicula(rs.getInt("id_pelicula"));
                 pelicula.setTitulo(rs.getString("titulo"));
                 pelicula.setGenero(Genero.valueOf(rs.getString("genero")));
-                pelicula.setDuracion(rs.getDouble("duracion"));
+                pelicula.setDuracion(rs.getInt("duracion"));
                 pelicula.setSinopsis(rs.getString("sinopsis"));
                 pelicula.setImagenPromocional(rs.getString("imagen_link"));
             }
@@ -236,7 +236,7 @@ public class PeliculaMySQL implements PeliculaDAO{
                 pelicula.setIdPelicula(rs.getInt("id_pelicula"));
                 pelicula.setTitulo(rs.getString("titulo"));
                 pelicula.setGenero(Genero.valueOf(rs.getString("genero")));
-                pelicula.setDuracion(rs.getDouble("duracion"));
+                pelicula.setDuracion(rs.getInt("duracion"));
                 pelicula.setImagenPromocional(rs.getString("imagen_link"));
                 peliculas.add(pelicula);
             }

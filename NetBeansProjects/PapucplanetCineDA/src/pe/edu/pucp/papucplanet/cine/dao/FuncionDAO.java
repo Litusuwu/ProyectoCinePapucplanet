@@ -1,6 +1,7 @@
 package pe.edu.pucp.papucplanet.cine.dao;
 import pe.edu.pucp.papucplanet.cine.model.Funcion;
 import java.util.ArrayList;
+import java.util.Date;
 
 public interface FuncionDAO {
     int insertar(Funcion funcion);

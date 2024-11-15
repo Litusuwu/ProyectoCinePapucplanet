@@ -184,7 +184,7 @@ public class LineaBoletaMySQL implements LineaBoletaDAO{
                    pelicula.setImagenPromocional(rs.getString("imagen_link"));
                    Genero genero = Genero.valueOf(rs.getString("genero"));
                    pelicula.setGenero(genero);
-                   pelicula.setDuracion((double)rs.getInt("duracion"));
+                   pelicula.setDuracion(rs.getInt("duracion"));
                    pelicula.setActivo(true);
                    funcion.setPelicula(pelicula);
                    
@@ -285,7 +285,7 @@ public class LineaBoletaMySQL implements LineaBoletaDAO{
                    pelicula.setImagenPromocional(rs.getString("imagen_link"));
                    Genero genero = Genero.valueOf(rs.getString("genero"));
                    pelicula.setGenero(genero);
-                   pelicula.setDuracion((double)rs.getInt("duracion"));
+                   pelicula.setDuracion(rs.getInt("duracion"));
                    pelicula.setActivo(true);
                    funcion.setPelicula(pelicula);
                    
@@ -389,7 +389,7 @@ public class LineaBoletaMySQL implements LineaBoletaDAO{
                    pelicula.setImagenPromocional(rs.getString("imagen_link"));
                    Genero genero = Genero.valueOf(rs.getString("genero"));
                    pelicula.setGenero(genero);
-                   pelicula.setDuracion((double)rs.getInt("duracion"));
+                   pelicula.setDuracion(rs.getInt("duracion"));
                    pelicula.setActivo(true);
                    funcion.setPelicula(pelicula);
                    

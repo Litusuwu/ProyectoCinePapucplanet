@@ -11,17 +11,23 @@
   <message name="verificarCuentaResponse">
     <part name="parameters" element="tns:verificarCuentaResponse" />
   </message>
-  <message name="insertarCuenta">
-    <part name="parameters" element="tns:insertarCuenta" />
+  <message name="modificarCuenta">
+    <part name="parameters" element="tns:modificarCuenta" />
   </message>
-  <message name="insertarCuentaResponse">
-    <part name="parameters" element="tns:insertarCuentaResponse" />
+  <message name="modificarCuentaResponse">
+    <part name="parameters" element="tns:modificarCuentaResponse" />
   </message>
   <message name="eliminarCuenta">
     <part name="parameters" element="tns:eliminarCuenta" />
   </message>
   <message name="eliminarCuentaResponse">
     <part name="parameters" element="tns:eliminarCuentaResponse" />
+  </message>
+  <message name="insertarCuenta">
+    <part name="parameters" element="tns:insertarCuenta" />
+  </message>
+  <message name="insertarCuentaResponse">
+    <part name="parameters" element="tns:insertarCuentaResponse" />
   </message>
   <message name="listarTodasCuentas">
     <part name="parameters" element="tns:listarTodasCuentas" />
@@ -35,24 +41,22 @@
   <message name="obtenerCuentaPorIdResponse">
     <part name="parameters" element="tns:obtenerCuentaPorIdResponse" />
   </message>
-  <message name="modificarCuenta">
-    <part name="parameters" element="tns:modificarCuenta" />
-  </message>
-  <message name="modificarCuentaResponse">
-    <part name="parameters" element="tns:modificarCuentaResponse" />
-  </message>
   <portType name="CuentaWS">
     <operation name="verificarCuenta">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/verificarCuentaRequest" message="tns:verificarCuenta" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/verificarCuentaResponse" message="tns:verificarCuentaResponse" />
     </operation>
-    <operation name="insertarCuenta">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/insertarCuentaRequest" message="tns:insertarCuenta" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/insertarCuentaResponse" message="tns:insertarCuentaResponse" />
+    <operation name="modificarCuenta">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/modificarCuentaRequest" message="tns:modificarCuenta" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/modificarCuentaResponse" message="tns:modificarCuentaResponse" />
     </operation>
     <operation name="eliminarCuenta">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/eliminarCuentaRequest" message="tns:eliminarCuenta" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/eliminarCuentaResponse" message="tns:eliminarCuentaResponse" />
+    </operation>
+    <operation name="insertarCuenta">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/insertarCuentaRequest" message="tns:insertarCuenta" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/insertarCuentaResponse" message="tns:insertarCuentaResponse" />
     </operation>
     <operation name="listarTodasCuentas">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/listarTodasCuentasRequest" message="tns:listarTodasCuentas" />
@@ -61,10 +65,6 @@
     <operation name="obtenerCuentaPorId">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/obtenerCuentaPorIdRequest" message="tns:obtenerCuentaPorId" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/obtenerCuentaPorIdResponse" message="tns:obtenerCuentaPorIdResponse" />
-    </operation>
-    <operation name="modificarCuenta">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/modificarCuentaRequest" message="tns:modificarCuenta" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/CuentaWS/modificarCuentaResponse" message="tns:modificarCuentaResponse" />
     </operation>
   </portType>
   <binding name="CuentaWSPortBinding" type="tns:CuentaWS">
@@ -78,7 +78,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarCuenta">
+    <operation name="modificarCuenta">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -88,6 +88,15 @@
       </output>
     </operation>
     <operation name="eliminarCuenta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarCuenta">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -106,15 +115,6 @@
       </output>
     </operation>
     <operation name="obtenerCuentaPorId">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="modificarCuenta">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
