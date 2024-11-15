@@ -8,7 +8,7 @@ public interface LineaBoletaDAO {
     int insertar(LineaBoleta lineaBoleta,int idBoleta);
     
     // Método para actualizar los datos de una boleta existente
-    int actualizar(LineaBoleta lineaBoleta); //La linea ya esta asignada a una boleta
+    int actualizar(LineaBoleta lineaBoleta,int idBoleta); //La linea ya esta asignada a una boleta
     
     // Método para eliminar una linea de boleta por su código
     int eliminar(int idLinea); //La linea ya esta asignada a una boleta
