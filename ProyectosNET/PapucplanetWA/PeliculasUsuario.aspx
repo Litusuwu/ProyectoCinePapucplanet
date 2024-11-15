@@ -34,9 +34,6 @@
                             <asp:LinkButton ID="lnkConfiteria" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/ConfiteriaVUsuario.aspx">Confitería</asp:LinkButton>
                         </li>
                         <li class="nav-item me-3">
-                            <asp:LinkButton ID="lnkCines" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/Cines.aspx">Cines</asp:LinkButton>
-                        </li>
-                        <li class="nav-item me-3">
                             <asp:LinkButton ID="lnkPerfil" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/MiPerfil.aspx">
                                 <span class="d-inline d-lg-none">Mi Perfil</span>
                                 <i class="fas fa-user d-none d-lg-inline"></i>
@@ -48,7 +45,7 @@
         </nav>
         <div class="container mb-4">
             <div class="espacio-PeliculasLabel">
-                <h1 class="mb-4">Películas</h1>
+                <h1 class="mb-4 locura">Películas</h1>
             </div>
             <div class="container my-4">
                 <div class="row text-center align-items-center justify-content-center">
@@ -90,7 +87,7 @@
                     <div class="col">
                         <div class="card h-100 contenedor-Peliculas">
                             <a href='<%# "DetallePelicula.aspx?id_pelicula=" + Eval("idPelicula") %>'>
-                                <div class="card-img full-image image-container img-fluid" style='background-image: url("<%# Eval("imagenPromocional").ToString().Substring(1)%>");'></div>
+                                <div class="card-img full-image image-container img-fluid" style="background-image: url('<%#Eval("imagenPromocional").ToString().Substring(1)%>');"></div>
                             </a>
                             <div class="card-body text-center label-Peliculas">
                                 <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("titulo") %>' CssClass="card-title"></asp:Label>

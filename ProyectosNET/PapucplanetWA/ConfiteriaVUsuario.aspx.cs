@@ -269,5 +269,11 @@ namespace PapucplanetWA
             Session["LineasBoleta"] = lineas;
             Session["CantidadProductos"] = cantidades;
         }
+
+        protected void btnContinue_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Pagos.aspx");
+        }
+    
     }
 }

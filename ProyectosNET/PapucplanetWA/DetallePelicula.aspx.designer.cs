@@ -42,15 +42,6 @@ namespace PapucplanetWA
         protected global::System.Web.UI.WebControls.LinkButton lnkConfiteria;
 
         /// <summary>
-        /// lnkCines control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCines;
-
-        /// <summary>
         /// lnkPerfil control.
         /// </summary>
         /// <remarks>

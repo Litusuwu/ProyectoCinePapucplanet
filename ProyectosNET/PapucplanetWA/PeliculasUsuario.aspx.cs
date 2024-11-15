@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
@@ -13,144 +14,120 @@ namespace PapucplanetWA
 {
     public partial class PeliculasUsuario : System.Web.UI.Page
     {
-        private PeliculaWSClient daoPelicula = new PeliculaWSClient();
-        private SedeWSClient daoSedes = new SedeWSClient();
-        BindingList<pelicula> listaPeliculas = new BindingList<pelicula>();
-        BindingList<sede>listaSedes = new BindingList<sede>();
-        BindingList<funcion> listaFunciones = new BindingList<funcion>();
-        private FuncionWSClient daoFuncion = new FuncionWSClient();
+        private List<pelicula> listaPeliculas = new List<pelicula>();
+        private List<sede> listaSedes = new List<sede>();
+        private List<funcion> listaFunciones = new List<funcion>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if (!IsPostBack)
+            if (!IsPostBack || Request.QueryString["reload"] == "true")
             {
-                var peliculas = daoPelicula.listarTodosPelicula();
-                if (peliculas != null)
-                {
-                    // Filtrar duplicados por ID de película
-                    listaPeliculas = new BindingList<pelicula>(
-                        peliculas.GroupBy(p => p.idPelicula)
-                                 .Select(g => g.First())
-                                 .ToList()
-                    );
-                }
-
-                // Bind to repeater
-                rptMovies.DataSource = listaPeliculas;
-                rptMovies.DataBind();
+                CargarDatos();
                 BindPeliculas();
                 BindSedes();
                 BindFechas();
             }
         }
+        protected void ReloadPage(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.Url.AbsolutePath + "?reload=true");
+        }
+        private void CargarDatos()
+        {
+            var daoPelicula = new PeliculaWSClient();
+            var daoSedes = new SedeWSClient();
+            var daoFuncion = new FuncionWSClient();
+            Debug.WriteLine($"gaaaaaaaaaaaaaaaaaaaaaaa");
+            listaPeliculas = daoPelicula.listarTodosPelicula()?.ToList() ?? new List<pelicula>();
+            listaSedes = daoSedes.listarTodosSede()?.ToList() ?? new List<sede>();
+            listaFunciones = daoFuncion.listarPeliculasConFuncionesActivasFuncion()?.ToList() ?? new List<funcion>();
+            ViewState["listaFunciones"] = listaFunciones;
+
+            rptMovies.DataSource = listaPeliculas.GroupBy(p => p.idPelicula).Select(g => g.First()).ToList();
+            rptMovies.DataBind();
+        }
 
         private void BindPeliculas()
         {
-            if (daoPelicula.listarTodosPelicula() != null)
-            {
-                listaPeliculas = new BindingList<pelicula>(daoPelicula.listarTodosPelicula());
-            }
-            
-            List<string> peliculas = new List<string> { "Elegir"};
-            foreach(pelicula peli in listaPeliculas)
-            {
-                peliculas.Add(peli.titulo);
-            }
+            var peliculas = new List<string> { "Elegir" };
+            peliculas.AddRange(listaPeliculas.Select(p => p.titulo).Distinct());
             ddlMovie.DataSource = peliculas;
             ddlMovie.DataBind();
         }
+
         private void BindSedes()
         {
-            listaSedes = new BindingList<sede>(daoSedes.listarTodosSede());
-            List<string> sedes = new List<string> { "Elegir" };
-            foreach (sede sed in listaSedes)
-            {
-                sedes.Add(sed.universidad);
-            }
+            var sedes = new List<string> { "Elegir" };
+            sedes.AddRange(listaSedes.Select(s => s.universidad).Distinct());
             ddlCine.DataSource = sedes;
-
             ddlCine.DataBind();
         }
+
         private void BindFechas()
         {
-            List<string> fechas = new List<string> { "Elegir", "Hoy - " + DateTime.Today.ToString("dd/MM/yyyy",CultureInfo.InvariantCulture) , 
-                "Mañana - " + DateTime.Today.AddDays(1).ToString("dd/MM/yyyy",CultureInfo.InvariantCulture), "Pasado Mañana - " + DateTime.Today.AddDays(2).ToString("dd/MM/yyyy",CultureInfo.InvariantCulture) };
+            var fechas = new List<string>
+            {
+                "Elegir",
+                "Hoy - " + DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture),
+                "Mañana - " + DateTime.Today.AddDays(1).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture),
+                "Pasado Mañana - " + DateTime.Today.AddDays(2).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)
+            };
             ddlFecha.DataSource = fechas;
             ddlFecha.DataBind();
         }
 
         protected void FiltrarPeliculas(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(this, GetType(), "ShowMovieLoader", "showMovieLoader();", true);
+            listaFunciones = ViewState["listaFunciones"] as List<funcion> ?? new List<funcion>();
+
+            //foreach (var funcion in listaFunciones)
+            //{
+            //    Debug.WriteLine($"Función ID: {funcion.idFuncion}, Película: {funcion.pelicula.titulo}, Sede: {funcion.sala.sede.universidad}, Día: {funcion.dia}");
+            //}
+            //Debug.WriteLine("FiltrarPeliculas: Iniciando el filtro.");
+
             string peliculaSeleccionada = ddlMovie.SelectedValue;
             string sedeSeleccionada = ddlCine.SelectedValue;
             string fechaSeleccionada = ddlFecha.SelectedValue;
 
-            // Obtén la lista completa de películas y funciones
-            listaPeliculas = new BindingList<pelicula>(daoPelicula.listarTodosPelicula());
-            listaFunciones = new BindingList<funcion>(daoFuncion.listarPeliculasConFuncionesActivasFuncion());
+            //Debug.WriteLine($"Película seleccionada: {peliculaSeleccionada}");
+            //Debug.WriteLine($"Sede seleccionada: {sedeSeleccionada}");
+            //Debug.WriteLine($"Fecha seleccionada: {fechaSeleccionada}");
 
-            // Lista para almacenar las películas con funciones filtradas
-            List<pelicula> peliculasFiltradasFuncion = new List<pelicula>();
-            HashSet<int> peliculasIds = new HashSet<int>(); // Para almacenar los IDs únicos de las películas
-
-            // Determina la fecha de filtro según la selección
             DateTime? fechaFiltro = null;
-            if (fechaSeleccionada == "Hoy - " + DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture))
-            {
+            if (fechaSeleccionada.StartsWith("Hoy"))
                 fechaFiltro = DateTime.Today;
-            }
-            else if (fechaSeleccionada == "Mañana - " + DateTime.Today.AddDays(1).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture))
-            {
+            else if (fechaSeleccionada.StartsWith("Mañana"))
                 fechaFiltro = DateTime.Today.AddDays(1);
-            }
-            else if (fechaSeleccionada == "Pasado Mañana - " + DateTime.Today.AddDays(2).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture))
-            {
+            else if (fechaSeleccionada.StartsWith("Pasado Mañana"))
                 fechaFiltro = DateTime.Today.AddDays(2);
-            }
 
-            foreach (funcion peliFuncion in listaFunciones)
-            {
-                // Filtrar por título de la película
-                if (peliculaSeleccionada != "Elegir" && peliFuncion.pelicula.titulo != peliculaSeleccionada)
-                {
-                    continue;
-                }
+            //Debug.WriteLine($"Fecha de filtro calculada: {fechaFiltro}");
 
-                // Filtrar por sede
-                if (sedeSeleccionada != "Elegir" && peliFuncion.sala.sede.universidad != sedeSeleccionada)
-                {
-                    continue;
-                }
+            var funcionesFiltradas = listaFunciones.Where(f =>
+                (peliculaSeleccionada == "Elegir" || f.pelicula.titulo == peliculaSeleccionada) &&
+                (sedeSeleccionada == "Elegir" || f.sala.sede.universidad == sedeSeleccionada) &&
+                (!fechaFiltro.HasValue || f.dia.Date == fechaFiltro.Value.Date)).ToList();
 
-                // Filtrar por fecha (solo si se seleccionó una opción diferente de "Elegir")
-                if (fechaFiltro.HasValue && peliFuncion.dia.Date != fechaFiltro.Value.Date)
-                {
-                    continue;
-                }
+            //Debug.WriteLine($"Funciones filtradas: {funcionesFiltradas.Count}");
 
-                // Verificar si ya se ha agregado esta película (usando su ID)
-                if (!peliculasIds.Contains(peliFuncion.pelicula.idPelicula))
-                {
-                    peliculasFiltradasFuncion.Add(peliFuncion.pelicula); // Agrega la película a la lista filtrada
-                    peliculasIds.Add(peliFuncion.pelicula.idPelicula); // Agrega el ID al HashSet para evitar duplicados
-                }
-            }
+            // Filtrar películas únicas
+            var peliculasFiltradas = funcionesFiltradas
+                .Select(f => f.pelicula)
+                .GroupBy(p => p.idPelicula)
+                .Select(g => g.First())
+                .ToList();
 
-            // Establecer el origen de datos del Repeater
-            if (peliculaSeleccionada == "Elegir" && sedeSeleccionada == "Elegir" && fechaSeleccionada == "Elegir")
-            {
-                // Mostrar todas las películas sin aplicar filtros adicionales
-                rptMovies.DataSource = listaPeliculas;
-            }
-            else
-            {
-                rptMovies.DataSource = peliculasFiltradasFuncion;
-            }
+            //Debug.WriteLine($"Películas filtradas: {peliculasFiltradas.Count}");
 
-            // Actualiza el Repeater con las películas que cumplen los filtros
+            var resultado = (peliculaSeleccionada == "Elegir" && sedeSeleccionada == "Elegir" && !fechaFiltro.HasValue)
+                ? listaPeliculas.GroupBy(p => p.idPelicula).Select(g => g.First()).ToList()
+                : peliculasFiltradas;
+
+            //Debug.WriteLine($"Películas en el resultado final: {resultado.Count}");
+
+            rptMovies.DataSource = resultado;
             rptMovies.DataBind();
-            ScriptManager.RegisterStartupScript(this, GetType(), "HideMovieLoader", "hideMovieLoader();", true);
         }
     }
 }

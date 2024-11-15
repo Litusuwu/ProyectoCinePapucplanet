@@ -26,11 +26,12 @@ public class LineaBoletaWS {
     }
 
     @WebMethod(operationName = "insertarLineaBoleta")
-    public int insertarLineaBoleta(@WebParam(name = "lineaBoleta") LineaBoleta lineaBoleta) {
+    public int insertarLineaBoleta(@WebParam(name = "lineaBoleta") LineaBoleta lineaBoleta,
+            @WebParam(name = "idBoleta") int idBoleta) {
         int resultado = 0;
         try {
             daoLineaBoleta = new LineaBoletaMySQL();
-            resultado = daoLineaBoleta.insertar(lineaBoleta);
+            resultado = daoLineaBoleta.insertar(lineaBoleta,idBoleta);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -38,11 +39,12 @@ public class LineaBoletaWS {
     }
 
     @WebMethod(operationName = "modificarLineaBoleta")
-    public int modificarLineaBoleta(@WebParam(name = "lineaBoleta") LineaBoleta lineaBoleta) {
+    public int modificarLineaBoleta(@WebParam(name = "lineaBoleta") LineaBoleta lineaBoleta,
+            @WebParam(name = "idBoleta") int idBoleta) {
         int resultado = 0;
         try {
             daoLineaBoleta = new LineaBoletaMySQL();
-            resultado = daoLineaBoleta.actualizar(lineaBoleta);
+            resultado = daoLineaBoleta.actualizar(lineaBoleta,idBoleta);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }

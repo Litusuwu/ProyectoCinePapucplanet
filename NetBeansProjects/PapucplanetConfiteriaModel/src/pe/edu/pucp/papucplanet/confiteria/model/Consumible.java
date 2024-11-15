@@ -1,6 +1,6 @@
 package pe.edu.pucp.papucplanet.confiteria.model;
 
-public abstract class Consumible {
+public class Consumible {
 
     
     private int id;
