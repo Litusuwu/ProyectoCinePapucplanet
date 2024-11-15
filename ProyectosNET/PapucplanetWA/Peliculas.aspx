@@ -37,13 +37,6 @@
                     <asp:BoundField HeaderText="Titulo" ItemStyle-CssClass="text-center" />
                     <asp:BoundField HeaderText="Duracion" ItemStyle-CssClass="text-center" />
                     <asp:BoundField HeaderText="Género" ItemStyle-CssClass="text-center" />
-
-                    <asp:TemplateField HeaderText="Funciones" ItemStyle-CssClass="text-center">
-                        <ItemTemplate>
-                            <asp:LinkButton runat="server" Text="Ver funciones" OnClick="lbFunciones_Click" CommandArgument='<%# Eval("idPelicula") %>' CssClass="text-red" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-
                     <asp:TemplateField HeaderText="Acciones" ItemStyle-CssClass="text-center">
                         <ItemTemplate>
                             <!-- Botón para Modificar -->

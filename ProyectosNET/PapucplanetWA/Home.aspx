@@ -40,13 +40,13 @@
                 </a>
             </div>
         </div>
-        <!-- Tarjeta 4: Usuarios -->
+        <!-- Tarjeta 4: Funciones -->
         <div class="col">
             <div class="card custom-width-card mx-auto text-center bg-custom border-0 shadow-sm">
-                <a href="Usuarios.aspx" class="text-decoration-none">
+                <a href="Funciones.aspx" class="text-decoration-none">
                     <div class="card-body my-4">
-                        <i class="fa-solid fa-users fs-1 custom-body-card"></i>
-                        <h5 class="card-title mt-2 custom-body-card">Usuarios</h5>
+                        <i class="fa-solid fa-clapperboard-play fs-1 custom-body-card"></i>
+                        <h5 class="card-title mt-2 custom-body-card">Funciones</h5>
                     </div>
                 </a>
             </div>
@@ -69,6 +69,17 @@
                     <div class="card-body my-4">
                         <i class="fa-solid fa-file-alt fs-1 custom-body-card"></i>
                         <h5 class="card-title mt-2 custom-body-card">Reportes</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- Tarjeta 7: Usuarios -->
+        <div class="col mb-5">
+            <div class="card custom-width-card mx-auto text-center bg-custom border-0 shadow-sm">
+                <a href="Usuarios.aspx" class="text-decoration-none">
+                    <div class="card-body my-4">
+                        <i class="fa-solid fa-users fs-1 custom-body-card"></i>
+                        <h5 class="card-title mt-2 custom-body-card">Usuarios</h5>
                     </div>
                 </a>
             </div>

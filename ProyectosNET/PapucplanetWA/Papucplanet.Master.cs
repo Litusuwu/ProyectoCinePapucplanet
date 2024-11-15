@@ -14,7 +14,7 @@ namespace PapucplanetWA
         {
             if (!IsPostBack)
             {
-               //cargamos el nombre arriba a la derecha
+                //cargamos el nombre arriba a la derecha
                 usuario usuarioDatos = (usuario)Session["Usuario"];
                 string usuario = usuarioDatos.nombre + " " + usuarioDatos.primerApellido;
                 lblUserName.Text = usuario;
@@ -50,6 +50,9 @@ namespace PapucplanetWA
                         break;
                     case "Reportes.aspx":
                         reportesLink.Attributes["class"] += " active";
+                        break;
+                    case "Funciones.aspx":
+                        funcionesLink.Attributes["class"] += " active";
                         break;
                 }
             }
