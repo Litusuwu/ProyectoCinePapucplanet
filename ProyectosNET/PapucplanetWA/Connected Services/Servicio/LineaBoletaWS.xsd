@@ -91,7 +91,7 @@
       <xs:element minOccurs="0" name="universidad" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="consumible" abstract="true">
+  <xs:complexType name="consumible">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
       <xs:element name="id" type="xs:int" />

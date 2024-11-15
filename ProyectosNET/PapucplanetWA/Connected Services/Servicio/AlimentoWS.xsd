@@ -30,7 +30,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="consumible" abstract="true">
+  <xs:complexType name="consumible">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
       <xs:element name="id" type="xs:int" />
@@ -70,16 +70,6 @@
       <xs:element minOccurs="0" name="return" type="tns:alimento" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="actualizarAlimento">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="alimento" type="tns:alimento" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="actualizarAlimentoResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="listarAlimentosPorNombre">
     <xs:sequence>
       <xs:element minOccurs="0" name="nombreAlimento" type="xs:string" />
@@ -88,6 +78,16 @@
   <xs:complexType name="listarAlimentosPorNombreResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:alimento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarAlimento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="alimento" type="tns:alimento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarAlimentoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="tipoAlimento">
