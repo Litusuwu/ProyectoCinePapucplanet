@@ -113,7 +113,7 @@
   <xs:complexType name="pelicula">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
-      <xs:element name="duracion" type="xs:double" />
+      <xs:element name="duracion" type="xs:int" />
       <xs:element minOccurs="0" maxOccurs="unbounded" name="funciones" nillable="true" type="tns:funcion" />
       <xs:element minOccurs="0" name="genero" type="tns:genero" />
       <xs:element name="idPelicula" type="xs:int" />

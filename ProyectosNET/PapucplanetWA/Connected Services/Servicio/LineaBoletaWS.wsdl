@@ -5,12 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/LineaBoletaWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
     </xsd:schema>
   </types>
-  <message name="eliminarLineaBoleta">
-    <part name="parameters" element="tns:eliminarLineaBoleta" />
-  </message>
-  <message name="eliminarLineaBoletaResponse">
-    <part name="parameters" element="tns:eliminarLineaBoletaResponse" />
-  </message>
   <message name="listarTodosLineaBoleta">
     <part name="parameters" element="tns:listarTodosLineaBoleta" />
   </message>
@@ -29,6 +23,12 @@
   <message name="insertarLineaBoletaResponse">
     <part name="parameters" element="tns:insertarLineaBoletaResponse" />
   </message>
+  <message name="eliminarLineaBoleta">
+    <part name="parameters" element="tns:eliminarLineaBoleta" />
+  </message>
+  <message name="eliminarLineaBoletaResponse">
+    <part name="parameters" element="tns:eliminarLineaBoletaResponse" />
+  </message>
   <message name="modificarLineaBoleta">
     <part name="parameters" element="tns:modificarLineaBoleta" />
   </message>
@@ -36,10 +36,6 @@
     <part name="parameters" element="tns:modificarLineaBoletaResponse" />
   </message>
   <portType name="LineaBoletaWS">
-    <operation name="eliminarLineaBoleta">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/eliminarLineaBoletaRequest" message="tns:eliminarLineaBoleta" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/eliminarLineaBoletaResponse" message="tns:eliminarLineaBoletaResponse" />
-    </operation>
     <operation name="listarTodosLineaBoleta">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/listarTodosLineaBoletaRequest" message="tns:listarTodosLineaBoleta" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/listarTodosLineaBoletaResponse" message="tns:listarTodosLineaBoletaResponse" />
@@ -52,6 +48,10 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/insertarLineaBoletaRequest" message="tns:insertarLineaBoleta" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/insertarLineaBoletaResponse" message="tns:insertarLineaBoletaResponse" />
     </operation>
+    <operation name="eliminarLineaBoleta">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/eliminarLineaBoletaRequest" message="tns:eliminarLineaBoleta" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/eliminarLineaBoletaResponse" message="tns:eliminarLineaBoletaResponse" />
+    </operation>
     <operation name="modificarLineaBoleta">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/modificarLineaBoletaRequest" message="tns:modificarLineaBoleta" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/LineaBoletaWS/modificarLineaBoletaResponse" message="tns:modificarLineaBoletaResponse" />
@@ -59,15 +59,6 @@
   </portType>
   <binding name="LineaBoletaWSPortBinding" type="tns:LineaBoletaWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="eliminarLineaBoleta">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="listarTodosLineaBoleta">
       <soap:operation soapAction="" />
       <input>
@@ -87,6 +78,15 @@
       </output>
     </operation>
     <operation name="insertarLineaBoleta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarLineaBoleta">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
