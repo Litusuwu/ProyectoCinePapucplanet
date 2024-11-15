@@ -816,6 +816,18 @@ BEGIN
     WHERE f.dia = _dia AND f.fid_pelicula = _fid_pelicula AND f.activo = 1;
 END$
 
+delimiter $
+CREATE PROCEDURE LISTAR_FUNCIONES_POR_FECHA_POR_SALA(
+	IN _dia DATE, 
+    IN _fid_sala INT
+)
+BEGIN
+	SELECT f.id_funcion, f.horaInicio, f.horaFin, f.dia, f.fid_sala, f.fid_pelicula, p.titulo, p.genero, p.duracion, 
+    p.sinopsis, p.imagen_link, sa.numero_sala, se.id_sede, se.nombre as nombre_sede
+    FROM Funcion f INNER JOIN Pelicula p ON f.fid_pelicula = p.id_pelicula INNER JOIN Sala sa ON f.fid_sala = sa.id_sala INNER JOIN Sede se ON se.id_sede = sa.fid_sede
+    WHERE f.dia = _dia AND f.fid_sala = _fid_sala AND f.activo = 1;
+END$
+
 CREATE PROCEDURE VERIFICAR_DISPONIBILIDAD_HORARIO_DE_FUNCIONES(
     IN _dia DATE,
     IN _horaInicio TIME,
