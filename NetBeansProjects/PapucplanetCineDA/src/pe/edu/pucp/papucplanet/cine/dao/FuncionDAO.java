@@ -11,6 +11,7 @@ public interface FuncionDAO {
     // Nuevo método para obtener funciones por película
     ArrayList<Funcion> obtenerFuncionesPorPelicula(int idPelicula);
     ArrayList<Funcion> listarFuncionesPorFecha(Funcion funcion);
+    ArrayList<Funcion> listarFuncionesPorFechaPorSala(Date fecha, int idSala);
     int modificarConButacasFuncion(Funcion funcion);
     ArrayList<Funcion> listarPeliculasConFuncionesActivas();
     
