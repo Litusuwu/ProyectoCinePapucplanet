@@ -34,7 +34,7 @@
                             <asp:LinkButton ID="lnkConfiteria" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/ConfiteriaVUsuario.aspx">Confitería</asp:LinkButton>
                         </li>
                         <li class="nav-item me-3">
-                            <asp:LinkButton ID="lnkPerfil" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/MiPerfil.aspx">
+                            <asp:LinkButton ID="lnkPerfil" runat="server" CssClass="nav-link navBar-Expandido" >
                                 <span class="d-inline d-lg-none">Mi Perfil</span>
                                 <i class="fas fa-user d-none d-lg-inline"></i>
                             </asp:LinkButton>

@@ -87,6 +87,28 @@ a, i {
     align-items: center;
 }
 
+.btn-sedenuevo {
+    border: 2px solid #8B0000; /* Borde rojo oscuro (ajusta según tu preferencia) */
+    background-color: white; /* Fondo blanco */
+    color: #8B0000; /* Texto rojo oscuro */
+    padding: 5px 10px; /* Tamaño del botón */
+    font-size: 14px; /* Tamaño del texto */
+    cursor: pointer; /* Cursor de mano al pasar */
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+}
+
+.btn-sedenuevo-eliminar {
+    border: 2px solid #8B0000; /* Borde rojo oscuro (ajusta según tu preferencia) */
+    background-color: #8B0000; /* Fondo blanco */
+    color: white; /* Texto rojo oscuro */
+    padding: 5px 10px; /* Tamaño del botón */
+    font-size: 14px; /* Tamaño del texto */
+    cursor: pointer; /* Cursor de mano al pasar */
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+}
+
 .pagination-container {
     text-align: center;
     margin-top: 15px;

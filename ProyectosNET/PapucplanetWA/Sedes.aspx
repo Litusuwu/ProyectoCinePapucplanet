@@ -20,7 +20,7 @@
                 <HeaderTemplate>
                     <div class="row">
                 </HeaderTemplate>
-                <ItemTemplate>
+                <ItemTemplate>  
                     <div class="col-md-6 mb-4">
                         <div class="card custom-width-card mx-auto text-center bg-custom border-0 shadow-sm">
                             <div class="card-body">
@@ -28,11 +28,11 @@
                                 <i class="fa-solid fa-building fs-1 custom-body-card"></i>
                                 <p class="card-text">Ubicación: <%# Eval("ubicacion") %></p>
                             
-                                <asp:LinkButton ID="lbSalas" runat="server" CssClass="btn-sede" OnClick="lbSalasXSede_Click" CommandArgument='<%# Eval("idSede") %>'>Salas</asp:LinkButton>
+                                <asp:LinkButton ID="lbSalas" runat="server" CssClass="btn-sedenuevo" OnClick="lbSalasXSede_Click" CommandArgument='<%# Eval("idSede") %>'>Salas</asp:LinkButton>
                             
-                                <asp:LinkButton ID="lbModificar" runat="server" CssClass="btn-warning btn-sede" OnClick="lbModificar_Click" CommandArgument='<%# Eval("idSede") %>'><i class='fa-solid fa-edit'></i> Modificar</asp:LinkButton>
+                                <asp:LinkButton ID="lbModificar" runat="server" CssClass="btn-warning btn-sedenuevo" OnClick="lbModificar_Click" CommandArgument='<%# Eval("idSede") %>'><i class='fa-solid fa-edit'></i> Modificar</asp:LinkButton>
                             
-                                <asp:LinkButton ID="lbEliminar" runat="server" CssClass="btn btn-danger" OnClick="lbEliminar_Click" CommandArgument='<%# Eval("idSede") %>'><i class='fa-solid fa-trash'></i> Eliminar</asp:LinkButton>
+                                <asp:LinkButton ID="lbEliminar" runat="server" CssClass="btn-sedenuevo-eliminar" OnClick="lbEliminar_Click" CommandArgument='<%# Eval("idSede") %>'><i class='fa-solid fa-trash'></i> Eliminar</asp:LinkButton>
                             </div>
                         </div>
                     </div>
