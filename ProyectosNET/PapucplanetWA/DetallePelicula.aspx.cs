@@ -60,8 +60,12 @@ namespace PapucplanetWA
         {
             BindingList<funcion> funciones = new BindingList<funcion>(daoFuncion.obtenerFuncionesPorPeliculaFuncion(idPelicula));
 
-            // Filtrar días únicos
-            var diasUnicos = funciones.Select(f => f.dia.Date).Distinct();
+            // Filtrar días únicos y solo incluir fechas de hoy en adelante
+            var diasUnicos = funciones
+                .Select(f => f.dia.Date)
+                .Where(d => d >= DateTime.Today) // Filtrar para mostrar solo días desde hoy en adelante
+                .Distinct();
+
             foreach (var dia in diasUnicos)
             {
                 LinkButton diaButton = new LinkButton
@@ -70,7 +74,7 @@ namespace PapucplanetWA
                     Text = dia.ToString("dd MMM"),
                     CommandArgument = dia.ToString("yyyy-MM-dd")
                 };
-                diaButton.Click += DiaButton_Click; // Solo manejamos el evento del servidor
+                diaButton.Click += DiaButton_Click; // Manejador del evento Click en el servidor
                 dayContainer.Controls.Add(diaButton);
             }
         }
@@ -83,9 +87,6 @@ namespace PapucplanetWA
 
             // Almacena el día seleccionado en ViewState
             ViewState["diaSeleccionado"] = diaSeleccionado;
-
-            // Llama al método para cargar los horarios correspondientes
-            CargarHorariosPorDiaSeleccionado(diaSeleccionado);
 
             // Cambia el estilo del botón seleccionado
             foreach (Control control in dayContainer.Controls)
@@ -103,6 +104,11 @@ namespace PapucplanetWA
                 }
             }
 
+            // Llama al método para cargar los horarios correspondientes
+            CargarHorariosPorDiaSeleccionado(diaSeleccionado);
+
+            
+
             System.Diagnostics.Debug.WriteLine($"Entro a dia button click.");
         }
 
@@ -119,8 +125,23 @@ namespace PapucplanetWA
                 // Convierte la cadena de día seleccionada a DateTime para comparación
                 if (DateTime.TryParse(diaSeleccionado, out DateTime fechaSeleccionada))
                 {
+                    // Obtiene la hora actual como DateTime
+                    DateTime fechaHoraActual = DateTime.Now;
+                    System.Diagnostics.Debug.WriteLine($"Fecha y hora actual: {fechaHoraActual}");
+
                     // Filtra las funciones para el día seleccionado
-                    var funcionesFiltradas = funciones.Where(f => f.dia.Date == fechaSeleccionada.Date).ToList();
+                    var funcionesFiltradas = funciones
+                        .Where(f => f.dia.Date == fechaSeleccionada.Date) // Día seleccionado
+                        .Where(f =>
+                        {
+                            // Combinar la fecha de `f.dia` con la hora de `f.horarioInicio`
+                            DateTime fechaHoraFuncion = f.dia.Date.Add(f.horarioInicio.TimeOfDay);
+                            //System.Diagnostics.Debug.WriteLine($"Función combinada: {fechaHoraFuncion} - Comparando con: {fechaHoraActual}");
+                            return fechaHoraFuncion >= fechaHoraActual;
+                        })
+                        .OrderBy(f => f.horarioInicio) // Ordenar los horarios en orden ascendente
+                        .ToList();
+
                     timeContainer.Controls.Clear(); // Limpia cualquier horario previo
 
                     if (funcionesFiltradas.Count > 0)

@@ -87,7 +87,7 @@ BEGIN
     LEFT JOIN Funcion f ON p.id_pelicula = f.fid_pelicula
     LEFT JOIN Sala s ON f.fid_sala = s.id_sala
     LEFT JOIN Sede sd ON s.fid_sede = sd.id_sede
-    WHERE p.activo = 1 AND f.activo = 1 AND s.activo = 1 AND sd.activo = 1;
+    WHERE p.activo = 1 AND f.activo = 1 AND s.activo = 1 AND sd.activo = 1 AND f.dia >= DATE(DATE_ADD(NOW(), INTERVAL -5 HOUR)); -- Solo funciones a partir de hoy
 END$
 --Genero es un enum de peliculas
 CREATE PROCEDURE LISTAR_GENEROS_ENUM()

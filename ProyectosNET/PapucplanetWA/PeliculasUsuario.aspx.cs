@@ -26,12 +26,29 @@ namespace PapucplanetWA
                 BindPeliculas();
                 BindSedes();
                 BindFechas();
+
+
+                // Aplicar el filtro automáticamente al cargar la página por primera vez
+                AplicarFiltroInicial();
             }
         }
         protected void ReloadPage(object sender, EventArgs e)
         {
             Response.Redirect(Request.Url.AbsolutePath + "?reload=true");
         }
+
+        private void AplicarFiltroInicial()
+        {
+            // Seleccionar la primera sede como predeterminada si no está seleccionada
+            if (ddlCine.Items.Count > 0)
+            {
+                ddlCine.SelectedIndex = 0; // Selecciona la primera sede automáticamente
+            }
+
+            // Aplicar el filtro inicial llamando a FiltrarPeliculas
+            FiltrarPeliculas(null, null);
+        }
+
         private void CargarDatos()
         {
             var daoPelicula = new PeliculaWSClient();
@@ -43,7 +60,15 @@ namespace PapucplanetWA
             listaFunciones = daoFuncion.listarPeliculasConFuncionesActivasFuncion()?.ToList() ?? new List<funcion>();
             ViewState["listaFunciones"] = listaFunciones;
 
-            rptMovies.DataSource = listaPeliculas.GroupBy(p => p.idPelicula).Select(g => g.First()).ToList();
+            // Obtener películas únicas desde listaFunciones
+            var peliculasUnicas = listaFunciones
+                .Select(f => f.pelicula)            // Seleccionar la película asociada a cada función
+                .GroupBy(p => p.idPelicula)         // Agrupar por ID de película para evitar duplicados
+                .Select(g => g.First())             // Tomar una sola instancia de cada película
+                .ToList();
+
+            // Establecer la fuente de datos de rptMovies con las películas únicas
+            rptMovies.DataSource = peliculasUnicas;
             rptMovies.DataBind();
         }
 
@@ -57,10 +82,16 @@ namespace PapucplanetWA
 
         private void BindSedes()
         {
-            var sedes = new List<string> { "Elegir" };
-            sedes.AddRange(listaSedes.Select(s => s.universidad).Distinct());
-            ddlCine.DataSource = sedes;
+            // Agregar las opciones de sede desde la lista de sedes
+            ddlCine.DataSource = listaSedes.Select(s => s.universidad).Distinct().ToList();
             ddlCine.DataBind();
+
+            // Seleccionar una sede específica como predeterminada
+            // Por ejemplo, seleccionamos la primera sede en la lista
+            if (ddlCine.Items.Count > 0)
+            {
+                ddlCine.SelectedIndex = 0; // Esto selecciona la primera sede automáticamente
+            }
         }
 
         private void BindFechas()
