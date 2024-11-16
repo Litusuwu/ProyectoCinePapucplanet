@@ -129,7 +129,7 @@ public class FuncionMySQL implements FuncionDAO{
                 funcion.getPelicula().setIdPelicula(rs.getInt("fid_pelicula"));
                 funcion.getPelicula().setTitulo(rs.getString("titulo"));
                 funcion.getPelicula().setGenero(Genero.valueOf(rs.getString("genero")));
-                funcion.getPelicula().setDuracion(rs.getDouble("duracion"));
+                funcion.getPelicula().setDuracion(rs.getInt("duracion"));
                 funcion.getPelicula().setSinopsis(rs.getString("sinopsis"));
                 funcion.getPelicula().setImagenPromocional(rs.getString("imagen_link"));
                 
@@ -170,7 +170,7 @@ public class FuncionMySQL implements FuncionDAO{
                 funcion.getPelicula().setIdPelicula(rs.getInt("fid_pelicula"));
                 funcion.getPelicula().setTitulo(rs.getString("titulo"));
                 funcion.getPelicula().setGenero(Genero.valueOf(rs.getString("genero")));
-                funcion.getPelicula().setDuracion(rs.getDouble("duracion"));
+                funcion.getPelicula().setDuracion(rs.getInt("duracion"));
                 funcion.getPelicula().setSinopsis(rs.getString("sinopsis"));
                 funcion.getPelicula().setImagenPromocional(rs.getString("imagen_link"));
                 
@@ -216,7 +216,7 @@ public class FuncionMySQL implements FuncionDAO{
                 funcion.getPelicula().setIdPelicula(rs.getInt("fid_pelicula"));
                 funcion.getPelicula().setTitulo(rs.getString("titulo"));
                 funcion.getPelicula().setGenero(Genero.valueOf(rs.getString("genero")));
-                funcion.getPelicula().setDuracion(rs.getDouble("duracion"));
+                funcion.getPelicula().setDuracion(rs.getInt("duracion"));
                 funcion.getPelicula().setSinopsis(rs.getString("sinopsis"));
                 funcion.getPelicula().setImagenPromocional(rs.getString("imagen_link"));
                 
@@ -266,7 +266,7 @@ public class FuncionMySQL implements FuncionDAO{
                 func.getPelicula().setIdPelicula(rs.getInt("fid_pelicula"));
                 func.getPelicula().setTitulo(rs.getString("titulo"));
                 func.getPelicula().setGenero(Genero.valueOf(rs.getString("genero")));
-                func.getPelicula().setDuracion(rs.getDouble("duracion"));
+                func.getPelicula().setDuracion(rs.getInt("duracion"));
                 func.getPelicula().setSinopsis(rs.getString("sinopsis"));
                 func.getPelicula().setImagenPromocional(rs.getString("imagen_link"));
                 
@@ -291,6 +291,54 @@ public class FuncionMySQL implements FuncionDAO{
         return funciones;
     }
 
+    @Override
+    public ArrayList<Funcion> listarFuncionesPorFechaPorSala(Date fecha, int idSala) {
+        ArrayList<Funcion> funciones = new ArrayList<>();
+        try {
+            con = DBManager.getInstance().getConnection();
+            con.setAutoCommit(false);
+
+            // Llamada al procedimiento almacenado con el parámetro idPelicula
+            cs = con.prepareCall("{call LISTAR_FUNCIONES_POR_FECHA_POR_SALA(?,?)}");
+
+            cs.setDate("_dia",new java.sql.Date(fecha.getTime()));
+            cs.setInt("_fid_sala", idSala);
+            rs = cs.executeQuery();
+
+            Funcion func;
+
+            while (rs.next()) {
+                func = new Funcion();
+                func.setIdFuncion(rs.getInt("id_funcion"));
+                func.setHorarioInicio(new java.sql.Time(rs.getTime("horaInicio").getTime()));
+                func.setHorarioFin(new java.sql.Time(rs.getTime("horaFin").getTime()));
+                func.setDia(rs.getDate("dia"));
+                func.setPelicula(new Pelicula());
+                func.getPelicula().setIdPelicula(rs.getInt("fid_pelicula"));
+                func.getPelicula().setTitulo(rs.getString("titulo"));
+                func.getPelicula().setGenero(Genero.valueOf(rs.getString("genero")));
+                func.getPelicula().setDuracion(rs.getInt("duracion"));
+                func.getPelicula().setSinopsis(rs.getString("sinopsis"));
+                func.getPelicula().setImagenPromocional(rs.getString("imagen_link"));
+                
+                func.setSala(new Sala());
+                func.getSala().setIdSala(rs.getInt("fid_sala"));
+                func.getSala().setNumeroSala(rs.getInt("numero_sala"));
+                func.getSala().setSede(new Sede());
+                func.getSala().getSede().setUniversidad(rs.getString("nombre_sede"));
+                funciones.add(func);
+            }
+
+            con.commit();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            try { con.rollback(); } catch (SQLException ex1) { System.out.println(ex1.getMessage()); }
+        } finally {
+            try { con.close(); } catch (SQLException ex) { System.out.println(ex.getMessage()); }
+        }
+        return funciones;
+    }
+    
     @Override
     public int modificarConButacasFuncion(Funcion funcion) {
         int result = 0;
@@ -352,7 +400,7 @@ public class FuncionMySQL implements FuncionDAO{
                 Pelicula pelicula = new Pelicula();
                 pelicula.setIdPelicula(rs.getInt("id_pelicula"));
                 pelicula.setTitulo(rs.getString("titulo"));
-                pelicula.setDuracion(rs.getDouble("duracion"));
+                pelicula.setDuracion(rs.getInt("duracion"));
                 pelicula.setGenero(Genero.valueOf(rs.getString("genero")));
                 pelicula.setSinopsis(rs.getString("sinopsis"));
                 pelicula.setImagenPromocional(rs.getString("imagen_link"));

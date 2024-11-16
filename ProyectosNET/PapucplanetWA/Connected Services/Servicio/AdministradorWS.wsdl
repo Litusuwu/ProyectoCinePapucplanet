@@ -17,12 +17,6 @@
   <message name="listarTodosAdministradoresResponse">
     <part name="parameters" element="tns:listarTodosAdministradoresResponse" />
   </message>
-  <message name="eliminarAdministrador">
-    <part name="parameters" element="tns:eliminarAdministrador" />
-  </message>
-  <message name="eliminarAdministradorResponse">
-    <part name="parameters" element="tns:eliminarAdministradorResponse" />
-  </message>
   <message name="insertarAdministrador">
     <part name="parameters" element="tns:insertarAdministrador" />
   </message>
@@ -35,6 +29,12 @@
   <message name="obtenerAdministradorPorIdResponse">
     <part name="parameters" element="tns:obtenerAdministradorPorIdResponse" />
   </message>
+  <message name="eliminarAdministrador">
+    <part name="parameters" element="tns:eliminarAdministrador" />
+  </message>
+  <message name="eliminarAdministradorResponse">
+    <part name="parameters" element="tns:eliminarAdministradorResponse" />
+  </message>
   <portType name="AdministradorWS">
     <operation name="modificarAdministrador">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/modificarAdministradorRequest" message="tns:modificarAdministrador" />
@@ -44,10 +44,6 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/listarTodosAdministradoresRequest" message="tns:listarTodosAdministradores" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/listarTodosAdministradoresResponse" message="tns:listarTodosAdministradoresResponse" />
     </operation>
-    <operation name="eliminarAdministrador">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/eliminarAdministradorRequest" message="tns:eliminarAdministrador" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/eliminarAdministradorResponse" message="tns:eliminarAdministradorResponse" />
-    </operation>
     <operation name="insertarAdministrador">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/insertarAdministradorRequest" message="tns:insertarAdministrador" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/insertarAdministradorResponse" message="tns:insertarAdministradorResponse" />
@@ -55,6 +51,10 @@
     <operation name="obtenerAdministradorPorId">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/obtenerAdministradorPorIdRequest" message="tns:obtenerAdministradorPorId" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/obtenerAdministradorPorIdResponse" message="tns:obtenerAdministradorPorIdResponse" />
+    </operation>
+    <operation name="eliminarAdministrador">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/eliminarAdministradorRequest" message="tns:eliminarAdministrador" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/eliminarAdministradorResponse" message="tns:eliminarAdministradorResponse" />
     </operation>
   </portType>
   <binding name="AdministradorWSPortBinding" type="tns:AdministradorWS">
@@ -77,15 +77,6 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarAdministrador">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="insertarAdministrador">
       <soap:operation soapAction="" />
       <input>
@@ -96,6 +87,15 @@
       </output>
     </operation>
     <operation name="obtenerAdministradorPorId">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarAdministrador">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
