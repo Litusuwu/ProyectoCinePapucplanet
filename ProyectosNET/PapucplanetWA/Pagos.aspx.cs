@@ -18,6 +18,8 @@ namespace PapucplanetWA
         {
             if (!IsPostBack)
             {
+                usuario usuarioDatos = (usuario)Session["Usuario"];
+                lnkPrfCompra.Text = usuarioDatos.nombre + " " + usuarioDatos.primerApellido;
                 bol = new boleta();
                 bol.cliente=new cliente();
                 bol.cliente.id = ((usuario)Session["Usuario"]).id;

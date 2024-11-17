@@ -15,7 +15,7 @@
 <body>
     <form runat="server">
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm fixed-top navBar-Peliculas">
+        <nav class="navbar navbar-expand-lg navbar-collapse navbar-dark bg-black shadow-sm fixed-top navBar-Peliculas">
             <div class="container position-relative">
                 <a class="navBar-login d-flex align-items-center gap-2" href="PeliculasUsuario.aspx"
                     style="text-decoration: none; font-size: 1.25rem; color: white;">
@@ -33,11 +33,13 @@
                         <li class="nav-item me-3">
                             <asp:LinkButton ID="lnkConfiteria" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/ConfiteriaVUsuario.aspx">Confitería</asp:LinkButton>
                         </li>
-                        <li class="nav-item me-3">
-                            <asp:LinkButton ID="lnkPerfil" runat="server" CssClass="nav-link navBar-Expandido" >
-                                <span class="d-inline d-lg-none">Mi Perfil</span>
-                                <i class="fas fa-user d-none d-lg-inline"></i>
+                        <li class="nav-item dropdown me-3">
+                            <asp:LinkButton runat="server" class="nav-link dropdown-toggle text-decoration-none navBar-Expandido" id="lnkPerfil" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             </asp:LinkButton>
+                            <ul class="dropdown-menu" aria-labelledby="lnkPerfilDropdown">
+                                <li><a class="dropdown-item" href="#">Historial de Compras</a></li>
+                                <li><a class="dropdown-item" href="Login.aspx">Cerrar Sesión</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>

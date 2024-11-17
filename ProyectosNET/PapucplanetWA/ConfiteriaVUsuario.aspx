@@ -4,19 +4,33 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="Content/bootstrap.css" rel="stylesheet" />
-    <link href="Content/Fonts/css/all.css" rel="stylesheet" />
-    <link href="css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css" />
+     <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Font Awesome (solo una versión) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+
+    <!-- Material Design Icons -->
     <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet" />
-    <script src="Scripts/bootstrap.js"></script>
-    <script src="Scripts/bootstrap.bundle.js"></script>
-    <script src="Scripts/jquery-3.7.1.js"></script>
+
+    <!-- Fuentes de Google -->
     <link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i" rel="stylesheet" />
     <link href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet" />
 
+    <!-- Archivos CSS personalizados -->
     <link href="Styles/Confiteria.css" rel="stylesheet" />
     <link href="Styles/Butacas.css" rel="stylesheet" />
-    <link href="Styles/Butacas.css" rel="stylesheet" />
+    <link href="Styles/Peliculas.css" rel="stylesheet" />
+
+    <!-- JavaScript: JQuery (necesario para algunas funcionalidades) -->
+    <script src="Scripts/jquery-3.7.1.js"></script>
+
+    <!-- Popper.js (necesario para Bootstrap dropdowns y tooltips) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <title>Confitería</title>
 </head>
 <body>
@@ -38,12 +52,14 @@
 
                             <div class="collapse navbar-collapse" id="navbarNav2">
                                 <ul class="navbar-nav ms-auto">
-                                    <li class="nav-item me-3">
-                                        <asp:LinkButton ID="lnkPerfil" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/MiPerfil.aspx">
-                        <span class="d-inline d-lg-none">Mi Perfil</span>
-                        <i class="fas fa-user d-none d-lg-inline"></i>
-                                        </asp:LinkButton>
-                                    </li>
+                                     <li class="nav-item dropdown me-3">
+                                         <asp:LinkButton runat="server" class="nav-link dropdown-toggle text-decoration-none navBar-Expandido" id="lnkPrfCompra" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                         </asp:LinkButton>
+                                         <ul class="dropdown-menu" aria-labelledby="lnkPrfCompra">
+                                             <li><a class="dropdown-item" href="#">Historial de Compras</a></li>
+                                             <li><a class="dropdown-item" href="Login.aspx">Cerrar Sesión</a></li>
+                                         </ul>
+                                     </li>
                                 </ul>
                             </div>
                         </div>
@@ -52,16 +68,16 @@
 
 
                 <asp:Panel ID="panelPeliculas" runat="server">
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm fixed-top navBar-Peliculas">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm fixed-top">
                         <div class="container position-relative">
                             <a class="navbar-brand d-flex align-items-center" href="PeliculasUsuario.aspx">
                                 <i class="fa fa-film me-2" style="font-size: 24px; color: white;"></i>
                                 <strong>PAPUCPLANET</strong>
                             </a>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                             <button class="navbar-toggler navBar-Expandido" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavConfiteria" aria-controls="navbarNavConfiteria" aria-expanded="false" aria-label="Toggle navigation">
                                 <i class="fas fa-bars" style="color: white; font-size: 24px;"></i>
                             </button>
-                            <div class="collapse navbar-collapse navBar-Expandido" id="navbarNav3">
+                            <div class="collapse navbar-collapse navBar-Expandido" id="navbarNavConfiteria">
                                 <ul class="navbar-nav ms-auto navBar-Expandido">
                                     <li class="nav-item me-3">
                                         <asp:LinkButton ID="lnkPeliculas" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/PeliculasUsuario.aspx">Películas</asp:LinkButton>
@@ -69,11 +85,13 @@
                                     <li class="nav-item me-3">
                                         <asp:LinkButton ID="lnkConfiteria" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/ConfiteriaVUsuario.aspx">Confitería</asp:LinkButton>
                                     </li>
-                                    <li class="nav-item me-3">
-                                        <asp:LinkButton ID="LinkButton1" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/MiPerfil.aspx">
-                                <span class="d-inline d-lg-none">Mi Perfil</span>
-                                <i class="fas fa-user d-none d-lg-inline"></i>
+                                    <li class="nav-item dropdown me-3">
+                                        <asp:LinkButton runat="server" class="nav-link dropdown-toggle text-decoration-none navBar-Expandido" id="lnkPerfilOutside" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         </asp:LinkButton>
+                                        <ul class="dropdown-menu" aria-labelledby="lnkPerfilOutside">
+                                            <li><a class="dropdown-item" href="#">Historial de Compras</a></li>
+                                            <li><a class="dropdown-item" href="Login.aspx">Cerrar Sesión</a></li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </div>
@@ -185,6 +203,5 @@
     </form>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="Scripts/bootstrap.bundle.min.js"></script>
 </body>
 </html>

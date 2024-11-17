@@ -27,6 +27,9 @@ namespace PapucplanetWA
                 {
                     Session["CantidadProductos"] = new Dictionary<int, int>();
                 }
+                usuario usuarioDatos = (usuario)Session["Usuario"];
+                lnkPerfilOutside.Text = usuarioDatos.nombre + " " + usuarioDatos.primerApellido;
+                lnkPrfCompra.Text= usuarioDatos.nombre + " " + usuarioDatos.primerApellido;
                 CargarProductos();
                 ActualizarContadorCarrito();
                 if (valor != null) Visibility(true);

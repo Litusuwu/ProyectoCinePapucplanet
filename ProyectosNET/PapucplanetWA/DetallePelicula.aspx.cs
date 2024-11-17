@@ -19,6 +19,8 @@ namespace PapucplanetWA
             string idPeliculaStr = Request.QueryString["id_pelicula"];
             if (!string.IsNullOrEmpty(idPeliculaStr) && int.TryParse(idPeliculaStr, out int idPeliculaParsed))
             {
+                usuario usuarioDatos = (usuario)Session["Usuario"];
+                lnkPerfil.Text = usuarioDatos.nombre + " " + usuarioDatos.primerApellido;
                 CargarDiasYHorarios(idPeliculaParsed);
                 if (ViewState["diaSeleccionado"] != null)
                 {

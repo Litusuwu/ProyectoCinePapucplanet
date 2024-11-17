@@ -4,6 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Métodos de Pago</title>
+    <!-- Popper.js (necesario para Bootstrap dropdowns y tooltips) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/Fonts/css/all.css" rel="stylesheet" />
     <link href="Styles/Pagos.css" rel="stylesheet" />
@@ -12,15 +18,34 @@
 
 <body>
     <form id="form1" runat="server">
-        <nav class="navbar navBar-login">
-            <div class="container-fluid">
-                <a class="navBar-login d-flex align-items-center gap-2 " href="#"
-                    style="text-decoration: none; font-size: 1.25rem;">
-                    <i class="fa fa-film icon d-inline-block align-text-top" alt="Logo" width="20" height="44"></i>
-                    PAPUCPLANET
-                </a>
-            </div>
-        </nav>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm fixed-top">
+                <div class="container-fluid">
+                    <!-- Logo y Título -->
+                    <a class="navbar-brand d-flex align-items-center gap-2" href="#" style="text-decoration: none; font-size: 1.25rem;">
+                        <i class="fa fa-film" style="font-size: 1.5rem;"></i>
+                        <strong>PAPUCPLANET</strong>
+                    </a>
+
+                    <div class="mx-auto">
+                        <span class="nav-link text-white" style="font-size: 1.1rem;">3. Pago</span>
+                    </div>
+
+                    <!-- Elementos de Navegación -->
+                    <ul class="navbar-nav ms-auto">
+
+                        <!-- Dropdown de Usuario -->
+                        <li class="nav-item dropdown">
+                            <asp:LinkButton class="nav-link dropdown-toggle text-white" runat="server" id="lnkPrfCompra" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Bryan Smith Valdiviezo
+                            </asp:LinkButton>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="lnkPrfCompra">
+                                <li><a class="dropdown-item" href="#">Historial de Compras</a></li>
+                                <li><a class="dropdown-item" href="Login.aspx">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         <div class="container my-5">
             <h2 class="text-center locura">Elige tu método de pago</h2>
             

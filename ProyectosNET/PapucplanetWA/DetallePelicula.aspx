@@ -40,11 +40,13 @@
                         <li class="nav-item me-3">
                             <asp:LinkButton ID="lnkConfiteria" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/ConfiteriaVUsuario.aspx">Confitería</asp:LinkButton>
                         </li>
-                        <li class="nav-item me-3">
-                            <asp:LinkButton ID="lnkPerfil" runat="server" CssClass="nav-link navBar-Expandido" PostBackUrl="~/MiPerfil.aspx">
-                        <span class="d-inline d-lg-none">Mi Perfil</span>
-                        <i class="fas fa-user d-none d-lg-inline"></i>
+                        <li class="nav-item dropdown me-3">
+                            <asp:LinkButton runat="server" class="nav-link dropdown-toggle text-decoration-none navBar-Expandido" id="lnkPerfil" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             </asp:LinkButton>
+                            <ul class="dropdown-menu" aria-labelledby="lnkPerfilDropdown">
+                                <li><a class="dropdown-item" href="#">Historial de Compras</a></li>
+                                <li><a class="dropdown-item" href="Login.aspx">Cerrar Sesión</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>

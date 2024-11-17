@@ -22,6 +22,9 @@ namespace PapucplanetWAS
         {
             if (!IsPostBack)
             {
+                usuario usuarioDatos = (usuario)Session["Usuario"];
+                lnkPrfCompra.Text = usuarioDatos.nombre + " " + usuarioDatos.primerApellido;
+
                 ButacaFuncionWSClient daoButacaFuncion = new ButacaFuncionWSClient();
                 
                 string valor=Request.QueryString["idFuncion"];

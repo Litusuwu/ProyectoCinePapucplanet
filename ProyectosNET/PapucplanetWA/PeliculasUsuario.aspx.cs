@@ -24,6 +24,7 @@ namespace PapucplanetWA
             {
                 usuario usuarioDatos = (usuario)Session["Usuario"];
                 lnkPerfil.Text = usuarioDatos.nombre + " " + usuarioDatos.primerApellido;
+                
                 CargarDatos();
                 BindPeliculas();
                 BindSedes();
