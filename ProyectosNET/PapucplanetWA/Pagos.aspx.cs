@@ -64,8 +64,15 @@ namespace PapucplanetWA
             bol.metodoPago = metodoPago.BILLETERA_ELECTRONICA;
             bol.metodoPagoSpecified = true;
             BoletaWSClient daoBoleta = new BoletaWSClient();
-            daoBoleta.insertarBoleta(bol);
-            Response.Write("<script>alert('Pago con Yape confirmado');</script>");
+
+            if (daoBoleta.insertarBoleta(bol)!=0)
+            {
+                Response.Write("<script>alert('Pago con Yape confirmado');</script>");
+                Session["LineasBoleta"] = null;
+                Session["CantidadProductos"] = null;
+
+            }
+            
         }
 
         protected void btnConfirmarPlin_Click(object sender, EventArgs e)
@@ -74,8 +81,13 @@ namespace PapucplanetWA
             bol.metodoPago = metodoPago.BILLETERA_ELECTRONICA;
             bol.metodoPagoSpecified = true;
             BoletaWSClient daoBoleta = new BoletaWSClient();
-            daoBoleta.insertarBoleta(bol);
-            Response.Write("<script>alert('Pago con Plin confirmado');</script>");
+            if (daoBoleta.insertarBoleta(bol) != 0)
+            {
+                Response.Write("<script>alert('Pago con Plin confirmado');</script>");
+                Session["LineasBoleta"] = null;
+                Session["CantidadProductos"] = null;
+
+            }
         }
 
         protected void btnConfirmarTransferencia_Click(object sender, EventArgs e)
