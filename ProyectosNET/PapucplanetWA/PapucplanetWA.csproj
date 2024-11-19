@@ -486,7 +486,6 @@
     <Content Include="Styles\Confiteria.css" />
     <Content Include="Styles\Pagos.css" />
     <Content Include="Styles\Peliculas.css" />
-    <Content Include="Usuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -622,12 +621,6 @@
     </Compile>
     <Compile Include="Sedes.aspx.designer.cs">
       <DependentUpon>Sedes.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Usuarios.aspx.cs">
-      <DependentUpon>Usuarios.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Usuarios.aspx.designer.cs">
-      <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
