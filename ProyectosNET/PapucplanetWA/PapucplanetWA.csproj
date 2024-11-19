@@ -437,7 +437,6 @@
     <Content Include="Content\Fonts\css\v5-font-face.min.css" />
     <Content Include="Content\styles.css" />
     <Content Include="Funciones.aspx" />
-    <Content Include="Logout.aspx" />
     <Content Include="Pagos.aspx" />
     <Content Include="Scripts\Papucplanet\Butacas.js" />
     <Content Include="Scripts\Papucplanet\Consumible.js" />
@@ -487,6 +486,7 @@
     <Content Include="Styles\Confiteria.css" />
     <Content Include="Styles\Pagos.css" />
     <Content Include="Styles\Peliculas.css" />
+    <Content Include="Usuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -573,13 +573,6 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Logout.aspx.cs">
-      <DependentUpon>Logout.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Logout.aspx.designer.cs">
-      <DependentUpon>Logout.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Pagos.aspx.cs">
       <DependentUpon>Pagos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -629,6 +622,12 @@
     </Compile>
     <Compile Include="Sedes.aspx.designer.cs">
       <DependentUpon>Sedes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
