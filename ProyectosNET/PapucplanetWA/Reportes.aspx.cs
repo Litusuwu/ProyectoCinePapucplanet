@@ -1,7 +1,9 @@
 ﻿using PapucplanetWA.Servicio;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -10,6 +12,54 @@ namespace PapucplanetWA
 {
     public partial class Reportes : System.Web.UI.Page
     {
+        private PeliculaWSClient daoPelicula;
+        private BindingList<pelicula> peliculas;
+        
+        private SedeWSClient daoSede;
+        private BindingList<sede> sedes;
+        
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            daoPelicula = new PeliculaWSClient();
+            daoSede = new SedeWSClient();
+
+            peliculas = new BindingList<pelicula>();
+            sedes = new BindingList<sede>();
+            //BindingList<string> titulosPeliculas = new BindingList<string>();
+            //BindingList<string> nombresSedes = new BindingList<string>();
+            //titulosPeliculas.Add("None");
+            //nombresSedes.Add("None");
+            pelicula nulap = new pelicula();
+            nulap.idPelicula = 0;
+            nulap.titulo = "None";
+            peliculas.Add(nulap);
+            pelicula[] arrP = daoPelicula.listarTodosPelicula();
+            foreach (pelicula p in arrP)
+            {
+                peliculas.Add(p);
+            }
+            sede nulas = new sede();
+            nulas.idSede = 0;
+            nulas.universidad = "None";
+            sedes.Add(nulas);
+            sede[] arrS = daoSede.listarTodosSede();
+            foreach (sede s in arrS)
+            {
+                sedes.Add(s);
+            }
+            if (!IsPostBack)
+            {
+                ddlTituloPelicula.DataSource = peliculas;
+                ddlTituloPelicula.DataTextField = "titulo";
+                ddlTituloPelicula.DataValueField = "idPelicula";
+                ddlTituloPelicula.DataBind();
+
+                ddlNombreSede.DataSource = sedes;
+                ddlNombreSede.DataTextField = "universidad";
+                ddlNombreSede.DataValueField = "idSede";
+                ddlNombreSede.DataBind();
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             usuario usuarioDatos = (usuario)Session["Usuario"];
@@ -27,6 +77,8 @@ namespace PapucplanetWA
             }
             if (!IsPostBack)
             {
+                ddlNombreSede.SelectedValue = "None";
+                ddlTituloPelicula.SelectedValue = "None";
                 if (string.IsNullOrEmpty(dtpFechaFin.Value))
                 {
                     dtpFechaFin.Value = DateTime.Now.ToString("yyyy-MM-dd");
@@ -41,6 +93,7 @@ namespace PapucplanetWA
                     masterPage.SetTituloPagina("Seleccionar reporte");
                 }
             }
+            
             Session["Excepcion"] = "No"; //No
         }
         protected void lbRegresar_Click(object sender, EventArgs e)
@@ -51,23 +104,34 @@ namespace PapucplanetWA
         {
             //Session["Excepcion"] = "No"; //No
             string script = "";
-            if(Session["Excepcion"].ToString() == "No")
+            if (!rbPelicula.Checked && !rbSede.Checked)
             {
-                if (!rbPelicula.Checked && !rbSede.Checked)
+                lblMensajeError.Text = "Debe seleccionar uno de los 2 filtros.";
+                script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
+                return;
+            }
+            if (rbPelicula.Checked) //Pelicula
+            {
+                if(ddlTituloPelicula.SelectedValue == "0")
                 {
-                    lblMensajeError.Text = "Debe seleccionar uno de los 2 filtros.";
+                    lblMensajeError.Text = "Debe seleccionar una pelicula.";
                     script = "showModalFormError();";
                     ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                     return;
                 }
-                if (!cbIngresos.Checked && !cbConsumibles.Checked && !cbButacas.Checked)
+            }
+            else //Sede
+            {
+                if (ddlNombreSede.SelectedValue == "0")
                 {
-                    lblMensajeError.Text = "Debe seleccionar por lo menos un contenido";
+                    lblMensajeError.Text = "Debe seleccionar una sede.";
                     script = "showModalFormError();";
                     ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                     return;
                 }
-                if (string.IsNullOrEmpty(dtpFechaInicio.Value)){
+                if (string.IsNullOrEmpty(dtpFechaInicio.Value))
+                {
                     lblMensajeError.Text = "No debe dejar la fecha de inicio vacia";
                     script = "showModalFormError();";
                     ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
@@ -80,50 +144,7 @@ namespace PapucplanetWA
                     ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                     return;
                 }
-                //if ((string.IsNullOrEmpty(dtpFechaInicio.Value)) || (string.IsNullOrEmpty(dtpFechaFin.Value))
-                //{
-                //    if (string.IsNullOrEmpty(dtpFechaInicio.Value) && string.IsNullOrEmpty(dtpFechaFin.Value))
-                //    {
-                //        txtExcepcionMsg.Value = "Se utilizara la fecha actual [" + DateTime.Now.Date.ToString() + "] como unico dia para su reporte";
-                //        script = "showModalFormConvencion();"; //Reemplazar en futuros paramtros fin e inicio
-                //        ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormConvencion", script, true);
-                //        return;
-                //    }
-                //    else if (string.IsNullOrEmpty(dtpFechaFin.Value))
-                //    {
-                //        if (DateTime.Parse(dtpFechaInicio.Value) > DateTime.Now.Date)
-                //        {
-                //            txtExcepcionMsg.Value = "La fecha de inicio debe ser previa a la fecha actual " + DateTime.Now.Date.ToString();
-                //            script = "showModalFormError();";
-                //            ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
-                //            return;
-                //        }
-                //        else
-                //        {
-                //            txtExcepcionMsg.Value = "Se utilizara la fecha inicio [" + DateTime.Parse(dtpFechaInicio.Value).ToString() + "] como unico dia para su reporte";
-                //            script = "showModalFormConvencion();"; //Reemplazar en futuro paramtro fin
-                //            ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormConvencion", script, true);
-                //            return;
-                //        }
-                //    }
-                //    else //Inicio esta vacio
-                //    {
-                //        if (DateTime.Parse(dtpFechaFin.Value) > DateTime.Now.Date)
-                //        {
-                //            txtExcepcionMsg.Value = "La fecha de fin debe ser previa a la fecha actual " + DateTime.Now.Date.ToString();
-                //            script = "showModalFormError();";
-                //            ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
-                //            return;
-                //        }
-                //        else
-                //        {
-                //            txtExcepcionMsg.Value = "Se utilizara la fecha fin [" + DateTime.Parse(dtpFechaFin.Value).ToString() + "] como unico dia para su reporte";
-                //            script = "showModalFormConvencion();"; //Reemplazar en futuro paramtro inicio
-                //            ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormConvencion", script, true);
-                //            return;
-                //        }
-                //    }
-                //}
+
                 if (DateTime.Parse(dtpFechaInicio.Value) > DateTime.Now.Date || DateTime.Parse(dtpFechaInicio.Value) > DateTime.Now.Date)
                 {
                     lblMensajeError.Text = "Las fechas ingresadas deben ser previas a la fecha actual " + DateTime.Now.Date.ToString("yyyy-MM-dd");
@@ -139,6 +160,7 @@ namespace PapucplanetWA
                     return;
                 }
             }
+            //if (Session["Excepcion"].ToString() == "No"){}
             //Si estaba en Si, sacar de Session todas las variables guardadas
             System.Console.WriteLine("Imprime Reporte...");
             
@@ -148,5 +170,23 @@ namespace PapucplanetWA
             Session["Excepcion"] = "Si"; //Si
             lbGenerarReporte_Click( sender, e);
         }
+        protected void ddlSeleccion_Pelicula(object sender, EventArgs e)
+        {
+            if(ddlTituloPelicula.SelectedValue != "0")
+            {
+                ddlNombreSede.SelectedValue = "0";
+                dtpFechaInicio.Value = DateTime.Now.ToString("yyyy-MM-dd");
+                dtpFechaFin.Value = DateTime.Now.ToString("yyyy-MM-dd");
+            }
+        }
+        protected void ddlSeleccion_Sede(object sender, EventArgs e)
+        {
+            if (ddlNombreSede.SelectedValue != "0")
+            {
+                ddlTituloPelicula.SelectedValue = "0";
+            }
+        }
+
+        
     }
 }
