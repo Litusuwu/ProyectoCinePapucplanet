@@ -22,6 +22,7 @@ namespace PapucplanetWA
                 Session["Redireccion"] = "Login.aspx";
                 Response.Redirect("AccesoDenegado.aspx");
             }
+            Session["Visible"]=0;
             string idPeliculaStr = Request.QueryString["id_pelicula"];
             if (!string.IsNullOrEmpty(idPeliculaStr) && int.TryParse(idPeliculaStr, out int idPeliculaParsed))
             {                

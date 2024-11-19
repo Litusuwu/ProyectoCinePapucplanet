@@ -6,7 +6,7 @@ DROP PROCEDURE IF EXISTS LISTAR_BUTACA_FUNCION_X_ID;
 DROP PROCEDURE IF EXISTS ELIMINAR_BUTACA_FUNCION_X_ID;
 DROP PROCEDURE IF EXISTS OBTENER_BUTACAS_X_FUNCION;
 DROP PROCEDURE IF EXISTS ELIMINAR_BUTACAS_FUNCION_X_ID_FUNCION;
-
+DROP PROCEDURE IF EXISTS RESERVAR_BUTACA_FUNCION;
 -- Procedimientos de ButacaFuncion
 DELIMITER $
 CREATE PROCEDURE INSERTAR_BUTACA_FUNCION(
@@ -79,4 +79,14 @@ BEGIN
     WHERE bf.fid_funcion = _id_funcion
     AND bf.activo = 1  AND b.activo = 1 
     ORDER BY b.fila, b.columna;
+END $
+
+CREATE PROCEDURE RESERVAR_BUTACA_FUNCION(
+    IN _id_butaca_funcion INT
+)
+BEGIN
+    UPDATE ButacaFuncion
+    SET estado_butaca = 'OCUPADA' 
+    WHERE id_butaca_funcion = _id_butaca_funcion
+    AND estado_butaca = 'DISPONIBLE';  -- Solo se actualiza si el estado es 'DISPONIBLE'
 END $

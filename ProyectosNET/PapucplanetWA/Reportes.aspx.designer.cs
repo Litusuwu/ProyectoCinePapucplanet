@@ -33,6 +33,24 @@ namespace PapucplanetWA
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbPelicula;
 
         /// <summary>
+        /// Control lblTituloPelicula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTituloPelicula;
+
+        /// <summary>
+        /// Control ddlTituloPelicula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTituloPelicula;
+
+        /// <summary>
         /// Control rbSede.
         /// </summary>
         /// <remarks>
@@ -42,40 +60,22 @@ namespace PapucplanetWA
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbSede;
 
         /// <summary>
-        /// Control Contenidos.
+        /// Control lblNombreSede.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Contenidos;
+        protected global::System.Web.UI.WebControls.Label lblNombreSede;
 
         /// <summary>
-        /// Control cbIngresos.
+        /// Control ddlNombreSede.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox cbIngresos;
-
-        /// <summary>
-        /// Control cbConsumibles.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox cbConsumibles;
-
-        /// <summary>
-        /// Control cbButacas.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox cbButacas;
+        protected global::System.Web.UI.WebControls.DropDownList ddlNombreSede;
 
         /// <summary>
         /// Control Tiempos.
@@ -121,6 +121,42 @@ namespace PapucplanetWA
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dtpFechaFin;
+
+        /// <summary>
+        /// Control Contenidos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Contenidos;
+
+        /// <summary>
+        /// Control cbIngresos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox cbIngresos;
+
+        /// <summary>
+        /// Control cbConsumibles.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox cbConsumibles;
+
+        /// <summary>
+        /// Control cbButacas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox cbButacas;
 
         /// <summary>
         /// Control lbRegresar.

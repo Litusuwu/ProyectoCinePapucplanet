@@ -26,6 +26,8 @@ namespace PapucplanetWA
                 Session["Redireccion"] = "Login.aspx";
                 Response.Redirect("AccesoDenegado.aspx");
             }
+
+            Session["Visible"] = 0;
             if (!IsPostBack || Request.QueryString["reload"] == "true")
             {
                 

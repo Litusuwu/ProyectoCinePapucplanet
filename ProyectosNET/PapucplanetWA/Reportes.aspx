@@ -10,16 +10,40 @@
         <div class="container row">
            <asp:Label ID="Filtros" CssClass="col-form-label fw-bold" runat="server" Text="Filtros:"></asp:Label>
             <div class="row align-items-center">
-                <div class="form-check form-check-inline">
-                    <label class="form-check-label" runat="server" for="cphContenido_rbPelicula">Por Pelicula:</label>
-                    <input type="radio" runat="server" autopostback="true" id="rbPelicula" class="form-check-input" name="FiltroInformacion" />
+                <div class="container row">
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label" runat="server" for="cphContenido_rbPelicula">Por Pelicula:</label>
+                        <input type="radio" runat="server" autopostback="true" id="rbPelicula" class="form-check-input" name="FiltroInformacion" />
+                    </div>
+                    <div class="col-md-8 pb-md-3">
+                        <asp:Label ID="lblTituloPelicula" runat="server" Text="Seleccione la pelicula:" CssClass="col-form-label fw-bold"></asp:Label>
+                        <asp:DropDownList ID="ddlTituloPelicula" runat="server" AutoPostBack="true" CssClass="form-control" Enabled="true" OnTextChanged="ddlSeleccion_Pelicula"></asp:DropDownList>
+                    </div>
                 </div>
-                <div class="form-check form-check-inline">
-                    <label class="form-check-label" runat="server" for="cphContenido_rbSede">Por Sede:</label>
-                    <input type="radio" runat="server" autopostback="true" id="rbSede" class="form-check-input" name="FiltroInformacion" />
+                <div class="container row">
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label" runat="server" for="cphContenido_rbSede">Por Sede:</label>
+                        <input type="radio" runat="server" autopostback="true" id="rbSede" class="form-check-input" name="FiltroInformacion" />
+                    </div>
+                    <div class="col-md-8 pb-md-3">
+                        <asp:Label ID="lblNombreSede" runat="server" Text="Seleccione la sede:" CssClass="col-form-label fw-bold"></asp:Label>
+                        <asp:DropDownList ID="ddlNombreSede" runat="server" AutoPostBack="true" CssClass="form-control" Enabled="true" OnTextChanged="ddlSeleccion_Sede"></asp:DropDownList>
+                    </div>
+                    <asp:Label ID="Tiempos" CssClass="col-form-label fw-bold" runat="server" Text="Tiempos:"></asp:Label>
+                    <div class="row align-items-center">
+                        <div class="col-md-6 pb-md-2">
+                            <asp:Label ID="lblFechaInicio" CssClass="col-form-label fw-bold" runat="server" Text="Desde:"></asp:Label>
+                            <input id="dtpFechaInicio" runat="server" type="date" class="form-control" />
+                        </div>
+                        <div class="col-md-6 pb-md-2">
+                            <asp:Label ID="lblFechaFin" CssClass="col-form-label fw-bold" runat="server" Text="Hasta:"></asp:Label>
+                            <input id="dtpFechaFin" runat="server" type="date" class="form-control" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <!--
         <div class="container row">
             <asp:Label ID="Contenidos" CssClass="col-form-label fw-bold" runat="server" Text="Contenidos:"></asp:Label>
             <div class="row align-items-center">
@@ -37,19 +61,8 @@
                 </div>
             </div>
         </div>
-        <div class="container row">
-            <asp:Label ID="Tiempos" CssClass="col-form-label fw-bold" runat="server" Text="Tiempos:"></asp:Label>
-            <div class="row align-items-center">
-                <div class="col-md-6 pb-md-2">
-                    <asp:Label ID="lblFechaInicio" CssClass="col-form-label fw-bold" runat="server" Text="Desde:"></asp:Label>
-                    <input id="dtpFechaInicio" runat="server" type="date" class="form-control" />
-                </div>
-                <div class="col-md-6 pb-md-2">
-                    <asp:Label ID="lblFechaFin" CssClass="col-form-label fw-bold" runat="server" Text="Hasta:"></asp:Label>
-                    <input id="dtpFechaFin" runat="server" type="date" class="form-control" />
-                </div>
-            </div>
-        </div>
+        -->
+        
         <div class="card-footer clearfix">
             <asp:LinkButton ID="lbRegresar" runat="server" Text="<i class='fa-solid fa-rotate-left'></i> Regresar" CssClass="float-start btn btn-secondary" OnClick="lbRegresar_Click" />
             <asp:LinkButton ID="lbGenerarReporte" runat="server" Text="<i class='fa-solid fa-print'></i> Generar Reporte" CssClass="float-end btn btn-primary" OnClick="lbGenerarReporte_Click" />

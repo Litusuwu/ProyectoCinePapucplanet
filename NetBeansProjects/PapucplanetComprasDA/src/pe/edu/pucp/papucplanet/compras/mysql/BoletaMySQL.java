@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import jdk.dynalink.linker.support.Guards;
 import pe.edu.pucp.papucplanet.cine.model.Sede;
 import pe.edu.pucp.papucplanet.compras.dao.BoletaDAO;
 import pe.edu.pucp.papucplanet.compras.model.Boleta;
@@ -32,7 +33,18 @@ public class BoletaMySQL implements BoletaDAO{
             cs.setDouble("_total", boleta.getTotal());
             cs.executeUpdate();
             boleta.setIdBoleta(cs.getInt("_id_boleta"));
-            for(LineaBoleta lb : boleta.getLineasBoleta()){                
+            for(LineaBoleta lb : boleta.getLineasBoleta()){
+                if(lb.getButacaFuncion() != null){
+                    cs= con.prepareCall("{call RESERVAR_BUTACA_FUNCION(?)}");
+                    cs.setInt(1, lb.getButacaFuncion().getIdButacaFuncion());  // _id_butaca_funcion
+                    int res=cs.executeUpdate(); // Llamar al procedimiento para reservar la butaca
+                    if (res == 0) {  
+                        con.rollback(); 
+                        System.out.println("Error al reservar la butaca.");
+                        con.close();
+                        return res;  // Terminar la ejecución del método si hay error
+                    }
+                }
                 cs = con.prepareCall("{call INSERTAR_LINEA_BOLETA(?,?,?,?,?,?)}");
                 cs.registerOutParameter(1, java.sql.Types.INTEGER); // El parámetro de salida _id_lineaBoleta
                 cs.setInt(2, boleta.getIdBoleta());

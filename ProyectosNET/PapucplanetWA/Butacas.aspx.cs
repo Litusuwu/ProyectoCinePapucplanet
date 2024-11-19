@@ -25,22 +25,37 @@ namespace PapucplanetWAS
                 usuario usuarioDatos = (usuario)Session["Usuario"];
                 lnkPrfCompra.Text = usuarioDatos.nombre + " " + usuarioDatos.primerApellido;
 
-                ButacaFuncionWSClient daoButacaFuncion = new ButacaFuncionWSClient();
-                
-                string valor=Request.QueryString["idFuncion"];
-                int val=Int32.Parse(valor);
-                showDate(val);
-                BindingList<butacaFuncion> listaButacas = new BindingList<butacaFuncion>(daoButacaFuncion.obtenerButacasPorFuncionButacaFuncion(val));
-                matrizButacas = ConvertirListaEnMatriz(listaButacas);
-                Session["MatrizButacas"] = matrizButacas;
-                SeatRepeater.DataSource = matrizButacas;
-                SeatRepeater.DataBind();
-                BindSummaryGrid(listaButacas);
-                lineas = new BindingList<lineaBoleta>();
-                Session["LineasBoleta"] = lineas;
-                Session["ContDisc"]= 0;
-                Session["ContEst"] = 0;
-                Session["Total"] = 0.00;
+                if ((BindingList<lineaBoleta>)Session["LineasBoleta"] == null){
+                    ButacaFuncionWSClient daoButacaFuncion = new ButacaFuncionWSClient();
+                    string valor = Request.QueryString["idFuncion"];
+                    int val = Int32.Parse(valor);
+                    Session["idFuncion"] = val;
+                    showDate(val);
+                    BindingList<butacaFuncion> listaButacas = new BindingList<butacaFuncion>(daoButacaFuncion.obtenerButacasPorFuncionButacaFuncion(val));
+                    matrizButacas = ConvertirListaEnMatriz(listaButacas);
+                    Session["MatrizButacas"] = matrizButacas;
+                    SeatRepeater.DataSource = matrizButacas;
+                    SeatRepeater.DataBind();
+                    BindSummaryGrid(listaButacas);
+                    lineas = new BindingList<lineaBoleta>();
+                    Session["LineasBoleta"] = lineas;
+                    Session["ContDisc"] = 0;
+                    Session["ContEst"] = 0;
+                    Session["Total"] = 0.00;
+
+                }
+                else{
+                    int val = (int)Session["idFuncion"];
+                    showDate(val);
+                    SeatRepeater.DataSource = (BindingList < BindingList < butacaFuncion >>) Session["MatrizButacas"];
+                    SeatRepeater.DataBind();
+                    lineas = (BindingList<lineaBoleta>)Session["LineasBoleta"];
+                    GridViewSummary.DataSource = Session["Summary"];
+                    GridViewSummary.DataBind();
+                    LabelTotal.Text = ((double)Session["Total"]).ToString();
+                    LabelCantidadTotal.Text = ((int)Session["ContDisc"] + (int)Session["ContEst"]).ToString();
+                }
+
             }
             else
             {
@@ -88,7 +103,7 @@ namespace PapucplanetWAS
             FuncionWSClient daoFuncion = new FuncionWSClient();
             funcion fun=daoFuncion.obtenerPorIdFuncion(val);
             DateTime date = fun.dia;
-            DateTime horaInicio = fun.horarioInicio;  // Suponiendo que puedes convertirlo
+            DateTime horaInicio = fun.horarioInicio;  
             DateTime horaFin = fun.horarioFin;
             lblDate.Text = "Fecha de la función: " + date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture) +
                            "<br>Hora de la función:  " + horaInicio.ToString("HH:mm") + " - "  +  horaFin.ToString("HH:mm");
@@ -301,7 +316,8 @@ namespace PapucplanetWAS
             int cantBut = (Int32)Session["ContDisc"] + (Int32)Session["ContEst"];
             if (cantBut > 0)
             {
-                Response.Redirect("ConfiteriaVUsuario.aspx?visible=1");
+                Session["Visible"] = 1;
+                Response.Redirect("ConfiteriaVUsuario.aspx?");
             }
             else
             {
