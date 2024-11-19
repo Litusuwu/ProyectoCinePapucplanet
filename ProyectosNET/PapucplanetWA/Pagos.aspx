@@ -165,6 +165,27 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <!-- Modal de Advertencia -->
+                                    <div class="modal fade" id="warningModal" tabindex="-1" aria-labelledby="warningModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-danger text-white justify-content-center">
+                                                    <h5 class="modal-title" id="warningModalLabel">
+                                                        <i class="bi bi-exclamation-circle-fill me-2"></i>Advertencia
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body text-center">
+                                                    Completa la selección de método de pago antes de continuar.
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Cerrar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </ContentTemplate>
                             </asp:UpdatePanel>
                         </ContentTemplate>
@@ -247,8 +268,9 @@
 
                 // Realiza acciones específicas dependiendo del campo activo
                 if (activeElement.id === "txtNombreCompleto" || activeElement.id === "txtDni") {
-                    // Opcional: puedes mostrar un mensaje de validación
-                    alert("Completa la selección de método de pago antes de continuar.");
+                    // Mostrar el modal de advertencia
+                    const warningModal = new bootstrap.Modal(document.getElementById("warningModal"));
+                    warningModal.show();
                 } else if (activeElement.id === "txtNumeroOperacion") {
                     // Simula un clic en el botón de Confirmar Transferencia
                     const btnTransferencia = document.querySelector("#btnConfirmarTransferencia");
