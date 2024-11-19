@@ -38,7 +38,7 @@
                             </asp:LinkButton>
                             <ul class="dropdown-menu" aria-labelledby="lnkPerfilDropdown">
                                 <li><a class="dropdown-item" href="#">Historial de Compras</a></li>
-                                <li><a class="dropdown-item" href="Login.aspx">Cerrar Sesión</a></li>
+                                <li><a class="dropdown-item" href="Logout.aspx">Cerrar Sesión</a></li>
                             </ul>
                         </li>
                     </ul>

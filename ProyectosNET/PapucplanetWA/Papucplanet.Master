@@ -73,13 +73,6 @@
                         Reportes
                     </a>
                 </li>
-                <li class="nav-item ">
-                    <!--Cambiar href-->
-                    <a href="Usuarios.aspx" id="usuariosLink" runat="server" class="enlace-hover  text-black fs-5 text-decoration-none">
-                        <i class="fa-solid fa-user pe-2"></i>
-                        Usuarios
-                    </a>
-                </li>
             </ul>
             <hr />
             <div class="d-flex">
@@ -117,7 +110,7 @@
                         </div>
 
                         <!-- Icono de salir -->
-                        <a href="#" class="ms-3 text-dark fs-4">
+                        <a href="Logout.aspx" class="ms-3 text-dark fs-4">
                             <i class="fa-solid fa-arrow-right-from-bracket"></i>
                         </a>
                     </div>

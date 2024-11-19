@@ -20,9 +20,15 @@ namespace PapucplanetWA
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            usuario usuarioDatos = (usuario)Session["Usuario"];
+            if (usuarioDatos == null)
+            {
+                Session["Redireccion"] = "Login.aspx";
+                Response.Redirect("AccesoDenegado.aspx");
+            }
             if (!IsPostBack || Request.QueryString["reload"] == "true")
             {
-                usuario usuarioDatos = (usuario)Session["Usuario"];
+                
                 lnkPerfil.Text = usuarioDatos.nombre + " " + usuarioDatos.primerApellido;
                 
                 CargarDatos();

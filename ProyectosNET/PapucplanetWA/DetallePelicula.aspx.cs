@@ -16,10 +16,15 @@ namespace PapucplanetWA
         // Variables para almacenar el día y el horario seleccionados
         protected void Page_Load(object sender, EventArgs e)
         {
+            usuario usuarioDatos = (usuario)Session["Usuario"];
+            if(usuarioDatos == null)
+            {
+                Session["Redireccion"] = "Login.aspx";
+                Response.Redirect("AccesoDenegado.aspx");
+            }
             string idPeliculaStr = Request.QueryString["id_pelicula"];
             if (!string.IsNullOrEmpty(idPeliculaStr) && int.TryParse(idPeliculaStr, out int idPeliculaParsed))
-            {
-                usuario usuarioDatos = (usuario)Session["Usuario"];
+            {                
                 lnkPerfil.Text = usuarioDatos.nombre + " " + usuarioDatos.primerApellido;
                 CargarDiasYHorarios(idPeliculaParsed);
                 if (ViewState["diaSeleccionado"] != null)
