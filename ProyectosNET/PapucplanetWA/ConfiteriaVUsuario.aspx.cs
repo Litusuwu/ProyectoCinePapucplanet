@@ -21,18 +21,20 @@ namespace PapucplanetWA
 
             if (!IsPostBack)
             {
-                string valor = Request.QueryString["visible"];
+                int valor = (int)Session["Visible"];
                 
+                /*
                 if (Session["CantidadProductos"] != null)
                 {
                     Session["CantidadProductos"] = new Dictionary<int, int>();
                 }
+                */
                 usuario usuarioDatos = (usuario)Session["Usuario"];
                 lnkPerfilOutside.Text = usuarioDatos.nombre + " " + usuarioDatos.primerApellido;
                 lnkPrfCompra.Text= usuarioDatos.nombre + " " + usuarioDatos.primerApellido;
                 CargarProductos();
                 ActualizarContadorCarrito();
-                if (valor != null) Visibility(true);
+                if (valor != 0) Visibility(true);
                 else Visibility(false);
                
             }
@@ -45,6 +47,7 @@ namespace PapucplanetWA
         protected void Visibility(bool visible)
         {
             cart.Visible = visible;
+            btnRegresar.Visible = visible;
             panelConfiteria.Visible = visible;
             panelPeliculas.Visible = !visible;
 
@@ -277,6 +280,9 @@ namespace PapucplanetWA
         {
             Response.Redirect("Pagos.aspx");
         }
-    
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Butacas.aspx");
+        }
     }
 }

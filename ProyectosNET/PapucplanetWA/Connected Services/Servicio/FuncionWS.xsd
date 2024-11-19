@@ -97,14 +97,6 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarPeliculasConFuncionesActivasFuncion">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarPeliculasConFuncionesActivasFuncionResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:funcion" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="obtenerPorIdFuncion">
     <xs:sequence>
       <xs:element name="idFuncion" type="xs:int" />
@@ -113,6 +105,14 @@
   <xs:complexType name="obtenerPorIdFuncionResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:funcion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarPeliculasConFuncionesActivasFuncion">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarPeliculasConFuncionesActivasFuncionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:funcion" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="modificarFuncion">

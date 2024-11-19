@@ -5,6 +5,12 @@
       <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/SedeWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
     </xsd:schema>
   </types>
+  <message name="eliminarSede">
+    <part name="parameters" element="tns:eliminarSede" />
+  </message>
+  <message name="eliminarSedeResponse">
+    <part name="parameters" element="tns:eliminarSedeResponse" />
+  </message>
   <message name="listarTodosSede">
     <part name="parameters" element="tns:listarTodosSede" />
   </message>
@@ -29,13 +35,11 @@
   <message name="modificarSedeResponse">
     <part name="parameters" element="tns:modificarSedeResponse" />
   </message>
-  <message name="eliminarSede">
-    <part name="parameters" element="tns:eliminarSede" />
-  </message>
-  <message name="eliminarSedeResponse">
-    <part name="parameters" element="tns:eliminarSedeResponse" />
-  </message>
   <portType name="SedeWS">
+    <operation name="eliminarSede">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/eliminarSedeRequest" message="tns:eliminarSede" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/eliminarSedeResponse" message="tns:eliminarSedeResponse" />
+    </operation>
     <operation name="listarTodosSede">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/listarTodosSedeRequest" message="tns:listarTodosSede" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/listarTodosSedeResponse" message="tns:listarTodosSedeResponse" />
@@ -52,13 +56,18 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/modificarSedeRequest" message="tns:modificarSede" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/modificarSedeResponse" message="tns:modificarSedeResponse" />
     </operation>
-    <operation name="eliminarSede">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/eliminarSedeRequest" message="tns:eliminarSede" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SedeWS/eliminarSedeResponse" message="tns:eliminarSedeResponse" />
-    </operation>
   </portType>
   <binding name="SedeWSPortBinding" type="tns:SedeWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="eliminarSede">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="listarTodosSede">
       <soap:operation soapAction="" />
       <input>
@@ -87,15 +96,6 @@
       </output>
     </operation>
     <operation name="modificarSede">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="eliminarSede">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

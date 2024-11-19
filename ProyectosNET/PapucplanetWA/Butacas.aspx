@@ -3,37 +3,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Metadatos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-    <!-- Fuentes de Google -->
     <link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i" rel="stylesheet" />
     <link href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet" />
 
-    <!-- Bootstrap CSS -->
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Iconos y Fuentes -->
     <link href="Content/Fonts/css/all.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css" />
     <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet" />
 
-    <!-- Estilos Personalizados -->
     <link href="Styles/Butacas.css" rel="stylesheet" />
 
-    <!-- JQuery (necesario para algunas interacciones) -->
     <script src="Scripts/jquery-3.7.1.js"></script>
 
-    <!-- Popper.js (necesario para Bootstrap dropdowns y tooltips) -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
 
-    <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- JavaScript Personalizado -->
     <script src="Scripts/Papucplanet/Butacas.js"></script>
     <title>PAPUCPLANET - Selección de Asientos</title>
 
@@ -42,6 +32,7 @@
 
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
         <asp:UpdatePanel ID="butContainer" runat="server" UpdateMode="Conditional">
             <ContentTemplate>
                 <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm fixed-top navBar-Butacas">
@@ -59,7 +50,7 @@
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav ms-auto">
                                 <li class="nav-item dropdown me-3">
-                                    <asp:LinkButton runat="server" class="nav-link dropdown-toggle text-decoration-none navBar-Expandido" id="lnkPrfCompra" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <asp:LinkButton runat="server" class="nav-link dropdown-toggle text-decoration-none navBar-Expandido" ID="lnkPrfCompra" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     </asp:LinkButton>
                                     <ul class="dropdown-menu" aria-labelledby="lnkPrfCompra">
                                         <li><a class="dropdown-item" href="#">Historial de Compras</a></li>
@@ -76,9 +67,8 @@
 
                 <div class="container mt-4 main-content">
                     <div class="seat-selection text-center">
-                        <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">--%>
                         <contenttemplate>
-                            <asp:Repeater ID="SeatRepeater" runat="server" OnItemDataBound="SeatRepeater_ItemDataBound">
+                            <asp:Repeater ID="SeatRepeater" runat="server" EnableViewState="true" OnItemDataBound="SeatRepeater_ItemDataBound">
                                 <itemtemplate>
                                     <div class="row g-2 justify-content-center mb-4">
                                         <asp:Repeater ID="RowRepeater" runat="server">
@@ -96,7 +86,6 @@
                                 </itemtemplate>
                             </asp:Repeater>
                         </contenttemplate>
-                        <%--</asp:UpdatePanel>--%>
                     </div>
                 </div>
                 <div class="container justify-content-center" style="max-width: 750px; position: relative; left: 30px; margin-top: 60px;">
@@ -141,7 +130,7 @@
                 </div>
                 <div class="summary-container">
 
-                    <asp:GridView ID="GridViewSummary" runat="server" AutoGenerateColumns="False" CssClass="summary-grid" OnRowDataBound="GridViewSummary_RowDataBound">
+                    <asp:GridView ID="GridViewSummary" runat="server" EnableViewState="true" AutoGenerateColumns="False" CssClass="summary-grid" OnRowDataBound="GridViewSummary_RowDataBound">
                         <Columns>
                             <asp:BoundField HeaderText="Tipo" DataField="Tipo" />
                             <asp:BoundField HeaderText="Precio" DataField="Precio" />
@@ -189,6 +178,5 @@
             </ContentTemplate>
         </asp:UpdatePanel>
     </form>
-
 </body>
 </html>
