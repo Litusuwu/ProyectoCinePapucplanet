@@ -55,10 +55,6 @@
                                 <li class="nav-item dropdown me-3">
                                     <asp:LinkButton runat="server" class="nav-link dropdown-toggle text-decoration-none navBar-Expandido" ID="lnkPrfCompra" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     </asp:LinkButton>
-                                    <ul class="dropdown-menu" aria-labelledby="lnkPrfCompra">
-                                        <li><a class="dropdown-item" href="#">Historial de Compras</a></li>
-                                        <li><a class="dropdown-item" href="Login.aspx">Cerrar Sesión</a></li>
-                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -88,10 +84,6 @@
                                 <li class="nav-item dropdown me-3">
                                     <asp:LinkButton runat="server" class="nav-link dropdown-toggle text-decoration-none navBar-Expandido" ID="lnkPerfilOutside" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     </asp:LinkButton>
-                                    <ul class="dropdown-menu" aria-labelledby="lnkPerfilOutside">
-                                        <li><a class="dropdown-item" href="#">Historial de Compras</a></li>
-                                        <li><a class="dropdown-item" href="Login.aspx">Cerrar Sesión</a></li>
-                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -125,6 +117,7 @@
                 <asp:LinkButton ID="btnRegresar" runat="server" CssClass="btn btn-outline-dark w-25 d-flex align-items-center justify-content-center boton-Filtrar" OnClick="btnRegresar_Click">
                     Regresar al Paso Anterior
                 </asp:LinkButton>
+                <div class="container my-4">
                 <asp:Panel ID="panelAll" runat="server" CssClass="row">
                     <asp:Repeater ID="rptAllItems" runat="server" OnItemDataBound="rptAllItems_ItemDataBound">
                         <ItemTemplate>
