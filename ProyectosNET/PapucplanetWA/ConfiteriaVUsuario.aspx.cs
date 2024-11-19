@@ -272,7 +272,7 @@ namespace PapucplanetWA
                }
             }
             
-            Session["LineasBoleta"] = lineas;
+            Session["LineasBoleta"] = lineas; 
             Session["CantidadProductos"] = cantidades;
         }
 
