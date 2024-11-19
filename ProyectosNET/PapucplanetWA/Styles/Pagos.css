@@ -133,3 +133,18 @@ body {
     font-family: "Montserrat", sans-serif;
     font-weight: 900;
 }
+
+.formulario-espaciado {
+    margin-bottom: 50px; /* Ajusta el valor según tus necesidades */
+}
+
+.btn-dark-red {
+    background-color: #8B0000 !important; /* Código hexadecimal para dark-red */
+    color: white !important;
+    border: none !important;
+}
+
+.btn-dark-red:hover {
+    background-color: #a10000 !important; /* Un poco más claro en hover */
+    color: white !important;
+}
