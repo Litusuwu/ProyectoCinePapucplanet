@@ -18,38 +18,42 @@
 
 <body>
     <form id="form1" runat="server">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm fixed-top">
-                <div class="container-fluid">
-                    <!-- Logo y Título -->
-                    <a class="navbar-brand d-flex align-items-center gap-2" href="#" style="text-decoration: none; font-size: 1.25rem;">
-                        <i class="fa fa-film" style="font-size: 1.5rem;"></i>
-                        <strong>PAPUCPLANET</strong>
-                    </a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm fixed-top">
+            <div class="container-fluid">
+                <!-- Logo y Título -->
+                <a class="navbar-brand d-flex align-items-center gap-2" href="#" style="text-decoration: none; font-size: 1.25rem;">
+                    <i class="fa fa-film" style="font-size: 1.5rem;"></i>
+                    <strong>PAPUCPLANET</strong>
+                </a>
 
-                    <div class="mx-auto">
-                        <span class="nav-link text-white" style="font-size: 1.1rem;">3. Pago</span>
-                    </div>
-
-                    <!-- Elementos de Navegación -->
-                    <ul class="navbar-nav ms-auto">
-
-                        <!-- Dropdown de Usuario -->
-                        <li class="nav-item dropdown">
-                            <asp:LinkButton class="nav-link dropdown-toggle text-white" runat="server" id="lnkPrfCompra" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Bryan Smith Valdiviezo
-                            </asp:LinkButton>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="lnkPrfCompra">
-                                <li><a class="dropdown-item" href="#">Historial de Compras</a></li>
-                                <li><a class="dropdown-item" href="Login.aspx">Cerrar Sesión</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                <div class="mx-auto">
+                    <span class="nav-link text-white" style="font-size: 1.1rem;">3. Pago</span>
                 </div>
-            </nav>
+
+                <!-- Elementos de Navegación -->
+                <ul class="navbar-nav ms-auto">
+
+                    <!-- Dropdown de Usuario -->
+                    <li class="nav-item dropdown">
+                        <asp:LinkButton class="nav-link dropdown-toggle text-white" runat="server" ID="lnkPrfCompra" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Bryan Smith Valdiviezo
+                        </asp:LinkButton>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="lnkPrfCompra">
+                            <li><a class="dropdown-item" href="#">Historial de Compras</a></li>
+                            <li><a class="dropdown-item" href="Login.aspx">Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
         <div class="container my-5">
+            <asp:LinkButton ID="btnRegresar" runat="server" CssClass="btn btn-outline-dark w-25 d-flex align-items-center justify-content-center boton-Filtrar" OnClick="btnRegresar_Click">
+                    Regresar al Paso Anterior
+            </asp:LinkButton>
             <h2 class="text-center locura">Elige tu método de pago</h2>
-            
-             <div id="custom-inputs" class="row justify-content-center mb-4">
+
+            <div id="custom-inputs" class="row justify-content-center mb-4">
                 <div class="col-md-6">
                     <!-- Nombre Completo -->
                     <div class="group">
@@ -75,16 +79,16 @@
                 <!-- Panel izquierdo: opciones de pago -->
                 <div class="col-md-4">
                     <button type="button" class="btn btn-payment-option" onclick="showPaymentForm('credit-card')">
-                        <i class="fas fa-credit-card"></i> Tarjeta de Crédito/Débito
+                        <i class="fas fa-credit-card"></i>Tarjeta de Crédito/Débito
                     </button>
                     <button type="button" class="btn btn-payment-option" onclick="showPaymentForm('yape')">
-                        <i class="fas fa-mobile-alt"></i> Yape
+                        <i class="fas fa-mobile-alt"></i>Yape
                     </button>
                     <button type="button" class="btn btn-payment-option" onclick="showPaymentForm('plin')">
-                        <i class="fas fa-mobile-alt"></i> Plin
+                        <i class="fas fa-mobile-alt"></i>Plin
                     </button>
                     <button type="button" class="btn btn-payment-option" onclick="showPaymentForm('bank-transfer')">
-                        <i class="fas fa-university"></i> Transferencia Interbancaria
+                        <i class="fas fa-university"></i>Transferencia Interbancaria
                     </button>
                 </div>
 
@@ -92,7 +96,7 @@
                 <div class="col-md-8">
                     <!-- Formulario de Tarjeta de Crédito/Débito -->
                     <div id="credit-card" class="payment-method-card">
-                        <h5><i class="fas fa-credit-card"></i> Tarjeta de Crédito/Débito</h5>
+                        <h5><i class="fas fa-credit-card"></i>Tarjeta de Crédito/Débito</h5>
                         <div class="mb-3">
                             <asp:TextBox ID="txtNumeroTarjeta" runat="server" CssClass="form-control" placeholder="Número de Tarjeta" MaxLength="16" />
                         </div>
@@ -112,7 +116,7 @@
 
                     <!-- Formulario de Yape -->
                     <div id="yape" class="payment-method-card">
-                        <h5><i class="fas fa-mobile-alt"></i> Yape</h5>
+                        <h5><i class="fas fa-mobile-alt"></i>Yape</h5>
                         <p>Escanea el código QR de Yape para realizar el pago.</p>
                         <div class="text-center">
                             <asp:Image ID="imgQrYape" runat="server" CssClass="img-fluid qr-image" ImageUrl="./Images/yape.jpg" alt="QR de Yape" />
@@ -122,7 +126,7 @@
 
                     <!-- Formulario de Plin -->
                     <div id="plin" class="payment-method-card">
-                        <h5><i class="fas fa-mobile-alt"></i> Plin</h5>
+                        <h5><i class="fas fa-mobile-alt"></i>Plin</h5>
                         <p>Escanea el código QR de Plin para realizar el pago.</p>
                         <div class="text-center">
                             <asp:Image ID="imgQrPlin" runat="server" CssClass="img-fluid qr-image" ImageUrl="./Images/plin.jpg" alt="QR de Plin" />
@@ -132,7 +136,7 @@
 
                     <!-- Formulario de Transferencia Bancaria -->
                     <div id="bank-transfer" class="payment-method-card">
-                        <h5><i class="fas fa-university"></i> Transferencia Interbancaria</h5>
+                        <h5><i class="fas fa-university"></i>Transferencia Interbancaria</h5>
                         <p>Realice la transferencia a cualquiera de los siguientes números de cuenta:</p>
                         <ul>
                             <li>BCP: 123-456789-0-12</li>
@@ -145,7 +149,7 @@
                 </div>
             </div>
         </div>
-        
+
     </form>
     <footer class="bg-dark text-white text-center py-3 fixed-bottom">
         <p>&copy; 2024 PAPUCPLANET - Confitería del Cine. Todos los derechos reservados.</p>
@@ -157,7 +161,7 @@
     <script>
         function showPaymentForm(formId) {
             // Oculta todos los formularios
-            document.querySelectorAll('.payment-method-card').forEach(function(form) {
+            document.querySelectorAll('.payment-method-card').forEach(function (form) {
                 form.classList.remove('active-payment');
             });
 

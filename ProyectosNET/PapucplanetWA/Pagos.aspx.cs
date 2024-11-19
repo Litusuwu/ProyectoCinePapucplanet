@@ -48,45 +48,59 @@ namespace PapucplanetWA
         protected void btnPagarTarjeta_Click(object sender, EventArgs e)
         {
             // Lógica para procesar el pago con tarjeta
-
             string numeroTarjeta = txtNumeroTarjeta.Text;
             string fechaExpiracion = txtFechaExpiracion.Text;
             string cvv = txtCvv.Text;
             string nombreTarjeta = txtNombreTarjeta.Text;
 
             // Aquí se puede agregar la lógica de procesamiento de tarjeta de crédito
-            Response.Write("<script>alert('Pago con tarjeta procesado exitosamente');</script>");
+            BoletaWSClient daoBoleta = new BoletaWSClient();
+            if (daoBoleta.insertarBoleta(bol) != 0)
+            {
+                // Mostrar mensaje y redirigir después de un pequeño retardo
+                string script = "alert('Pago con tarjeta procesado exitosamente'); window.location='PeliculasUsuario.aspx';";
+                ClientScript.RegisterStartupScript(this.GetType(), "SuccessRedirect", script, true);
+
+                Session["LineasBoleta"] = null;
+                Session["CantidadProductos"] = null;
+                Session["Visible"] = 0;
+            }
         }
 
         protected void btnConfirmarYape_Click(object sender, EventArgs e)
         {
-            // Lógica para confirmar el pago con Yape
+            
             bol.metodoPago = metodoPago.BILLETERA_ELECTRONICA;
             bol.metodoPagoSpecified = true;
             BoletaWSClient daoBoleta = new BoletaWSClient();
 
-            if (daoBoleta.insertarBoleta(bol)!=0)
+            if (daoBoleta.insertarBoleta(bol) != 0)
             {
-                Response.Write("<script>alert('Pago con Yape confirmado');</script>");
+                
+                string script = "alert('Pago con Yape confirmado'); window.location='PeliculasUsuario.aspx';";
+                ClientScript.RegisterStartupScript(this.GetType(), "SuccessRedirect", script, true);
+
                 Session["LineasBoleta"] = null;
                 Session["CantidadProductos"] = null;
-
+                Session["Visible"] = 0;
             }
-            
         }
 
         protected void btnConfirmarPlin_Click(object sender, EventArgs e)
         {
-            // Lógica para confirmar el pago con Plin
+
             bol.metodoPago = metodoPago.BILLETERA_ELECTRONICA;
             bol.metodoPagoSpecified = true;
             BoletaWSClient daoBoleta = new BoletaWSClient();
             if (daoBoleta.insertarBoleta(bol) != 0)
             {
-                Response.Write("<script>alert('Pago con Plin confirmado');</script>");
+                // Mostrar mensaje y redirigir después de un pequeño retardo
+                string script = "alert('Pago con Plin confirmado'); window.location='PeliculasUsuario.aspx';";
+                ClientScript.RegisterStartupScript(this.GetType(), "SuccessRedirect", script, true);
+
                 Session["LineasBoleta"] = null;
                 Session["CantidadProductos"] = null;
-
+                Session["Visible"] = 0;
             }
         }
 
@@ -95,7 +109,22 @@ namespace PapucplanetWA
             // Lógica para confirmar el pago por transferencia bancaria
             string numeroOperacion = txtNumeroOperacion.Text;
             // Aquí se puede agregar la lógica de procesamiento de la transferencia
-            Response.Write("<script>alert('Pago por transferencia confirmado');</script>");
+            BoletaWSClient daoBoleta = new BoletaWSClient();
+            if (daoBoleta.insertarBoleta(bol) != 0)
+            {
+                // Mostrar mensaje y redirigir después de un pequeño retardo
+                string script = "alert('Pago por transferencia confirmado'); window.location='PeliculasUsuario.aspx';";
+                ClientScript.RegisterStartupScript(this.GetType(), "SuccessRedirect", script, true);
+
+                Session["LineasBoleta"] = null;
+                Session["CantidadProductos"] = null;
+                Session["Visible"] = 0;
+            }
+        }
+
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ConfiteriaVUsuario.aspx");
         }
     }
 }

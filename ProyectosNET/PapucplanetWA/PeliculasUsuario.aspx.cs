@@ -20,6 +20,8 @@ namespace PapucplanetWA
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            Session["Visible"] = 0;
             if (!IsPostBack || Request.QueryString["reload"] == "true")
             {
                 usuario usuarioDatos = (usuario)Session["Usuario"];

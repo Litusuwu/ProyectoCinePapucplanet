@@ -16,6 +16,7 @@ namespace PapucplanetWA
         // Variables para almacenar el día y el horario seleccionados
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["Visible"]=0;
             string idPeliculaStr = Request.QueryString["id_pelicula"];
             if (!string.IsNullOrEmpty(idPeliculaStr) && int.TryParse(idPeliculaStr, out int idPeliculaParsed))
             {

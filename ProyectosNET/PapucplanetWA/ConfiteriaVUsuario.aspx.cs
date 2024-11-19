@@ -21,7 +21,7 @@ namespace PapucplanetWA
 
             if (!IsPostBack)
             {
-                string valor = Request.QueryString["visible"];
+                int valor = (int)Session["Visible"];
                 
                 /*
                 if (Session["CantidadProductos"] != null)
@@ -34,7 +34,7 @@ namespace PapucplanetWA
                 lnkPrfCompra.Text= usuarioDatos.nombre + " " + usuarioDatos.primerApellido;
                 CargarProductos();
                 ActualizarContadorCarrito();
-                if (valor != null) Visibility(true);
+                if (valor != 0) Visibility(true);
                 else Visibility(false);
                
             }
