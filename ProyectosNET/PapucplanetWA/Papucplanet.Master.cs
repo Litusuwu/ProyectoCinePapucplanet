@@ -42,9 +42,6 @@ namespace PapucplanetWA
                     case "AgregarNuevoConsumible.aspx":
                         consumiblesLink.Attributes["class"] += " active";
                         break;
-                    case "Usuarios.aspx":
-                        usuariosLink.Attributes["class"] += " active";
-                        break;
                     case "Boletas.aspx":
                         boletasLink.Attributes["class"] += " active";
                         break;

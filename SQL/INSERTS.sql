@@ -22,7 +22,7 @@ CALL INSERTAR_SALA(@id_sala, 2, 1, 4, 2, 2);
 
 CALL INSERTAR_SALA(@id_sala, 1, 2, 4, 2, 2);
 CALL INSERTAR_SALA(@id_sala, 2, 2, 9, 3, 3);
-CALL INSERTAR_SALA(id_sala, 3, 2, 4, 2, 2);
+CALL INSERTAR_SALA(@id_sala, 3, 2, 4, 2, 2);
 
 CALL INSERTAR_SALA(@id_sala, 1, 3, 4, 2, 2);
 CALL INSERTAR_SALA(@id_sala, 2, 3, 9, 3, 3);
@@ -40,17 +40,17 @@ CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, FALSE, 1);
 CALL INSERTAR_BUTACA(@id_butaca, 'B', 3, FALSE, 1);
 CALL INSERTAR_BUTACA(@id_butaca, 'C', 1, FALSE, 1);
 CALL INSERTAR_BUTACA(@id_butaca, 'C', 2, FALSE, 1);
-CALL INSERTAR_BUTACA(@id_butaca, 'C', 3, FALSE, 1);
+CALL INSERTAR_BUTACA(@id_butaca, 'C', 3, TRUE, 1);
 
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 1, FALSE, 2);
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 2, FALSE, 2);
 CALL INSERTAR_BUTACA(@id_butaca, 'B', 1, FALSE, 2);
-CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, FALSE, 2);
+CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, TRUE, 2);
 
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 1, FALSE, 3);
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 2, FALSE, 3);
 CALL INSERTAR_BUTACA(@id_butaca, 'B', 1, FALSE, 3);
-CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, FALSE, 3);
+CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, TRUE, 3);
 
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 1, FALSE, 4);
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 2, FALSE, 4);
@@ -60,17 +60,17 @@ CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, FALSE, 4);
 CALL INSERTAR_BUTACA(@id_butaca, 'B', 3, FALSE, 4);
 CALL INSERTAR_BUTACA(@id_butaca, 'C', 1, FALSE, 4);
 CALL INSERTAR_BUTACA(@id_butaca, 'C', 2, FALSE, 4);
-CALL INSERTAR_BUTACA(@id_butaca, 'C', 3, FALSE, 4);
+CALL INSERTAR_BUTACA(@id_butaca, 'C', 3, TRUE, 4);
 
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 1, FALSE, 5);
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 2, FALSE, 5);
 CALL INSERTAR_BUTACA(@id_butaca, 'B', 1, FALSE, 5);
-CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, FALSE, 5);
+CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, TRUE, 5);
 
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 1, FALSE, 6);
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 2, FALSE, 6);
 CALL INSERTAR_BUTACA(@id_butaca, 'B', 1, FALSE, 6);
-CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, FALSE, 6);
+CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, TRUE, 6);
 
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 1, FALSE, 7);
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 2, FALSE, 7);
@@ -80,12 +80,12 @@ CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, FALSE, 7);
 CALL INSERTAR_BUTACA(@id_butaca, 'B', 3, FALSE, 7);
 CALL INSERTAR_BUTACA(@id_butaca, 'C', 1, FALSE, 7);
 CALL INSERTAR_BUTACA(@id_butaca, 'C', 2, FALSE, 7);
-CALL INSERTAR_BUTACA(@id_butaca, 'C', 3, FALSE, 7);
+CALL INSERTAR_BUTACA(@id_butaca, 'C', 3, TRUE, 7);
 
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 1, FALSE, 8);
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 2, FALSE, 8);
 CALL INSERTAR_BUTACA(@id_butaca, 'B', 1, FALSE, 8);
-CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, FALSE, 8);
+CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, TRUE, 8);
 
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 1, FALSE, 9);
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 2, FALSE, 9);
@@ -95,7 +95,7 @@ CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, FALSE, 9);
 CALL INSERTAR_BUTACA(@id_butaca, 'B', 3, FALSE, 9);
 CALL INSERTAR_BUTACA(@id_butaca, 'C', 1, FALSE, 9);
 CALL INSERTAR_BUTACA(@id_butaca, 'C', 2, FALSE, 9);
-CALL INSERTAR_BUTACA(@id_butaca, 'C', 3, FALSE, 9);
+CALL INSERTAR_BUTACA(@id_butaca, 'C', 3, TRUE, 9);
 
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 1, FALSE, 10);
 CALL INSERTAR_BUTACA(@id_butaca, 'A', 2, FALSE, 10);
@@ -105,7 +105,7 @@ CALL INSERTAR_BUTACA(@id_butaca, 'B', 2, FALSE, 10);
 CALL INSERTAR_BUTACA(@id_butaca, 'B', 3, FALSE, 10);
 CALL INSERTAR_BUTACA(@id_butaca, 'C', 1, FALSE, 10);
 CALL INSERTAR_BUTACA(@id_butaca, 'C', 2, FALSE, 10);
-CALL INSERTAR_BUTACA(@id_butaca, 'C', 3, FALSE, 10);
+CALL INSERTAR_BUTACA(@id_butaca, 'C', 3, TRUE, 10);
 
 #Inserts Películas
 CALL INSERTAR_PELICULA(@id_pelicula, "Las emociones de Nayely", 120, "COMEDIA", "Ahora que es adolescente, Riley experimenta nuevos sentimientos como Ansiedad y Envidia, que se imponen a los viejos mientras ella duda sobre si abandonar a sus antiguas amigas por otras de la escuela secundaria.", "~/Images/Peliculas/Intensamente2.jpeg");
@@ -207,3 +207,54 @@ CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 23, 8, 'DISPONIBLE', 15.00);
 CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 24, 8, 'DISPONIBLE', 15.00);
 CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 25, 8, 'DISPONIBLE', 15.00);
 CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 26, 8, 'DISPONIBLE', 15.00);
+
+#Inserts Boletas
+
+CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-08-09', 'TARJETA_CREDITO',40.0);
+CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-12-13', 'BILLETERA_ELECTRONICA',55.6);
+CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-04-28', 'TARJETA_CREDITO',26.2);
+CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-10-29', 'TARJETA_CREDITO',39.6);
+CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-07-17', 'TARJETA_DEBITO',71.6);
+CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-10-15', 'TARJETA_CREDITO',38.0);
+CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-08-09', 'TARJETA_DEBITO',24.40);
+CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-12-23', 'TARJETA_DEBITO',40.0);
+CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-02-22', 'TARJETA_CREDITO',40.0);
+CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-07-30', 'BILLETERA_ELECTRONICA',28.8);
+CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-11-23', 'TARJETA_DEBITO',47.40);
+CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-11-22', 'TARJETA_DEBITO',40.0);
+CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-07-31', 'BILLETERA_ELECTRONICA',42.4);
+CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-11-05', 'BILLETERA_ELECTRONICA',37.6);
+CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-11-29', 'TARJETA_DEBITO',40);
+
+#Inserts LineaBoleta
+
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 1, NULL, 127, 1, 20.0);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 2, 15, NULL, 2, 35.6);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 3, 20, NULL, 3, 20.4);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 4, 2, NULL, 2, 19.6);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 5, 13, NULL, 2, 51.6);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 6, 8, NULL, 3, 8.4);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 7, 8, NULL, 1, 2.8);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 8, NULL, 129, 1, 20.0);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 9, NULL, 153, 1, 20.0);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 10, NULL, 321, 1, 20.0);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 11, 15, NULL, 1, 17.8);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 12, NULL, 244, 1, 20.0);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 13, 4, NULL, 1, 6.8);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 14, NULL, 228, 1, 20.0);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 15, NULL, 6, 1, 20.0);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 1, NULL, 318, 1, 20.0);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 2, NULL, 330, 1, 20.0);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 3, 18, NULL, 1, 5.8);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 4, NULL, 85, 1, 20.0);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 5, NULL, 80, 1, 20.0);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 6, 17, NULL, 2, 29.6);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 7, 6, NULL, 2, 21.6);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 8, NULL, 14, 1, 20.0);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 9, NULL, 184, 1, 20.0);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 10, 14, NULL, 1, 8.8);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 11, 17, NULL, 2, 29.6);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 12, NULL, 176, 1, 20.0);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 13, 15, NULL, 2, 35.6);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 14, 18, NULL, 2, 17.6);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 15, NULL, 256, 1, 20.0);
