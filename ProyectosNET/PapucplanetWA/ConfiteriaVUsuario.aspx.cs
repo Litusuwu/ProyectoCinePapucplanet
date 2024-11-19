@@ -256,7 +256,8 @@ namespace PapucplanetWA
             consumible cons;
             if (tipo == 'B') cons = listaB.FirstOrDefault(consumible => consumible.id == productoId);
             else cons = listaA.FirstOrDefault(consumible => consumible.id == productoId);
-            lineaBoleta lineaExistente = lineas.FirstOrDefault(lb => lb.consumible.id == productoId);
+            lineaBoleta lineaExistente = lineas.FirstOrDefault(lb => lb.consumible.id == productoId && lb.consumible!=null);
+            //lb.consumible!= null && lb.consumible.id==producto.id
             if (cantidades.ContainsKey(productoId) && cantidades[productoId] > 0 && lineaExistente!=null)
             {
                 cantidades[productoId]--;
