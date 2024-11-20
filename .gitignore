@@ -139,3 +139,14 @@ nbdist/
 !/NetBeansProjects/Papucplanet/src/pe/edu/pucp/papucplanet/lib/mysql-connector-j-9.0.0.jar
 !/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/jakarta.xml.ws-api-4.0.2.jar
 !/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/mysql-connector-j-9.0.0.jar
+!/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/jasperreports-7.0.1.jar
+!/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/commons-beanutils-1.9.4.jar
+!/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/commons-collections4-4.4.jar
+!/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/commons-digester-2.1.jar
+!/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/commons-logging-1.3.0.jar
+!/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/jasperreports-charts-7.0.1.jar
+!/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/jasperreports-fonts-7.0.1.jar
+!/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/jasperreports-functions-7.0.1.jar
+!/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/jasperreports-pdf-7.0.1.jar
+!/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/jfreechart-1.5.4.jar
+!/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/openpdf-1.3.32.jar
