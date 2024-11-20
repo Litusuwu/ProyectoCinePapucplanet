@@ -11,11 +11,11 @@
   <message name="obtenerClientePorIdResponse">
     <part name="parameters" element="tns:obtenerClientePorIdResponse" />
   </message>
-  <message name="eliminarCliente">
-    <part name="parameters" element="tns:eliminarCliente" />
+  <message name="listarTodosClientes">
+    <part name="parameters" element="tns:listarTodosClientes" />
   </message>
-  <message name="eliminarClienteResponse">
-    <part name="parameters" element="tns:eliminarClienteResponse" />
+  <message name="listarTodosClientesResponse">
+    <part name="parameters" element="tns:listarTodosClientesResponse" />
   </message>
   <message name="insertarCliente">
     <part name="parameters" element="tns:insertarCliente" />
@@ -29,20 +29,20 @@
   <message name="modificarClienteResponse">
     <part name="parameters" element="tns:modificarClienteResponse" />
   </message>
-  <message name="listarTodosClientes">
-    <part name="parameters" element="tns:listarTodosClientes" />
+  <message name="eliminarCliente">
+    <part name="parameters" element="tns:eliminarCliente" />
   </message>
-  <message name="listarTodosClientesResponse">
-    <part name="parameters" element="tns:listarTodosClientesResponse" />
+  <message name="eliminarClienteResponse">
+    <part name="parameters" element="tns:eliminarClienteResponse" />
   </message>
   <portType name="ClienteWS">
     <operation name="obtenerClientePorId">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ClienteWS/obtenerClientePorIdRequest" message="tns:obtenerClientePorId" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ClienteWS/obtenerClientePorIdResponse" message="tns:obtenerClientePorIdResponse" />
     </operation>
-    <operation name="eliminarCliente">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ClienteWS/eliminarClienteRequest" message="tns:eliminarCliente" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ClienteWS/eliminarClienteResponse" message="tns:eliminarClienteResponse" />
+    <operation name="listarTodosClientes">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ClienteWS/listarTodosClientesRequest" message="tns:listarTodosClientes" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ClienteWS/listarTodosClientesResponse" message="tns:listarTodosClientesResponse" />
     </operation>
     <operation name="insertarCliente">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ClienteWS/insertarClienteRequest" message="tns:insertarCliente" />
@@ -52,9 +52,9 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ClienteWS/modificarClienteRequest" message="tns:modificarCliente" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ClienteWS/modificarClienteResponse" message="tns:modificarClienteResponse" />
     </operation>
-    <operation name="listarTodosClientes">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ClienteWS/listarTodosClientesRequest" message="tns:listarTodosClientes" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ClienteWS/listarTodosClientesResponse" message="tns:listarTodosClientesResponse" />
+    <operation name="eliminarCliente">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ClienteWS/eliminarClienteRequest" message="tns:eliminarCliente" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ClienteWS/eliminarClienteResponse" message="tns:eliminarClienteResponse" />
     </operation>
   </portType>
   <binding name="ClienteWSPortBinding" type="tns:ClienteWS">
@@ -68,7 +68,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarCliente">
+    <operation name="listarTodosClientes">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,7 +95,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarTodosClientes">
+    <operation name="eliminarCliente">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
