@@ -5,6 +5,15 @@
       <xsd:import schemaLocation="http://localhost:8080/PapucplanetWSBL/ReporteWS?xsd=1" namespace="http://services.papucplanet.pucp.edu.pe" />
     </xsd:schema>
   </types>
+  <message name="reporteBoleta">
+    <part name="parameters" element="tns:reporteBoleta" />
+  </message>
+  <message name="reporteBoletaResponse">
+    <part name="parameters" element="tns:reporteBoletaResponse" />
+  </message>
+  <message name="UnsupportedEncodingException">
+    <part name="fault" element="tns:UnsupportedEncodingException" />
+  </message>
   <message name="reporteSedes">
     <part name="parameters" element="tns:reporteSedes" />
   </message>
@@ -12,6 +21,11 @@
     <part name="parameters" element="tns:reporteSedesResponse" />
   </message>
   <portType name="ReporteWS">
+    <operation name="reporteBoleta">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ReporteWS/reporteBoletaRequest" message="tns:reporteBoleta" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ReporteWS/reporteBoletaResponse" message="tns:reporteBoletaResponse" />
+      <fault wsam:Action="http://services.papucplanet.pucp.edu.pe/ReporteWS/reporteBoleta/Fault/UnsupportedEncodingException" name="UnsupportedEncodingException" message="tns:UnsupportedEncodingException" />
+    </operation>
     <operation name="reporteSedes">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/ReporteWS/reporteSedesRequest" message="tns:reporteSedes" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/ReporteWS/reporteSedesResponse" message="tns:reporteSedesResponse" />
@@ -19,6 +33,18 @@
   </portType>
   <binding name="ReporteWSPortBinding" type="tns:ReporteWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="reporteBoleta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="UnsupportedEncodingException">
+        <soap:fault use="literal" name="UnsupportedEncodingException" namespace="" />
+      </fault>
+    </operation>
     <operation name="reporteSedes">
       <soap:operation soapAction="" />
       <input>
