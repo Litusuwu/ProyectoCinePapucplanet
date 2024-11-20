@@ -261,6 +261,7 @@ public class LineaBoletaMySQL implements LineaBoletaDAO{
                lineaBoleta.setIdLineaBoleta(rs.getInt("id_linea_boleta"));
                lineaBoleta.setCantidad(rs.getInt("cantidad"));
                lineaBoleta.setSubtotal(rs.getDouble("subtotal"));
+               lineaBoleta.setIdBoleta(rs.getInt("fid_boleta"));
                if(rs.getObject("id_consumible") == null){ //Lleno butaca funcion
                    lineaBoleta.setConsumible(null);
                    
@@ -270,7 +271,7 @@ public class LineaBoletaMySQL implements LineaBoletaDAO{
                    EstadoButaca est = EstadoButaca.valueOf(rs.getString("estado_butaca"));
                    butacaFuncion.setEstado(est);
                    butacaFuncion.setDiscapacitado(rs.getBoolean("es_discapacitado"));
-                   butacaFuncion.setPrecio(rs.getDouble("precio"));
+                   butacaFuncion.setPrecio(rs.getDouble("precio_butaca_funcion"));
                    butacaFuncion.setIdButaca(rs.getInt("id_butaca"));
                    
                    funcion.setIdFuncion(rs.getInt("id_funcion"));

@@ -74,4 +74,15 @@ public class LineaBoletaWS {
         }
         return lineaBoleta;
     }
+//    @WebMethod(operationName = "listarPorBoleta")
+//    public LineaBoleta listarPorUnaBoleta(@WebParam(name = "idBoleta") int idBoleta) {
+//        ArrayList<LineaBoleta> lineasBoletas = new ArrayList<>();      
+//        try {
+//            daoLineaBoleta = new LineaBoletaMySQL();
+//            lineasBoletas = daoLineaBoleta.listarPorUnaBoleta(idBoleta);
+//        } catch (Exception ex) {
+//            System.out.println(ex.getMessage());
+//        }
+//        return lineasBoletas;
+//    }
 }

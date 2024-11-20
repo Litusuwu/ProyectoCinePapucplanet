@@ -11,7 +11,7 @@ public class LineaBoleta {
     private boolean activo;
     private ButacaFuncion butacaFuncion;
     private Consumible consumible;
-    
+    private int idBoleta;
     public LineaBoleta(){
 
     }
@@ -62,6 +62,20 @@ public class LineaBoleta {
 
     public void setActivo(boolean activo) {
         this.activo = activo;
+    }
+
+    /**
+     * @return the idBoleta
+     */
+    public int getIdBoleta() {
+        return idBoleta;
+    }
+
+    /**
+     * @param idBoleta the idBoleta to set
+     */
+    public void setIdBoleta(int idBoleta) {
+        this.idBoleta = idBoleta;
     }
     
     
