@@ -37,7 +37,7 @@ import pe.edu.pucp.papucplanet.dbmanager.model.DBManager;
  * @author ISA
  */
 public class ReportePelicula extends HttpServlet{
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+    //private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
     public ReportePelicula(){
         System.setProperty("user.language", "es");

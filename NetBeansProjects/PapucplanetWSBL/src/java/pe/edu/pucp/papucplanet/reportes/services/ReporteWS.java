@@ -74,7 +74,7 @@ public class ReporteWS {
     
 //<<<<<<< HEAD
     @WebMethod(operationName = "reportePorPelicula")
-    public byte[] reportePorPelicula(@WebParam(name = "idPelicula") int idPelicula) {
+    public byte[] reportePorPelicula(@WebParam(name = "idPelicula") int idPelicula) throws UnsupportedEncodingException {
         byte[] reporte = null;
         try{
             JasperReport jr = (JasperReport) JRLoader.loadObject(ReportePelicula.class.getResource("/pe/edu/pucp/softprog/reportes/ReporteIngresosPorPelicula.jasper"));
@@ -90,7 +90,7 @@ public class ReporteWS {
         
             reporte = JasperExportManager.exportReportToPdf(jp);
         //UnsupportedEncodingException | 
-        }catch(Exception ex){
+        }catch(JRException ex){
             System.out.println(ex.getMessage());
         } finally {
             DBManager.getInstance().cerrarConexion();
