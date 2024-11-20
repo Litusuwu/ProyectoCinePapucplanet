@@ -443,6 +443,7 @@
     <Content Include="Content\Fonts\css\v5-font-face.min.css" />
     <Content Include="Content\styles.css" />
     <Content Include="Funciones.aspx" />
+    <Content Include="HistorialUsuario.aspx" />
     <Content Include="Pagos.aspx" />
     <Content Include="Scripts\Papucplanet\Butacas.js" />
     <Content Include="Scripts\Papucplanet\Consumible.js" />
@@ -492,6 +493,7 @@
     <Content Include="Scripts\Papucplanet\Sala.js" />
     <Content Include="Scripts\Papucplanet\Sedes.js" />
     <Content Include="Sedes.aspx" />
+    <Content Include="Styles\HistorialUsuario.css" />
     <Content Include="Styles\Login.css" />
     <Content Include="Styles\Confiteria.css" />
     <Content Include="Styles\Pagos.css" />
@@ -567,6 +569,13 @@
     </Compile>
     <Compile Include="Funciones.aspx.designer.cs">
       <DependentUpon>Funciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialUsuario.aspx.cs">
+      <DependentUpon>HistorialUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HistorialUsuario.aspx.designer.cs">
+      <DependentUpon>HistorialUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

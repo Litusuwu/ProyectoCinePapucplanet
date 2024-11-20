@@ -220,52 +220,52 @@ public class BoletaMySQL implements BoletaDAO{
                 boleta.setFechaCompra(rs.getDate("fechaCompra"));
                 boleta.setMetodoPago(MetodoPago.valueOf(rs.getString("metodo_pago")));
                 boleta.setTotal(rs.getDouble("total"));
-                boleta.setActivo(rs.getBoolean("activo"));
+//                boleta.setActivo(rs.getBoolean("activo"));
         
-                int idCliente = rs.getInt("fid_cliente");
-                // Llama al segundo query de obtener sede por  id
-                String sql = "{CALL LISTAR_CLIENTE_X_ID(?)}";
-                cs = con.prepareCall(sql);
-                cs.setInt(1, idCliente);
-                //
+//                int idCliente = rs.getInt("id_cliente");
+//                // Llama al segundo query de obtener sede por  id
+//                String sql = "{CALL LISTAR_CLIENTE_X_ID(?)}";
+//                cs = con.prepareCall(sql);
+//                cs.setInt(1, idCliente);
+//                //
+////                rs2 = cs.executeQuery();
+//                //
 //                rs2 = cs.executeQuery();
-                //
-                rs2 = cs.executeQuery();
-                if(rs2.next()){
-                    cliente = new Cliente();
-                    cliente.setId(rs2.getInt("id_cliente"));
-                    cliente.setDni(rs2.getString("dni"));
-                    cliente.setNombre(rs2.getString("nombres"));
-                    cliente.setPrimerApellido(rs2.getString("primer_apellido"));
-                    cliente.setSegundoApellido(rs2.getString("segundo_apellido"));
-                    cliente.setGenero(rs2.getString("genero").charAt(0)); // Convertir String a char
-                    cliente.setFechaNacimiento(rs2.getDate("fecha_nacimiento")); // java.sql.Date
-                    cliente.setActivo(rs2.getBoolean("activo")); // Mapear TINYINT a boolean
-                    int idSede = rs2.getInt("fid_sede");
-                    // Llama al segundo query de obtener sede por  id
-                    sql = "{CALL LISTAR_SEDE_X_ID(?)}";
-                    cs = con.prepareCall(sql);
-                    cs.setInt(1, idSede);
-                    //
-                    rs2 = cs.executeQuery();
-                    if(rs2.next()){
-                        Sede sede = new Sede();
-                        sede.setIdSede(rs2.getInt("id_sede"));
-                        sede.setUbicacion(rs2.getString("ubicacion"));
-                        sede.setUniversidad(rs2.getString("nombre"));
-
-                        cliente.setSede(sede);
+//                if(rs2.next()){
+                cliente = new Cliente();
+                cliente.setId(rs.getInt("id_cliente"));
+                cliente.setDni(rs.getString("dni"));
+                cliente.setNombre(rs.getString("nombres"));
+                cliente.setPrimerApellido(rs.getString("primer_apellido"));
+                cliente.setSegundoApellido(rs.getString("segundo_apellido"));
+                cliente.setGenero(rs.getString("genero").charAt(0)); // Convertir String a char
+                cliente.setFechaNacimiento(rs.getDate("fecha_nacimiento")); // java.sql.Date
+//                    cliente.setActivo(rs.getBoolean("activo")); // Mapear TINYINT a boolean
+                int idSede = rs.getInt("fid_sede");
+                // Llama al segundo query de obtener sede por  id
+//                    sql = "{CALL LISTAR_SEDE_X_ID(?)}";
+//                    cs = con.prepareCall(sql);
+//                    cs.setInt(1, idSede);
+//                    //
+//                    rs2 = cs.executeQuery();
+//                    if(rs2.next()){
+//                        Sede sede = new Sede();
+//                        sede.setIdSede(rs2.getInt("id_sede"));
+//                        sede.setUbicacion(rs2.getString("ubicacion"));
+//                        sede.setUniversidad(rs2.getString("nombre"));
+//
+//                        cliente.setSede(sede);
                         boleta.setCliente(cliente);
-                    }
-                    else{
-                        System.out.println("No se encontro la sede");
-                        return null;
-                    }
-                    }
-                    else{
-                        System.out.println("No se encontro la sede");
-                        continue;
-                    }
+//                    }
+//                    else{
+//                        System.out.println("No se encontro la sede");
+//                        return null;
+//                    }
+//                    }
+//                    else{
+//                        System.out.println("No se encontro la sede");
+//                        continue;
+//                    }
                 
 
                 // Añadir el administrador a la lista
