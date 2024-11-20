@@ -152,3 +152,4 @@ nbdist/
 !/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/openpdf-1.3.32.jar
 !/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/jasperreports-groovy-7.0.1.jar
 !/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/groovy-all-3.0.22-groovydoc.jar
+!/NetBeansProjects/PapucplanetWSBL/src/java/pe/edu/pucp/papucplanet/lib/groovy-all-2.4.21.jar
