@@ -399,6 +399,8 @@ namespace PapucplanetWA.Servicio {
         
         private consumible consumibleField;
         
+        private int idBoletaField;
+        
         private int idLineaBoletaField;
         
         private double subtotalField;
@@ -453,6 +455,18 @@ namespace PapucplanetWA.Servicio {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public int idBoleta {
+            get {
+                return this.idBoletaField;
+            }
+            set {
+                this.idBoletaField = value;
+                this.RaisePropertyChanged("idBoleta");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
         public int idLineaBoleta {
             get {
                 return this.idLineaBoletaField;
@@ -464,7 +478,7 @@ namespace PapucplanetWA.Servicio {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
         public double subtotal {
             get {
                 return this.subtotalField;
