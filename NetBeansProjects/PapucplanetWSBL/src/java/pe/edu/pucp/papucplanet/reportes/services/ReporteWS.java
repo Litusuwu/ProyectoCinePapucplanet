@@ -24,7 +24,7 @@ import pe.edu.pucp.papucplanet.cine.model.Sede;
 import pe.edu.pucp.papucplanet.dbmanager.model.DBManager;
 import pe.edu.pucp.papucplanet.servlet.ReporteSede;
 
-@WebService(serviceName = "ReporteWS")
+@WebService(serviceName = "ReporteWS", targetNamespace = "http://services.papucplanet.pucp.edu.pe")
 public class ReporteWS {
 
      public ReporteWS(){
@@ -37,18 +37,26 @@ public class ReporteWS {
     public byte[] reporteSedes(@WebParam(name = "nombre") Date fechaInicio, Date fechaFin, Sede sede) {
         byte[] reporte = null;
         try{
-            JasperReport jr = (JasperReport) JRLoader.loadObject(ReporteSede.class.getResource("/pe/edu/pucp/softprog/reportes/ReporteIngresosSedes.jasper"));
+            JasperReport jr = (JasperReport) JRLoader.loadObject(ReporteSede.class.getResource("/pe/edu/pucp/papucplanet/reportes/ReporteIngresosSedes.jasper"));
 
             URL rutaLogo = ReporteSede.class.getResource("/pe/edu/pucp/papucplanet/images/LogoPapucPlanet.png");
             String rutaArchivoLogo = URLDecoder.decode(rutaLogo.getPath(),"UTF-8");
             Image logo = (new ImageIcon(rutaArchivoLogo).getImage());
+            
+            URL rutaSubreporteGrafico = ReporteSede.class.getResource("/pe/edu/pucp/papucplanet/reportes/SubReporteGrafico.jasper");
+            String rutaArchivoSubreporteGrafico = URLDecoder.decode(rutaSubreporteGrafico.getPath(), "UTF-8");
         
+            URL rutaSubreportePai = ReporteSede.class.getResource("/pe/edu/pucp/papucplanet/reportes/SubReportePai.jasper");
+            String rutaArchivoSubreportePai = URLDecoder.decode(rutaSubreportePai.getPath(), "UTF-8");
+            
             HashMap parametros = new HashMap();
             parametros.put("idSede", sede.getIdSede());
             parametros.put("nombreSede", sede.getUniversidad());
             parametros.put("fechaInicio", fechaInicio);
             parametros.put("fechaFin", fechaFin);
-            parametros.put("logo", logo);
+            parametros.put("logoCine", logo);
+            parametros.put("rutaGraficoIngresos1", rutaArchivoSubreporteGrafico);
+            parametros.put("rutaGraficoIngresos2", rutaArchivoSubreportePai);
         
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros, DBManager.getInstance().getConnection());
         

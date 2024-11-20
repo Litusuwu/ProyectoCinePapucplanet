@@ -390,6 +390,9 @@
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarFuncionesPorFechaPorSalaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.reporteSedesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\Servicio\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -464,6 +467,10 @@
     </None>
     <None Include="Connected Services\Servicio\PeliculaWS.wsdl" />
     <None Include="Connected Services\Servicio\PeliculaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Servicio\ReporteWS.wsdl" />
+    <None Include="Connected Services\Servicio\ReporteWS.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\Servicio\SalaWS.wsdl" />

@@ -17,6 +17,7 @@ namespace PapucplanetWA
         
         private SedeWSClient daoSede;
         private BindingList<sede> sedes;
+        private ReporteWSClient daoReporte;
         
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -159,11 +160,20 @@ namespace PapucplanetWA
                     ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                     return;
                 }
+
+                
+                daoReporte = new ReporteWSClient();
+                sede sede = new sede();
+                sede.idSede = Int32.Parse(ddlNombreSede.SelectedValue);
+                sede.universidad = ddlNombreSede.SelectedItem.Text;
+                byte[] reporte = daoReporte.reporteSedes(DateTime.Parse(dtpFechaInicio.Value), DateTime.Parse(dtpFechaFin.Value), sede);
+                Response.Clear();
+                Response.ContentType = "application/pdf";
+                Response.AddHeader("Content-Disposition",
+                    "inline;filename=ReporteIngresosPorSede.pdf");
+                Response.BinaryWrite(reporte);
+                Response.End();
             }
-            //if (Session["Excepcion"].ToString() == "No"){}
-            //Si estaba en Si, sacar de Session todas las variables guardadas
-            System.Console.WriteLine("Imprime Reporte...");
-            
         }
         protected void lbAceptar_Click(object sender, EventArgs e)
         {

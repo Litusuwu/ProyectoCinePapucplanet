@@ -46,12 +46,20 @@ public class ReporteSede extends HttpServlet {
             String rutaArchivoLogo = URLDecoder.decode(rutaLogo.getPath(), "UTF-8");
             Image logo = (new ImageIcon(rutaArchivoLogo).getImage());
             
+            URL rutaSubreporteGrafico = ReporteSede.class.getResource("/pe/edu/pucp/papucplanet/reportes/SubReporteGrafico.jasper");
+            String rutaArchivoSubreporteGrafico = URLDecoder.decode(rutaSubreporteGrafico.getPath(), "UTF-8");
+        
+            URL rutaSubreportePai = ReporteSede.class.getResource("/pe/edu/pucp/papucplanet/reportes/SubReportePai.jasper");
+            String rutaArchivoSubreportePai = URLDecoder.decode(rutaSubreportePai.getPath(), "UTF-8");
+            
             HashMap parametros = new HashMap();
             parametros.put("idSede", 1);
             parametros.put("nombreSede", "PUCP");
             parametros.put("fechaInicio", dateFormat.parse("10-01-2024"));
             parametros.put("fechaFin", dateFormat.parse("10-12-2024"));
-            parametros.put("logo", logo);
+            parametros.put("logoCine", logo);
+            parametros.put("rutaGraficoIngresos1", rutaArchivoSubreporteGrafico);
+            parametros.put("rutaGraficoIngresos2", rutaArchivoSubreportePai);
 
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros, DBManager.getInstance().getConnection());
 
