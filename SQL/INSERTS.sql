@@ -110,6 +110,15 @@ CALL INSERTAR_BUTACA(@id_butaca, 'C', 3, TRUE, 10);
 #Inserts Películas
 CALL INSERTAR_PELICULA(@id_pelicula, "Las emociones de Nayely", 120, "COMEDIA", "Ahora que es adolescente, Riley experimenta nuevos sentimientos como Ansiedad y Envidia, que se imponen a los viejos mientras ella duda sobre si abandonar a sus antiguas amigas por otras de la escuela secundaria.", "~/Images/Peliculas/Intensamente2.jpeg");
 CALL INSERTAR_PELICULA(@id_pelicula, "Joker", 90, "DRAMA", "Arthur Fleck adora hacer reír a la gente, pero su carrera como comediante es un fracaso. El repudio social, la marginación y una serie de trágicos acontecimientos lo conducen a la locura.", "~/Images/Peliculas/Joker.jpeg");
+CALL INSERTAR_PELICULA(@id_pelicula, 'Rápidos y Furiosos 10', 130, 'ACCION', 'Dom y su familia enfrentan nuevos desafíos en esta emocionante entrega.', '~/Pictures/Peliculas/rapidosYfuriosos.jpg');
+CALL INSERTAR_PELICULA(@id_pelicula, 'El Gran Showman', 105, 'DRAMA', 'La inspiradora historia del visionario PT Barnum.', '~/Pictures/Peliculas/thegreatestShowman.jpg');
+CALL INSERTAR_PELICULA(@id_pelicula, 'Superbad: Una noche épica', 112, 'COMEDIA', 'Dos amigos intentan disfrutar su última noche antes de la universidad.', '~/Pictures/Peliculas/superbad.jpg');
+CALL INSERTAR_PELICULA(@id_pelicula, 'Nuestro Planeta', 90, 'DOCUMENTAL', 'Descubre las maravillas del mundo natural en esta serie visualmente impactante.', '~/Pictures/Peliculas/elplanetaDelossimios.jpeg');
+CALL INSERTAR_PELICULA(@id_pelicula, 'Avengers: Endgame', 180, 'ACCION', 'Los Vengadores se reúnen para enfrentarse a Thanos y salvar el universo.', '~/Pictures/Peliculas/avengers.jpg');
+CALL INSERTAR_PELICULA(@id_pelicula, 'El Pianista', 150, 'DRAMA', 'La desgarradora historia de un músico judío durante el Holocausto.', '~/Pictures/Peliculas/elpianista.jpeg');
+CALL INSERTAR_PELICULA(@id_pelicula, 'Deadpool', 108, 'COMEDIA', 'Un antihéroe sarcástico busca vengarse de quienes lo traicionaron.', '~/Pictures/Peliculas/deadpool.jpg');
+CALL INSERTAR_PELICULA(@id_pelicula, 'Planeta Tierra II', 95, 'DOCUMENTAL', 'Explora la belleza y diversidad de nuestro planeta en esta secuela aclamada.', '~/Pictures/Peliculas/oso.jpg');
+
 
 #Inserts Bebidas
 CALL INSERTAR_BEBIDA(@id_bebida, "Coca Cola", 9.80, 12, true, "~/Images/Confiteria/cocacola.jpg", 'B');
