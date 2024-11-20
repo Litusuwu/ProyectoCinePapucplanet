@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.papucplanet.pucp.edu.pe" targetNamespace="http://services.papucplanet.pucp.edu.pe" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="UnsupportedEncodingException" type="tns:UnsupportedEncodingException" />
+  <xs:element name="reporteBoleta" type="tns:reporteBoleta" />
+  <xs:element name="reporteBoletaResponse" type="tns:reporteBoletaResponse" />
+  <xs:element name="reporteSedes" type="tns:reporteSedes" />
+  <xs:element name="reporteSedesResponse" type="tns:reporteSedesResponse" />
+  <xs:complexType name="reporteSedes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="arg1" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="arg2" type="tns:sede" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sede">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="idSede" type="xs:int" />
+      <xs:element minOccurs="0" name="ubicacion" type="xs:string" />
+      <xs:element minOccurs="0" name="universidad" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteSedesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteBoleta">
+    <xs:sequence>
+      <xs:element name="idBol" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reporteBoletaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UnsupportedEncodingException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

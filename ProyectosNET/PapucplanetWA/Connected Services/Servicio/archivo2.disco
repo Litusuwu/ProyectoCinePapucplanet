@@ -13,4 +13,5 @@
   <contractRef ref="http://localhost:8080/PapucplanetWSBL/ClienteWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/PapucplanetWSBL/CuentaWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
   <contractRef ref="http://localhost:8080/PapucplanetWSBL/AdministradorWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <contractRef ref="http://localhost:8080/PapucplanetWSBL/ReporteWS?WSDL" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
 </discovery>
