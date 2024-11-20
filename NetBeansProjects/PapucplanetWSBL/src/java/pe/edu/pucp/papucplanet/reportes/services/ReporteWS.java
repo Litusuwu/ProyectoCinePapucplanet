@@ -22,6 +22,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import pe.edu.pucp.papucplanet.cine.model.Sede;
 import pe.edu.pucp.papucplanet.dbmanager.model.DBManager;
+import pe.edu.pucp.papucplanet.servlet.ReportePelicula;
 import pe.edu.pucp.papucplanet.servlet.ReporteSede;
 
 @WebService(serviceName = "ReporteWS")
@@ -61,4 +62,30 @@ public class ReporteWS {
         }
         return reporte;
     }
+    
+    @WebMethod(operationName = "reportePorPelicula")
+    public byte[] reportePorPelicula(@WebParam(name = "idPelicula") int idPelicula) {
+        byte[] reporte = null;
+        try{
+            JasperReport jr = (JasperReport) JRLoader.loadObject(ReportePelicula.class.getResource("/pe/edu/pucp/softprog/reportes/ReporteIngresosPorPelicula.jasper"));
+
+            //URL rutaLogo = ReporteSede.class.getResource("/pe/edu/pucp/papucplanet/images/LogoPapucPlanet.png");
+            //String rutaArchivoLogo = URLDecoder.decode(rutaLogo.getPath(),"UTF-8");
+            //Image logo = (new ImageIcon(rutaArchivoLogo).getImage());
+        
+            HashMap parametros = new HashMap();
+            //parametros.put("idSede", sede.getIdSede());
+            parametros.put("idPelicula", idPelicula);
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, DBManager.getInstance().getConnection());
+        
+            reporte = JasperExportManager.exportReportToPdf(jp);
+        //UnsupportedEncodingException | 
+        }catch(JRException ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            DBManager.getInstance().cerrarConexion();
+        }
+        return reporte;
+    }
+    
 }
