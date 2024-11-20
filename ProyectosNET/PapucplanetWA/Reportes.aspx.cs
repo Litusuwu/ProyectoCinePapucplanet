@@ -121,6 +121,15 @@ namespace PapucplanetWA
                     ScriptManager.RegisterStartupScript(this, GetType(), "ShowModalFormError", script, true);
                     return;
                 }
+                daoReporte = new ReporteWSClient();
+                int idPelicula = Int32.Parse(ddlTituloPelicula.SelectedValue);
+                byte[] reporte = daoReporte.reportePorPelicula(idPelicula);
+                Response.Clear();
+                Response.ContentType = "application/pdf";
+                Response.AddHeader("Content-Disposition",
+                    "inline;filename=ReporteIngresosPorPelicula.pdf");
+                Response.BinaryWrite(reporte);
+                Response.End();
             }
             else //Sede
             {

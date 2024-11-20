@@ -77,7 +77,7 @@ public class ReporteWS {
     public byte[] reportePorPelicula(@WebParam(name = "idPelicula") int idPelicula) throws UnsupportedEncodingException {
         byte[] reporte = null;
         try{
-            JasperReport jr = (JasperReport) JRLoader.loadObject(ReportePelicula.class.getResource("/pe/edu/pucp/softprog/reportes/ReporteIngresosPorPelicula.jasper"));
+            JasperReport jr = (JasperReport) JRLoader.loadObject(ReportePelicula.class.getResource("/pe/edu/pucp/papucplanet/reportes/ReporteIngresosPorPelicula.jasper"));
 
             //URL rutaLogo = ReporteSede.class.getResource("/pe/edu/pucp/papucplanet/images/LogoPapucPlanet.png");
             //String rutaArchivoLogo = URLDecoder.decode(rutaLogo.getPath(),"UTF-8");

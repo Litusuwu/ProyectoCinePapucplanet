@@ -3,6 +3,8 @@
   <xs:element name="UnsupportedEncodingException" type="tns:UnsupportedEncodingException" />
   <xs:element name="reporteBoleta" type="tns:reporteBoleta" />
   <xs:element name="reporteBoletaResponse" type="tns:reporteBoletaResponse" />
+  <xs:element name="reportePorPelicula" type="tns:reportePorPelicula" />
+  <xs:element name="reportePorPeliculaResponse" type="tns:reportePorPeliculaResponse" />
   <xs:element name="reporteSedes" type="tns:reporteSedes" />
   <xs:element name="reporteSedesResponse" type="tns:reporteSedesResponse" />
   <xs:complexType name="reporteSedes">
@@ -38,6 +40,16 @@
   <xs:complexType name="UnsupportedEncodingException">
     <xs:sequence>
       <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reportePorPelicula">
+    <xs:sequence>
+      <xs:element name="idPelicula" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reportePorPeliculaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
