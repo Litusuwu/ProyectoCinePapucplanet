@@ -23,11 +23,11 @@
   <message name="listarTodosAlimentosResponse">
     <part name="parameters" element="tns:listarTodosAlimentosResponse" />
   </message>
-  <message name="insertarAlimento">
-    <part name="parameters" element="tns:insertarAlimento" />
+  <message name="eliminarAlimento">
+    <part name="parameters" element="tns:eliminarAlimento" />
   </message>
-  <message name="insertarAlimentoResponse">
-    <part name="parameters" element="tns:insertarAlimentoResponse" />
+  <message name="eliminarAlimentoResponse">
+    <part name="parameters" element="tns:eliminarAlimentoResponse" />
   </message>
   <message name="actualizarAlimento">
     <part name="parameters" element="tns:actualizarAlimento" />
@@ -35,11 +35,11 @@
   <message name="actualizarAlimentoResponse">
     <part name="parameters" element="tns:actualizarAlimentoResponse" />
   </message>
-  <message name="eliminarAlimento">
-    <part name="parameters" element="tns:eliminarAlimento" />
+  <message name="insertarAlimento">
+    <part name="parameters" element="tns:insertarAlimento" />
   </message>
-  <message name="eliminarAlimentoResponse">
-    <part name="parameters" element="tns:eliminarAlimentoResponse" />
+  <message name="insertarAlimentoResponse">
+    <part name="parameters" element="tns:insertarAlimentoResponse" />
   </message>
   <portType name="AlimentoWS">
     <operation name="listarAlimentosPorNombre">
@@ -54,17 +54,17 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/listarTodosAlimentosRequest" message="tns:listarTodosAlimentos" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/listarTodosAlimentosResponse" message="tns:listarTodosAlimentosResponse" />
     </operation>
-    <operation name="insertarAlimento">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/insertarAlimentoRequest" message="tns:insertarAlimento" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/insertarAlimentoResponse" message="tns:insertarAlimentoResponse" />
+    <operation name="eliminarAlimento">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/eliminarAlimentoRequest" message="tns:eliminarAlimento" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/eliminarAlimentoResponse" message="tns:eliminarAlimentoResponse" />
     </operation>
     <operation name="actualizarAlimento">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/actualizarAlimentoRequest" message="tns:actualizarAlimento" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/actualizarAlimentoResponse" message="tns:actualizarAlimentoResponse" />
     </operation>
-    <operation name="eliminarAlimento">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/eliminarAlimentoRequest" message="tns:eliminarAlimento" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/eliminarAlimentoResponse" message="tns:eliminarAlimentoResponse" />
+    <operation name="insertarAlimento">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/insertarAlimentoRequest" message="tns:insertarAlimento" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AlimentoWS/insertarAlimentoResponse" message="tns:insertarAlimentoResponse" />
     </operation>
   </portType>
   <binding name="AlimentoWSPortBinding" type="tns:AlimentoWS">
@@ -96,7 +96,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarAlimento">
+    <operation name="eliminarAlimento">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -114,7 +114,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarAlimento">
+    <operation name="insertarAlimento">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

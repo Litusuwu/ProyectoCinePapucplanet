@@ -11,11 +11,11 @@
   <message name="listarBebidasPorNombreResponse">
     <part name="parameters" element="tns:listarBebidasPorNombreResponse" />
   </message>
-  <message name="eliminarBebida">
-    <part name="parameters" element="tns:eliminarBebida" />
+  <message name="listarTodasBebidas">
+    <part name="parameters" element="tns:listarTodasBebidas" />
   </message>
-  <message name="eliminarBebidaResponse">
-    <part name="parameters" element="tns:eliminarBebidaResponse" />
+  <message name="listarTodasBebidasResponse">
+    <part name="parameters" element="tns:listarTodasBebidasResponse" />
   </message>
   <message name="insertarBebida">
     <part name="parameters" element="tns:insertarBebida" />
@@ -23,17 +23,17 @@
   <message name="insertarBebidaResponse">
     <part name="parameters" element="tns:insertarBebidaResponse" />
   </message>
-  <message name="listarTodasBebidas">
-    <part name="parameters" element="tns:listarTodasBebidas" />
-  </message>
-  <message name="listarTodasBebidasResponse">
-    <part name="parameters" element="tns:listarTodasBebidasResponse" />
-  </message>
   <message name="actualizarBebida">
     <part name="parameters" element="tns:actualizarBebida" />
   </message>
   <message name="actualizarBebidaResponse">
     <part name="parameters" element="tns:actualizarBebidaResponse" />
+  </message>
+  <message name="eliminarBebida">
+    <part name="parameters" element="tns:eliminarBebida" />
+  </message>
+  <message name="eliminarBebidaResponse">
+    <part name="parameters" element="tns:eliminarBebidaResponse" />
   </message>
   <message name="obtenerPorIdBebida">
     <part name="parameters" element="tns:obtenerPorIdBebida" />
@@ -46,21 +46,21 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/listarBebidasPorNombreRequest" message="tns:listarBebidasPorNombre" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/listarBebidasPorNombreResponse" message="tns:listarBebidasPorNombreResponse" />
     </operation>
-    <operation name="eliminarBebida">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/eliminarBebidaRequest" message="tns:eliminarBebida" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/eliminarBebidaResponse" message="tns:eliminarBebidaResponse" />
+    <operation name="listarTodasBebidas">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/listarTodasBebidasRequest" message="tns:listarTodasBebidas" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/listarTodasBebidasResponse" message="tns:listarTodasBebidasResponse" />
     </operation>
     <operation name="insertarBebida">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/insertarBebidaRequest" message="tns:insertarBebida" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/insertarBebidaResponse" message="tns:insertarBebidaResponse" />
     </operation>
-    <operation name="listarTodasBebidas">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/listarTodasBebidasRequest" message="tns:listarTodasBebidas" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/listarTodasBebidasResponse" message="tns:listarTodasBebidasResponse" />
-    </operation>
     <operation name="actualizarBebida">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/actualizarBebidaRequest" message="tns:actualizarBebida" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/actualizarBebidaResponse" message="tns:actualizarBebidaResponse" />
+    </operation>
+    <operation name="eliminarBebida">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/eliminarBebidaRequest" message="tns:eliminarBebida" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/eliminarBebidaResponse" message="tns:eliminarBebidaResponse" />
     </operation>
     <operation name="obtenerPorIdBebida">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/BebidaWS/obtenerPorIdBebidaRequest" message="tns:obtenerPorIdBebida" />
@@ -78,7 +78,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarBebida">
+    <operation name="listarTodasBebidas">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -96,7 +96,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarTodasBebidas">
+    <operation name="actualizarBebida">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -105,7 +105,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarBebida">
+    <operation name="eliminarBebida">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
