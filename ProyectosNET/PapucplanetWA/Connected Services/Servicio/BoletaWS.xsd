@@ -20,14 +20,9 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="obtenerBoletaPorId">
+  <xs:complexType name="insertarBoleta">
     <xs:sequence>
-      <xs:element name="idBoleta" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="obtenerBoletaPorIdResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:boleta" />
+      <xs:element minOccurs="0" name="boleta" type="tns:boleta" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="boleta">
@@ -149,14 +144,19 @@
       <xs:element name="tipo" type="xs:unsignedShort" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="insertarBoleta">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="boleta" type="tns:boleta" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="insertarBoletaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerBoletaPorId">
+    <xs:sequence>
+      <xs:element name="idBoleta" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerBoletaPorIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:boleta" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="modificarBoleta">
