@@ -1,0 +1,103 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+}
+.navBar-Expandido {
+    color: white;
+}
+
+.navbar-nav .nav-link.navBar-Expandido {
+    color: white;
+    position: relative;
+    text-decoration: none;
+}
+
+.navbar-nav .nav-link.navBar-Expandido:hover {
+    color: white;
+}
+
+.navbar-nav .nav-link.navBar-Expandido::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.4s ease;
+}
+
+.navbar-nav .nav-link.navBar-Expandido:hover::after {
+    width: 100%;
+}
+
+
+
+h2 {
+    font-family: 'Mukta', sans-serif;
+    font-weight: bold;
+    color: black;
+}
+
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+    text-align: center;
+}
+.monserrat {
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+}
+.separator-line {
+    width: 100%; 
+    border: 2px solid darkred;
+    opacity: 1; 
+    filter: none;
+}
+
+.accordion-button {
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+}
+
+    .accordion-button:focus {
+        box-shadow: none;
+        border-color: darkred;
+    }
+
+.accordion-item {
+    border: none;
+    backgroud-color: darkred;
+}
+
+.accordion-body {
+    background-color: #444;
+    color: white;
+}
+
+.list-group-item {
+    background-color: #555;
+    color: white;
+    border: none;
+}
+.accordion-button:not(.collapsed) {
+    background-color: darkred;
+    color: white;
+    border-color: darkred;
+}
+
+.accordion-button:hover {
+    background-color: #770000 !important;
+    color: white !important;
+}
+.accordion-collapse {
+    background-color: #444 !important;
+    color: white !important;
+    border: 1px solid darkred v;
+}

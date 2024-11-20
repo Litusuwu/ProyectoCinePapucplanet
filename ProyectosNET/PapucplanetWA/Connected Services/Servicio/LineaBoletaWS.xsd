@@ -22,6 +22,7 @@
       <xs:element minOccurs="0" name="butacaFuncion" type="tns:butacaFuncion" />
       <xs:element name="cantidad" type="xs:int" />
       <xs:element minOccurs="0" name="consumible" type="tns:consumible" />
+      <xs:element name="idBoleta" type="xs:int" />
       <xs:element name="idLineaBoleta" type="xs:int" />
       <xs:element name="subtotal" type="xs:double" />
     </xs:sequence>
