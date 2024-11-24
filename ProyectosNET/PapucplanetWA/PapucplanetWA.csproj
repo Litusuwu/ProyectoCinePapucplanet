@@ -447,6 +447,7 @@
     <Content Include="Content\styles.css" />
     <Content Include="Funciones.aspx" />
     <Content Include="HistorialUsuario.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="Pagos.aspx" />
     <Content Include="Scripts\Papucplanet\Butacas.js" />
     <Content Include="Scripts\Papucplanet\Consumible.js" />
@@ -593,6 +594,12 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pagos.aspx.cs">
       <DependentUpon>Pagos.aspx</DependentUpon>
