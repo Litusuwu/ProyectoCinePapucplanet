@@ -37,7 +37,7 @@ public class ReporteBoleta extends HttpServlet {
 
             JasperReport jr = (JasperReport) JRLoader.loadObject(ReporteBoleta.class.getResource("/pe/edu/pucp/papucplanet/reportes/BoletaFinal.jasper"));
             
-            URL rutaLogo = ReporteSede.class.getResource("/pe/edu/pucp/papucplanet/images/LogoPapucPlanet.png");
+            URL rutaLogo = ReporteBoleta.class.getResource("/pe/edu/pucp/papucplanet/images/LogoPapucPlanet.png");
             String rutaArchivoLogo = URLDecoder.decode(rutaLogo.getPath(), "UTF-8");
             Image logo = (new ImageIcon(rutaArchivoLogo).getImage());
             
