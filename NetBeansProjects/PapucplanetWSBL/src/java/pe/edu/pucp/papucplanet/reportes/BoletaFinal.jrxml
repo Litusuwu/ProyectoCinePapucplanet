@@ -1,0 +1,125 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="BoletaFinal" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13acf49e-4913-4d1b-bccc-113817ad15d1">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ConexionReportePapusPrime"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50.0" bold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18.0" bold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14.0" bold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle mode="Opaque" backcolor="#F0EFEF">
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+		</conditionalStyle>
+	</style>
+	<parameter name="rutaSubReporteDetalleButacaBoletaFinal" class="java.lang.String"/>
+	<parameter name="idBoleta" class="java.lang.Integer"/>
+	<parameter name="logoCine" class="java.awt.Image"/>
+	<parameter name="rutaSubReporteCabeceraBoletaFinal" class="java.lang.String"/>
+	<parameter name="rutaSubReporteConfiteriaBoletaFinal" class="java.lang.String"/>
+	<query language="sql"><![CDATA[SELECT
+    	DATE_FORMAT(Boleta.fechaCompra, '%Y/%m/%d') AS FechaCompra,
+        Boleta.metodo_pago,
+    	Boleta.total,
+    	Usuario.nombres,
+    	Usuario.primer_apellido,
+    	Usuario.segundo_apellido,
+    	Usuario.correo,
+    	Usuario.dni
+    FROM 
+        Boleta
+    JOIN 
+        Cliente ON Boleta.fid_cliente = Cliente.id_cliente
+    JOIN 
+        Usuario ON Cliente.id_cliente = Usuario.id_usuario
+    WHERE 
+        Boleta.id_boleta = $P{idBoleta}]]></query>
+	<field name="FechaCompra" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="FechaCompra"/>
+		<property name="com.jaspersoft.studio.field.label" value="FechaCompra"/>
+	</field>
+	<field name="metodo_pago" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="metodo_pago"/>
+		<property name="com.jaspersoft.studio.field.label" value="metodo_pago"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Boleta"/>
+	</field>
+	<field name="total" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="total"/>
+		<property name="com.jaspersoft.studio.field.label" value="total"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Boleta"/>
+	</field>
+	<field name="nombres" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombres"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombres"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Usuario"/>
+	</field>
+	<field name="primer_apellido" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="primer_apellido"/>
+		<property name="com.jaspersoft.studio.field.label" value="primer_apellido"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Usuario"/>
+	</field>
+	<field name="segundo_apellido" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="segundo_apellido"/>
+		<property name="com.jaspersoft.studio.field.label" value="segundo_apellido"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Usuario"/>
+	</field>
+	<field name="correo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="correo"/>
+		<property name="com.jaspersoft.studio.field.label" value="correo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Usuario"/>
+	</field>
+	<field name="dni" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="dni"/>
+		<property name="com.jaspersoft.studio.field.label" value="dni"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Usuario"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="210" splitType="Stretch">
+		<property name="com.jaspersoft.studio.unit.height" value="px"/>
+	</title>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader height="26" splitType="Stretch">
+		<element kind="subreport" uuid="1fc9e127-0b71-448e-9cc4-75f161466d31" x="-20" y="-200" width="595" height="200">
+			<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+			<expression><![CDATA[$P{rutaSubReporteCabeceraBoletaFinal}]]></expression>
+			<parameter name="idBoleta">
+				<expression><![CDATA[$P{idBoleta}]]></expression>
+			</parameter>
+			<parameter name="logoCine">
+				<expression><![CDATA[$P{logoCine}]]></expression>
+			</parameter>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="190" splitType="Stretch">
+			<element kind="subreport" uuid="8546d07c-79ae-426a-b262-6c32e62e5b5b" x="-20" y="0" width="595" height="170">
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<expression><![CDATA[$P{rutaSubReporteDetalleButacaBoletaFinal}]]></expression>
+				<parameter name="idBoleta">
+					<expression><![CDATA[$P{idBoleta}]]></expression>
+				</parameter>
+			</element>
+		</band>
+		<band height="211">
+			<element kind="subreport" uuid="7dc925c0-8cb1-453b-8907-d654accc0f55" x="-20" y="0" width="595" height="200">
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<expression><![CDATA[$P{rutaSubReporteConfiteriaBoletaFinal}]]></expression>
+				<parameter name="idBoleta">
+					<expression><![CDATA[$P{idBoleta}]]></expression>
+				</parameter>
+			</element>
+		</band>
+	</detail>
+	<pageFooter height="25" splitType="Stretch">
+		<element kind="frame" uuid="729c3539-f946-4d0e-a0a7-bda2815ea1b0" mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000">
+			<element kind="textField" uuid="4834e99c-7f6c-485a-b098-50e5187f2ab4" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" fontSize="10.0" evaluationTime="Report" bold="false" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA[" " + $V{PAGE_NUMBER}]]></expression>
+			</element>
+			<element kind="textField" uuid="9825b46e-76f1-469a-abb8-a1cc27aad685" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" fontSize="10.0" bold="false" hTextAlign="Right" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></expression>
+			</element>
+			<element kind="textField" uuid="137d38c7-1a83-4fc5-b156-9d5f1b1a0ddc" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" fontSize="10.0" pattern="EEEEE dd MMMMM yyyy" bold="false" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA[new java.util.Date()]]></expression>
+			</element>
+		</element>
+	</pageFooter>
+</jasperReport>

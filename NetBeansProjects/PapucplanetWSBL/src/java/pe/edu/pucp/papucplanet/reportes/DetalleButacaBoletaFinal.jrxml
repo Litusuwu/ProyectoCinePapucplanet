@@ -1,0 +1,98 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="DetalleButacaBoletaFinal" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13acf49e-4913-4d1b-bccc-113817ad15d1">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ConexionReportePapusPrime"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50.0" bold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18.0" bold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14.0" bold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle mode="Opaque" backcolor="#F0EFEF">
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+		</conditionalStyle>
+	</style>
+	<parameter name="idBoleta" class="java.lang.Integer"/>
+	<query language="sql"><![CDATA[SELECT but.fila,
+       but.columna, but.discapacitado,butFun.precio,sal.numero_sala
+FROM LineaBoleta AS lin
+INNER JOIN ButacaFuncion AS butFun 
+        ON lin.fid_butaca_funcion = butFun.id_butaca_funcion
+INNER JOIN Butaca AS but 
+        ON but.id_butaca = butFun.fid_butaca
+INNER JOIN Sala AS sal
+		ON sal.id_sala = but.fid_sala
+WHERE lin.fid_boleta = $P{idBoleta} ]]></query>
+	<field name="fila" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="fila"/>
+		<property name="com.jaspersoft.studio.field.label" value="fila"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Butaca"/>
+	</field>
+	<field name="columna" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="columna"/>
+		<property name="com.jaspersoft.studio.field.label" value="columna"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Butaca"/>
+	</field>
+	<field name="discapacitado" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="discapacitado"/>
+		<property name="com.jaspersoft.studio.field.label" value="discapacitado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Butaca"/>
+	</field>
+	<field name="precio" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="precio"/>
+		<property name="com.jaspersoft.studio.field.label" value="precio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ButacaFuncion"/>
+	</field>
+	<field name="numero_sala" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="numero_sala"/>
+		<property name="com.jaspersoft.studio.field.label" value="numero_sala"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Sala"/>
+	</field>
+	<background splitType="Stretch"/>
+	<columnHeader height="53" splitType="Stretch">
+		<element kind="staticText" uuid="0b2e773b-5cef-49e2-a6db-27a0a662c6a4" x="0" y="0" width="130" height="20" bold="true">
+			<text><![CDATA[Butacas compradas:]]></text>
+		</element>
+		<element kind="staticText" uuid="786d158f-daac-4737-a8f2-2db31c7e2c0e" x="20" y="25" width="50" height="20" bold="true" hTextAlign="Center">
+			<text><![CDATA[Fila]]></text>
+		</element>
+		<element kind="staticText" uuid="87e2985b-ae2e-4d3b-bdaf-a62b8ea7c52a" x="110" y="25" width="50" height="20" bold="true" hTextAlign="Center">
+			<text><![CDATA[Columna]]></text>
+		</element>
+		<element kind="staticText" uuid="b7ad5e38-f999-4334-ab96-a9c796d0ce33" x="220" y="25" width="90" height="20" bold="true" hTextAlign="Center">
+			<text><![CDATA[Numero Sala]]></text>
+		</element>
+		<element kind="staticText" uuid="5681cd55-3f25-47d5-a6db-856643664e1e" x="343" y="25" width="70" height="20" bold="true" hTextAlign="Center">
+			<text><![CDATA[Precio]]></text>
+		</element>
+		<element kind="staticText" uuid="62fd3ca8-f920-4642-8b32-de4298f02fb1" x="463" y="20" width="70" height="30" bold="true" hTextAlign="Center">
+			<text><![CDATA[Persona con discapacidad]]></text>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<element kind="frame" uuid="b50221b5-8254-440b-8c6f-1f0b138c9259" mode="Opaque" x="-12" y="0" width="582" height="50" style="Row">
+				<element kind="textField" uuid="7be9f89f-bc07-42fe-95a2-1cea0c60a5f5" x="30" y="10" width="50" height="30" hTextAlign="Center">
+					<expression><![CDATA[$F{fila}]]></expression>
+				</element>
+				<element kind="textField" uuid="2b474b30-293f-44c9-9f0e-ab732d08bc0c" x="100" y="10" width="100" height="30" hTextAlign="Center">
+					<expression><![CDATA[$F{columna}]]></expression>
+				</element>
+				<element kind="textField" uuid="e1b2fdda-76b7-430c-a53b-8734f1c8e420" x="227" y="10" width="100" height="30" hTextAlign="Center">
+					<expression><![CDATA[$F{numero_sala}]]></expression>
+				</element>
+				<element kind="textField" uuid="9938443a-f3c4-470b-a8a6-2d3fea434226" x="340" y="10" width="100" height="30" hTextAlign="Center">
+					<expression><![CDATA[String.format("S/. %.2f",$F{precio})]]></expression>
+				</element>
+				<element kind="textField" uuid="ed850d92-9e85-4128-bb12-1094b4e7d39d" x="460" y="10" width="100" height="30" hTextAlign="Center">
+					<expression><![CDATA[$F{discapacitado}? "SI":"NO"]]></expression>
+				</element>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="7" splitType="Stretch">
+		<element kind="line" uuid="1133a906-5b71-476e-9f3e-bc97c97058c1" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1">
+			<pen lineWidth="0.5" lineColor="#999999"/>
+		</element>
+	</columnFooter>
+	<summary splitType="Stretch"/>
+</jasperReport>
