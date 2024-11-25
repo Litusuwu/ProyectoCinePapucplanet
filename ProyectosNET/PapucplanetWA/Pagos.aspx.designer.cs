@@ -105,6 +105,24 @@ namespace PapucplanetWA
         protected global::System.Web.UI.UpdatePanel UpdatePanelPagoTarjeta;
 
         /// <summary>
+        /// UpdatePanelModals control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelModals;
+
+        /// <summary>
+        /// lblErrorModal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorModal;
+
+        /// <summary>
         /// txtNumeroTarjeta control.
         /// </summary>
         /// <remarks>
@@ -148,24 +166,6 @@ namespace PapucplanetWA
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPagarTarjeta;
-
-        /// <summary>
-        /// UpdatePanelModals control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanelModals;
-
-        /// <summary>
-        /// lblErrorModal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorModal;
 
         /// <summary>
         /// imgQrYape control.
