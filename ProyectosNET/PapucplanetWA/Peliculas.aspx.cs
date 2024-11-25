@@ -36,6 +36,12 @@ namespace PapucplanetWA
                 }
             }
 
+            if (Session["CurrentPageIndexPeliculas"] != null)
+            {
+                gvPeliculas.PageIndex = (int)Session["CurrentPageIndexPeliculas"];
+                Session.Remove("CurrentPageIndexPeliculas"); // Limpia la sesión después de usarla
+            }
+
             daoPelicula = new PeliculaWSClient();
             gvPeliculas.DataSource = daoPelicula.listarPorNombrePelicula(txtNombre.Text);
             gvPeliculas.DataBind();
@@ -54,8 +60,21 @@ namespace PapucplanetWA
 
         protected void lbEliminar_Click(object sender, EventArgs e)
         {
+            // Obtén el índice actual de la página del GridView
+            int currentPageIndex = gvPeliculas.PageIndex;
+
             int idPelicula = Int32.Parse(((LinkButton)sender).CommandArgument);
             daoPelicula.eliminarPelicula(idPelicula);
+
+            if (gvPeliculas.Rows.Count == 0 && currentPageIndex > 0)
+            {
+                // Si no hay filas y no estamos en la primera página, retrocede una página
+                currentPageIndex--;
+            }
+
+            // Guarda el índice ajustado en la sesión
+            Session["CurrentPageIndexPeliculas"] = currentPageIndex;
+
             Response.Redirect("Peliculas.aspx");
         }
 

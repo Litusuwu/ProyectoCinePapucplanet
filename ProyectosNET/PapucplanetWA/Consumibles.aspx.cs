@@ -29,7 +29,13 @@ namespace PapucplanetWA
                 }
                 Response.Redirect("AccesoDenegado.aspx");
             }
-            
+
+            if (Session["CurrentPageIndexConsumible"] != null)
+            {
+                gvConsumibles.PageIndex = (int)Session["CurrentPageIndexConsumible"];
+                Session.Remove("CurrentPageIndexConsumible"); // Limpia la sesión después de usarla
+            }
+
             guardado = txtNombre.Text;
             daoAlimento = new AlimentoWSClient();
             daoBebiba = new BebidaWSClient();
@@ -72,9 +78,22 @@ namespace PapucplanetWA
 
         protected void lbEliminar_Click(object sender, EventArgs e)
         {
+            // Obtén el índice actual de la página del GridView
+            int currentPageIndex = gvConsumibles.PageIndex;
+
             int idConsumible = Int32.Parse(((LinkButton)sender).CommandArgument);
             daoAlimento.eliminarAlimento(idConsumible);
             daoBebiba.eliminarBebida(idConsumible);
+
+            if (gvConsumibles.Rows.Count == 0 && currentPageIndex > 0)
+            {
+                // Si no hay filas y no estamos en la primera página, retrocede una página
+                currentPageIndex--;
+            }
+
+            // Guarda el índice ajustado en la sesión
+            Session["CurrentPageIndexConsumible"] = currentPageIndex;
+
             Response.Redirect("Consumibles.aspx");
         }
         protected void lbDetalle_Click(object sender, EventArgs e)

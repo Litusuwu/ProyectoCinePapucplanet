@@ -15,9 +15,21 @@ namespace PapucplanetWA
         private SalaWSClient daoSala = new SalaWSClient();
         private SedeWSClient daoSede = new SedeWSClient();
         private int idSede;
-        protected void Page_Init(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
-
+            usuario usuarioDatos = (usuario)Session["Usuario"];
+            if (usuarioDatos == null || usuarioDatos.tipoUsuario == 'C')
+            {
+                if (usuarioDatos == null)
+                {
+                    Session["Redireccion"] = "Login.aspx";
+                }
+                else if (usuarioDatos.tipoUsuario.Equals("C"))
+                {
+                    Session["Redireccion"] = "PeliculasUsuario.aspx";
+                }
+                Response.Redirect("AccesoDenegado.aspx");
+            }
             string id= Request.QueryString["IdSele"];
             idSede = Int32.Parse(id);
             if(id!= null)
@@ -28,8 +40,18 @@ namespace PapucplanetWA
                 lblSedeNombre.Text = sede.universidad;
                 lblUbicacion.Text = sede.ubicacion;
 
+                if (Session["CurrentPageIndexSalas"] != null)
+                {
+                    gvSalas.PageIndex = (int)Session["CurrentPageIndexSalas"];
+                }
+
                 gvSalas.DataSource = daoSala.salasXIdsede(idSede);
                 gvSalas.DataBind();
+
+                if (Session["CurrentPageIndexSalas"] != null)
+                {
+                    Session.Remove("CurrentPageIndexSalas"); // Limpia la sesión después de usarla
+                }
 
                 if (!IsPostBack)
                 {
@@ -44,6 +66,7 @@ namespace PapucplanetWA
 
         protected void btnAddSala_Click(object sender, EventArgs e)
         {
+            Session["CurrentPageIndexSalas"] = gvSalas.PageIndex;
             string script = "showModalFormSalaAdd();";
             ScriptManager.RegisterStartupScript(this,GetType(),"showModalFormSalaAdd", script, true);
         }
@@ -119,30 +142,26 @@ namespace PapucplanetWA
 
         protected void btnDeleteSala_Click(object sender, EventArgs e)
         {
+            // Obtén el índice actual de la página del GridView
+            int currentPageIndex = gvSalas.PageIndex;
             int idSala = Int32.Parse(((LinkButton)sender).CommandArgument);
             int resultado=daoSala.eliminarSala(idSala);
-            if(resultado != 0)
+            if (gvSalas.Rows.Count == 0 && currentPageIndex > 0)
+            {
+                // Si no hay filas y no estamos en la primera página, retrocede una página
+                currentPageIndex--;
+            }
+
+            // Guarda el índice ajustado en la sesión
+            Session["CurrentPageIndexSalas"] = currentPageIndex;
+
+            if (resultado != 0)
             {
                 Response.Redirect("Salas.aspx?IdSele=" + idSede.ToString());
             }
-            
+
         }
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            usuario usuarioDatos = (usuario)Session["Usuario"];
-            if (usuarioDatos == null || usuarioDatos.tipoUsuario == 'C')
-            {
-                if (usuarioDatos == null)
-                {
-                    Session["Redireccion"] = "Login.aspx";
-                }
-                else if (usuarioDatos.tipoUsuario.Equals("C"))
-                {
-                    Session["Redireccion"] = "PeliculasUsuario.aspx";
-                }
-                Response.Redirect("AccesoDenegado.aspx");
-            }
-        }
+
         private void CalcularCapacidad()
         {
             // Verificar si los TextBox tienen valores numéricos válidos
