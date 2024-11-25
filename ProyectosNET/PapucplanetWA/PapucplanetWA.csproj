@@ -66,7 +66,6 @@
     <Content Include="AccesoDenegado.aspx" />
     <Content Include="AgregarNuevaPelicula.aspx" />
     <Content Include="AgregarNuevoConsumible.aspx" />
-    <Content Include="Boletas.aspx" />
     <Content Include="Butacas.aspx" />
     <Content Include="ConfiteriaVUsuario.aspx" />
     <None Include="Connected Services\Servicio\AdministradorWS.wsdl" />
@@ -390,7 +389,7 @@
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarFuncionesPorFechaPorSalaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.reporteSedesResponse.datasource">
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarTodosPeliculaSinFuncionesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.reporteBoletaResponse.datasource">
@@ -399,7 +398,7 @@
     <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.reportePorPeliculaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.listarTodosPeliculaSinFuncionesResponse.datasource">
+    <Content Include="Connected Services\Servicio\PapucplanetWA.Servicio.reporteSedesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\Servicio\Reference.svcmap">
@@ -528,13 +527,6 @@
     </Compile>
     <Compile Include="AgregarNuevoConsumible.aspx.designer.cs">
       <DependentUpon>AgregarNuevoConsumible.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Boletas.aspx.cs">
-      <DependentUpon>Boletas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Boletas.aspx.designer.cs">
-      <DependentUpon>Boletas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Butacas.aspx.cs">
       <DependentUpon>Butacas.aspx</DependentUpon>

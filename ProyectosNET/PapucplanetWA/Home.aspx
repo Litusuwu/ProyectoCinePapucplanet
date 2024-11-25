@@ -51,17 +51,6 @@
                 </a>
             </div>
         </div>
-        <!-- Tarjeta 5: Boletas -->
-        <div class="col mb-5">
-            <div class="card custom-width-card mx-auto text-center bg-custom border-0 shadow-sm">
-                <a href="Boletas.aspx" class="text-decoration-none">
-                    <div class="card-body my-4">
-                        <i class="fa-solid fa-receipt fs-1 custom-body-card"></i>
-                        <h5 class="card-title mt-2 custom-body-card">Boletas</h5>
-                    </div>
-                </a>
-            </div>
-        </div>
         <!-- Tarjeta 6: Reportes -->
         <div class="col mb-5">
             <div class="card custom-width-card mx-auto text-center bg-custom border-0 shadow-sm mb">
