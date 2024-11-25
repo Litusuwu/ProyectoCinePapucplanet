@@ -105,63 +105,11 @@ namespace PapucplanetWA
         protected global::System.Web.UI.UpdatePanel UpdatePanelPagoTarjeta;
 
         /// <summary>
-<<<<<<< HEAD
-        /// Control txtNumeroTarjeta.
-=======
-        /// Control UpdatePanelModals.
->>>>>>> main
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-<<<<<<< HEAD
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNumeroTarjeta;
-
-        /// <summary>
-        /// Control txtFechaExpiracion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaExpiracion;
-
-        /// <summary>
-        /// Control txtCvv.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCvv;
-
-        /// <summary>
-        /// Control txtNombreTarjeta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreTarjeta;
-
-        /// <summary>
-        /// Control btnPagarTarjeta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPagarTarjeta;
-
-        /// <summary>
         /// Control UpdatePanelModals.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-=======
->>>>>>> main
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanelModals;
 
@@ -175,17 +123,11 @@ namespace PapucplanetWA
         protected global::System.Web.UI.WebControls.Label lblErrorModal;
 
         /// <summary>
-<<<<<<< HEAD
-        /// Control imgQrYape.
-=======
         /// Control txtNumeroTarjeta.
->>>>>>> main
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-<<<<<<< HEAD
-=======
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNumeroTarjeta;
 
@@ -231,7 +173,6 @@ namespace PapucplanetWA
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
->>>>>>> main
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgQrYape;
 

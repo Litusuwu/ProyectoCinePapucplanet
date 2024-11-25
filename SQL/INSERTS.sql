@@ -11,10 +11,12 @@ CALL INSERTAR_ADMINISTRADOR(@id_administrador, "75530397", "Diego Enrique", "Rod
 
 #Inserts Cliente
 CALL INSERTAR_CLIENTE(@id_cliente, "71228897", "Bryan Smith", "Valdiviezo", "Jimenez", 'M', '2004-07-31', 1);
+CALL INSERTAR_CLIENTE(@id_cliente, "71228897", "Freddy Alberto", "Paz", "Espinoza", 'M', '2004-07-31', 1);
 
 #Inserts Cuenta
-CALL INSERTAR_CUENTA(@id_cuenta, "admin", "admin", 1);
-CALL INSERTAR_CUENTA(@id_cuenta, "cliente", "cliente", 2);
+CALL INSERTAR_CUENTA(@id_cuenta,  "admin", "a20210632@pucp.edu.pe", 1);
+CALL INSERTAR_CUENTA(@id_cuenta, "cliente", "a20215003@pucp.edu.pe", 2);
+CALL INSERTAR_CUENTA(@id_cuenta, "admin", "fpaz@pucp.edu.pe", 3);
 
 #Inserts de SALAS
 CALL INSERTAR_SALA(@id_sala, 1, 1, 9, 3, 3);
@@ -218,7 +220,6 @@ CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 25, 8, 'DISPONIBLE', 15.00);
 CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 26, 8, 'DISPONIBLE', 15.00);
 
 #Inserts Boletas
-
 CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-01-05 19:04:00', 'TARJETA_DEBITO', 60);
 CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-01-15 21:14:00', 'TARJETA_CREDITO', 122.8);
 CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-01-04 06:50:00', 'TARJETA_DEBITO', 140.6);
@@ -321,7 +322,6 @@ CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-10-25 04:20:00', 'TARJETA_DEBITO', 40)
 CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-10-07 01:04:00', 'TARJETA_CREDITO', 232.0);
 
 #Inserts Linea Boleta
-
 CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 1, NULL, 294, 1, 20);
 CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 1, NULL, 297, 1, 20);
 CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 2, NULL, 4, 1, 20);
