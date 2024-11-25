@@ -70,16 +70,6 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="obtenerPorIdBebida">
-    <xs:sequence>
-      <xs:element name="idBebida" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="obtenerPorIdBebidaResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:bebida" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="insertarBebida">
     <xs:sequence>
       <xs:element minOccurs="0" name="bebida" type="tns:bebida" />
@@ -88,6 +78,16 @@
   <xs:complexType name="insertarBebidaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdBebida">
+    <xs:sequence>
+      <xs:element name="idBebida" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdBebidaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:bebida" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

@@ -11,11 +11,11 @@
   <message name="listarTodosSalaResponse">
     <part name="parameters" element="tns:listarTodosSalaResponse" />
   </message>
-  <message name="modificarSala">
-    <part name="parameters" element="tns:modificarSala" />
+  <message name="insertarSala">
+    <part name="parameters" element="tns:insertarSala" />
   </message>
-  <message name="modificarSalaResponse">
-    <part name="parameters" element="tns:modificarSalaResponse" />
+  <message name="insertarSalaResponse">
+    <part name="parameters" element="tns:insertarSalaResponse" />
   </message>
   <message name="eliminarSala">
     <part name="parameters" element="tns:eliminarSala" />
@@ -23,17 +23,17 @@
   <message name="eliminarSalaResponse">
     <part name="parameters" element="tns:eliminarSalaResponse" />
   </message>
-  <message name="insertarSala">
-    <part name="parameters" element="tns:insertarSala" />
-  </message>
-  <message name="insertarSalaResponse">
-    <part name="parameters" element="tns:insertarSalaResponse" />
-  </message>
   <message name="obtenerPorIdSala">
     <part name="parameters" element="tns:obtenerPorIdSala" />
   </message>
   <message name="obtenerPorIdSalaResponse">
     <part name="parameters" element="tns:obtenerPorIdSalaResponse" />
+  </message>
+  <message name="modificarSala">
+    <part name="parameters" element="tns:modificarSala" />
+  </message>
+  <message name="modificarSalaResponse">
+    <part name="parameters" element="tns:modificarSalaResponse" />
   </message>
   <message name="salasXIdsede">
     <part name="parameters" element="tns:salasXIdsede" />
@@ -46,21 +46,21 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/listarTodosSalaRequest" message="tns:listarTodosSala" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/listarTodosSalaResponse" message="tns:listarTodosSalaResponse" />
     </operation>
-    <operation name="modificarSala">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/modificarSalaRequest" message="tns:modificarSala" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/modificarSalaResponse" message="tns:modificarSalaResponse" />
+    <operation name="insertarSala">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/insertarSalaRequest" message="tns:insertarSala" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/insertarSalaResponse" message="tns:insertarSalaResponse" />
     </operation>
     <operation name="eliminarSala">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/eliminarSalaRequest" message="tns:eliminarSala" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/eliminarSalaResponse" message="tns:eliminarSalaResponse" />
     </operation>
-    <operation name="insertarSala">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/insertarSalaRequest" message="tns:insertarSala" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/insertarSalaResponse" message="tns:insertarSalaResponse" />
-    </operation>
     <operation name="obtenerPorIdSala">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/obtenerPorIdSalaRequest" message="tns:obtenerPorIdSala" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/obtenerPorIdSalaResponse" message="tns:obtenerPorIdSalaResponse" />
+    </operation>
+    <operation name="modificarSala">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/modificarSalaRequest" message="tns:modificarSala" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/modificarSalaResponse" message="tns:modificarSalaResponse" />
     </operation>
     <operation name="salasXIdsede">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/SalaWS/salasXIdsedeRequest" message="tns:salasXIdsede" />
@@ -78,7 +78,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="modificarSala">
+    <operation name="insertarSala">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -96,7 +96,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarSala">
+    <operation name="obtenerPorIdSala">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -105,7 +105,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="obtenerPorIdSala">
+    <operation name="modificarSala">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
