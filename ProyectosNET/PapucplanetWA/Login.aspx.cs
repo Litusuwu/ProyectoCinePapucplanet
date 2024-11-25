@@ -21,6 +21,7 @@ namespace PapucplanetWA
             string contrasena = txtPassword.Text;
             var cuenta = new cuenta {correo = usuario, password = contrasena};
             usuario usuarioVerificado = daoCuenta.verificarCuenta(cuenta);
+            Session["cuenta"] = (cuenta)cuenta;
             if (usuarioVerificado != null)
             {
                 Session["Usuario"] = usuarioVerificado;

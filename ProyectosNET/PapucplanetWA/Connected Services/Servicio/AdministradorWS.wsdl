@@ -11,11 +11,11 @@
   <message name="modificarAdministradorResponse">
     <part name="parameters" element="tns:modificarAdministradorResponse" />
   </message>
-  <message name="listarTodosAdministradores">
-    <part name="parameters" element="tns:listarTodosAdministradores" />
+  <message name="eliminarAdministrador">
+    <part name="parameters" element="tns:eliminarAdministrador" />
   </message>
-  <message name="listarTodosAdministradoresResponse">
-    <part name="parameters" element="tns:listarTodosAdministradoresResponse" />
+  <message name="eliminarAdministradorResponse">
+    <part name="parameters" element="tns:eliminarAdministradorResponse" />
   </message>
   <message name="insertarAdministrador">
     <part name="parameters" element="tns:insertarAdministrador" />
@@ -23,11 +23,11 @@
   <message name="insertarAdministradorResponse">
     <part name="parameters" element="tns:insertarAdministradorResponse" />
   </message>
-  <message name="eliminarAdministrador">
-    <part name="parameters" element="tns:eliminarAdministrador" />
+  <message name="listarTodosAdministradores">
+    <part name="parameters" element="tns:listarTodosAdministradores" />
   </message>
-  <message name="eliminarAdministradorResponse">
-    <part name="parameters" element="tns:eliminarAdministradorResponse" />
+  <message name="listarTodosAdministradoresResponse">
+    <part name="parameters" element="tns:listarTodosAdministradoresResponse" />
   </message>
   <message name="obtenerAdministradorPorId">
     <part name="parameters" element="tns:obtenerAdministradorPorId" />
@@ -40,17 +40,17 @@
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/modificarAdministradorRequest" message="tns:modificarAdministrador" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/modificarAdministradorResponse" message="tns:modificarAdministradorResponse" />
     </operation>
-    <operation name="listarTodosAdministradores">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/listarTodosAdministradoresRequest" message="tns:listarTodosAdministradores" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/listarTodosAdministradoresResponse" message="tns:listarTodosAdministradoresResponse" />
+    <operation name="eliminarAdministrador">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/eliminarAdministradorRequest" message="tns:eliminarAdministrador" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/eliminarAdministradorResponse" message="tns:eliminarAdministradorResponse" />
     </operation>
     <operation name="insertarAdministrador">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/insertarAdministradorRequest" message="tns:insertarAdministrador" />
       <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/insertarAdministradorResponse" message="tns:insertarAdministradorResponse" />
     </operation>
-    <operation name="eliminarAdministrador">
-      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/eliminarAdministradorRequest" message="tns:eliminarAdministrador" />
-      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/eliminarAdministradorResponse" message="tns:eliminarAdministradorResponse" />
+    <operation name="listarTodosAdministradores">
+      <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/listarTodosAdministradoresRequest" message="tns:listarTodosAdministradores" />
+      <output wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/listarTodosAdministradoresResponse" message="tns:listarTodosAdministradoresResponse" />
     </operation>
     <operation name="obtenerAdministradorPorId">
       <input wsam:Action="http://services.papucplanet.pucp.edu.pe/AdministradorWS/obtenerAdministradorPorIdRequest" message="tns:obtenerAdministradorPorId" />
@@ -68,7 +68,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarTodosAdministradores">
+    <operation name="eliminarAdministrador">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -86,7 +86,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarAdministrador">
+    <operation name="listarTodosAdministradores">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

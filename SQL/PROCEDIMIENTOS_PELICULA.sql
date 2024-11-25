@@ -4,31 +4,16 @@ DROP PROCEDURE IF EXISTS LISTAR_PELICULAS_TODAS;
 DROP PROCEDURE IF EXISTS MODIFICAR_PELICULA;
 DROP PROCEDURE IF EXISTS LISTAR_PELICULA_X_ID;
 DROP PROCEDURE IF EXISTS ELIMINAR_PELICULA_X_ID;
-DROP PROCEDURE IF EXISTS LISTAR_PELICULA_X_NOMBRE;
 DROP PROCEDURE IF EXISTS ListarPeliculasConFuncionesActivas;
 DROP PROCEDURE IF EXISTS LISTAR_GENEROS_ENUM;
-DROP PROCEDURE IF EXISTS LISTAR_PELICULAS_SIN_FUNCIONES;
 -- Procedimientos de Película
 DELIMITER $
 CREATE PROCEDURE INSERTAR_PELICULA(
     OUT _id_pelicula INT,
-    IN _titulo VARCHAR(80),
+    IN _titulo VARCHAR(60),
     IN _duracion INT,
-    IN _genero ENUM (
-        'ACCION', 
-        'ANIMACION', 
-        'AVENTURA', 
-        'BIOGRAFICA', 
-        'COMEDIA', 
-        'DRAMA', 
-        'DOCUMENTAL', 
-        'FANTASIA', 
-        'HORROR', 
-        'MUSICAL', 
-        'ROMANTICA', 
-        'CIENCIA_FICCION'
-    ),
-    IN _sinopsis VARCHAR(1500),
+    IN _genero ENUM('ACCION', 'DRAMA', 'COMEDIA', 'DOCUMENTAL'),
+    IN _sinopsis VARCHAR(1000),
     IN _imagen_link VARCHAR(255)
 )
 BEGIN
@@ -37,7 +22,7 @@ BEGIN
     SET _id_pelicula = @@last_insert_id;
 END$
 
-CREATE PROCEDURE LISTAR_PELICULAS_TODAS()
+CREATE DEFINER=`admin`@`%` PROCEDURE `LISTAR_PELICULAS_TODAS`()
 BEGIN
     SELECT 
         p.id_pelicula, p.titulo,p.duracion,p.genero,p.sinopsis,p.imagen_link,
@@ -48,28 +33,16 @@ BEGIN
     LEFT JOIN Funcion f ON p.id_pelicula = f.fid_pelicula
     LEFT JOIN Sala s ON f.fid_sala = s.id_sala
     LEFT JOIN Sede sd ON s.fid_sede = sd.id_sede
-    WHERE p.activo = 1 AND f.activo = 1 AND s.activo = 1 AND sd.activo = 1;
+    WHERE p.activo = 1 AND f.activo = 1 AND s.activo = 1 AND sd.activo = 1
+    AND f.dia >= DATE(DATE_ADD(NOW(), INTERVAL -5 HOUR));
 END$
 
 CREATE PROCEDURE MODIFICAR_PELICULA(
     IN _id_pelicula INT,
-    IN _titulo VARCHAR(80),
+    IN _titulo VARCHAR(60),
     IN _duracion INT,
-    IN _genero ENUM (
-        'ACCION', 
-        'ANIMACION', 
-        'AVENTURA', 
-        'BIOGRAFICA', 
-        'COMEDIA', 
-        'DRAMA', 
-        'DOCUMENTAL', 
-        'FANTASIA', 
-        'HORROR', 
-        'MUSICAL', 
-        'ROMANTICA', 
-        'CIENCIA_FICCION'
-    ),
-    IN _sinopsis VARCHAR(1500),
+    IN _genero ENUM('ACCION', 'DRAMA', 'COMEDIA', 'DOCUMENTAL'),
+    IN _sinopsis VARCHAR(1000),
     IN _imagen_link VARCHAR(255)
 )
 BEGIN
@@ -95,7 +68,7 @@ BEGIN
 END$
 
 CREATE PROCEDURE LISTAR_PELICULA_X_NOMBRE(
-	IN _nombre VARCHAR(80)
+	IN _nombre VARCHAR(100)
 )
 BEGIN
 	SELECT p.id_pelicula, p.titulo, p.duracion, p.genero, p.imagen_link 
@@ -118,6 +91,7 @@ BEGIN
     WHERE p.activo = 1 AND f.activo = 1 AND s.activo = 1 AND sd.activo = 1 AND f.dia >= DATE(DATE_ADD(NOW(), INTERVAL -5 HOUR)); -- Solo funciones a partir de hoy
 END$
 -- Genero es un enum de peliculas
+DELIMITER $
 CREATE PROCEDURE LISTAR_GENEROS_ENUM()
 BEGIN
     SELECT SUBSTRING(COLUMN_TYPE, 6, LENGTH(COLUMN_TYPE) - 6) AS generos
@@ -125,10 +99,4 @@ BEGIN
     WHERE TABLE_NAME = 'Pelicula'
       AND COLUMN_NAME = 'genero'
       AND TABLE_SCHEMA = DATABASE();
-END $
-
-CREATE PROCEDURE LISTAR_PELICULAS_SIN_FUNCIONES()
-BEGIN
-    SELECT p.id_pelicula, p.titulo,p.duracion,p.genero,p.sinopsis,p.imagen_link
-    FROM Pelicula p WHERE p.activo = 1 ;
 END $

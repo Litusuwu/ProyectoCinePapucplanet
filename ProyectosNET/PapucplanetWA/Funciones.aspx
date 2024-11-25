@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Papucplanet.Master" AutoEventWireup="true" CodeBehind="Funciones.aspx.cs" Inherits="PapucplanetWA.Funciones" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitulo" runat="server">
+    Funciones
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphScripts" runat="server">
     <script src="Scripts/Papucplanet/Funciones.js"></script>
@@ -76,7 +77,7 @@
                                         <ContentTemplate>
                                             <div class="row pb-1 pt-1">
                                                 <div class="col-md-12 pb-md-2">
-                                                    <asp:Label ID="lblPelicula" CssClass="col-form-label fw-bold" runat="server" Text="Sala:"></asp:Label>
+                                                    <asp:Label ID="lblPelicula" CssClass="col-form-label fw-bold" runat="server" Text="Película:"></asp:Label>
                                                     <asp:DropDownList ID="ddlPelicula" runat="server" CssClass="form-select" AutoPostBack="true" OnSelectedIndexChanged="ddlPelicula_SelectedIndexChanged">
                                                     </asp:DropDownList>
                                                 </div>

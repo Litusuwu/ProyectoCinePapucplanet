@@ -97,16 +97,6 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="obtenerPorIdFuncion">
-    <xs:sequence>
-      <xs:element name="idFuncion" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="obtenerPorIdFuncionResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:funcion" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="modificarFuncion">
     <xs:sequence>
       <xs:element minOccurs="0" name="funcion" type="tns:funcion" />
@@ -117,10 +107,28 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="obtenerPorIdFuncion">
+    <xs:sequence>
+      <xs:element name="idFuncion" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerPorIdFuncionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:funcion" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="listarPeliculasConFuncionesActivasFuncion">
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="listarPeliculasConFuncionesActivasFuncionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:funcion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTodosFuncion">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTodosFuncionResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:funcion" />
     </xs:sequence>
@@ -133,14 +141,6 @@
   <xs:complexType name="estaDisponibleElHorarioResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarTodosFuncion">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarTodosFuncionResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:funcion" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="obtenerFuncionesPorPeliculaFuncion">
@@ -205,9 +205,17 @@
   <xs:simpleType name="genero">
     <xs:restriction base="xs:string">
       <xs:enumeration value="ACCION" />
+      <xs:enumeration value="ANIMACION" />
+      <xs:enumeration value="AVENTURA" />
+      <xs:enumeration value="BIOGRAFICA" />
       <xs:enumeration value="COMEDIA" />
       <xs:enumeration value="DRAMA" />
       <xs:enumeration value="DOCUMENTAL" />
+      <xs:enumeration value="FANTASIA" />
+      <xs:enumeration value="HORROR" />
+      <xs:enumeration value="MUSICAL" />
+      <xs:enumeration value="ROMANTICA" />
+      <xs:enumeration value="CIENCIA_FICCION" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

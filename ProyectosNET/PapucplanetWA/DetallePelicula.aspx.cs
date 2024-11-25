@@ -71,8 +71,9 @@ namespace PapucplanetWA
             // Filtrar días únicos y solo incluir fechas de hoy en adelante
             var diasUnicos = funciones
                 .Select(f => f.dia.Date)
-                .Where(d => d >= DateTime.Today) // Filtrar para mostrar solo días desde hoy en adelante
-                .Distinct();
+                .Where(d => d >= DateTime.Today) // Filtrar días desde hoy en adelante
+                .Distinct()
+                .OrderBy(d => d); // Ordenar en orden ascendente
 
             foreach (var dia in diasUnicos)
             {

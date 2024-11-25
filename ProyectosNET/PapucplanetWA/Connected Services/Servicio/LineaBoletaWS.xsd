@@ -157,9 +157,17 @@
   <xs:simpleType name="genero">
     <xs:restriction base="xs:string">
       <xs:enumeration value="ACCION" />
+      <xs:enumeration value="ANIMACION" />
+      <xs:enumeration value="AVENTURA" />
+      <xs:enumeration value="BIOGRAFICA" />
       <xs:enumeration value="COMEDIA" />
       <xs:enumeration value="DRAMA" />
       <xs:enumeration value="DOCUMENTAL" />
+      <xs:enumeration value="FANTASIA" />
+      <xs:enumeration value="HORROR" />
+      <xs:enumeration value="MUSICAL" />
+      <xs:enumeration value="ROMANTICA" />
+      <xs:enumeration value="CIENCIA_FICCION" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
