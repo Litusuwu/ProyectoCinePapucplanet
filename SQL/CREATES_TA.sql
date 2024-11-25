@@ -69,19 +69,6 @@ CREATE TABLE Boleta (
     activo TINYINT DEFAULT 1,
     FOREIGN KEY (fid_cliente) REFERENCES Cliente(id_cliente)
 );
--- Tabla lineas boleta
-CREATE TABLE LineaBoleta(
-	id_linea_boleta INT PRIMARY KEY AUTO_INCREMENT,
-    fid_boleta INT,
-    fid_consumible INT NULL,
-    fid_butaca_funcion INT NULL UNIQUE,
-    cantidad INT,
-    subtotal DOUBLE NOT NULL,
-    activo TINYINT DEFAULT 1,
-    FOREIGN KEY (fid_boleta) REFERENCES Boleta(id_boleta),
-    FOREIGN KEY (fid_butaca_funcion) REFERENCES  ButacaFuncion(id_butaca_funcion),
-    FOREIGN KEY (fid_consumible) REFERENCES  Consumible(id_consumible)
-);
 
 -- Tabla Consumible
 CREATE TABLE Consumible (
@@ -169,5 +156,17 @@ CREATE TABLE ButacaFuncion (
     FOREIGN KEY (fid_funcion) REFERENCES Funcion(id_funcion)
 );
 
-
+-- Tabla lineas boleta
+CREATE TABLE LineaBoleta(
+	id_linea_boleta INT PRIMARY KEY AUTO_INCREMENT,
+    fid_boleta INT,
+    fid_consumible INT NULL,
+    fid_butaca_funcion INT NULL UNIQUE,
+    cantidad INT,
+    subtotal DOUBLE NOT NULL,
+    activo TINYINT DEFAULT 1,
+    FOREIGN KEY (fid_boleta) REFERENCES Boleta(id_boleta),
+    FOREIGN KEY (fid_butaca_funcion) REFERENCES  ButacaFuncion(id_butaca_funcion),
+    FOREIGN KEY (fid_consumible) REFERENCES  Consumible(id_consumible)
+);
 
