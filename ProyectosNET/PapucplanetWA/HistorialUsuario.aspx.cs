@@ -77,13 +77,17 @@ namespace PapucplanetWA
                 StringBuilder detallesHtml = new StringBuilder();
                 foreach (var linea in lineasBoleta.Where(l => l.idBoleta == boleta.idBoleta))
                 {
+                    Debug.WriteLine($"No hay boletas disponibles.");
+                    
                     if (linea.butacaFuncion != null)
                     {
+                        char filin = (char)linea.butacaFuncion.fila;
+                        char columnin = (char)linea.butacaFuncion.columna;
                         detallesHtml.Append($@"
                     <li class='list-group-item'>
                         <i class='fas fa-film'></i> <!-- Ícono de película -->
                         <strong>Película:</strong> {linea.butacaFuncion.funcion.pelicula.titulo}<br>
-                        <strong>&nbsp;&nbsp;&nbsp;&nbsp;Butaca:</strong> Fila {linea.butacaFuncion.fila}, Columna {linea.butacaFuncion.columna}<br>
+                        <strong>&nbsp;&nbsp;&nbsp;&nbsp;Butaca:</strong> {filin}{columnin}<br>
                         <strong>&nbsp;&nbsp;&nbsp;&nbsp;Cantidad:</strong> {linea.cantidad}<br>
                         <strong>&nbsp;&nbsp;&nbsp;&nbsp;Subtotal:</strong> S/.{linea.subtotal:F2}
                     </li>");

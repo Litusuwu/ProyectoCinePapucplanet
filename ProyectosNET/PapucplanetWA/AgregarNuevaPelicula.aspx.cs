@@ -89,9 +89,16 @@ namespace PapucplanetWA
                 ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
                 return;
             }
-            if (!Regex.IsMatch(txtNombrePelicula.Text, @"^(?=.*[A-Za-zÁÉÍÓÚáéíóúÑñ])[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s.,;]+$"))
+            if (txtNombrePelicula.Text.Length > 80)
             {
-                lblMensajeError.Text = "Nombre de la película contiene caracteres especiales no permitidos.";
+                lblMensajeError.Text = "El nombre de la película no puede tener más de 80 caracteres.";
+                string script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
+            if (!Regex.IsMatch(txtNombrePelicula.Text, @"^(?=.*[A-Za-zÁÉÍÓÚáéíóúÑñ])[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s.,;:'""!?¿()\-…/¡]+$"))
+            {
+                lblMensajeError.Text = "El nombre de la película contiene caracteres no permitidos.";
                 string script = "showModalFormError();";
                 ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
                 return;
@@ -117,9 +124,16 @@ namespace PapucplanetWA
                 ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
                 return;
             }
-            if (!Regex.IsMatch(txtSinopsis.Value, @"^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s.,;]+$"))
+            if (txtSinopsis.Value.Length > 1500)
             {
-                lblMensajeError.Text = "La sinopsis solo puede contener caracteres alfanuméricos, espacios, '.', ',' y ';'";
+                lblMensajeError.Text = "La sinopsis no puede tener más de 1500 caracteres.";
+                string script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
+            if (!Regex.IsMatch(txtSinopsis.Value, @"^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s.,;:'""!?¿()\-…\[\]{}¡]+(\r?\n)*$"))
+            {
+                lblMensajeError.Text = "La sinopsis contiene caracteres no permitidos. Solo se aceptan letras (con tildes), números, espacios, y signos de puntuación comunes.";
                 string script = "showModalFormError();";
                 ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
                 return;

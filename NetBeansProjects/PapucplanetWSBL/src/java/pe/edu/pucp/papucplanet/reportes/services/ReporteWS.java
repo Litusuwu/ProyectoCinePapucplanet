@@ -79,13 +79,17 @@ public class ReporteWS {
         try{
             JasperReport jr = (JasperReport) JRLoader.loadObject(ReportePelicula.class.getResource("/pe/edu/pucp/papucplanet/reportes/ReporteIngresosPorPelicula.jasper"));
 
-            //URL rutaLogo = ReporteSede.class.getResource("/pe/edu/pucp/papucplanet/images/LogoPapucPlanet.png");
-            //String rutaArchivoLogo = URLDecoder.decode(rutaLogo.getPath(),"UTF-8");
-            //Image logo = (new ImageIcon(rutaArchivoLogo).getImage());
-        
+            URL rutaLogo = ReporteSede.class.getResource("/pe/edu/pucp/papucplanet/images/LogoPapucPlanet.png");
+            String rutaArchivoLogo = URLDecoder.decode(rutaLogo.getPath(),"UTF-8");
+            Image logo = (new ImageIcon(rutaArchivoLogo).getImage());
+            URL rutaSubreportePai = ReporteSede.class.getResource("/pe/edu/pucp/papucplanet/reportes/SubReporteInfoPelicula.jasper");
+            String rutaArchivoSubreporteInfoPe = URLDecoder.decode(rutaSubreportePai.getPath(), "UTF-8");
+            
             HashMap parametros = new HashMap();
             //parametros.put("idSede", sede.getIdSede());
             parametros.put("idPelicula", idPelicula);
+            parametros.put("logoCine", logo);
+            parametros.put("rutaSubReporteInfoPelicula", rutaArchivoSubreporteInfoPe);
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros, DBManager.getInstance().getConnection());
         
             reporte = JasperExportManager.exportReportToPdf(jp);

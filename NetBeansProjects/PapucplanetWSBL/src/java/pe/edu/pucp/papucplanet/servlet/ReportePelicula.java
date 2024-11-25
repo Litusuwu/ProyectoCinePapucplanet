@@ -48,13 +48,17 @@ public class ReportePelicula extends HttpServlet{
         try{
             JasperReport jr = (JasperReport) JRLoader.loadObject(ReportePelicula.class.getResource("/pe/edu/pucp/papucplanet/reportes/ReporteIngresosPorPelicula.jasper"));
 
-            //URL rutaLogo = ReportePelicula.class.getResource("/pe/edu/pucp/papucplanet/images/LogoPapucPlanet.png");
-            //String rutaArchivoLogo = URLDecoder.decode(rutaLogo.getPath(), "UTF-8");
-            //Image logo = (new ImageIcon(rutaArchivoLogo).getImage());
+            URL rutaLogo = ReportePelicula.class.getResource("/pe/edu/pucp/papucplanet/images/LogoPapucPlanet.png");
+            String rutaArchivoLogo = URLDecoder.decode(rutaLogo.getPath(), "UTF-8");
+            Image logo = (new ImageIcon(rutaArchivoLogo).getImage());
+            
+            URL rutaSubreportePai = ReporteSede.class.getResource("/pe/edu/pucp/papucplanet/reportes/SubReporteInfoPelicula.jasper");
+            String rutaArchivoSubreporteInfoPe = URLDecoder.decode(rutaSubreportePai.getPath(), "UTF-8");
             
             HashMap parametros = new HashMap();
-             parametros.put("idPelicula", 1);
-
+            parametros.put("idPelicula", 1);
+            parametros.put("logoCine", logo);
+            parametros.put("rutaSubReporteInfoPelicula",rutaArchivoSubreporteInfoPe);
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros, DBManager.getInstance().getConnection());
 
             JasperExportManager.exportReportToPdfStream(jp, response.getOutputStream());
