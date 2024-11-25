@@ -8,6 +8,7 @@ public interface PeliculaDAO {
     int modificar(Pelicula pelicula);
     int eliminar(int idPelicula);
     ArrayList<Pelicula> listarTodos();
+    ArrayList<Pelicula> listarPeliculasSinFunciones();
     Pelicula obtenerPorId(int idPelicula);
     ArrayList<Genero> listarGeneros();
     ArrayList<Pelicula> listarPorNombre(String nombre);

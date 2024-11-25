@@ -101,7 +101,6 @@ public class PeliculaMySQL implements PeliculaDAO{
             Funcion func;
             Sala sala;
             Sede sede;
-            int index = -1;
             HashSet<Integer> peliculaIds = new HashSet<>(); // Para evitar duplicados de películas
 
             while (rs.next()) {
@@ -246,6 +245,42 @@ public class PeliculaMySQL implements PeliculaDAO{
             try{con.rollback();}catch(SQLException ex1){ex1.getMessage(); }
         }finally{
             try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
+        }
+        return peliculas;
+    }
+    
+    @Override
+    public ArrayList<Pelicula> listarPeliculasSinFunciones() {
+        ArrayList<Pelicula> peliculas = new ArrayList<>();
+        try {
+            Pelicula pelicula;
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_PELICULAS_SIN_FUNCIONES()}");
+            rs = cs.executeQuery();
+
+            while (rs.next()) {
+                
+                int peliculaId = rs.getInt("id_pelicula");
+                pelicula = new Pelicula();
+                pelicula.setIdPelicula(peliculaId);
+                pelicula.setTitulo(rs.getString("titulo"));
+                pelicula.setGenero(Genero.valueOf(rs.getString("genero")));
+                pelicula.setDuracion(rs.getInt("duracion"));
+                pelicula.setSinopsis(rs.getString("sinopsis"));
+                pelicula.setImagenPromocional(rs.getString("imagen_link"));
+
+                peliculas.add(pelicula);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error en listarTodos(): " + ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (cs != null) cs.close();
+                if (con != null) con.close();
+            } catch (SQLException ex) {
+                System.out.println("Error al cerrar recursos: " + ex.getMessage());
+            }
         }
         return peliculas;
     }

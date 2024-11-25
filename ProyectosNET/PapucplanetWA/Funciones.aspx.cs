@@ -12,8 +12,6 @@ namespace PapucplanetWA
 {
     public partial class Funciones : System.Web.UI.Page
     {
-        Stopwatch stopwatch = new Stopwatch();
-
         private PeliculaWSClient daoPelicula;
         private SalaWSClient daoSala;
         private SedeWSClient daoSede;
@@ -62,9 +60,6 @@ namespace PapucplanetWA
                 cargarFiltroSede();
                 cargarFiltroSala();
                 LlenarDropDownListHoras();
-                //stopwatch.Start();
-                //stopwatch.Stop();
-                //lblFechaFiltro.Text = stopwatch.ElapsedMilliseconds.ToString() + "ms";
 
                 GenerarHoras();
                 lbBuscar_Click(sender, new EventArgs());
@@ -81,7 +76,7 @@ namespace PapucplanetWA
 
         protected void cargarInformacionDeFunciones()
         {
-            peliculas = new BindingList<pelicula>(daoPelicula.listarTodosPelicula());
+            peliculas = new BindingList<pelicula>(daoPelicula.listarTodosPeliculaSinFunciones());
             sedes = new BindingList<sede>(daoSede.listarTodosSede());
             ViewState["Peliculas"] = peliculas;
             ViewState["Sedes"] = sedes;
@@ -200,6 +195,15 @@ namespace PapucplanetWA
 
             estado = (Estado)Session["Estado"];
 
+            if (string.IsNullOrEmpty(dtpFechaFiltro.Value))
+            {
+                cerrarFormAgregar();
+                lblMensajeError.Text = "Debe ingresar una fecha en el filtro";
+                string script = "showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
+
             funcion.dia = DateTime.Parse(dtpFechaFiltro.Value);
             funcion.diaSpecified = true;
             if (TimeSpan.TryParse(ddlHoraInicio.SelectedValue, out TimeSpan horaInicio))
@@ -260,15 +264,6 @@ namespace PapucplanetWA
         {
             funciones = ViewState["Funciones"] as BindingList<funcion>;
             string script;
-
-            if (string.IsNullOrEmpty(dtpFechaFiltro.Value))
-            {
-                cerrarFormAgregar();
-                lblMensajeError.Text = "Debe ingresar una fecha";
-                script = "showModalFormError();";
-                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
-                return false;
-            }
 
             if (string.IsNullOrEmpty(ddlHoraInicio.SelectedValue))
             {
@@ -350,7 +345,13 @@ namespace PapucplanetWA
 
         protected void lbBuscar_Click(object sender, EventArgs e)
         {
-
+            if (string.IsNullOrEmpty(dtpFechaFiltro.Value))
+            {
+                lblMensajeError.Text = "Debe ingresar una fecha en el filtro";
+                string script = "shouldReopenModal = false; showModalFormError();";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModalFormError", script, true);
+                return;
+            }
             DateTime fechaFiltro = DateTime.Parse(dtpFechaFiltro.Value);
             int idSala = Int32.Parse(ddlSala.SelectedValue);
             GenerarReservas(fechaFiltro, idSala);
