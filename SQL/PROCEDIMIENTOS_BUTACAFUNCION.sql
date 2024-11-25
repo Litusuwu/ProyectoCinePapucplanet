@@ -7,6 +7,7 @@ DROP PROCEDURE IF EXISTS ELIMINAR_BUTACA_FUNCION_X_ID;
 DROP PROCEDURE IF EXISTS OBTENER_BUTACAS_X_FUNCION;
 DROP PROCEDURE IF EXISTS ELIMINAR_BUTACAS_FUNCION_X_ID_FUNCION;
 DROP PROCEDURE IF EXISTS RESERVAR_BUTACA_FUNCION;
+DROP PROCEDURE IF EXISTS GenerarButacaFuncionBase;
 -- Procedimientos de ButacaFuncion
 DELIMITER $
 CREATE PROCEDURE INSERTAR_BUTACA_FUNCION(
@@ -90,3 +91,32 @@ BEGIN
     WHERE id_butaca_funcion = _id_butaca_funcion
     AND estado_butaca = 'DISPONIBLE';  -- Solo se actualiza si el estado es 'DISPONIBLE'
 END $
+
+CREATE PROCEDURE GenerarButacaFuncionBase()
+BEGIN
+    DECLARE funcion_id INT DEFAULT 1;
+    DECLARE butaca_id INT;
+    DECLARE sala_id INT;
+
+    -- Asumimos que hay 50 funciones generadas previamente
+    WHILE funcion_id <= 60 DO
+        -- Obtener la sala asociada a la función actual
+        SELECT fid_sala INTO sala_id
+        FROM Funcion
+        WHERE id_funcion = funcion_id;
+
+        -- Recorrer todas las butacas disponibles en la sala asociada
+        SET butaca_id = 1;
+        WHILE butaca_id <= (SELECT COUNT(*) FROM Butaca WHERE fid_sala = sala_id) DO
+            CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, butaca_id, funcion_id, 'DISPONIBLE', 
+                CASE
+                    WHEN butaca_id <= 6 THEN 15.00
+                    ELSE 7.50
+                END);
+            SET butaca_id = butaca_id + 1;
+        END WHILE;
+
+        -- Pasar a la siguiente función
+        SET funcion_id = funcion_id + 1;
+    END WHILE;
+END$

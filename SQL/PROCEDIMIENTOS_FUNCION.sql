@@ -7,7 +7,7 @@ DROP PROCEDURE IF EXISTS ELIMINAR_FUNCION_X_ID;
 DROP PROCEDURE IF EXISTS OBTENER_FUNCIONES_POR_PELICULA;
 DROP PROCEDURE IF EXISTS LISTAR_FUNCIONES_POR_FECHA;
 DROP PROCEDURE IF EXISTS VERIFICAR_DISPONIBILIDAD_HORARIO_DE_FUNCIONES;
-
+DROP PROCEDURE IF EXISTS GenerarFuncionesBase;
 
 -- Procedimientos de Funcion
 DELIMITER $
@@ -109,3 +109,29 @@ BEGIN
         SELECT 0 AS disponibilidad;
     END IF;
 END$
+
+CREATE PROCEDURE GenerarFuncionesBase()
+BEGIN
+    DECLARE mes INT DEFAULT 1;
+    DECLARE dia INT;
+    DECLARE total_peliculas INT;
+
+    -- Obtener la cantidad total de películas disponibles
+    SELECT COUNT(*) INTO total_peliculas FROM Pelicula;
+
+    WHILE mes <= 10 DO
+        SET dia = 1;
+
+        -- Generar 6 funciones por mes, usando películas cíclicamente
+        CALL INSERTAR_FUNCION(@id_funcion, '14:00:00', '16:00:00', DATE(CONCAT('2024-', mes, '-', dia)), 1, MOD(mes - 1, total_peliculas) + 1);
+        CALL INSERTAR_FUNCION(@id_funcion, '16:15:00', '18:15:00', DATE(CONCAT('2024-', mes, '-', dia + 1)), 2, MOD(mes, total_peliculas) + 1);
+        CALL INSERTAR_FUNCION(@id_funcion, '18:30:00', '20:30:00', DATE(CONCAT('2024-', mes, '-', dia + 2)), 3, MOD(mes + 1, total_peliculas) + 1);
+        CALL INSERTAR_FUNCION(@id_funcion, '20:45:00', '22:45:00', DATE(CONCAT('2024-', mes, '-', dia + 3)), 4, MOD(mes + 2, total_peliculas) + 1);
+        CALL INSERTAR_FUNCION(@id_funcion, '12:00:00', '14:00:00', DATE(CONCAT('2024-', mes, '-', dia + 4)), 5, MOD(mes + 3, total_peliculas) + 1);
+        CALL INSERTAR_FUNCION(@id_funcion, '22:00:00', '00:00:00', DATE(CONCAT('2024-', mes, '-', dia + 5)), 6, MOD(mes + 4, total_peliculas) + 1);
+
+        -- Avanzar al siguiente mes
+        SET mes = mes + 1;
+    END WHILE;
+END$
+

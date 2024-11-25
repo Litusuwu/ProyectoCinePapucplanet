@@ -34,7 +34,7 @@ namespace PapucplanetWA
             nulap.idPelicula = 0;
             nulap.titulo = "None";
             peliculas.Add(nulap);
-            pelicula[] arrP = daoPelicula.listarTodosPelicula();
+            pelicula[] arrP = daoPelicula.listarTodosPeliculaSinFunciones();
             foreach (pelicula p in arrP)
             {
                 peliculas.Add(p);

@@ -16,7 +16,7 @@ CALL INSERTAR_CLIENTE(@id_cliente, "71228897", "Freddy Alberto", "Paz", "Espinoz
 #Inserts Cuenta
 CALL INSERTAR_CUENTA(@id_cuenta,  "admin", "a20210632@pucp.edu.pe", 1);
 CALL INSERTAR_CUENTA(@id_cuenta, "cliente", "a20215003@pucp.edu.pe", 2);
-CALL INSERTAR_CUENTA(@id_cuenta, "admin", "fpaz@pucp.edu.pe", 3);
+CALL INSERTAR_CUENTA(@id_cuenta, "cliente", "fpaz@pucp.edu.pe", 3);
 
 #Inserts de SALAS
 CALL INSERTAR_SALA(@id_sala, 1, 1, 9, 3, 3);
@@ -115,12 +115,11 @@ CALL INSERTAR_PELICULA(@id_pelicula, "Joker", 90, "DRAMA", "Arthur Fleck adora h
 CALL INSERTAR_PELICULA(@id_pelicula, 'Rápidos y Furiosos 10', 130, 'ACCION', 'Dom y su familia enfrentan nuevos desafíos en esta emocionante entrega.', '~/Images/Peliculas/rapidosYfuriosos.jpg');
 CALL INSERTAR_PELICULA(@id_pelicula, 'El Gran Showman', 105, 'DRAMA', 'La inspiradora historia del visionario PT Barnum.', '~/Images/Peliculas/thegreatestShowman.jpg');
 CALL INSERTAR_PELICULA(@id_pelicula, 'Superbad: Una noche épica', 112, 'COMEDIA', 'Dos amigos intentan disfrutar su última noche antes de la universidad.', '~/Images/Peliculas/superbad.jpg');
-CALL INSERTAR_PELICULA(@id_pelicula, 'Nuestro Planeta', 90, 'DOCUMENTAL', 'Descubre las maravillas del mundo natural en esta serie visualmente impactante.', '~/Images/Peliculas/elplanetaDelossimios.jpeg');
+CALL INSERTAR_PELICULA(@id_pelicula, 'Nuestro Planeta', 90, 'DOCUMENTAL', 'Descubre las maravillas del mundo natural en esta serie visualmente impactante.', '~/Images/Peliculas/elplanetaDelossimios.jpg');
 CALL INSERTAR_PELICULA(@id_pelicula, 'Avengers: Endgame', 180, 'ACCION', 'Los Vengadores se reúnen para enfrentarse a Thanos y salvar el universo.', '~/Images/Peliculas/avengers.jpg');
-CALL INSERTAR_PELICULA(@id_pelicula, 'El Pianista', 150, 'DRAMA', 'La desgarradora historia de un músico judío durante el Holocausto.', '~/Images/Peliculas/elpianista.jpeg');
+CALL INSERTAR_PELICULA(@id_pelicula, 'El Pianista', 150, 'DRAMA', 'La desgarradora historia de un músico judío durante el Holocausto.', '~/Images/Peliculas/elpianista.jpg');
 CALL INSERTAR_PELICULA(@id_pelicula, 'Deadpool', 108, 'COMEDIA', 'Un antihéroe sarcástico busca vengarse de quienes lo traicionaron.', '~/Images/Peliculas/deadpool.jpg');
 CALL INSERTAR_PELICULA(@id_pelicula, 'Planeta Tierra II', 95, 'DOCUMENTAL', 'Explora la belleza y diversidad de nuestro planeta en esta secuela aclamada.', '~/Images/Peliculas/oso.jpg');
-
 
 #Inserts Bebidas
 CALL INSERTAR_BEBIDA(@id_bebida, "Coca Cola", 9.80, 12, true, "~/Images/Confiteria/cocacola.jpg", 'B');
@@ -146,78 +145,80 @@ CALL INSERTAR_ALIMENTO(@id_bebida, "Papas Lays", 8.80, 240, "SNACK", "~/Images/C
 CALL INSERTAR_ALIMENTO(@id_bebida, "Porción Torta", 5.80, 400, "POSTRE", "~/Images/Confiteria/torta.jpg", 'A');
 CALL INSERTAR_ALIMENTO(@id_bebida, "Helado", 6.80, 400, "POSTRE", "~/Images/Confiteria/helado.jpg", 'A');
 
+CALL GenerarFuncionesBase();
+CALL  GenerarButacaFuncionBase();
+
 #Inserts Funciones
 CALL INSERTAR_FUNCION(@id_funcion, '14:00:00', '16:30:00', CURDATE(), 1, 1);
-CALL INSERTAR_FUNCION(@id_funcion, '14:00:00', '16:30:00', CURDATE(), 2, 1);
+CALL INSERTAR_FUNCION(@id_funcion, '14:00:00', '16:30:00', CURDATE(), 2, 4);
 CALL INSERTAR_FUNCION(@id_funcion, '17:00:00', '19:30:00', CURDATE() + INTERVAL 1 DAY, 1, 1);
-CALL INSERTAR_FUNCION(@id_funcion, '17:00:00', '19:30:00', CURDATE() + INTERVAL 1 DAY, 2, 1);
+CALL INSERTAR_FUNCION(@id_funcion, '17:00:00', '19:30:00', CURDATE() + INTERVAL 1 DAY, 2, 5);
 
 CALL INSERTAR_FUNCION(@id_funcion, '14:00:00', '16:00:00', CURDATE(), 3, 2);
-CALL INSERTAR_FUNCION(@id_funcion, '14:00:00', '16:00:00', CURDATE(), 4, 2);
+CALL INSERTAR_FUNCION(@id_funcion, '14:00:00', '16:00:00', CURDATE(), 4, 6);
 CALL INSERTAR_FUNCION(@id_funcion, '17:00:00', '19:00:00', CURDATE() + INTERVAL 1 DAY, 3, 2);
-CALL INSERTAR_FUNCION(@id_funcion, '17:00:00', '19:00:00', CURDATE() + INTERVAL 1 DAY, 4, 2);
-CALL INSERTAR_FUNCION(@id_funcion, '14:15:00', '16:15:00', CURDATE(), 4, 2);
+CALL INSERTAR_FUNCION(@id_funcion, '17:00:00', '19:00:00', CURDATE() + INTERVAL 1 DAY, 4, 8);
 
 #Inserts ButacasFunciones
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 1, 1, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 2, 1, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 3, 1, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 4, 1, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 5, 1, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 6, 1, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 7, 1, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 8, 1, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 9, 1, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 1, 61, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 2, 61, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 3, 61, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 4, 61, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 5, 61, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 6, 61, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 7, 61, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 8, 61, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 9, 61, 'DISPONIBLE', 7.50);
 
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 10, 2, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 11, 2, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 12, 2, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 13, 2, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 10, 62, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 11, 62, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 12, 62, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 13, 62, 'DISPONIBLE', 7.50);
 
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 1, 3, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 2, 3, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 3, 3, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 4, 3, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 5, 3, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 6, 3, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 7, 3, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 8, 3, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 9, 3, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 1, 63, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 2, 63, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 3, 63, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 4, 63, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 5, 63, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 6, 63, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 7, 63, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 8, 63, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 9, 63, 'DISPONIBLE', 7.50);
 
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 10, 4, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 11, 4, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 12, 4, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 13, 4, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 10, 64, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 11, 64, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 12, 64, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 13, 64, 'DISPONIBLE', 7.50);
 
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 14, 5, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 15, 5, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 16, 5, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 17, 5, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 14, 65, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 15, 65, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 16, 65, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 17, 65, 'DISPONIBLE', 7.50);
 
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 18, 6, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 19, 6, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 20, 6, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 21, 6, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 22, 6, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 23, 6, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 24, 6, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 25, 6, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 26, 6, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 18, 66, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 19, 66, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 20, 66, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 21, 66, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 22, 66, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 23, 66, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 24, 66, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 25, 66, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 26, 66, 'DISPONIBLE', 7.50);
 
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 14, 7, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 15, 7, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 16, 7, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 17, 7, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 14, 67, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 15, 67, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 16, 67, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 17, 67, 'DISPONIBLE', 7.50);
 
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 18, 8, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 19, 8, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 20, 8, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 21, 8, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 22, 8, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 23, 8, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 24, 8, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 25, 8, 'DISPONIBLE', 15.00);
-CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 26, 8, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 18, 68, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 19, 68, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 20, 68, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 21, 68, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 22, 68, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 23, 68, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 24, 68, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 25, 68, 'DISPONIBLE', 15.00);
+CALL INSERTAR_BUTACA_FUNCION(@id_butaca_funcion, 26, 68, 'DISPONIBLE', 7.50);
 
 #Inserts Boletas
 CALL INSERTAR_BOLETA(@id_boleta, 2, '2024-01-05 19:04:00', 'TARJETA_DEBITO', 60);
@@ -399,6 +400,8 @@ CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 26, NULL, 262, 1, 20);
 CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 27, NULL, 251, 1, 20);
 CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 27, NULL, 254, 1, 20);
 CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 28, NULL, 22, 1, 20);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 28, 1, NULL, 2, 19.6);
+CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 28, NULL, 31, 1, 20);
 CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 28, 1, NULL, 2, 19.6);
 CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 30, NULL, 40, 1, 20);
 CALL INSERTAR_LINEA_BOLETA(@id_linea_boleta, 30, 2, NULL, 4, 39.2);
