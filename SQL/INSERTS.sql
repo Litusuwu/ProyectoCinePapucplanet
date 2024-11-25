@@ -11,10 +11,12 @@ CALL INSERTAR_ADMINISTRADOR(@id_administrador, "75530397", "Diego Enrique", "Rod
 
 #Inserts Cliente
 CALL INSERTAR_CLIENTE(@id_cliente, "71228897", "Bryan Smith", "Valdiviezo", "Jimenez", 'M', '2004-07-31', 1);
+CALL INSERTAR_CLIENTE(@id_cliente, "71228897", "Freddy Alberto", "Paz", "Espinoza", 'M', '2004-07-31', 1);
 
 #Inserts Cuenta
-CALL INSERTAR_CUENTA(@id_cuenta, "admin", "admin", 1);
-CALL INSERTAR_CUENTA(@id_cuenta, "cliente", "cliente", 2);
+CALL INSERTAR_CUENTA(@id_cuenta,  "admin", "a20210632@pucp.edu.pe", 1);
+CALL INSERTAR_CUENTA(@id_cuenta, "cliente", "a20215003@pucp.edu.pe", 2);
+CALL INSERTAR_CUENTA(@id_cuenta, "papusinsanos", "fpaz@pucp.edu.pe", 3);
 
 #Inserts de SALAS
 CALL INSERTAR_SALA(@id_sala, 1, 1, 9, 3, 3);
