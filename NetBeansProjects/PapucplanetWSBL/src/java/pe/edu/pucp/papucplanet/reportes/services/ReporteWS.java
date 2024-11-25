@@ -88,8 +88,8 @@ public class ReporteWS {
             HashMap parametros = new HashMap();
             //parametros.put("idSede", sede.getIdSede());
             parametros.put("idPelicula", idPelicula);
-            parametros.put("idPelicula", logo);
-            parametros.put("idPelicula", rutaArchivoSubreporteInfoPe);
+            parametros.put("logoCine", logo);
+            parametros.put("rutaSubReporteInfoPelicula", rutaArchivoSubreporteInfoPe);
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros, DBManager.getInstance().getConnection());
         
             reporte = JasperExportManager.exportReportToPdf(jp);
