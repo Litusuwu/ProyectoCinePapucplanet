@@ -15,6 +15,7 @@ namespace PapucplanetWA
     public partial class PeliculasUsuario : System.Web.UI.Page
     {
         private List<pelicula> listaPeliculas = new List<pelicula>();
+        private List<funcion> listaPeliculas2 = new List<funcion>();
         private List<sede> listaSedes = new List<sede>();
         private List<funcion> listaFunciones = new List<funcion>();
 
