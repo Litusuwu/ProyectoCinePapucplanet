@@ -46,15 +46,16 @@ BEGIN
         be.onzas, be.tieneHielo,
         -- Información de la Butaca y la Función (si aplica)
         bf.id_butaca_funcion,
-        b.fila AS fila_butaca, b.columna AS columna_butaca,
+        b.fila AS fila_butaca, b.columna AS columna_butaca, b.id_butaca AS id_butaca,
         b.discapacitado AS es_discapacitado,
-        f.horaInicio AS funcion_horaInicio, f.horaFin AS funcion_horaFin,
+        f.horaInicio AS funcion_horaInicio, f.horaFin AS funcion_horaFin, f.id_funcion as id_funcion,
         f.dia AS funcion_dia,
         bf.estado_butaca, bf.precio AS precio_butaca_funcion,
          -- Información de la Sala (si aplica)
         s.id_sala, s.numero_sala, s.numcol AS numero_columnas, s.numfilas AS numero_filas,
-        s.capacidad AS capacidad_sala
-
+        s.capacidad AS capacidad_sala,
+		p.id_pelicula as id_pelicula, p.titulo as titulo, p.sinopsis as sinopsis, p.imagen_link as imagen_link, p.genero as genero, p.duracion as duracion,
+        se.id_sede as id_sede, se.ubicacion as ubicacion, se.nombre as nombre
     FROM LineaBoleta lb
     LEFT JOIN Consumible c ON lb.fid_consumible = c.id_consumible
     LEFT JOIN Alimento a ON lb.fid_consumible = a.id_alimento
@@ -64,6 +65,7 @@ BEGIN
     LEFT JOIN Funcion f ON bf.fid_funcion = f.id_funcion
     LEFT JOIN Sala s ON b.fid_sala = s.id_sala
     LEFT JOIN Pelicula p ON f.fid_pelicula = p.id_pelicula
+    LEFT JOIN Sede se ON s.fid_sede = se.id_sede
 	WHERE lb.activo = 1;
 END$
 
