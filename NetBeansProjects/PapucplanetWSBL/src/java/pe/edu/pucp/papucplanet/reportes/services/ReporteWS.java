@@ -106,16 +106,25 @@ public class ReporteWS {
     public byte[] reporteBoleta(@WebParam(name = "idBol") int id) throws UnsupportedEncodingException {
         byte[] reporte = null;
         try{
-            JasperReport jr = (JasperReport) JRLoader.loadObject(ReporteBoleta.class.getResource("/pe/edu/pucp/papucplanet/reportes/Boleta.jasper"));
-
-            HashMap parametros = new HashMap();
-            parametros.put("idBoleta", id);
-            URL subReporte1URL = ReporteBoleta.class.getResource("/pe/edu/pucp/papucplanet/reportes/SubReporteButacas.jasper");
-            URL subReporte2URL = ReporteBoleta.class.getResource("/pe/edu/pucp/papucplanet/reportes/SubReporteConfiteria.jasper");
+            JasperReport jr = (JasperReport) JRLoader.loadObject(ReporteBoleta.class.getResource("/pe/edu/pucp/papucplanet/reportes/BoletaFinal.jasper"));
+            
+            URL rutaLogo = ReporteSede.class.getResource("/pe/edu/pucp/papucplanet/images/LogoPapucPlanet.png");
+            String rutaArchivoLogo = URLDecoder.decode(rutaLogo.getPath(), "UTF-8");
+            Image logo = (new ImageIcon(rutaArchivoLogo).getImage());
+            
+            URL subReporte1URL = ReporteBoleta.class.getResource("/pe/edu/pucp/papucplanet/reportes/CabeceraBoletaFinal.jasper");
+            URL subReporte2URL = ReporteBoleta.class.getResource("/pe/edu/pucp/papucplanet/reportes/DetalleButacaBoletaFinal.jasper");
+            URL subReporte3URL = ReporteBoleta.class.getResource("/pe/edu/pucp/papucplanet/reportes/DetalleConfiteriaBoletaFinal.jasper");
             String ruta1=URLDecoder.decode(subReporte1URL.getPath(),"UTF-8");
             String ruta2=URLDecoder.decode(subReporte2URL.getPath(),"UTF-8");
-            parametros.put("rutaSubreporteButacas", ruta1);
-            parametros.put("rutaSubreporteConfiteria", ruta2);
+            String ruta3=URLDecoder.decode(subReporte3URL.getPath(),"UTF-8");
+            
+            HashMap parametros = new HashMap();
+            parametros.put("idBoleta", 101);
+            parametros.put("logoCine", logo);
+            parametros.put("rutaSubReporteCabeceraBoletaFinal", ruta1);
+            parametros.put("rutaSubReporteDetalleConfiteriaBoletaFinal", ruta2);
+            parametros.put("rutaSubReporteDetalleConfiteriaBoletaFinal", ruta3);
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros, DBManager.getInstance().getConnection());
         
             reporte = JasperExportManager.exportReportToPdf(jp);
