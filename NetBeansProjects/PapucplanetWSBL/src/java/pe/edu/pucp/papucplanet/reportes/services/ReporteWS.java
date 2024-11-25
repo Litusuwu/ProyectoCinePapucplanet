@@ -120,11 +120,11 @@ public class ReporteWS {
             String ruta3=URLDecoder.decode(subReporte3URL.getPath(),"UTF-8");
             
             HashMap parametros = new HashMap();
-            parametros.put("idBoleta", 101);
+            parametros.put("idBoleta", id);
             parametros.put("logoCine", logo);
             parametros.put("rutaSubReporteCabeceraBoletaFinal", ruta1);
-            parametros.put("rutaSubReporteDetalleConfiteriaBoletaFinal", ruta2);
-            parametros.put("rutaSubReporteDetalleConfiteriaBoletaFinal", ruta3);
+            parametros.put("rutaSubReporteDetalleButacaBoletaFinal", ruta2);
+            parametros.put("rutaSubReporteConfiteriaBoletaFinal", ruta3);
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros, DBManager.getInstance().getConnection());
         
             reporte = JasperExportManager.exportReportToPdf(jp);

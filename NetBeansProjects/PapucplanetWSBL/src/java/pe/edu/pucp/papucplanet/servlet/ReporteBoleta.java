@@ -52,8 +52,8 @@ public class ReporteBoleta extends HttpServlet {
             parametros.put("idBoleta", 101);
             parametros.put("logoCine", logo);
             parametros.put("rutaSubReporteCabeceraBoletaFinal", ruta1);
-            parametros.put("rutaSubReporteDetalleConfiteriaBoletaFinal", ruta2);
-            parametros.put("rutaSubReporteDetalleConfiteriaBoletaFinal", ruta3);
+            parametros.put("rutaSubReporteDetalleButacaBoletaFinal", ruta2);
+            parametros.put("rutaSubReporteConfiteriaBoletaFinal", ruta3);
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros, DBManager.getInstance().getConnection());
             
             JasperExportManager.exportReportToPdfStream(jp, response.getOutputStream());

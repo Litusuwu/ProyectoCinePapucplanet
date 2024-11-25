@@ -1,0 +1,65 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="DetalleConfiteriaBoletaFinal" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13acf49e-4913-4d1b-bccc-113817ad15d1">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ConexionReportePapusPrime"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50.0" bold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18.0" bold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14.0" bold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle mode="Opaque" backcolor="#F0EFEF">
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+		</conditionalStyle>
+	</style>
+	<parameter name="idBoleta" class="java.lang.Integer"/>
+	<query language="sql"><![CDATA[SELECT cons.nombre,lin.cantidad,lin.subtotal
+FROM LineaBoleta AS lin
+INNER JOIN Consumible AS cons 
+        ON lin.fid_consumible = cons.id_consumible
+WHERE lin.fid_boleta = $P{idBoleta} ]]></query>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Consumible"/>
+	</field>
+	<field name="cantidad" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="cantidad"/>
+		<property name="com.jaspersoft.studio.field.label" value="cantidad"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="LineaBoleta"/>
+	</field>
+	<field name="subtotal" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="subtotal"/>
+		<property name="com.jaspersoft.studio.field.label" value="subtotal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="LineaBoleta"/>
+	</field>
+	<background splitType="Stretch"/>
+	<columnHeader height="71" splitType="Stretch">
+		<element kind="staticText" uuid="6427de03-1e08-4765-93d0-68569a2176f4" x="10" y="0" width="160" height="20" bold="true">
+			<text><![CDATA[Consumibles comprados:]]></text>
+		</element>
+		<element kind="staticText" uuid="5ce2b0b3-546d-43ae-9e25-59988078655e" x="40" y="30" width="100" height="20" bold="true" hTextAlign="Center">
+			<text><![CDATA[Nombre Consumible]]></text>
+		</element>
+		<element kind="staticText" uuid="235fba57-32bc-49e7-93a5-ed5189edaae8" x="230" y="30" width="100" height="20" bold="true" hTextAlign="Center">
+			<text><![CDATA[Cantidad Comprada]]></text>
+		</element>
+		<element kind="staticText" uuid="1f38b554-08f9-4a7e-a9da-2c172487dda8" x="420" y="30" width="100" height="20" bold="true" hTextAlign="Center">
+			<text><![CDATA[Subtotal]]></text>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<element kind="frame" uuid="b50221b5-8254-440b-8c6f-1f0b138c9259" mode="Opaque" x="0" y="0" width="555" height="40" style="Row">
+				<element kind="textField" uuid="bdf517e2-13ff-4cc1-a650-e9b689eebd50" x="40" y="5" width="100" height="30" hTextAlign="Center">
+					<expression><![CDATA[$F{nombre}]]></expression>
+				</element>
+				<element kind="textField" uuid="30a897ea-ffca-42e3-801a-4de115a6d8fd" x="230" y="5" width="100" height="30" hTextAlign="Center">
+					<expression><![CDATA[$F{cantidad}]]></expression>
+				</element>
+				<element kind="textField" uuid="98ae20c2-e51e-4b43-a620-52bd50a0d8d8" x="410" y="5" width="120" height="30" hTextAlign="Center">
+					<expression><![CDATA[String.format("S/. %.2f",$F{subtotal})]]></expression>
+				</element>
+			</element>
+		</band>
+	</detail>
+</jasperReport>

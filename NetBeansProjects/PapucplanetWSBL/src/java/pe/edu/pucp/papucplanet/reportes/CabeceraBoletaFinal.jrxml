@@ -1,0 +1,118 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="CabeceraBoletaFinal" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13acf49e-4913-4d1b-bccc-113817ad15d1">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ConexionReportePapusPrime"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50.0" bold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18.0" bold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14.0" bold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle mode="Opaque" backcolor="#F0EFEF">
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+		</conditionalStyle>
+	</style>
+	<parameter name="idBoleta" class="java.lang.Integer"/>
+	<parameter name="logoCine" class="java.awt.Image"/>
+	<query language="sql"><![CDATA[    SELECT
+    	DATE_FORMAT(Boleta.fechaCompra, '%Y/%m/%d') AS FechaCompra,
+        Boleta.metodo_pago,
+    	Boleta.total,
+    	Usuario.nombres,
+    	Usuario.primer_apellido,
+    	Usuario.segundo_apellido,
+    	Usuario.correo,
+    	Usuario.dni
+    FROM 
+        Boleta
+    JOIN 
+        Cliente ON Boleta.fid_cliente = Cliente.id_cliente
+    JOIN 
+        Usuario ON Cliente.id_cliente = Usuario.id_usuario
+    WHERE 
+        Boleta.id_boleta = $P{idBoleta} ]]></query>
+	<field name="FechaCompra" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="FechaCompra"/>
+		<property name="com.jaspersoft.studio.field.label" value="FechaCompra"/>
+	</field>
+	<field name="metodo_pago" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="metodo_pago"/>
+		<property name="com.jaspersoft.studio.field.label" value="metodo_pago"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Boleta"/>
+	</field>
+	<field name="total" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="total"/>
+		<property name="com.jaspersoft.studio.field.label" value="total"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Boleta"/>
+	</field>
+	<field name="nombres" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombres"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombres"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Usuario"/>
+	</field>
+	<field name="primer_apellido" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="primer_apellido"/>
+		<property name="com.jaspersoft.studio.field.label" value="primer_apellido"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Usuario"/>
+	</field>
+	<field name="segundo_apellido" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="segundo_apellido"/>
+		<property name="com.jaspersoft.studio.field.label" value="segundo_apellido"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Usuario"/>
+	</field>
+	<field name="correo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="correo"/>
+		<property name="com.jaspersoft.studio.field.label" value="correo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Usuario"/>
+	</field>
+	<field name="dni" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="dni"/>
+		<property name="com.jaspersoft.studio.field.label" value="dni"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Usuario"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="192" splitType="Stretch">
+		<element kind="frame" uuid="6c6ca4e1-17cd-4913-93d6-5e670ea9ae8a" mode="Opaque" x="0" y="0" width="451" height="120" backcolor="#000000">
+			<element kind="staticText" uuid="a2a2cac8-5a7d-4487-8c54-dab235ce4e21" x="10" y="10" width="140" height="40" fontSize="20.0" bold="true" style="Title">
+				<text><![CDATA[Reporte Boleta:]]></text>
+			</element>
+			<element kind="staticText" uuid="8978eac3-c578-41c9-837e-48d2b0184642" x="340" y="10" width="105" height="29" fontSize="22.0" bold="false" style="SubTitle">
+				<text><![CDATA[Papuplanet]]></text>
+			</element>
+			<element kind="textField" uuid="35843fd4-6e41-4f7f-9c70-c846362689fb" x="10" y="50" width="430" height="30" forecolor="#FFFFFF" hTextAlign="Left" style="Column header">
+				<expression><![CDATA[String.format("Cliente: %s",$F{nombres} + " " + $F{primer_apellido} + " " + $F{segundo_apellido})]]></expression>
+			</element>
+			<element kind="textField" uuid="11fe159a-bd02-473c-96fa-5fca706719a7" x="207" y="92" width="100" height="30">
+				<expression><![CDATA[$F{correo}]]></expression>
+			</element>
+			<element kind="textField" uuid="11498fe4-9ba7-4887-b6b1-e8ff2feb8114" x="10" y="70" width="310" height="30" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="14.0" bold="true" hTextAlign="Left">
+				<expression><![CDATA[String.format("Correo: %s",$F{correo})]]></expression>
+			</element>
+			<element kind="textField" uuid="7e3e257d-2029-45d8-aea2-50812301bc9e" x="10" y="90" width="430" height="30" forecolor="#FFFFFF" hTextAlign="Left" style="Column header">
+				<expression><![CDATA[String.format("Dni: %s",$F{dni})]]></expression>
+			</element>
+		</element>
+		<element kind="frame" uuid="e3c14156-5b51-4201-918b-97fdc012e5d4" mode="Opaque" x="0" y="132" width="560" height="58" forecolor="#000000" backcolor="#CC0000">
+			<element kind="textField" uuid="5c3301e7-a737-4c59-8a2f-a6c79fd1adb8" x="410" y="30" width="134" height="20" forecolor="#FFFFFF" fontSize="12.0" pattern="EEEEE dd MMMMM yyyy" hTextAlign="Right">
+				<expression><![CDATA[$F{FechaCompra}]]></expression>
+			</element>
+			<element kind="staticText" uuid="9230bb89-dbaa-45b8-852f-482124acd79f" x="300" y="30" width="110" height="30" forecolor="#FFFFFF" fontSize="12.0" bold="true">
+				<text><![CDATA[Fecha Compra:]]></text>
+			</element>
+			<element kind="textField" uuid="e56a6141-bc5f-4f40-964e-903dd3a32a3f" x="166" y="5" width="234" height="20" forecolor="#FFFFFF" fontSize="12.0" pattern="EEEEE dd MMMMM yyyy" hTextAlign="Right">
+				<expression><![CDATA[$F{metodo_pago}]]></expression>
+			</element>
+			<element kind="staticText" uuid="b90f2e1b-1f02-4f2f-ad6f-df0974bed528" x="10" y="5" width="166" height="20" forecolor="#FFFFFF" fontSize="12.0" bold="true">
+				<text><![CDATA[Metodo de Pago Realizado:]]></text>
+			</element>
+			<element kind="staticText" uuid="bde4295a-325a-4263-8c29-ed70c0cfdde1" x="10" y="30" width="166" height="20" forecolor="#FFFFFF" fontSize="12.0" bold="true">
+				<text><![CDATA[Total Pagado:]]></text>
+			</element>
+			<element kind="textField" uuid="2ad6e3df-1228-4820-aff8-b12d5efc110c" x="130" y="30" width="152" height="20" forecolor="#FFFFFF" fontSize="12.0" pattern="EEEEE dd MMMMM yyyy" hTextAlign="Right">
+				<expression><![CDATA[String.format("S/. %.2f",$F{total})]]></expression>
+			</element>
+		</element>
+		<element kind="image" uuid="76706ca1-13d5-4282-929e-eb926348c920" x="460" y="9" width="100" height="101">
+			<expression><![CDATA[$P{logoCine}]]></expression>
+		</element>
+	</title>
+</jasperReport>
