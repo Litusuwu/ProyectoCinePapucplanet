@@ -20,9 +20,14 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="insertarBoleta">
+  <xs:complexType name="obtenerBoletaPorId">
     <xs:sequence>
-      <xs:element minOccurs="0" name="boleta" type="tns:boleta" />
+      <xs:element name="idBoleta" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerBoletaPorIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:boleta" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="boleta">
@@ -144,19 +149,14 @@
       <xs:element name="tipo" type="xs:unsignedShort" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="insertarBoleta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="boleta" type="tns:boleta" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="insertarBoletaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="obtenerBoletaPorId">
-    <xs:sequence>
-      <xs:element name="idBoleta" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="obtenerBoletaPorIdResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:boleta" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="modificarBoleta">
@@ -188,9 +188,17 @@
   <xs:simpleType name="genero">
     <xs:restriction base="xs:string">
       <xs:enumeration value="ACCION" />
+      <xs:enumeration value="ANIMACION" />
+      <xs:enumeration value="AVENTURA" />
+      <xs:enumeration value="BIOGRAFICA" />
       <xs:enumeration value="COMEDIA" />
       <xs:enumeration value="DRAMA" />
       <xs:enumeration value="DOCUMENTAL" />
+      <xs:enumeration value="FANTASIA" />
+      <xs:enumeration value="HORROR" />
+      <xs:enumeration value="MUSICAL" />
+      <xs:enumeration value="ROMANTICA" />
+      <xs:enumeration value="CIENCIA_FICCION" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="metodoPago">
