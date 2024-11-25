@@ -43,29 +43,10 @@
                 </div>
             </div>
         </div>
-        <!--
-        <div class="container row">
-            <asp:Label ID="Contenidos" CssClass="col-form-label fw-bold" runat="server" Text="Contenidos:"></asp:Label>
-            <div class="row align-items-center">
-                <div class="form-check form-check-inline">
-                    <input type="checkbox" runat="server" autopostback="true" id="cbIngresos" class="form-check-input" name="Contenido" />
-                    <label class="form-check-label" runat="server" for="cphContenido_cbIngresos">Ingresos Obtenidos</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input type="checkbox" runat="server" autopostback="true" id="cbConsumibles" class="form-check-input" name="Contenido" />
-                    <label class="form-check-label" runat="server" for="cphContenido_cbConsumibles">Cantidad Consumibles Vendidos</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input type="checkbox" runat="server" autopostback="true" id="cbButacas" class="form-check-input" name="Contenido" />
-                    <label class="form-check-label" runat="server" for="cphContenido_cbButacas">Cantidad Butacas Vendidas</label>
-                </div>
-            </div>
-        </div>
-        -->
         
         <div class="card-footer clearfix">
             <asp:LinkButton ID="lbRegresar" runat="server" Text="<i class='fa-solid fa-rotate-left'></i> Regresar" CssClass="float-start btn btn-secondary" OnClick="lbRegresar_Click" />
-            <asp:LinkButton ID="lbGenerarReporte" runat="server" Text="<i class='fa-solid fa-print'></i> Generar Reporte" CssClass="float-end btn btn-primary" OnClick="lbGenerarReporte_Click" />
+            <asp:LinkButton ID="lbGenerarReporte" runat="server" Text="<i class='fa-solid fa-print'></i> Generar Reporte" CssClass="float-end btn btn-purple" OnClick="lbGenerarReporte_Click" />
         </div>
     </div>
     <!--Convencion para campos vacios-->

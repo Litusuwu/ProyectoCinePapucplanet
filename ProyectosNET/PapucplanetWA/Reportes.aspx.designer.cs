@@ -123,42 +123,6 @@ namespace PapucplanetWA
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dtpFechaFin;
 
         /// <summary>
-        /// Control Contenidos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Contenidos;
-
-        /// <summary>
-        /// Control cbIngresos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox cbIngresos;
-
-        /// <summary>
-        /// Control cbConsumibles.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox cbConsumibles;
-
-        /// <summary>
-        /// Control cbButacas.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox cbButacas;
-
-        /// <summary>
         /// Control lbRegresar.
         /// </summary>
         /// <remarks>

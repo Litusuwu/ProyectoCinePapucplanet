@@ -36,7 +36,7 @@
                     <asp:BoundField HeaderText="Precio (S/.)" ItemStyle-CssClass="text-center" />
                     <asp:TemplateField HeaderText="Detalle" ItemStyle-CssClass="text-center">
                         <ItemTemplate>
-                            <asp:LinkButton runat="server" Text="Ver Detalle" OnClick="lbDetalle_Click" CommandArgument='<%# Eval("id") %>' CssClass="text-purple" />
+                            <asp:LinkButton runat="server" Text="Ver Detalle" OnClick="lbDetalle_Click" CommandArgument='<%# Eval("id") %>' CssClass="text-red" />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Acciones" ItemStyle-CssClass="text-center">
@@ -44,7 +44,7 @@
                             <!-- Botón para Modificar -->
                             <asp:LinkButton runat="server" Text="<i class='fa-solid fa-pencil'></i>"
                                 OnClick="lbModificar_Click" CommandArgument='<%# Eval("id") %>'
-                                CssClass="btn btn-purple btn-sm" ToolTip="Modificar" />
+                                CssClass="btn btn-warning btn-sm" ToolTip="Modificar" />
                             <!-- Botón para Eliminar -->
                             <asp:LinkButton runat="server" Text="<i class='fa-solid fa-trash'></i>"
                                 OnClick="lbEliminar_Click" CommandArgument='<%# Eval("id") %>'
