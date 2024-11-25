@@ -101,7 +101,7 @@ namespace PapucplanetWA
             {
                 // Mostrar modal de éxito (Bootstrap 5)
                 string script = "var successModal = new bootstrap.Modal(document.getElementById('successModal')); successModal.show();";
-                ScriptManager.RegisterStartupScript(this, GetType(), "ShowSuccessModal", script, true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "successModal", script, true);
                 SendEmailWithJasperPDF();
                 // Limpiar variables de sesión
                 Session["LineasBoleta"] = null;
@@ -387,7 +387,9 @@ namespace PapucplanetWA
                     Body = "Debajo se adjunta su boleta de compra. ¡Disfrute su película!",
                     IsBodyHtml = true
                 };
-                mail.To.Add("a20210907@pucp.edu.pe");
+
+                cuenta cuenta = (cuenta)Session["cuenta"];
+                mail.To.Add(cuenta.correo.ToString());
 
                 
                 using (MemoryStream ms = new MemoryStream(reporte, 0, reporte.Length, false, true))

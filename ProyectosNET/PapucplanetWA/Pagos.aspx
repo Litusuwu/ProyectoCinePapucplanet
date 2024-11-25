@@ -53,7 +53,7 @@
                             Regresar al Paso Anterior
                         </asp:LinkButton>
                 <asp:LinkButton ID="btnCancel" runat="server" 
-                    CssClass="btn btn-outline-dark btn-sm d-flex align-items-center justify-content-center boton-Filtrar" CausesValidation="false"
+                    CssClass="btn btn-outline-dark btn-sm d-flex align-items-center justify-content-center boton-Filtrar"
                     OnClientClick="$('#confirmCancelModal').modal('show'); return false;">
                             <i class="fas fa-window-close"></i> Cancelar
                 </asp:LinkButton>
@@ -110,25 +110,6 @@
                 <div class="col-md-8">
                     <asp:UpdatePanel ID="UpdatePanelPagoTarjeta" runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
-                            <!-- Formulario de Tarjeta de Crédito/Débito -->
-                            <div id="credit-card" class="payment-method-card">
-                                <h5><i class="fas fa-credit-card"></i>Tarjeta de Crédito/Débito</h5>
-                                <div class="mb-3">
-                                    <asp:TextBox ID="txtNumeroTarjeta" runat="server" CssClass="form-control" placeholder="Número de Tarjeta" MaxLength="16" />
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <asp:TextBox ID="txtFechaExpiracion" runat="server" CssClass="form-control" placeholder="MM/AA" MaxLength="5" />
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <asp:TextBox ID="txtCvv" runat="server" CssClass="form-control" placeholder="CVV" MaxLength="3" TextMode="Password" />
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <asp:TextBox ID="txtNombreTarjeta" runat="server" CssClass="form-control" placeholder="Nombre en la Tarjeta" />
-                                </div>
-                                <asp:Button ID="btnPagarTarjeta" runat="server" CssClass="btn btn-dark w-100 boton-Filtrar" Text="Pagar con Tarjeta" OnClick="btnPagarTarjeta_Click" UseSubmitBehavior="false" />
-                            </div>
 
                             <!-- Modales (Error y Éxito) -->
                             <asp:UpdatePanel ID="UpdatePanelModals" runat="server" UpdateMode="Conditional">
@@ -201,6 +182,26 @@
                             </asp:UpdatePanel>
                         </ContentTemplate>
                     </asp:UpdatePanel>
+
+                    <!-- Formulario de Tarjeta de Crédito/Débito -->
+                    <div id="credit-card" class="payment-method-card">
+                        <h5><i class="fas fa-credit-card"></i>Tarjeta de Crédito/Débito</h5>
+                        <div class="mb-3">
+                            <asp:TextBox ID="txtNumeroTarjeta" runat="server" CssClass="form-control" placeholder="Número de Tarjeta" MaxLength="16" />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <asp:TextBox ID="txtFechaExpiracion" runat="server" CssClass="form-control" placeholder="MM/AA" MaxLength="5" />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <asp:TextBox ID="txtCvv" runat="server" CssClass="form-control" placeholder="CVV" MaxLength="3" TextMode="Password" />
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <asp:TextBox ID="txtNombreTarjeta" runat="server" CssClass="form-control" placeholder="Nombre en la Tarjeta" />
+                        </div>
+                        <asp:Button ID="btnPagarTarjeta" runat="server" CssClass="btn btn-dark w-100 boton-Filtrar" Text="Pagar con Tarjeta" OnClick="btnPagarTarjeta_Click"  />
+                    </div>
 
                     <!-- Formulario de Yape -->
                     <div id="yape" class="payment-method-card" style="margin-bottom: 50px;">
