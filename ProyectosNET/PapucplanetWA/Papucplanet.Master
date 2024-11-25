@@ -99,7 +99,7 @@
                     <!-- Barra de usuario alineada a la derecha -->
                     <div class="d-flex align-items-center ms-auto">
                         <!-- Imagen del usuario -->
-                        <img src="Images/user.jpg" alt="Profile Picture" class="rounded-circle" width="60" height="60">
+                        <i class="fa-solid fa-user fs-2 me-2"></i> 
 
                         <!-- Información del usuario -->
                         <div class="ms-2">

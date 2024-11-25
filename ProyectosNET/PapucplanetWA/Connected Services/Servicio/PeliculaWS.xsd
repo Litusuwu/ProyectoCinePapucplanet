@@ -10,6 +10,8 @@
   <xs:element name="listarPorNombrePeliculaResponse" type="tns:listarPorNombrePeliculaResponse" />
   <xs:element name="listarTodosPelicula" type="tns:listarTodosPelicula" />
   <xs:element name="listarTodosPeliculaResponse" type="tns:listarTodosPeliculaResponse" />
+  <xs:element name="listarTodosPeliculaSinFunciones" type="tns:listarTodosPeliculaSinFunciones" />
+  <xs:element name="listarTodosPeliculaSinFuncionesResponse" type="tns:listarTodosPeliculaSinFuncionesResponse" />
   <xs:element name="modificarPelicula" type="tns:modificarPelicula" />
   <xs:element name="modificarPeliculaResponse" type="tns:modificarPeliculaResponse" />
   <xs:element name="obtenerPorIdPelicula" type="tns:obtenerPorIdPelicula" />
@@ -87,14 +89,6 @@
       <xs:element minOccurs="0" name="universidad" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarGeneros">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarGenerosResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:genero" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="insertarPelicula">
     <xs:sequence>
       <xs:element minOccurs="0" name="pelicula" type="tns:pelicula" />
@@ -103,6 +97,22 @@
   <xs:complexType name="insertarPeliculaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarGeneros">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarGenerosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:genero" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTodosPeliculaSinFunciones">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTodosPeliculaSinFuncionesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:pelicula" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="obtenerPorIdPelicula">

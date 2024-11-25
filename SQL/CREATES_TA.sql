@@ -111,11 +111,24 @@ CREATE TABLE Alimento (
 
 -- Tabla Pelicula
 CREATE TABLE Pelicula (
-	id_pelicula INT PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR(60),
+    id_pelicula INT PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(80),
     duracion INT NOT NULL,
-    genero ENUM ('ACCION', 'DRAMA', 'COMEDIA', 'DOCUMENTAL'),
-    sinopsis VARCHAR(1000),
+    genero ENUM (
+        'ACCION', 
+        'ANIMACION', 
+        'AVENTURA', 
+        'BIOGRAFICA', 
+        'COMEDIA', 
+        'DRAMA', 
+        'DOCUMENTAL', 
+        'FANTASIA', 
+        'HORROR', 
+        'MUSICAL', 
+        'ROMANTICA', 
+        'CIENCIA_FICCION'
+    ),
+    sinopsis VARCHAR(1500),
     imagen_link VARCHAR(255),
     activo TINYINT DEFAULT 1
 );

@@ -98,4 +98,16 @@ public class PeliculaWS {
         }
         return peliculas;
     }
+    
+    @WebMethod(operationName = "listarTodosPeliculaSinFunciones")
+    public ArrayList<Pelicula> listarTodosPeliculaSinFunciones() {
+        ArrayList<Pelicula> peliculas = null;
+        try{
+            daoPelicula = new PeliculaMySQL();
+            peliculas = daoPelicula.listarPeliculasSinFunciones();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return peliculas;
+    }
 }
