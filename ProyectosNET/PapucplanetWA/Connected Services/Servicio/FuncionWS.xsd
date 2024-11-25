@@ -97,24 +97,6 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="modificarFuncion">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="funcion" type="tns:funcion" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="modificarFuncionResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarPeliculasConFuncionesActivasFuncion">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarPeliculasConFuncionesActivasFuncionResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:funcion" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="obtenerPorIdFuncion">
     <xs:sequence>
       <xs:element name="idFuncion" type="xs:int" />
@@ -125,12 +107,22 @@
       <xs:element minOccurs="0" name="return" type="tns:funcion" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarTodosFuncion">
+  <xs:complexType name="listarPeliculasConFuncionesActivasFuncion">
     <xs:sequence />
   </xs:complexType>
-  <xs:complexType name="listarTodosFuncionResponse">
+  <xs:complexType name="listarPeliculasConFuncionesActivasFuncionResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:funcion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarFuncion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="funcion" type="tns:funcion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarFuncionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="estaDisponibleElHorario">
@@ -141,6 +133,14 @@
   <xs:complexType name="estaDisponibleElHorarioResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTodosFuncion">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarTodosFuncionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:funcion" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="obtenerFuncionesPorPeliculaFuncion">

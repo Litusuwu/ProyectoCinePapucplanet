@@ -61,13 +61,6 @@
                 </li>
                 <li class="nav-item ">
                     <!--Cambiar href-->
-                    <a href="Boletas.aspx" id="boletasLink" runat="server" class="enlace-hover sidebar-link collapsed text-black fs-5 text-decoration-none">
-                        <i class="fa-regular fa-receipt pe-2"></i>
-                        <span class="topic">Boletas</span>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <!--Cambiar href-->
                     <a href="Reportes.aspx" id="reportesLink" runat="server" class="enlace-hover sidebar-link collapsed text-black fs-5 text-decoration-none">
                         <i class="fa-light fa-file-alt pe-2"></i>
                         Reportes

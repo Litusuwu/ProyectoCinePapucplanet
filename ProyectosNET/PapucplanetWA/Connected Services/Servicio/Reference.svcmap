@@ -43,8 +43,8 @@
     <MetadataFile FileName="CuentaWS.wsdl" MetadataType="Wsdl" ID="c523b4a7-29e0-42f6-8bbd-5e24ab5971da" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/CuentaWS?WSDL" />
     <MetadataFile FileName="archivo2.disco" MetadataType="Disco" ID="0251393b-cc4a-4d2d-80d8-9b1b5663a21e" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/archivo2.disco" />
     <MetadataFile FileName="FuncionWS.wsdl" MetadataType="Wsdl" ID="bc5c0702-b5c2-4138-827b-f37ceb6fc533" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/FuncionWS?WSDL" />
-    <MetadataFile FileName="ReporteWS.wsdl" MetadataType="Wsdl" ID="037aea08-5ddc-4d3a-aa1a-be7bf076398b" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/ReporteWS?WSDL" />
-    <MetadataFile FileName="ReporteWS.xsd" MetadataType="Schema" ID="7c657c59-ae75-4492-9556-f9bcb74bb3d8" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/ReporteWS?xsd=1" />
+    <MetadataFile FileName="ReporteWS.wsdl" MetadataType="Wsdl" ID="425a36a0-c3f6-4c99-ae58-6cb97d3c3b42" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/ReporteWS?WSDL" />
+    <MetadataFile FileName="ReporteWS.xsd" MetadataType="Schema" ID="482b0802-fe27-4131-b3af-91a22fbb40d2" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/ReporteWS?xsd=1" />
     <MetadataFile FileName="LineaBoletaWS.xsd" MetadataType="Schema" ID="ad060c92-e326-4864-a8e5-8e6a3fec9705" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/LineaBoletaWS?xsd=1" />
     <MetadataFile FileName="SalaWS.wsdl" MetadataType="Wsdl" ID="fd30a5c7-c1b3-411d-8c39-e08ecef60d75" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/SalaWS?WSDL" />
     <MetadataFile FileName="BebidaWS.xsd" MetadataType="Schema" ID="8dc31730-3f03-41a8-a7b3-f855d37b5cd9" SourceId="1" SourceUrl="http://localhost:8080/PapucplanetWSBL/BebidaWS?xsd=1" />

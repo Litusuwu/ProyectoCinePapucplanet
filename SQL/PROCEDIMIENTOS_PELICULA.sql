@@ -22,7 +22,7 @@ BEGIN
     SET _id_pelicula = @@last_insert_id;
 END$
 
-CREATE PROCEDURE LISTAR_PELICULAS_TODAS()
+CREATE DEFINER=`admin`@`%` PROCEDURE `LISTAR_PELICULAS_TODAS`()
 BEGIN
     SELECT 
         p.id_pelicula, p.titulo,p.duracion,p.genero,p.sinopsis,p.imagen_link,
@@ -33,8 +33,9 @@ BEGIN
     LEFT JOIN Funcion f ON p.id_pelicula = f.fid_pelicula
     LEFT JOIN Sala s ON f.fid_sala = s.id_sala
     LEFT JOIN Sede sd ON s.fid_sede = sd.id_sede
-    WHERE p.activo = 1 AND f.activo = 1 AND s.activo = 1 AND sd.activo = 1;
-END;
+    WHERE p.activo = 1 AND f.activo = 1 AND s.activo = 1 AND sd.activo = 1
+    AND f.dia >= DATE(DATE_ADD(NOW(), INTERVAL -5 HOUR));
+END$
 
 CREATE PROCEDURE MODIFICAR_PELICULA(
     IN _id_pelicula INT,
