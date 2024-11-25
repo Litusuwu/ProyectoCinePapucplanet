@@ -3,6 +3,8 @@
     font-family: "Space Grotesk", serif;
 }
 
+
+
 .user-icon {
     background-color: #6f42c1;
     border-radius: 50%;
@@ -105,16 +107,6 @@
     color: #333;
 }
 
-.boton-Filtrar {
-    background-color: darkred;
-    border-color: white;
-    color: white;
-    box-shadow: 0 0 0 0.2rem rgba(255, 99, 71, 0.25);
-    border-radius: 45px;
-    font-size: 17px;
-    font-weight: 300;
-    font-family: "Space Grotesk", serif;
-}
 
 .contenedor-Filtro {
     box-shadow: 2px 2px 7px black;
@@ -140,6 +132,7 @@
     transform: scale(1.05);
 }
 
+
 .form-select:focus {
     border-color: darkred !important;
     box-shadow: 0 0 0 0.25rem rgba(139, 0, 0, 0.5) !important;
@@ -152,7 +145,7 @@
     cursor: pointer;
 }
 .pantalla-container {
-    padding-top: 80px;
+    padding-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -171,6 +164,17 @@
 
 .main-content {
     padding-top: 30px;
+}
+
+.boton-Filtrar {
+    background-color: darkred;
+    border-color: white;
+    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(255, 99, 71, 0.25);
+    border-radius: 45px;
+    font-size: 17px;
+    font-weight: 300;
+    font-family: "Space Grotesk", serif;
 }
 
 .seat.available-est {

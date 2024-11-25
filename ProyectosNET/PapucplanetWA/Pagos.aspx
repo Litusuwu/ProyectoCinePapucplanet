@@ -44,19 +44,30 @@
                 </div>
             </div>
         </nav>
+        <div class="container my-4" style="padding-top: 55px;">
 
+            <div class="d-flex justify-content-between">
+                <asp:LinkButton ID="btnRegresar" runat="server"
+                    CssClass="btn btn-outline-dark w-25 d-flex align-items-center justify-content-center boton-Filtrar"
+                    OnClick="btnRegresar_Click">
+                            Regresar al Paso Anterior
+                        </asp:LinkButton>
+                <asp:LinkButton ID="btnCancel" runat="server" 
+                    CssClass="btn btn-outline-dark btn-sm d-flex align-items-center justify-content-center boton-Filtrar" CausesValidation="false"
+                    OnClientClick="$('#confirmCancelModal').modal('show'); return false;">
+                            <i class="fas fa-window-close"></i> Cancelar
+                </asp:LinkButton>
+            </div>
+        </div>
         <div class="container my-5">
             <div style="margin-bottom: 100px;"></div>
-            <asp:LinkButton ID="btnRegresar" runat="server" CssClass="btn btn-outline-dark w-25 d-flex align-items-center justify-content-center boton-Filtrar" OnClick="btnRegresar_Click">
-                    Regresar al Paso Anterior
-            </asp:LinkButton>
             <h2 class="text-center locura">Elige tu método de pago</h2>
 
             <div id="custom-inputs" class="row justify-content-center mb-4">
                 <div class="col-md-6">
                     <!-- Nombre Completo -->
                     <div class="group">
-                        <asp:TextBox ID="txtNombreCompleto" runat="server" CssClass="form__field" placeholder=" " required="required" />
+                        <asp:TextBox ID="txtNombreCompleto" runat="server" CssClass="form__field" placeholder=" " />
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label for="txtNombreCompleto">Nombre Completo</label>
@@ -66,7 +77,7 @@
 
                     <!-- Número de DNI -->
                     <div class="group">
-                        <asp:TextBox ID="txtDni" runat="server" CssClass="form__field" placeholder=" " MaxLength="8" required="required" />
+                        <asp:TextBox ID="txtDni" runat="server" CssClass="form__field" placeholder=" " MaxLength="8" />
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label for="txtDni">DNI</label>
@@ -190,50 +201,66 @@
                             </asp:UpdatePanel>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                
-                        <!-- Formulario de Yape -->
-                        <div id="yape" class="payment-method-card" style="margin-bottom: 50px;">
-                            <h5><i class="fas fa-mobile-alt"></i>Yape</h5>
-                            <p>Escanea el código QR de Yape para realizar el pago.</p>
-                            <div class="text-center">
-                                <asp:Image ID="imgQrYape" runat="server" CssClass="img-fluid qr-image" ImageUrl="./Images/yape.jpg" alt="QR de Yape" />
-                            </div>
-                            <asp:Button ID="btnConfirmarYape" runat="server" CssClass="btn btn-dark w-100 mt-3 boton-Filtrar" Text="Confirmar Pago con Yape" OnClick="btnConfirmarYape_Click" />
-                        </div>
 
-                        <!-- Formulario de Plin -->
-                        <div id="plin" class="payment-method-card" style="margin-bottom: 50px">
-                            <h5><i class="fas fa-mobile-alt"></i>Plin</h5>
-                            <p>Escanea el código QR de Plin para realizar el pago.</p>
-                            <div class="text-center">
-                                <asp:Image ID="imgQrPlin" runat="server" CssClass="img-fluid qr-image" ImageUrl="./Images/plin.jpg" alt="QR de Plin" />
-                            </div>
-                            <asp:Button ID="btnConfirmarPlin" runat="server" CssClass="btn btn-dark w-100 mt-3 boton-Filtrar" Text="Confirmar Pago con Plin" OnClick="btnConfirmarPlin_Click" />
+                    <!-- Formulario de Yape -->
+                    <div id="yape" class="payment-method-card" style="margin-bottom: 50px;">
+                        <h5><i class="fas fa-mobile-alt"></i>Yape</h5>
+                        <p>Escanea el código QR de Yape para realizar el pago.</p>
+                        <div class="text-center">
+                            <asp:Image ID="imgQrYape" runat="server" CssClass="img-fluid qr-image" ImageUrl="./Images/yape.jpg" alt="QR de Yape" />
                         </div>
-                    
+                        <asp:Button ID="btnConfirmarYape" runat="server" CssClass="btn btn-dark w-100 mt-3 boton-Filtrar" Text="Confirmar Pago con Yape" OnClick="btnConfirmarYape_Click" />
+                    </div>
 
-                        <!-- Formulario de Transferencia Bancaria -->
-                        <div id="bank-transfer" class="payment-method-card">
-                            <h5><i class="fas fa-university"></i>Transferencia Interbancaria</h5>
-                            <p>Realice la transferencia a cualquiera de los siguientes números de cuenta:</p>
-                            <ul>
-                                <li>BCP: 123-456789-0-12</li>
-                                <li>Interbank: 234-567890-1-23</li>
-                                <li>BBVA: 345-678901-2-34</li>
-                            </ul>
-                            <asp:TextBox ID="txtNumeroOperacion" runat="server" CssClass="form-control" placeholder="Número de Operación" onkeypress="return handleEnter(event, 'btnConfirmarTransferencia');" />
-                            <asp:Button ID="btnConfirmarTransferencia" runat="server" CssClass="btn  w-100 mt-3 boton-Filtrar" Text="Confirmar Pago por Transferencia" OnClick="btnConfirmarTransferencia_Click" UseSubmitBehavior="false" />
+                    <!-- Formulario de Plin -->
+                    <div id="plin" class="payment-method-card" style="margin-bottom: 50px">
+                        <h5><i class="fas fa-mobile-alt"></i>Plin</h5>
+                        <p>Escanea el código QR de Plin para realizar el pago.</p>
+                        <div class="text-center">
+                            <asp:Image ID="imgQrPlin" runat="server" CssClass="img-fluid qr-image" ImageUrl="./Images/plin.jpg" alt="QR de Plin" />
                         </div>
+                        <asp:Button ID="btnConfirmarPlin" runat="server" CssClass="btn btn-dark w-100 mt-3 boton-Filtrar" Text="Confirmar Pago con Plin" OnClick="btnConfirmarPlin_Click" />
+                    </div>
+
+
+                    <!-- Formulario de Transferencia Bancaria -->
+                    <div id="bank-transfer" class="payment-method-card">
+                        <h5><i class="fas fa-university"></i>Transferencia Interbancaria</h5>
+                        <p>Realice la transferencia a cualquiera de los siguientes números de cuenta:</p>
+                        <ul>
+                            <li>BCP: 123-456789-0-12</li>
+                            <li>Interbank: 234-567890-1-23</li>
+                            <li>BBVA: 345-678901-2-34</li>
+                        </ul>
+                        <asp:TextBox ID="txtNumeroOperacion" runat="server" CssClass="form-control" placeholder="Número de Operación" onkeypress="return handleEnter(event, 'btnConfirmarTransferencia');" />
+                        <asp:Button ID="btnConfirmarTransferencia" runat="server" CssClass="btn  w-100 mt-3 boton-Filtrar" Text="Confirmar Pago por Transferencia" OnClick="btnConfirmarTransferencia_Click" UseSubmitBehavior="false" />
                     </div>
                 </div>
             </div>
         </div>
 
 
-
+        <div class="modal fade" id="confirmCancelModal" tabindex="-1" aria-labelledby="confirmCancelModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmCancelModalLabel">Confirmación</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Está seguro que desea cancelar?
+   
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btnConfirmCancel" runat="server" CssClass="btn btn-danger" Text="Sí" OnClick="btnCancelar_Click" />
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
-    <footer class="bg-dark text-white text-center py-3 fixed-bottom">
-        <p>&copy; 2024 PAPUCPLANET - Confitería del Cine. Todos los derechos reservados.</p>
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 PAPUCPLANET - Pagos del Cine. Todos los derechos reservados.</p>
     </footer>
     <!-- Script de Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
