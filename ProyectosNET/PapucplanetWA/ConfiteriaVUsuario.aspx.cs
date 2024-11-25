@@ -48,6 +48,7 @@ namespace PapucplanetWA
         {
             cart.Visible = visible;
             btnRegresar.Visible = visible;
+            btnCancel.Visible = visible;
             panelConfiteria.Visible = visible;
             panelPeliculas.Visible = !visible;
 
@@ -283,6 +284,15 @@ namespace PapucplanetWA
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
             Response.Redirect("Butacas.aspx");
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            // Redirige a la pantalla principal si el usuario confirmó cancelar
+            Session["LineasBoleta"] = null;
+            Session["CantidadProductos"] = null;
+            Session["Visible"] = 0;
+            Response.Redirect("PeliculasUsuario.aspx");
         }
     }
 }
