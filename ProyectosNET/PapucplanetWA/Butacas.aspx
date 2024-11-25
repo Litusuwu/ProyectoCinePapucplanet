@@ -9,15 +9,14 @@
     <link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i" rel="stylesheet" />
     <link href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet" />
 
+    
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
-
+    
     <link href="Content/Fonts/css/all.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet" />
-
     <link href="Styles/Butacas.css" rel="stylesheet" />
-
+    <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.7.1.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
@@ -57,6 +56,16 @@
                         </div>
                     </div>
                 </nav>
+
+                <div class="container my-4" style="padding-top: 55px;">
+                    <div class="d-flex justify-content-end">
+                        <asp:LinkButton ID="btnCancel" runat="server"
+                            CssClass="btn btn-outline-dark btn-sm d-flex align-items-center justify-content-center boton-Filtrar"
+                            OnClientClick="$('#confirmCancelModal').modal('show'); return false;">
+                        <i class="fas fa-window-close"></i> Cancelar
+                        </asp:LinkButton>
+                    </div>
+                </div>
                 <div class="pantalla-container">
                     <div class="pantalla">Pantalla</div>
                 </div>
@@ -147,7 +156,7 @@
                         <asp:Label ID="lblDate" runat="server"></asp:Label>
                     </div>
                     <div class="text-end" style="margin-top: 20px;">
-                        <asp:LinkButton ID="LabelContinuarConfiteria" CssClass="btn btn-dark" runat="server" Text="Siguiente" OnClick="LbtnSiguiente_OnClick"></asp:LinkButton>
+                        <asp:LinkButton ID="LabelContinuarConfiteria" CssClass="btn btn-outline-dark w-25 d-flex align-items-center justify-content-center boton-Filtrar" runat="server" Text="Siguiente" OnClick="LbtnSiguiente_OnClick"></asp:LinkButton>
                     </div>
                 </div>
                 <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
@@ -164,6 +173,25 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="confirmCancelModal" tabindex="-1" aria-labelledby="confirmCancelModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="confirmCancelModalLabel">Confirmación</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                            </div>
+                            <div class="modal-body">
+                                ¿Está seguro que desea cancelar?
+           
+                            </div>
+                            <div class="modal-footer">
+                                <asp:Button ID="btnConfirmCancel" runat="server" CssClass="btn btn-danger" Text="Sí" OnClick="btnCancelar_Click" />
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
                             </div>
                         </div>
                     </div>
