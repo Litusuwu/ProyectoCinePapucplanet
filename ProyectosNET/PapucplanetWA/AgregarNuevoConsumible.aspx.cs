@@ -269,7 +269,7 @@ namespace PapucplanetWA
             int tamanio = palabra.Length;
             for (int i = 0; i < tamanio; i++)
             {
-                char car = txtPrecio.Text[i];
+                char car = palabra[i];
                 if ((car >= 'a' && car <= 'z') || (car >= 'A' && car <= 'Z'))
                 {
                     verificar = true;
